@@ -1,0 +1,1579 @@
+[
+  {
+    "id": 2001,
+    "code": "green_field_kurt_1",
+    "display_name": "Yeşil Kurt",
+    "npc_kind": "monster",
+    "level": 1,
+    "max_hp": 240,
+    "max_mp": 0,
+    "combat": {
+      "attack": 12,
+      "armor": 2,
+      "attack_delay_ms": 1100,
+      "hit_rate": 70,
+      "evade_rate": 10,
+      "resist": {
+        "fire": 0,
+        "ice": 0,
+        "poison": 0
+      }
+    },
+    "exp_reward": 13,
+    "faction_point_reward": 0,
+    "gold_min": 5,
+    "gold_max": 12,
+    "ai_profile": {
+      "family": "hayvan",
+      "move_speed": 4.2,
+      "aggro_radius_m": 12,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": true,
+    "respawn_sec": 25,
+    "_zone": 3
+  },
+  {
+    "id": 2002,
+    "code": "green_field_orumcek_6",
+    "display_name": "Yeşil Örümcek",
+    "npc_kind": "monster",
+    "level": 6,
+    "max_hp": 306,
+    "max_mp": 0,
+    "combat": {
+      "attack": 14,
+      "armor": 11,
+      "attack_delay_ms": 1100,
+      "hit_rate": 72,
+      "evade_rate": 11,
+      "resist": {
+        "fire": 1,
+        "ice": 1,
+        "poison": 2
+      }
+    },
+    "exp_reward": 35,
+    "faction_point_reward": 0,
+    "gold_min": 12,
+    "gold_max": 28,
+    "ai_profile": {
+      "family": "bocek",
+      "move_speed": 4.2,
+      "aggro_radius_m": 12,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": true,
+    "respawn_sec": 25,
+    "_zone": 3
+  },
+  {
+    "id": 2003,
+    "code": "green_field_haydut_11",
+    "display_name": "Yeşil Haydut",
+    "npc_kind": "monster",
+    "level": 11,
+    "max_hp": 548,
+    "max_mp": 0,
+    "combat": {
+      "attack": 29,
+      "armor": 20,
+      "attack_delay_ms": 1600,
+      "hit_rate": 73,
+      "evade_rate": 12,
+      "resist": {
+        "fire": 2,
+        "ice": 2,
+        "poison": 3
+      }
+    },
+    "exp_reward": 78,
+    "faction_point_reward": 0,
+    "gold_min": 19,
+    "gold_max": 43,
+    "ai_profile": {
+      "family": "insan",
+      "move_speed": 3.2,
+      "aggro_radius_m": 12,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": true,
+    "respawn_sec": 25,
+    "_zone": 3
+  },
+  {
+    "id": 2004,
+    "code": "green_field_golem_15",
+    "display_name": "Yeşil Golem",
+    "npc_kind": "monster",
+    "level": 15,
+    "max_hp": 1094,
+    "max_mp": 0,
+    "combat": {
+      "attack": 60,
+      "armor": 27,
+      "attack_delay_ms": 2400,
+      "hit_rate": 75,
+      "evade_rate": 13,
+      "resist": {
+        "fire": 3,
+        "ice": 3,
+        "poison": 5
+      }
+    },
+    "exp_reward": 126,
+    "faction_point_reward": 0,
+    "gold_min": 25,
+    "gold_max": 56,
+    "ai_profile": {
+      "family": "element",
+      "move_speed": 2.1,
+      "aggro_radius_m": 0,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": false,
+    "respawn_sec": 25,
+    "_zone": 3
+  },
+  {
+    "id": 2005,
+    "code": "green_field_hortlak_20",
+    "display_name": "Yeşil Hortlak",
+    "npc_kind": "monster",
+    "level": 20,
+    "max_hp": 1039,
+    "max_mp": 0,
+    "combat": {
+      "attack": 53,
+      "armor": 36,
+      "attack_delay_ms": 1600,
+      "hit_rate": 76,
+      "evade_rate": 14,
+      "resist": {
+        "fire": 5,
+        "ice": 5,
+        "poison": 6
+      }
+    },
+    "exp_reward": 201,
+    "faction_point_reward": 0,
+    "gold_min": 32,
+    "gold_max": 71,
+    "ai_profile": {
+      "family": "olumsuz",
+      "move_speed": 3.2,
+      "aggro_radius_m": 12,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": true,
+    "respawn_sec": 45,
+    "_zone": 3
+  },
+  {
+    "id": 2006,
+    "code": "green_field_boss",
+    "display_name": "Yeşil Ovalar Hükümdarı",
+    "npc_kind": "boss",
+    "level": 22,
+    "max_hp": 13914,
+    "max_mp": 500,
+    "combat": {
+      "attack": 116,
+      "armor": 70,
+      "attack_delay_ms": 1800,
+      "hit_rate": 90,
+      "evade_rate": 8,
+      "resist": {
+        "fire": 11,
+        "ice": 11,
+        "poison": 11
+      },
+      "enrage_below_hp_pct": 30
+    },
+    "exp_reward": 4710,
+    "faction_point_reward": 50,
+    "gold_min": 870,
+    "gold_max": 1930,
+    "ai_profile": {
+      "family": "boss",
+      "move_speed": 3.0,
+      "aggro_radius_m": 20,
+      "chase_radius_m": 50,
+      "leash_radius_m": 70,
+      "wander": false,
+      "phases": [
+        {
+          "below_hp_pct": 60,
+          "add_ability": "area_slam"
+        },
+        {
+          "below_hp_pct": 30,
+          "add_ability": "summon_adds"
+        }
+      ]
+    },
+    "is_aggressive": true,
+    "respawn_sec": 3600,
+    "_zone": 3
+  },
+  {
+    "id": 2007,
+    "code": "warzone_kurt_20",
+    "display_name": "Savaş Kurt",
+    "npc_kind": "monster",
+    "level": 20,
+    "max_hp": 768,
+    "max_mp": 0,
+    "combat": {
+      "attack": 32,
+      "armor": 36,
+      "attack_delay_ms": 1100,
+      "hit_rate": 76,
+      "evade_rate": 14,
+      "resist": {
+        "fire": 5,
+        "ice": 5,
+        "poison": 6
+      }
+    },
+    "exp_reward": 201,
+    "faction_point_reward": 0,
+    "gold_min": 32,
+    "gold_max": 71,
+    "ai_profile": {
+      "family": "hayvan",
+      "move_speed": 4.2,
+      "aggro_radius_m": 12,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": true,
+    "respawn_sec": 25,
+    "_zone": 4
+  },
+  {
+    "id": 2008,
+    "code": "warzone_orumcek_27",
+    "display_name": "Savaş Örümcek",
+    "npc_kind": "monster",
+    "level": 27,
+    "max_hp": 915,
+    "max_mp": 0,
+    "combat": {
+      "attack": 39,
+      "armor": 49,
+      "attack_delay_ms": 1100,
+      "hit_rate": 79,
+      "evade_rate": 15,
+      "resist": {
+        "fire": 6,
+        "ice": 6,
+        "poison": 9
+      }
+    },
+    "exp_reward": 332,
+    "faction_point_reward": 0,
+    "gold_min": 42,
+    "gold_max": 93,
+    "ai_profile": {
+      "family": "bocek",
+      "move_speed": 4.2,
+      "aggro_radius_m": 12,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": true,
+    "respawn_sec": 25,
+    "_zone": 4
+  },
+  {
+    "id": 2009,
+    "code": "warzone_haydut_33",
+    "display_name": "Savaş Haydut",
+    "npc_kind": "monster",
+    "level": 33,
+    "max_hp": 1490,
+    "max_mp": 0,
+    "combat": {
+      "attack": 53,
+      "armor": 59,
+      "attack_delay_ms": 1600,
+      "hit_rate": 81,
+      "evade_rate": 16,
+      "resist": {
+        "fire": 8,
+        "ice": 8,
+        "poison": 11
+      }
+    },
+    "exp_reward": 466,
+    "faction_point_reward": 0,
+    "gold_min": 50,
+    "gold_max": 111,
+    "ai_profile": {
+      "family": "insan",
+      "move_speed": 3.2,
+      "aggro_radius_m": 12,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": true,
+    "respawn_sec": 25,
+    "_zone": 4
+  },
+  {
+    "id": 2010,
+    "code": "warzone_golem_40",
+    "display_name": "Savaş Golem",
+    "npc_kind": "monster",
+    "level": 40,
+    "max_hp": 3020,
+    "max_mp": 0,
+    "combat": {
+      "attack": 149,
+      "armor": 72,
+      "attack_delay_ms": 2400,
+      "hit_rate": 83,
+      "evade_rate": 18,
+      "resist": {
+        "fire": 10,
+        "ice": 10,
+        "poison": 13
+      }
+    },
+    "exp_reward": 648,
+    "faction_point_reward": 0,
+    "gold_min": 60,
+    "gold_max": 133,
+    "ai_profile": {
+      "family": "element",
+      "move_speed": 2.1,
+      "aggro_radius_m": 0,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": false,
+    "respawn_sec": 45,
+    "_zone": 4
+  },
+  {
+    "id": 2011,
+    "code": "warzone_boss",
+    "display_name": "Savaş Bölgesi Hükümdarı",
+    "npc_kind": "boss",
+    "level": 42,
+    "max_hp": 29332,
+    "max_mp": 500,
+    "combat": {
+      "attack": 191,
+      "armor": 134,
+      "attack_delay_ms": 1800,
+      "hit_rate": 95,
+      "evade_rate": 8,
+      "resist": {
+        "fire": 21,
+        "ice": 21,
+        "poison": 21
+      },
+      "enrage_below_hp_pct": 30
+    },
+    "exp_reward": 14099,
+    "faction_point_reward": 50,
+    "gold_min": 1570,
+    "gold_max": 3480,
+    "ai_profile": {
+      "family": "boss",
+      "move_speed": 3.0,
+      "aggro_radius_m": 20,
+      "chase_radius_m": 50,
+      "leash_radius_m": 70,
+      "wander": false,
+      "phases": [
+        {
+          "below_hp_pct": 60,
+          "add_ability": "area_slam"
+        },
+        {
+          "below_hp_pct": 30,
+          "add_ability": "summon_adds"
+        }
+      ]
+    },
+    "is_aggressive": true,
+    "respawn_sec": 3600,
+    "_zone": 4
+  },
+  {
+    "id": 2012,
+    "code": "kuru_gecit_kurt_10",
+    "display_name": "Kuru Kurt",
+    "npc_kind": "monster",
+    "level": 10,
+    "max_hp": 432,
+    "max_mp": 0,
+    "combat": {
+      "attack": 20,
+      "armor": 18,
+      "attack_delay_ms": 1100,
+      "hit_rate": 73,
+      "evade_rate": 12,
+      "resist": {
+        "fire": 2,
+        "ice": 2,
+        "poison": 3
+      }
+    },
+    "exp_reward": 68,
+    "faction_point_reward": 0,
+    "gold_min": 18,
+    "gold_max": 40,
+    "ai_profile": {
+      "family": "hayvan",
+      "move_speed": 4.2,
+      "aggro_radius_m": 12,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": true,
+    "respawn_sec": 25,
+    "_zone": 5
+  },
+  {
+    "id": 2013,
+    "code": "kuru_gecit_orumcek_15",
+    "display_name": "Kuru Örümcek",
+    "npc_kind": "monster",
+    "level": 15,
+    "max_hp": 529,
+    "max_mp": 0,
+    "combat": {
+      "attack": 24,
+      "armor": 27,
+      "attack_delay_ms": 1100,
+      "hit_rate": 75,
+      "evade_rate": 13,
+      "resist": {
+        "fire": 3,
+        "ice": 3,
+        "poison": 5
+      }
+    },
+    "exp_reward": 126,
+    "faction_point_reward": 0,
+    "gold_min": 25,
+    "gold_max": 56,
+    "ai_profile": {
+      "family": "bocek",
+      "move_speed": 4.2,
+      "aggro_radius_m": 12,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": true,
+    "respawn_sec": 25,
+    "_zone": 5
+  },
+  {
+    "id": 2014,
+    "code": "kuru_gecit_haydut_20",
+    "display_name": "Kuru Haydut",
+    "npc_kind": "monster",
+    "level": 20,
+    "max_hp": 904,
+    "max_mp": 0,
+    "combat": {
+      "attack": 46,
+      "armor": 36,
+      "attack_delay_ms": 1600,
+      "hit_rate": 76,
+      "evade_rate": 14,
+      "resist": {
+        "fire": 5,
+        "ice": 5,
+        "poison": 6
+      }
+    },
+    "exp_reward": 201,
+    "faction_point_reward": 0,
+    "gold_min": 32,
+    "gold_max": 71,
+    "ai_profile": {
+      "family": "insan",
+      "move_speed": 3.2,
+      "aggro_radius_m": 12,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": true,
+    "respawn_sec": 25,
+    "_zone": 5
+  },
+  {
+    "id": 2015,
+    "code": "kuru_gecit_golem_25",
+    "display_name": "Kuru Golem",
+    "npc_kind": "monster",
+    "level": 25,
+    "max_hp": 1750,
+    "max_mp": 0,
+    "combat": {
+      "attack": 94,
+      "armor": 45,
+      "attack_delay_ms": 2400,
+      "hit_rate": 78,
+      "evade_rate": 15,
+      "resist": {
+        "fire": 6,
+        "ice": 6,
+        "poison": 8
+      }
+    },
+    "exp_reward": 292,
+    "faction_point_reward": 0,
+    "gold_min": 39,
+    "gold_max": 86,
+    "ai_profile": {
+      "family": "element",
+      "move_speed": 2.1,
+      "aggro_radius_m": 0,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": false,
+    "respawn_sec": 25,
+    "_zone": 5
+  },
+  {
+    "id": 2016,
+    "code": "kuru_gecit_hortlak_30",
+    "display_name": "Kuru Hortlak",
+    "npc_kind": "monster",
+    "level": 30,
+    "max_hp": 1558,
+    "max_mp": 0,
+    "combat": {
+      "attack": 59,
+      "armor": 54,
+      "attack_delay_ms": 1600,
+      "hit_rate": 80,
+      "evade_rate": 16,
+      "resist": {
+        "fire": 7,
+        "ice": 7,
+        "poison": 10
+      }
+    },
+    "exp_reward": 397,
+    "faction_point_reward": 0,
+    "gold_min": 46,
+    "gold_max": 102,
+    "ai_profile": {
+      "family": "olumsuz",
+      "move_speed": 3.2,
+      "aggro_radius_m": 12,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": true,
+    "respawn_sec": 45,
+    "_zone": 5
+  },
+  {
+    "id": 2017,
+    "code": "kuru_gecit_boss",
+    "display_name": "Kuru Geçit Hükümdarı",
+    "npc_kind": "boss",
+    "level": 32,
+    "max_hp": 20234,
+    "max_mp": 500,
+    "combat": {
+      "attack": 129,
+      "armor": 102,
+      "attack_delay_ms": 1800,
+      "hit_rate": 93,
+      "evade_rate": 8,
+      "resist": {
+        "fire": 16,
+        "ice": 16,
+        "poison": 16
+      },
+      "enrage_below_hp_pct": 30
+    },
+    "exp_reward": 8851,
+    "faction_point_reward": 50,
+    "gold_min": 1220,
+    "gold_max": 2705,
+    "ai_profile": {
+      "family": "boss",
+      "move_speed": 3.0,
+      "aggro_radius_m": 20,
+      "chase_radius_m": 50,
+      "leash_radius_m": 70,
+      "wander": false,
+      "phases": [
+        {
+          "below_hp_pct": 60,
+          "add_ability": "area_slam"
+        },
+        {
+          "below_hp_pct": 30,
+          "add_ability": "summon_adds"
+        }
+      ]
+    },
+    "is_aggressive": true,
+    "respawn_sec": 3600,
+    "_zone": 5
+  },
+  {
+    "id": 2018,
+    "code": "golge_orman_kurt_25",
+    "display_name": "Gölge Kurt",
+    "npc_kind": "monster",
+    "level": 25,
+    "max_hp": 960,
+    "max_mp": 0,
+    "combat": {
+      "attack": 33,
+      "armor": 45,
+      "attack_delay_ms": 1100,
+      "hit_rate": 78,
+      "evade_rate": 15,
+      "resist": {
+        "fire": 6,
+        "ice": 6,
+        "poison": 8
+      }
+    },
+    "exp_reward": 292,
+    "faction_point_reward": 0,
+    "gold_min": 39,
+    "gold_max": 86,
+    "ai_profile": {
+      "family": "hayvan",
+      "move_speed": 4.2,
+      "aggro_radius_m": 12,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": true,
+    "respawn_sec": 25,
+    "_zone": 6
+  },
+  {
+    "id": 2019,
+    "code": "golge_orman_orumcek_30",
+    "display_name": "Gölge Örümcek",
+    "npc_kind": "monster",
+    "level": 30,
+    "max_hp": 1016,
+    "max_mp": 0,
+    "combat": {
+      "attack": 40,
+      "armor": 54,
+      "attack_delay_ms": 1100,
+      "hit_rate": 80,
+      "evade_rate": 16,
+      "resist": {
+        "fire": 7,
+        "ice": 7,
+        "poison": 10
+      }
+    },
+    "exp_reward": 397,
+    "faction_point_reward": 0,
+    "gold_min": 46,
+    "gold_max": 102,
+    "ai_profile": {
+      "family": "bocek",
+      "move_speed": 4.2,
+      "aggro_radius_m": 12,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": true,
+    "respawn_sec": 25,
+    "_zone": 6
+  },
+  {
+    "id": 2020,
+    "code": "golge_orman_haydut_35",
+    "display_name": "Gölge Haydut",
+    "npc_kind": "monster",
+    "level": 35,
+    "max_hp": 1581,
+    "max_mp": 0,
+    "combat": {
+      "attack": 74,
+      "armor": 63,
+      "attack_delay_ms": 1600,
+      "hit_rate": 81,
+      "evade_rate": 17,
+      "resist": {
+        "fire": 8,
+        "ice": 8,
+        "poison": 11
+      }
+    },
+    "exp_reward": 516,
+    "faction_point_reward": 0,
+    "gold_min": 53,
+    "gold_max": 118,
+    "ai_profile": {
+      "family": "insan",
+      "move_speed": 3.2,
+      "aggro_radius_m": 12,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": true,
+    "respawn_sec": 25,
+    "_zone": 6
+  },
+  {
+    "id": 2021,
+    "code": "golge_orman_golem_40",
+    "display_name": "Gölge Golem",
+    "npc_kind": "monster",
+    "level": 40,
+    "max_hp": 3020,
+    "max_mp": 0,
+    "combat": {
+      "attack": 149,
+      "armor": 72,
+      "attack_delay_ms": 2400,
+      "hit_rate": 83,
+      "evade_rate": 18,
+      "resist": {
+        "fire": 10,
+        "ice": 10,
+        "poison": 13
+      }
+    },
+    "exp_reward": 648,
+    "faction_point_reward": 0,
+    "gold_min": 60,
+    "gold_max": 133,
+    "ai_profile": {
+      "family": "element",
+      "move_speed": 2.1,
+      "aggro_radius_m": 0,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": false,
+    "respawn_sec": 25,
+    "_zone": 6
+  },
+  {
+    "id": 2022,
+    "code": "golge_orman_hortlak_45",
+    "display_name": "Gölge Hortlak",
+    "npc_kind": "monster",
+    "level": 45,
+    "max_hp": 2663,
+    "max_mp": 0,
+    "combat": {
+      "attack": 91,
+      "armor": 81,
+      "attack_delay_ms": 1600,
+      "hit_rate": 85,
+      "evade_rate": 19,
+      "resist": {
+        "fire": 11,
+        "ice": 11,
+        "poison": 15
+      }
+    },
+    "exp_reward": 794,
+    "faction_point_reward": 0,
+    "gold_min": 67,
+    "gold_max": 148,
+    "ai_profile": {
+      "family": "olumsuz",
+      "move_speed": 3.2,
+      "aggro_radius_m": 12,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": true,
+    "respawn_sec": 45,
+    "_zone": 6
+  },
+  {
+    "id": 2023,
+    "code": "golge_orman_boss",
+    "display_name": "Gölge Ormanı Hükümdarı",
+    "npc_kind": "boss",
+    "level": 47,
+    "max_hp": 34477,
+    "max_mp": 500,
+    "combat": {
+      "attack": 197,
+      "armor": 150,
+      "attack_delay_ms": 1800,
+      "hit_rate": 96,
+      "evade_rate": 8,
+      "resist": {
+        "fire": 23,
+        "ice": 23,
+        "poison": 23
+      },
+      "enrage_below_hp_pct": 30
+    },
+    "exp_reward": 17113,
+    "faction_point_reward": 50,
+    "gold_min": 1745,
+    "gold_max": 3868,
+    "ai_profile": {
+      "family": "boss",
+      "move_speed": 3.0,
+      "aggro_radius_m": 20,
+      "chase_radius_m": 50,
+      "leash_radius_m": 70,
+      "wander": false,
+      "phases": [
+        {
+          "below_hp_pct": 60,
+          "add_ability": "area_slam"
+        },
+        {
+          "below_hp_pct": 30,
+          "add_ability": "summon_adds"
+        }
+      ]
+    },
+    "is_aggressive": true,
+    "respawn_sec": 3600,
+    "_zone": 6
+  },
+  {
+    "id": 2024,
+    "code": "yanik_tepe_kurt_40",
+    "display_name": "Yanık Kurt",
+    "npc_kind": "monster",
+    "level": 40,
+    "max_hp": 1656,
+    "max_mp": 0,
+    "combat": {
+      "attack": 52,
+      "armor": 72,
+      "attack_delay_ms": 1100,
+      "hit_rate": 83,
+      "evade_rate": 18,
+      "resist": {
+        "fire": 10,
+        "ice": 10,
+        "poison": 13
+      }
+    },
+    "exp_reward": 648,
+    "faction_point_reward": 0,
+    "gold_min": 60,
+    "gold_max": 133,
+    "ai_profile": {
+      "family": "hayvan",
+      "move_speed": 4.2,
+      "aggro_radius_m": 12,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": true,
+    "respawn_sec": 25,
+    "_zone": 7
+  },
+  {
+    "id": 2025,
+    "code": "yanik_tepe_orumcek_45",
+    "display_name": "Yanık Örümcek",
+    "npc_kind": "monster",
+    "level": 45,
+    "max_hp": 1737,
+    "max_mp": 0,
+    "combat": {
+      "attack": 62,
+      "armor": 81,
+      "attack_delay_ms": 1100,
+      "hit_rate": 85,
+      "evade_rate": 19,
+      "resist": {
+        "fire": 11,
+        "ice": 11,
+        "poison": 15
+      }
+    },
+    "exp_reward": 794,
+    "faction_point_reward": 0,
+    "gold_min": 67,
+    "gold_max": 148,
+    "ai_profile": {
+      "family": "bocek",
+      "move_speed": 4.2,
+      "aggro_radius_m": 12,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": true,
+    "respawn_sec": 25,
+    "_zone": 7
+  },
+  {
+    "id": 2026,
+    "code": "yanik_tepe_haydut_50",
+    "display_name": "Yanık Haydut",
+    "npc_kind": "monster",
+    "level": 50,
+    "max_hp": 2683,
+    "max_mp": 0,
+    "combat": {
+      "attack": 110,
+      "armor": 90,
+      "attack_delay_ms": 1600,
+      "hit_rate": 86,
+      "evade_rate": 20,
+      "resist": {
+        "fire": 12,
+        "ice": 12,
+        "poison": 16
+      }
+    },
+    "exp_reward": 952,
+    "faction_point_reward": 0,
+    "gold_min": 74,
+    "gold_max": 164,
+    "ai_profile": {
+      "family": "insan",
+      "move_speed": 3.2,
+      "aggro_radius_m": 12,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": true,
+    "respawn_sec": 25,
+    "_zone": 7
+  },
+  {
+    "id": 2027,
+    "code": "yanik_tepe_golem_55",
+    "display_name": "Yanık Golem",
+    "npc_kind": "monster",
+    "level": 55,
+    "max_hp": 4870,
+    "max_mp": 0,
+    "combat": {
+      "attack": 218,
+      "armor": 99,
+      "attack_delay_ms": 2400,
+      "hit_rate": 88,
+      "evade_rate": 21,
+      "resist": {
+        "fire": 13,
+        "ice": 13,
+        "poison": 18
+      }
+    },
+    "exp_reward": 1123,
+    "faction_point_reward": 0,
+    "gold_min": 81,
+    "gold_max": 180,
+    "ai_profile": {
+      "family": "element",
+      "move_speed": 2.1,
+      "aggro_radius_m": 0,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": false,
+    "respawn_sec": 25,
+    "_zone": 7
+  },
+  {
+    "id": 2028,
+    "code": "yanik_tepe_hortlak_60",
+    "display_name": "Yanık Hortlak",
+    "npc_kind": "monster",
+    "level": 60,
+    "max_hp": 4141,
+    "max_mp": 0,
+    "combat": {
+      "attack": 131,
+      "armor": 108,
+      "attack_delay_ms": 1600,
+      "hit_rate": 90,
+      "evade_rate": 22,
+      "resist": {
+        "fire": 15,
+        "ice": 15,
+        "poison": 20
+      }
+    },
+    "exp_reward": 1305,
+    "faction_point_reward": 0,
+    "gold_min": 88,
+    "gold_max": 195,
+    "ai_profile": {
+      "family": "olumsuz",
+      "move_speed": 3.2,
+      "aggro_radius_m": 12,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": true,
+    "respawn_sec": 45,
+    "_zone": 7
+  },
+  {
+    "id": 2029,
+    "code": "yanik_tepe_boss",
+    "display_name": "Yanık Tepeler Hükümdarı",
+    "npc_kind": "boss",
+    "level": 62,
+    "max_hp": 52978,
+    "max_mp": 500,
+    "combat": {
+      "attack": 285,
+      "armor": 198,
+      "attack_delay_ms": 1800,
+      "hit_rate": 100,
+      "evade_rate": 8,
+      "resist": {
+        "fire": 31,
+        "ice": 31,
+        "poison": 31
+      },
+      "enrage_below_hp_pct": 30
+    },
+    "exp_reward": 27638,
+    "faction_point_reward": 50,
+    "gold_min": 2270,
+    "gold_max": 5030,
+    "ai_profile": {
+      "family": "boss",
+      "move_speed": 3.0,
+      "aggro_radius_m": 20,
+      "chase_radius_m": 50,
+      "leash_radius_m": 70,
+      "wander": false,
+      "phases": [
+        {
+          "below_hp_pct": 60,
+          "add_ability": "area_slam"
+        },
+        {
+          "below_hp_pct": 30,
+          "add_ability": "summon_adds"
+        }
+      ]
+    },
+    "is_aggressive": true,
+    "respawn_sec": 3600,
+    "_zone": 7
+  },
+  {
+    "id": 2030,
+    "code": "buz_magara_kurt_55",
+    "display_name": "Buz Kurt",
+    "npc_kind": "monster",
+    "level": 55,
+    "max_hp": 2671,
+    "max_mp": 0,
+    "combat": {
+      "attack": 77,
+      "armor": 99,
+      "attack_delay_ms": 1100,
+      "hit_rate": 88,
+      "evade_rate": 21,
+      "resist": {
+        "fire": 13,
+        "ice": 13,
+        "poison": 18
+      }
+    },
+    "exp_reward": 1123,
+    "faction_point_reward": 0,
+    "gold_min": 81,
+    "gold_max": 180,
+    "ai_profile": {
+      "family": "hayvan",
+      "move_speed": 4.2,
+      "aggro_radius_m": 12,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": true,
+    "respawn_sec": 25,
+    "_zone": 8
+  },
+  {
+    "id": 2031,
+    "code": "buz_magara_orumcek_62",
+    "display_name": "Buz Örümcek",
+    "npc_kind": "monster",
+    "level": 62,
+    "max_hp": 2838,
+    "max_mp": 0,
+    "combat": {
+      "attack": 91,
+      "armor": 112,
+      "attack_delay_ms": 1100,
+      "hit_rate": 90,
+      "evade_rate": 22,
+      "resist": {
+        "fire": 15,
+        "ice": 15,
+        "poison": 20
+      }
+    },
+    "exp_reward": 1382,
+    "faction_point_reward": 0,
+    "gold_min": 91,
+    "gold_max": 201,
+    "ai_profile": {
+      "family": "bocek",
+      "move_speed": 4.2,
+      "aggro_radius_m": 12,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": true,
+    "respawn_sec": 25,
+    "_zone": 8
+  },
+  {
+    "id": 2032,
+    "code": "buz_magara_haydut_68",
+    "display_name": "Buz Haydut",
+    "npc_kind": "monster",
+    "level": 68,
+    "max_hp": 4335,
+    "max_mp": 0,
+    "combat": {
+      "attack": 118,
+      "armor": 122,
+      "attack_delay_ms": 1600,
+      "hit_rate": 92,
+      "evade_rate": 23,
+      "resist": {
+        "fire": 17,
+        "ice": 17,
+        "poison": 22
+      }
+    },
+    "exp_reward": 1622,
+    "faction_point_reward": 0,
+    "gold_min": 99,
+    "gold_max": 220,
+    "ai_profile": {
+      "family": "insan",
+      "move_speed": 3.2,
+      "aggro_radius_m": 12,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": true,
+    "respawn_sec": 25,
+    "_zone": 8
+  },
+  {
+    "id": 2033,
+    "code": "buz_magara_golem_75",
+    "display_name": "Buz Golem",
+    "npc_kind": "monster",
+    "level": 75,
+    "max_hp": 7423,
+    "max_mp": 0,
+    "combat": {
+      "attack": 323,
+      "armor": 135,
+      "attack_delay_ms": 2400,
+      "hit_rate": 95,
+      "evade_rate": 25,
+      "resist": {
+        "fire": 18,
+        "ice": 18,
+        "poison": 25
+      }
+    },
+    "exp_reward": 1923,
+    "faction_point_reward": 0,
+    "gold_min": 109,
+    "gold_max": 242,
+    "ai_profile": {
+      "family": "element",
+      "move_speed": 2.1,
+      "aggro_radius_m": 0,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": false,
+    "respawn_sec": 45,
+    "_zone": 8
+  },
+  {
+    "id": 2034,
+    "code": "buz_magara_boss",
+    "display_name": "Buz Mağarası Hükümdarı",
+    "npc_kind": "boss",
+    "level": 77,
+    "max_hp": 68568,
+    "max_mp": 500,
+    "combat": {
+      "attack": 412,
+      "armor": 246,
+      "attack_delay_ms": 1800,
+      "hit_rate": 104,
+      "evade_rate": 8,
+      "resist": {
+        "fire": 38,
+        "ice": 38,
+        "poison": 38
+      },
+      "enrage_below_hp_pct": 30
+    },
+    "exp_reward": 40270,
+    "faction_point_reward": 50,
+    "gold_min": 2795,
+    "gold_max": 6192,
+    "ai_profile": {
+      "family": "boss",
+      "move_speed": 3.0,
+      "aggro_radius_m": 20,
+      "chase_radius_m": 50,
+      "leash_radius_m": 70,
+      "wander": false,
+      "phases": [
+        {
+          "below_hp_pct": 60,
+          "add_ability": "area_slam"
+        },
+        {
+          "below_hp_pct": 30,
+          "add_ability": "summon_adds"
+        }
+      ]
+    },
+    "is_aggressive": true,
+    "respawn_sec": 3600,
+    "_zone": 8
+  },
+  {
+    "id": 2035,
+    "code": "ejder_yuva_kurt_75",
+    "display_name": "Ejder Kurt",
+    "npc_kind": "monster",
+    "level": 75,
+    "max_hp": 4071,
+    "max_mp": 0,
+    "combat": {
+      "attack": 114,
+      "armor": 135,
+      "attack_delay_ms": 1100,
+      "hit_rate": 95,
+      "evade_rate": 25,
+      "resist": {
+        "fire": 18,
+        "ice": 18,
+        "poison": 25
+      }
+    },
+    "exp_reward": 1923,
+    "faction_point_reward": 0,
+    "gold_min": 109,
+    "gold_max": 242,
+    "ai_profile": {
+      "family": "hayvan",
+      "move_speed": 4.2,
+      "aggro_radius_m": 12,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": true,
+    "respawn_sec": 25,
+    "_zone": 9
+  },
+  {
+    "id": 2036,
+    "code": "ejder_yuva_orumcek_85",
+    "display_name": "Ejder Örümcek",
+    "npc_kind": "monster",
+    "level": 85,
+    "max_hp": 3999,
+    "max_mp": 0,
+    "combat": {
+      "attack": 134,
+      "armor": 153,
+      "attack_delay_ms": 1100,
+      "hit_rate": 98,
+      "evade_rate": 27,
+      "resist": {
+        "fire": 21,
+        "ice": 21,
+        "poison": 28
+      }
+    },
+    "exp_reward": 2391,
+    "faction_point_reward": 0,
+    "gold_min": 123,
+    "gold_max": 272,
+    "ai_profile": {
+      "family": "bocek",
+      "move_speed": 4.2,
+      "aggro_radius_m": 12,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": true,
+    "respawn_sec": 25,
+    "_zone": 9
+  },
+  {
+    "id": 2037,
+    "code": "ejder_yuva_haydut_95",
+    "display_name": "Ejder Haydut",
+    "npc_kind": "monster",
+    "level": 95,
+    "max_hp": 5874,
+    "max_mp": 0,
+    "combat": {
+      "attack": 174,
+      "armor": 171,
+      "attack_delay_ms": 1600,
+      "hit_rate": 101,
+      "evade_rate": 29,
+      "resist": {
+        "fire": 23,
+        "ice": 23,
+        "poison": 31
+      }
+    },
+    "exp_reward": 2903,
+    "faction_point_reward": 0,
+    "gold_min": 137,
+    "gold_max": 304,
+    "ai_profile": {
+      "family": "insan",
+      "move_speed": 3.2,
+      "aggro_radius_m": 12,
+      "chase_radius_m": 25,
+      "leash_radius_m": 35,
+      "wander": true
+    },
+    "is_aggressive": true,
+    "respawn_sec": 45,
+    "_zone": 9
+  },
+  {
+    "id": 2038,
+    "code": "ejder_yuva_boss",
+    "display_name": "Ejder Yuvası Hükümdarı",
+    "npc_kind": "boss",
+    "level": 97,
+    "max_hp": 83749,
+    "max_mp": 500,
+    "combat": {
+      "attack": 433,
+      "armor": 310,
+      "attack_delay_ms": 1800,
+      "hit_rate": 109,
+      "evade_rate": 8,
+      "resist": {
+        "fire": 48,
+        "ice": 48,
+        "poison": 48
+      },
+      "enrage_below_hp_pct": 30
+    },
+    "exp_reward": 60203,
+    "faction_point_reward": 50,
+    "gold_min": 3495,
+    "gold_max": 7742,
+    "ai_profile": {
+      "family": "boss",
+      "move_speed": 3.0,
+      "aggro_radius_m": 20,
+      "chase_radius_m": 50,
+      "leash_radius_m": 70,
+      "wander": false,
+      "phases": [
+        {
+          "below_hp_pct": 60,
+          "add_ability": "area_slam"
+        },
+        {
+          "below_hp_pct": 30,
+          "add_ability": "summon_adds"
+        }
+      ]
+    },
+    "is_aggressive": true,
+    "respawn_sec": 3600,
+    "_zone": 9
+  },
+  {
+    "id": 2039,
+    "code": "north_town_merchant",
+    "display_name": "Kuzey Tüccar",
+    "npc_kind": "merchant",
+    "level": 1,
+    "max_hp": 10000,
+    "max_mp": 0,
+    "combat": {},
+    "exp_reward": 0,
+    "faction_point_reward": 0,
+    "gold_min": 0,
+    "gold_max": 0,
+    "ai_profile": {
+      "family": "npc",
+      "wander": false,
+      "aggro_radius_m": 0
+    },
+    "is_aggressive": false,
+    "respawn_sec": 0,
+    "_zone": 1
+  },
+  {
+    "id": 2040,
+    "code": "north_town_banker",
+    "display_name": "Kuzey Kasadar",
+    "npc_kind": "banker",
+    "level": 1,
+    "max_hp": 10000,
+    "max_mp": 0,
+    "combat": {},
+    "exp_reward": 0,
+    "faction_point_reward": 0,
+    "gold_min": 0,
+    "gold_max": 0,
+    "ai_profile": {
+      "family": "npc",
+      "wander": false,
+      "aggro_radius_m": 0
+    },
+    "is_aggressive": false,
+    "respawn_sec": 0,
+    "_zone": 1
+  },
+  {
+    "id": 2041,
+    "code": "north_town_trainer",
+    "display_name": "Kuzey Eğitmen",
+    "npc_kind": "trainer",
+    "level": 1,
+    "max_hp": 10000,
+    "max_mp": 0,
+    "combat": {},
+    "exp_reward": 0,
+    "faction_point_reward": 0,
+    "gold_min": 0,
+    "gold_max": 0,
+    "ai_profile": {
+      "family": "npc",
+      "wander": false,
+      "aggro_radius_m": 0
+    },
+    "is_aggressive": false,
+    "respawn_sec": 0,
+    "_zone": 1
+  },
+  {
+    "id": 2042,
+    "code": "south_town_merchant",
+    "display_name": "Güney Tüccar",
+    "npc_kind": "merchant",
+    "level": 1,
+    "max_hp": 10000,
+    "max_mp": 0,
+    "combat": {},
+    "exp_reward": 0,
+    "faction_point_reward": 0,
+    "gold_min": 0,
+    "gold_max": 0,
+    "ai_profile": {
+      "family": "npc",
+      "wander": false,
+      "aggro_radius_m": 0
+    },
+    "is_aggressive": false,
+    "respawn_sec": 0,
+    "_zone": 2
+  },
+  {
+    "id": 2043,
+    "code": "south_town_banker",
+    "display_name": "Güney Kasadar",
+    "npc_kind": "banker",
+    "level": 1,
+    "max_hp": 10000,
+    "max_mp": 0,
+    "combat": {},
+    "exp_reward": 0,
+    "faction_point_reward": 0,
+    "gold_min": 0,
+    "gold_max": 0,
+    "ai_profile": {
+      "family": "npc",
+      "wander": false,
+      "aggro_radius_m": 0
+    },
+    "is_aggressive": false,
+    "respawn_sec": 0,
+    "_zone": 2
+  },
+  {
+    "id": 2044,
+    "code": "south_town_trainer",
+    "display_name": "Güney Eğitmen",
+    "npc_kind": "trainer",
+    "level": 1,
+    "max_hp": 10000,
+    "max_mp": 0,
+    "combat": {},
+    "exp_reward": 0,
+    "faction_point_reward": 0,
+    "gold_min": 0,
+    "gold_max": 0,
+    "ai_profile": {
+      "family": "npc",
+      "wander": false,
+      "aggro_radius_m": 0
+    },
+    "is_aggressive": false,
+    "respawn_sec": 0,
+    "_zone": 2
+  }
+]

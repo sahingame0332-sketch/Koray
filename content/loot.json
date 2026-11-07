@@ -1,0 +1,1938 @@
+[
+  {
+    "npc_id": 2001,
+    "item_id": 1175,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2001,
+    "item_id": 1167,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2001,
+    "item_id": 1001,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2001,
+    "item_id": 1007,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2001,
+    "item_id": 1013,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2001,
+    "item_id": 1019,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2002,
+    "item_id": 1176,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2002,
+    "item_id": 1167,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2002,
+    "item_id": 1001,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2002,
+    "item_id": 1007,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2002,
+    "item_id": 1013,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2002,
+    "item_id": 1019,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2003,
+    "item_id": 1176,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2003,
+    "item_id": 1168,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2003,
+    "item_id": 1002,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2003,
+    "item_id": 1008,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2003,
+    "item_id": 1014,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2003,
+    "item_id": 1020,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2004,
+    "item_id": 1181,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2004,
+    "item_id": 1168,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2004,
+    "item_id": 1002,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2004,
+    "item_id": 1008,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2004,
+    "item_id": 1014,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2004,
+    "item_id": 1020,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2005,
+    "item_id": 1177,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2005,
+    "item_id": 1168,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2005,
+    "item_id": 1003,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2005,
+    "item_id": 1009,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2005,
+    "item_id": 1015,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2005,
+    "item_id": 1021,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2006,
+    "item_id": 1003,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2006,
+    "item_id": 1009,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2006,
+    "item_id": 1015,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2006,
+    "item_id": 1021,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2006,
+    "item_id": 1027,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2006,
+    "item_id": 1033,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2006,
+    "item_id": 1039,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2006,
+    "item_id": 1045,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2007,
+    "item_id": 1177,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2007,
+    "item_id": 1168,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2007,
+    "item_id": 1003,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2007,
+    "item_id": 1009,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2007,
+    "item_id": 1015,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2007,
+    "item_id": 1021,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2008,
+    "item_id": 1177,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2008,
+    "item_id": 1168,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2008,
+    "item_id": 1003,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2008,
+    "item_id": 1009,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2008,
+    "item_id": 1015,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2008,
+    "item_id": 1021,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2009,
+    "item_id": 1178,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2009,
+    "item_id": 1169,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2009,
+    "item_id": 1003,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2009,
+    "item_id": 1009,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2009,
+    "item_id": 1015,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2009,
+    "item_id": 1021,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2010,
+    "item_id": 1178,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2010,
+    "item_id": 1169,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2010,
+    "item_id": 1004,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2010,
+    "item_id": 1010,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2010,
+    "item_id": 1016,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2010,
+    "item_id": 1022,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2011,
+    "item_id": 1004,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2011,
+    "item_id": 1010,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2011,
+    "item_id": 1016,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2011,
+    "item_id": 1022,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2011,
+    "item_id": 1028,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2011,
+    "item_id": 1034,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2011,
+    "item_id": 1040,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2011,
+    "item_id": 1046,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2012,
+    "item_id": 1176,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2012,
+    "item_id": 1167,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2012,
+    "item_id": 1002,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2012,
+    "item_id": 1008,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2012,
+    "item_id": 1014,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2012,
+    "item_id": 1020,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2013,
+    "item_id": 1181,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2013,
+    "item_id": 1168,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2013,
+    "item_id": 1002,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2013,
+    "item_id": 1008,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2013,
+    "item_id": 1014,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2013,
+    "item_id": 1020,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2014,
+    "item_id": 1177,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2014,
+    "item_id": 1168,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2014,
+    "item_id": 1003,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2014,
+    "item_id": 1009,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2014,
+    "item_id": 1015,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2014,
+    "item_id": 1021,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2015,
+    "item_id": 1177,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2015,
+    "item_id": 1168,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2015,
+    "item_id": 1003,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2015,
+    "item_id": 1009,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2015,
+    "item_id": 1015,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2015,
+    "item_id": 1021,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2016,
+    "item_id": 1178,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2016,
+    "item_id": 1168,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2016,
+    "item_id": 1003,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2016,
+    "item_id": 1009,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2016,
+    "item_id": 1015,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2016,
+    "item_id": 1021,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2017,
+    "item_id": 1003,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2017,
+    "item_id": 1009,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2017,
+    "item_id": 1015,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2017,
+    "item_id": 1021,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2017,
+    "item_id": 1027,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2017,
+    "item_id": 1033,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2017,
+    "item_id": 1039,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2017,
+    "item_id": 1045,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2018,
+    "item_id": 1177,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2018,
+    "item_id": 1168,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2018,
+    "item_id": 1003,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2018,
+    "item_id": 1009,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2018,
+    "item_id": 1015,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2018,
+    "item_id": 1021,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2019,
+    "item_id": 1178,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2019,
+    "item_id": 1168,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2019,
+    "item_id": 1003,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2019,
+    "item_id": 1009,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2019,
+    "item_id": 1015,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2019,
+    "item_id": 1021,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2020,
+    "item_id": 1178,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2020,
+    "item_id": 1169,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2020,
+    "item_id": 1004,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2020,
+    "item_id": 1010,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2020,
+    "item_id": 1016,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2020,
+    "item_id": 1022,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2021,
+    "item_id": 1178,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2021,
+    "item_id": 1169,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2021,
+    "item_id": 1004,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2021,
+    "item_id": 1010,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2021,
+    "item_id": 1016,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2021,
+    "item_id": 1022,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2022,
+    "item_id": 1179,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2022,
+    "item_id": 1169,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2022,
+    "item_id": 1004,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2022,
+    "item_id": 1010,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2022,
+    "item_id": 1016,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2022,
+    "item_id": 1022,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2023,
+    "item_id": 1004,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2023,
+    "item_id": 1010,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2023,
+    "item_id": 1016,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2023,
+    "item_id": 1022,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2023,
+    "item_id": 1028,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2023,
+    "item_id": 1034,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2023,
+    "item_id": 1040,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2023,
+    "item_id": 1046,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2024,
+    "item_id": 1178,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2024,
+    "item_id": 1169,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2024,
+    "item_id": 1004,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2024,
+    "item_id": 1010,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2024,
+    "item_id": 1016,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2024,
+    "item_id": 1022,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2025,
+    "item_id": 1179,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2025,
+    "item_id": 1169,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2025,
+    "item_id": 1004,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2025,
+    "item_id": 1010,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2025,
+    "item_id": 1016,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2025,
+    "item_id": 1022,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2026,
+    "item_id": 1179,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2026,
+    "item_id": 1169,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2026,
+    "item_id": 1005,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2026,
+    "item_id": 1011,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2026,
+    "item_id": 1017,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2026,
+    "item_id": 1023,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2027,
+    "item_id": 1179,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2027,
+    "item_id": 1169,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2027,
+    "item_id": 1005,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2027,
+    "item_id": 1011,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2027,
+    "item_id": 1017,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2027,
+    "item_id": 1023,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2028,
+    "item_id": 1179,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2028,
+    "item_id": 1169,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2028,
+    "item_id": 1005,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2028,
+    "item_id": 1011,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2028,
+    "item_id": 1017,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2028,
+    "item_id": 1023,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2029,
+    "item_id": 1005,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2029,
+    "item_id": 1011,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2029,
+    "item_id": 1017,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2029,
+    "item_id": 1023,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2029,
+    "item_id": 1029,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2029,
+    "item_id": 1035,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2029,
+    "item_id": 1041,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2029,
+    "item_id": 1047,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2030,
+    "item_id": 1179,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2030,
+    "item_id": 1169,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2030,
+    "item_id": 1005,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2030,
+    "item_id": 1011,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2030,
+    "item_id": 1017,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2030,
+    "item_id": 1023,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2031,
+    "item_id": 1180,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2031,
+    "item_id": 1169,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2031,
+    "item_id": 1005,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2031,
+    "item_id": 1011,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2031,
+    "item_id": 1017,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2031,
+    "item_id": 1023,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2032,
+    "item_id": 1180,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2032,
+    "item_id": 1169,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2032,
+    "item_id": 1005,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2032,
+    "item_id": 1011,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2032,
+    "item_id": 1017,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2032,
+    "item_id": 1023,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2033,
+    "item_id": 1180,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2033,
+    "item_id": 1169,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2033,
+    "item_id": 1006,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2033,
+    "item_id": 1012,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2033,
+    "item_id": 1018,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2033,
+    "item_id": 1024,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2034,
+    "item_id": 1006,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2034,
+    "item_id": 1012,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2034,
+    "item_id": 1018,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2034,
+    "item_id": 1024,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2034,
+    "item_id": 1030,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2034,
+    "item_id": 1036,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2034,
+    "item_id": 1042,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2034,
+    "item_id": 1048,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2035,
+    "item_id": 1180,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2035,
+    "item_id": 1169,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2035,
+    "item_id": 1006,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2035,
+    "item_id": 1012,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2035,
+    "item_id": 1018,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2035,
+    "item_id": 1024,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2036,
+    "item_id": 1180,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2036,
+    "item_id": 1169,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2036,
+    "item_id": 1006,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2036,
+    "item_id": 1012,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2036,
+    "item_id": 1018,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2036,
+    "item_id": 1024,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2037,
+    "item_id": 1180,
+    "ppm": 320000,
+    "qmin": 1,
+    "qmax": 3,
+    "group": 0
+  },
+  {
+    "npc_id": 2037,
+    "item_id": 1169,
+    "ppm": 150000,
+    "qmin": 1,
+    "qmax": 2,
+    "group": 0
+  },
+  {
+    "npc_id": 2037,
+    "item_id": 1006,
+    "ppm": 9000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2037,
+    "item_id": 1012,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2037,
+    "item_id": 1018,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2037,
+    "item_id": 1024,
+    "ppm": 4000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2038,
+    "item_id": 1006,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2038,
+    "item_id": 1012,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2038,
+    "item_id": 1018,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2038,
+    "item_id": 1024,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2038,
+    "item_id": 1030,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2038,
+    "item_id": 1036,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2038,
+    "item_id": 1042,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  },
+  {
+    "npc_id": 2038,
+    "item_id": 1048,
+    "ppm": 140000,
+    "qmin": 1,
+    "qmax": 1,
+    "group": 1
+  }
+]

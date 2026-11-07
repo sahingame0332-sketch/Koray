@@ -1,0 +1,988 @@
+[
+  {
+    "id": 101,
+    "code": "warrior_sert_vurus",
+    "display_name": "Sert Vuruş",
+    "description": "Sert Vuruş — warrior becerisi (seviye 2).",
+    "class": "warrior",
+    "req_level": 2,
+    "req_skill_id": null,
+    "target_type": "single_enemy",
+    "mp_cost": 12,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 4000,
+    "range_m": 2.0,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 70,
+        "weapon_scale": 1.35
+      }
+    ],
+    "_kind": "damage"
+  },
+  {
+    "id": 102,
+    "code": "warrior_kalkan_duvari",
+    "display_name": "Kalkan Duvarı",
+    "description": "Kalkan Duvarı — warrior becerisi (seviye 8).",
+    "class": "warrior",
+    "req_level": 8,
+    "req_skill_id": 101,
+    "target_type": "self",
+    "mp_cost": 20,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 30000,
+    "range_m": 0.0,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "armor",
+        "magnitude_pct": 11,
+        "duration_ms": 15000
+      }
+    ],
+    "_kind": "buff"
+  },
+  {
+    "id": 103,
+    "code": "warrior_yarma",
+    "display_name": "Yarma",
+    "description": "Yarma — warrior becerisi (seviye 14).",
+    "class": "warrior",
+    "req_level": 14,
+    "req_skill_id": 102,
+    "target_type": "area_enemy",
+    "mp_cost": 28,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 10000,
+    "range_m": 3.5,
+    "area_radius_m": 6.0,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 136,
+        "weapon_scale": 1.1
+      }
+    ],
+    "_kind": "damage"
+  },
+  {
+    "id": 104,
+    "code": "warrior_meydan_okuma",
+    "display_name": "Meydan Okuma",
+    "description": "Meydan Okuma — warrior becerisi (seviye 20).",
+    "class": "warrior",
+    "req_level": 20,
+    "req_skill_id": 103,
+    "target_type": "single_enemy",
+    "mp_cost": 15,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 8000,
+    "range_m": 8.0,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "threat",
+        "multiplier": 4.0,
+        "duration_ms": 6000
+      }
+    ],
+    "_kind": "taunt"
+  },
+  {
+    "id": 105,
+    "code": "warrior_kan_cigligi",
+    "display_name": "Kan Çığlığı",
+    "description": "Kan Çığlığı — warrior becerisi (seviye 28).",
+    "class": "warrior",
+    "req_level": 28,
+    "req_skill_id": 104,
+    "target_type": "party",
+    "mp_cost": 35,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 60000,
+    "range_m": 0.0,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "armor",
+        "magnitude_pct": 15,
+        "duration_ms": 15000
+      }
+    ],
+    "_kind": "buff"
+  },
+  {
+    "id": 106,
+    "code": "warrior_zirh_kirici",
+    "display_name": "Zırh Kırıcı",
+    "description": "Zırh Kırıcı — warrior becerisi (seviye 36).",
+    "class": "warrior",
+    "req_level": 36,
+    "req_skill_id": 105,
+    "target_type": "single_enemy",
+    "mp_cost": 30,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 15000,
+    "range_m": 2.0,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "debuff",
+        "attribute": "armor",
+        "magnitude_pct": -19,
+        "duration_ms": 10000
+      }
+    ],
+    "_kind": "debuff"
+  },
+  {
+    "id": 107,
+    "code": "warrior_son_duran",
+    "display_name": "Son Duran",
+    "description": "Son Duran — warrior becerisi (seviye 45).",
+    "class": "warrior",
+    "req_level": 45,
+    "req_skill_id": 106,
+    "target_type": "self",
+    "mp_cost": 50,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 120000,
+    "range_m": 0.0,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "armor",
+        "magnitude_pct": 19,
+        "duration_ms": 15000
+      }
+    ],
+    "_kind": "buff"
+  },
+  {
+    "id": 108,
+    "code": "warrior_girdap",
+    "display_name": "Girdap",
+    "description": "Girdap — warrior becerisi (seviye 55).",
+    "class": "warrior",
+    "req_level": 55,
+    "req_skill_id": 107,
+    "target_type": "area_enemy",
+    "mp_cost": 55,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 18000,
+    "range_m": 4.0,
+    "area_radius_m": 6.0,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 574,
+        "weapon_scale": 1.55
+      }
+    ],
+    "_kind": "damage"
+  },
+  {
+    "id": 109,
+    "code": "warrior_infaz",
+    "display_name": "İnfaz",
+    "description": "İnfaz — warrior becerisi (seviye 68).",
+    "class": "warrior",
+    "req_level": 68,
+    "req_skill_id": 108,
+    "target_type": "single_enemy",
+    "mp_cost": 60,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 25000,
+    "range_m": 2.0,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 1254,
+        "weapon_scale": 2.8,
+        "bonus_below_hp_pct": 25,
+        "bonus_multiplier": 2.0
+      }
+    ],
+    "_kind": "execute"
+  },
+  {
+    "id": 110,
+    "code": "warrior_savas_tanrisi",
+    "display_name": "Savaş Tanrısı",
+    "description": "Savaş Tanrısı — warrior becerisi (seviye 82).",
+    "class": "warrior",
+    "req_level": 82,
+    "req_skill_id": 109,
+    "target_type": "self",
+    "mp_cost": 100,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 300000,
+    "range_m": 0.0,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "armor",
+        "magnitude_pct": 26,
+        "duration_ms": 15000
+      }
+    ],
+    "_kind": "buff"
+  },
+  {
+    "id": 111,
+    "code": "rogue_hizli_kesik",
+    "display_name": "Hızlı Kesik",
+    "description": "Hızlı Kesik — rogue becerisi (seviye 2).",
+    "class": "rogue",
+    "req_level": 2,
+    "req_skill_id": null,
+    "target_type": "single_enemy",
+    "mp_cost": 10,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 3000,
+    "range_m": 1.6,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 62,
+        "weapon_scale": 1.2
+      }
+    ],
+    "_kind": "damage"
+  },
+  {
+    "id": 112,
+    "code": "rogue_golge_adim",
+    "display_name": "Gölge Adım",
+    "description": "Gölge Adım — rogue becerisi (seviye 8).",
+    "class": "rogue",
+    "req_level": 8,
+    "req_skill_id": 111,
+    "target_type": "self",
+    "mp_cost": 18,
+    "hp_cost": 0,
+    "cast_time_ms": 0,
+    "cooldown_ms": 12000,
+    "range_m": 0.0,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "movement",
+        "effect": "dash",
+        "distance_m": 8
+      }
+    ],
+    "_kind": "mobility"
+  },
+  {
+    "id": 113,
+    "code": "rogue_zehirli_bicak",
+    "display_name": "Zehirli Bıçak",
+    "description": "Zehirli Bıçak — rogue becerisi (seviye 14).",
+    "class": "rogue",
+    "req_level": 14,
+    "req_skill_id": 112,
+    "target_type": "single_enemy",
+    "mp_cost": 22,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 9000,
+    "range_m": 1.6,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "damage_over_time",
+        "school": "poison",
+        "tick_damage": 46,
+        "tick_interval_ms": 2000,
+        "duration_ms": 12000
+      }
+    ],
+    "_kind": "dot"
+  },
+  {
+    "id": 114,
+    "code": "rogue_sirt_hancer",
+    "display_name": "Sırttan Hançer",
+    "description": "Sırttan Hançer — rogue becerisi (seviye 20).",
+    "class": "rogue",
+    "req_level": 20,
+    "req_skill_id": 113,
+    "target_type": "single_enemy",
+    "mp_cost": 30,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 14000,
+    "range_m": 1.6,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 336,
+        "weapon_scale": 2.1
+      }
+    ],
+    "_kind": "damage"
+  },
+  {
+    "id": 115,
+    "code": "rogue_tuzak",
+    "display_name": "Tuzak",
+    "description": "Tuzak — rogue becerisi (seviye 28).",
+    "class": "rogue",
+    "req_level": 28,
+    "req_skill_id": 114,
+    "target_type": "area_enemy",
+    "mp_cost": 26,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 20000,
+    "range_m": 6.0,
+    "area_radius_m": 6.0,
+    "effects": [
+      {
+        "kind": "control",
+        "effect": "root",
+        "duration_ms": 3560
+      }
+    ],
+    "_kind": "control"
+  },
+  {
+    "id": 116,
+    "code": "rogue_ok_yagmuru",
+    "display_name": "Ok Yağmuru",
+    "description": "Ok Yağmuru — rogue becerisi (seviye 36).",
+    "class": "rogue",
+    "req_level": 36,
+    "req_skill_id": 115,
+    "target_type": "area_enemy",
+    "mp_cost": 40,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 16000,
+    "range_m": 16.0,
+    "area_radius_m": 6.0,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 333,
+        "weapon_scale": 1.3
+      }
+    ],
+    "_kind": "damage"
+  },
+  {
+    "id": 117,
+    "code": "rogue_gizlenme",
+    "display_name": "Gizlenme",
+    "description": "Gizlenme — rogue becerisi (seviye 45).",
+    "class": "rogue",
+    "req_level": 45,
+    "req_skill_id": 116,
+    "target_type": "self",
+    "mp_cost": 45,
+    "hp_cost": 0,
+    "cast_time_ms": 0,
+    "cooldown_ms": 45000,
+    "range_m": 0.0,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "stealth",
+        "duration_ms": 20000
+      }
+    ],
+    "_kind": "stealth"
+  },
+  {
+    "id": 118,
+    "code": "rogue_olumcul_isabet",
+    "display_name": "Ölümcül İsabet",
+    "description": "Ölümcül İsabet — rogue becerisi (seviye 55).",
+    "class": "rogue",
+    "req_level": 55,
+    "req_skill_id": 117,
+    "target_type": "single_enemy",
+    "mp_cost": 50,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 22000,
+    "range_m": 14.0,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 962,
+        "weapon_scale": 2.6
+      }
+    ],
+    "_kind": "damage"
+  },
+  {
+    "id": 119,
+    "code": "rogue_bicak_firtinasi",
+    "display_name": "Bıçak Fırtınası",
+    "description": "Bıçak Fırtınası — rogue becerisi (seviye 68).",
+    "class": "rogue",
+    "req_level": 68,
+    "req_skill_id": 118,
+    "target_type": "area_enemy",
+    "mp_cost": 60,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 24000,
+    "range_m": 3.0,
+    "area_radius_m": 6.0,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 806,
+        "weapon_scale": 1.8
+      }
+    ],
+    "_kind": "damage"
+  },
+  {
+    "id": 120,
+    "code": "rogue_suikast",
+    "display_name": "Suikast",
+    "description": "Suikast — rogue becerisi (seviye 82).",
+    "class": "rogue",
+    "req_level": 82,
+    "req_skill_id": 119,
+    "target_type": "single_enemy",
+    "mp_cost": 90,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 180000,
+    "range_m": 1.6,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 1809,
+        "weapon_scale": 3.4,
+        "bonus_below_hp_pct": 25,
+        "bonus_multiplier": 2.0
+      }
+    ],
+    "_kind": "execute"
+  },
+  {
+    "id": 121,
+    "code": "mage_ates_oku",
+    "display_name": "Ateş Oku",
+    "description": "Ateş Oku — mage becerisi (seviye 2).",
+    "class": "mage",
+    "req_level": 2,
+    "req_skill_id": null,
+    "target_type": "single_enemy",
+    "mp_cost": 14,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 2500,
+    "range_m": 18.0,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 75,
+        "weapon_scale": 1.45
+      }
+    ],
+    "_kind": "damage"
+  },
+  {
+    "id": 122,
+    "code": "mage_buz_zinciri",
+    "display_name": "Buz Zinciri",
+    "description": "Buz Zinciri — mage becerisi (seviye 8).",
+    "class": "mage",
+    "req_level": 8,
+    "req_skill_id": 121,
+    "target_type": "single_enemy",
+    "mp_cost": 20,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 14000,
+    "range_m": 16.0,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "control",
+        "effect": "root",
+        "duration_ms": 3160
+      }
+    ],
+    "_kind": "control"
+  },
+  {
+    "id": 123,
+    "code": "mage_alev_halkasi",
+    "display_name": "Alev Halkası",
+    "description": "Alev Halkası — mage becerisi (seviye 14).",
+    "class": "mage",
+    "req_level": 14,
+    "req_skill_id": 122,
+    "target_type": "area_enemy",
+    "mp_cost": 34,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 11000,
+    "range_m": 14.0,
+    "area_radius_m": 6.0,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 155,
+        "weapon_scale": 1.25
+      }
+    ],
+    "_kind": "damage"
+  },
+  {
+    "id": 124,
+    "code": "mage_mana_kalkani",
+    "display_name": "Mana Kalkanı",
+    "description": "Mana Kalkanı — mage becerisi (seviye 20).",
+    "class": "mage",
+    "req_level": 20,
+    "req_skill_id": 123,
+    "target_type": "self",
+    "mp_cost": 28,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 35000,
+    "range_m": 0.0,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "all_stats",
+        "magnitude_pct": 14,
+        "duration_ms": 15000
+      }
+    ],
+    "_kind": "buff"
+  },
+  {
+    "id": 125,
+    "code": "mage_yildirim",
+    "display_name": "Yıldırım",
+    "description": "Yıldırım — mage becerisi (seviye 28).",
+    "class": "mage",
+    "req_level": 28,
+    "req_skill_id": 124,
+    "target_type": "single_enemy",
+    "mp_cost": 42,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 9000,
+    "range_m": 20.0,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 416,
+        "weapon_scale": 2.0
+      }
+    ],
+    "_kind": "damage"
+  },
+  {
+    "id": 126,
+    "code": "mage_donma",
+    "display_name": "Donma",
+    "description": "Donma — mage becerisi (seviye 36).",
+    "class": "mage",
+    "req_level": 36,
+    "req_skill_id": 125,
+    "target_type": "area_enemy",
+    "mp_cost": 48,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 25000,
+    "range_m": 14.0,
+    "area_radius_m": 6.0,
+    "effects": [
+      {
+        "kind": "control",
+        "effect": "root",
+        "duration_ms": 3720
+      }
+    ],
+    "_kind": "control"
+  },
+  {
+    "id": 127,
+    "code": "mage_isinlanma",
+    "display_name": "Işınlanma",
+    "description": "Işınlanma — mage becerisi (seviye 45).",
+    "class": "mage",
+    "req_level": 45,
+    "req_skill_id": 126,
+    "target_type": "self",
+    "mp_cost": 40,
+    "hp_cost": 0,
+    "cast_time_ms": 0,
+    "cooldown_ms": 30000,
+    "range_m": 0.0,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "movement",
+        "effect": "dash",
+        "distance_m": 8
+      }
+    ],
+    "_kind": "mobility"
+  },
+  {
+    "id": 128,
+    "code": "mage_meteor",
+    "display_name": "Meteor",
+    "description": "Meteor — mage becerisi (seviye 55).",
+    "class": "mage",
+    "req_level": 55,
+    "req_skill_id": 127,
+    "target_type": "area_enemy",
+    "mp_cost": 70,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 28000,
+    "range_m": 22.0,
+    "area_radius_m": 6.0,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 888,
+        "weapon_scale": 2.4
+      }
+    ],
+    "_kind": "damage"
+  },
+  {
+    "id": 129,
+    "code": "mage_zaman_yarigi",
+    "display_name": "Zaman Yarığı",
+    "description": "Zaman Yarığı — mage becerisi (seviye 68).",
+    "class": "mage",
+    "req_level": 68,
+    "req_skill_id": 128,
+    "target_type": "area_enemy",
+    "mp_cost": 65,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 40000,
+    "range_m": 18.0,
+    "area_radius_m": 6.0,
+    "effects": [
+      {
+        "kind": "debuff",
+        "attribute": "armor",
+        "magnitude_pct": -27,
+        "duration_ms": 10000
+      }
+    ],
+    "_kind": "debuff"
+  },
+  {
+    "id": 130,
+    "code": "mage_kiyamet",
+    "display_name": "Kıyamet",
+    "description": "Kıyamet — mage becerisi (seviye 82).",
+    "class": "mage",
+    "req_level": 82,
+    "req_skill_id": 129,
+    "target_type": "area_enemy",
+    "mp_cost": 130,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 240000,
+    "range_m": 24.0,
+    "area_radius_m": 6.0,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 1915,
+        "weapon_scale": 3.6
+      }
+    ],
+    "_kind": "damage"
+  },
+  {
+    "id": 131,
+    "code": "priest_kutsal_isik",
+    "display_name": "Kutsal Işık",
+    "description": "Kutsal Işık — priest becerisi (seviye 2).",
+    "class": "priest",
+    "req_level": 2,
+    "req_skill_id": null,
+    "target_type": "single_ally",
+    "mp_cost": 16,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 2000,
+    "range_m": 16.0,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "heal",
+        "base": 92
+      }
+    ],
+    "_kind": "heal"
+  },
+  {
+    "id": 132,
+    "code": "priest_koruma",
+    "display_name": "Koruma",
+    "description": "Koruma — priest becerisi (seviye 8).",
+    "class": "priest",
+    "req_level": 8,
+    "req_skill_id": 131,
+    "target_type": "single_ally",
+    "mp_cost": 22,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 25000,
+    "range_m": 16.0,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "all_stats",
+        "magnitude_pct": 11,
+        "duration_ms": 15000
+      }
+    ],
+    "_kind": "buff"
+  },
+  {
+    "id": 133,
+    "code": "priest_arindirma",
+    "display_name": "Arındırma",
+    "description": "Arındırma — priest becerisi (seviye 14).",
+    "class": "priest",
+    "req_level": 14,
+    "req_skill_id": 132,
+    "target_type": "single_ally",
+    "mp_cost": 18,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 8000,
+    "range_m": 16.0,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "cleanse",
+        "max_effects": 2
+      }
+    ],
+    "_kind": "cleanse"
+  },
+  {
+    "id": 134,
+    "code": "priest_ceza",
+    "display_name": "Ceza",
+    "description": "Ceza — priest becerisi (seviye 20).",
+    "class": "priest",
+    "req_level": 20,
+    "req_skill_id": 133,
+    "target_type": "single_enemy",
+    "mp_cost": 24,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 6000,
+    "range_m": 14.0,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 184,
+        "weapon_scale": 1.15
+      }
+    ],
+    "_kind": "damage"
+  },
+  {
+    "id": 135,
+    "code": "priest_toplu_sifa",
+    "display_name": "Toplu Şifa",
+    "description": "Toplu Şifa — priest becerisi (seviye 28).",
+    "class": "priest",
+    "req_level": 28,
+    "req_skill_id": 134,
+    "target_type": "party",
+    "mp_cost": 55,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 15000,
+    "range_m": 12.0,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "heal",
+        "base": 274
+      }
+    ],
+    "_kind": "heal"
+  },
+  {
+    "id": 136,
+    "code": "priest_lanet",
+    "display_name": "Lanet",
+    "description": "Lanet — priest becerisi (seviye 36).",
+    "class": "priest",
+    "req_level": 36,
+    "req_skill_id": 135,
+    "target_type": "single_enemy",
+    "mp_cost": 30,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 18000,
+    "range_m": 14.0,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "debuff",
+        "attribute": "armor",
+        "magnitude_pct": -19,
+        "duration_ms": 10000
+      }
+    ],
+    "_kind": "debuff"
+  },
+  {
+    "id": 137,
+    "code": "priest_dirilis",
+    "display_name": "Diriliş",
+    "description": "Diriliş — priest becerisi (seviye 45).",
+    "class": "priest",
+    "req_level": 45,
+    "req_skill_id": 136,
+    "target_type": "single_ally",
+    "mp_cost": 80,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 300000,
+    "range_m": 8.0,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "revive",
+        "hp_pct": 30,
+        "mp_pct": 20
+      }
+    ],
+    "_kind": "revive"
+  },
+  {
+    "id": 138,
+    "code": "priest_kutsal_alan",
+    "display_name": "Kutsal Alan",
+    "description": "Kutsal Alan — priest becerisi (seviye 55).",
+    "class": "priest",
+    "req_level": 55,
+    "req_skill_id": 137,
+    "target_type": "area_ally",
+    "mp_cost": 75,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 30000,
+    "range_m": 10.0,
+    "area_radius_m": 6.0,
+    "effects": [
+      {
+        "kind": "heal",
+        "base": 784
+      }
+    ],
+    "_kind": "heal"
+  },
+  {
+    "id": 139,
+    "code": "priest_ilahi_kalkan",
+    "display_name": "İlahi Kalkan",
+    "description": "İlahi Kalkan — priest becerisi (seviye 68).",
+    "class": "priest",
+    "req_level": 68,
+    "req_skill_id": 138,
+    "target_type": "party",
+    "mp_cost": 90,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 90000,
+    "range_m": 12.0,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "all_stats",
+        "magnitude_pct": 23,
+        "duration_ms": 15000
+      }
+    ],
+    "_kind": "buff"
+  },
+  {
+    "id": 140,
+    "code": "priest_yeniden_dogus",
+    "display_name": "Yeniden Doğuş",
+    "description": "Yeniden Doğuş — priest becerisi (seviye 82).",
+    "class": "priest",
+    "req_level": 82,
+    "req_skill_id": 139,
+    "target_type": "party",
+    "mp_cost": 150,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 240000,
+    "range_m": 12.0,
+    "area_radius_m": 0.0,
+    "effects": [
+      {
+        "kind": "heal",
+        "base": 1977
+      }
+    ],
+    "_kind": "heal"
+  }
+]

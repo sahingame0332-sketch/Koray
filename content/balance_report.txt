@@ -1,0 +1,68 @@
+DENGELEME RAPORU
+============================================================
+
+Silah DPS / kademe:
+  sv   1 Başlangıç  DPS   16.2 -   26.2  (fark %62)
+  sv  10 Demir      DPS   29.4 -   47.1  (fark %60)
+  sv  20 Çelik      DPS   51.9 -   83.8  (fark %61)
+  sv  35 Gümüş      DPS   91.2 -  146.2  (fark %60)
+  sv  50 Obsidyen   DPS  154.4 -  248.5  (fark %61)
+  sv  70 Ejder      DPS  260.0 -  418.5  (fark %61)
+
+Mob dengesi (hedef: TTK ~9 sn, TTD ~26 sn):
+  sv   mob                      HP      TTK     TTD   durum
+    1  Yeşil Kurt                 240    7.7s   25.4s   ok
+    6  Yeşil Örümcek              306    6.8s   21.8s   ok
+   10  Kuru Kurt                  432    7.6s   25.5s   ok
+   11  Yeşil Haydut               548    9.0s   25.9s   ok
+   15  Yeşil Golem               1094   13.9s   19.9s   ok
+   15  Kuru Örümcek               529    6.7s   22.8s   ok
+   20  Yeşil Hortlak             1039   10.3s   22.7s   ok
+   20  Savaş Kurt                 768    7.6s   25.8s   ok
+   20  Kuru Haydut                904    9.0s   26.1s   ok
+   25  Kuru Golem                1750   13.9s   20.0s   ok
+   25  Gölge Kurt                 960    7.7s   26.2s   ok
+   27  Savaş Örümcek              915    6.8s   22.6s   ok
+   30  Kuru Hortlak              1558   10.3s   22.4s   ok
+   30  Gölge Örümcek             1016    6.7s   22.7s   ok
+   33  Savaş Haydut              1490    9.0s   25.8s   ok
+   35  Gölge Haydut              1581    9.0s   26.1s   ok
+   40  Savaş Golem               3020   14.0s   20.0s   ok
+   40  Gölge Golem               3020   14.0s   20.0s   ok
+   40  Yanık Kurt                1656    7.7s   26.2s   ok
+   45  Gölge Hortlak             2663   10.3s   22.5s   ok
+   45  Yanık Örümcek             1737    6.8s   22.7s   ok
+   50  Yanık Haydut              2683    9.0s   26.0s   ok
+   55  Yanık Golem               4870   14.0s   20.0s   ok
+   55  Buz Kurt                  2671    7.7s   26.0s   ok
+   60  Yanık Hortlak             4141   10.4s   22.6s   ok
+   62  Buz Örümcek               2838    6.7s   22.6s   ok
+   68  Buz Haydut                4335    9.0s   26.0s   ok
+   75  Buz Golem                 7423   13.9s   20.0s   ok
+   75  Ejder Kurt                4071    7.7s   26.0s   ok
+   85  Ejder Örümcek             3999    6.8s   22.6s   ok
+   95  Ejder Haydut              5874    9.0s   26.0s   ok
+
+  Sorunlu mob sayisi: 0
+
+Boss dengesi (5 kisilik parti varsayimi):
+  sv  22  Yeşil Ovalar Hükümdarı   HP    13914  parti  25.2s   tek basina  126.0s
+  sv  32  Kuru Geçit Hükümdarı     HP    20234  parti  25.2s   tek basina  126.0s
+  sv  42  Savaş Bölgesi Hükümdarı  HP    29332  parti  25.2s   tek basina  126.0s
+  sv  47  Gölge Ormanı Hükümdarı   HP    34477  parti  25.2s   tek basina  126.0s
+  sv  62  Yanık Tepeler Hükümdarı  HP    52978  parti  25.2s   tek basina  126.0s
+  sv  77  Buz Mağarası Hükümdarı   HP    68568  parti  25.2s   tek basina  126.0s
+  sv  97  Ejder Yuvası Hükümdarı   HP    83749  parti  25.2s   tek basina  126.0s
+
+Sinif basina beceri:
+  Savaşçı      10 beceri
+  Suikastçı    10 beceri
+  Büyücü       10 beceri
+  Şifacı       10 beceri
+
+Esya kategorileri:
+  armor        90
+  accessory    40
+  weapon       36
+  consumable   8
+  material     7

@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "code": "north_town",
+    "display_name": "Kuzey Şehri",
+    "zone_type": "safe",
+    "level_min": 1,
+    "level_max": 999
+  },
+  {
+    "id": 2,
+    "code": "south_town",
+    "display_name": "Güney Şehri",
+    "zone_type": "safe",
+    "level_min": 1,
+    "level_max": 999
+  },
+  {
+    "id": 3,
+    "code": "green_field",
+    "display_name": "Yeşil Ovalar",
+    "zone_type": "field",
+    "level_min": 1,
+    "level_max": 20
+  },
+  {
+    "id": 4,
+    "code": "warzone",
+    "display_name": "Savaş Bölgesi",
+    "zone_type": "pvp",
+    "level_min": 20,
+    "level_max": 999
+  },
+  {
+    "id": 5,
+    "code": "kuru_gecit",
+    "display_name": "Kuru Geçit",
+    "zone_type": "field",
+    "level_min": 10,
+    "level_max": 30
+  },
+  {
+    "id": 6,
+    "code": "golge_orman",
+    "display_name": "Gölge Ormanı",
+    "zone_type": "field",
+    "level_min": 25,
+    "level_max": 45
+  },
+  {
+    "id": 7,
+    "code": "yanik_tepe",
+    "display_name": "Yanık Tepeler",
+    "zone_type": "field",
+    "level_min": 40,
+    "level_max": 65
+  },
+  {
+    "id": 8,
+    "code": "buz_magara",
+    "display_name": "Buz Mağarası",
+    "zone_type": "dungeon",
+    "level_min": 55,
+    "level_max": 85
+  },
+  {
+    "id": 9,
+    "code": "ejder_yuva",
+    "display_name": "Ejder Yuvası",
+    "zone_type": "dungeon",
+    "level_min": 75,
+    "level_max": 999
+  },
+  {
+    "id": 10,
+    "code": "arena",
+    "display_name": "Arena",
+    "zone_type": "arena",
+    "level_min": 20,
+    "level_max": 999
+  }
+]

@@ -277,6 +277,32 @@ CREATE INDEX item_template_category_idx ON item_template (category);
 CREATE INDEX item_template_stats_idx ON item_template USING gin (stats);
 
 
+-- Bir esyayi BIRDEN FAZLA sinif kusanabilir (orn. asa: buyucu + sifaci).
+-- item_template.req_class_id tek sinifi ifade eder ve hizli yol olarak kalir;
+-- cok sinifli esyalarda bu tablo yetkilidir.
+--
+-- NEDEN AYRI TABLO: tek kolonla "buyucu VEYA sifaci" ifade edilemez. Kolona
+-- NULL konursa esya HERKESE acilir -- savascinin magazada kumas zirh gormesi
+-- tam olarak bu hatadan dogar. Cok-cok iliski bir baglanti tablosu gerektirir.
+CREATE TABLE item_template_class (
+    item_template_id integer  NOT NULL REFERENCES item_template(id) ON DELETE CASCADE,
+    class_id         smallint NOT NULL REFERENCES character_class(id) ON DELETE CASCADE,
+    PRIMARY KEY (item_template_id, class_id)
+);
+
+CREATE INDEX item_template_class_class_idx ON item_template_class (class_id);
+
+-- Bir sinifin kusanabilecegi esyalar: baglanti tablosunda satiri olmayan esya
+-- (iksir, malzeme, aksesuar) her sinifa aciktir.
+CREATE VIEW item_allowed_for_class AS
+SELECT i.id AS item_template_id, c.id AS class_id
+FROM item_template i
+CROSS JOIN character_class c
+WHERE NOT EXISTS (SELECT 1 FROM item_template_class x WHERE x.item_template_id = i.id)
+UNION
+SELECT item_template_id, class_id FROM item_template_class;
+
+
 -- KARAKTERIN ESYASI: her esya KENDI SATIRI.
 -- KO burada `strItem varchar(400)` kullaniyordu; bu yuzden:
 --   - tek esya atomik guncellenemiyordu -> dupe hatalari

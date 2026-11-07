@@ -1,0 +1,4435 @@
+[
+  {
+    "id": 1001,
+    "code": "kilic_baslangic",
+    "display_name": "Başlangıç Kılıç",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 102,
+    "req_level": 1,
+    "req_class": "warrior",
+    "buy_price": 40,
+    "sell_price": 10,
+    "weight": 37,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 34,
+      "attack_delay": 1.3,
+      "range_m": 2.0,
+      "dps": 26.2,
+      "scale_stat": "strength",
+      "bonus": {
+        "strength": 1
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1002,
+    "code": "kilic_demir",
+    "display_name": "Demir Kılıç",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 120,
+    "req_level": 10,
+    "req_class": "warrior",
+    "buy_price": 240,
+    "sell_price": 60,
+    "weight": 37,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 61,
+      "attack_delay": 1.3,
+      "range_m": 2.0,
+      "dps": 46.9,
+      "scale_stat": "strength",
+      "bonus": {
+        "strength": 2
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1003,
+    "code": "kilic_celik",
+    "display_name": "Çelik Kılıç",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 140,
+    "req_level": 20,
+    "req_class": "warrior",
+    "buy_price": 1120,
+    "sell_price": 280,
+    "weight": 37,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 109,
+      "attack_delay": 1.3,
+      "range_m": 2.0,
+      "dps": 83.8,
+      "scale_stat": "strength",
+      "bonus": {
+        "strength": 3
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1004,
+    "code": "kilic_gumus",
+    "display_name": "Gümüş Kılıç",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 170,
+    "req_level": 35,
+    "req_class": "warrior",
+    "buy_price": 4800,
+    "sell_price": 1200,
+    "weight": 37,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 190,
+      "attack_delay": 1.3,
+      "range_m": 2.0,
+      "dps": 146.2,
+      "scale_stat": "strength",
+      "bonus": {
+        "strength": 6
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1005,
+    "code": "kilic_obsidyen",
+    "display_name": "Obsidyen Kılıç",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 200,
+    "req_level": 50,
+    "req_class": "warrior",
+    "buy_price": 20800,
+    "sell_price": 5200,
+    "weight": 37,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 323,
+      "attack_delay": 1.3,
+      "range_m": 2.0,
+      "dps": 248.5,
+      "scale_stat": "strength",
+      "bonus": {
+        "strength": 8
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1006,
+    "code": "kilic_ejder",
+    "display_name": "Ejder Kılıç",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 240,
+    "req_level": 70,
+    "req_class": "warrior",
+    "buy_price": 96000,
+    "sell_price": 24000,
+    "weight": 37,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 544,
+      "attack_delay": 1.3,
+      "range_m": 2.0,
+      "dps": 418.5,
+      "scale_stat": "strength",
+      "bonus": {
+        "strength": 12
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1007,
+    "code": "balta_baslangic",
+    "display_name": "Başlangıç Balta",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 102,
+    "req_level": 1,
+    "req_class": "warrior",
+    "buy_price": 40,
+    "sell_price": 10,
+    "weight": 42,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 44,
+      "attack_delay": 1.75,
+      "range_m": 2.0,
+      "dps": 25.1,
+      "scale_stat": "strength",
+      "bonus": {
+        "strength": 1
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1008,
+    "code": "balta_demir",
+    "display_name": "Demir Balta",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 120,
+    "req_level": 10,
+    "req_class": "warrior",
+    "buy_price": 240,
+    "sell_price": 60,
+    "weight": 42,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 79,
+      "attack_delay": 1.75,
+      "range_m": 2.0,
+      "dps": 45.1,
+      "scale_stat": "strength",
+      "bonus": {
+        "strength": 2
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1009,
+    "code": "balta_celik",
+    "display_name": "Çelik Balta",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 140,
+    "req_level": 20,
+    "req_class": "warrior",
+    "buy_price": 1120,
+    "sell_price": 280,
+    "weight": 42,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 141,
+      "attack_delay": 1.75,
+      "range_m": 2.0,
+      "dps": 80.6,
+      "scale_stat": "strength",
+      "bonus": {
+        "strength": 3
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1010,
+    "code": "balta_gumus",
+    "display_name": "Gümüş Balta",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 170,
+    "req_level": 35,
+    "req_class": "warrior",
+    "buy_price": 4800,
+    "sell_price": 1200,
+    "weight": 42,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 246,
+      "attack_delay": 1.75,
+      "range_m": 2.0,
+      "dps": 140.6,
+      "scale_stat": "strength",
+      "bonus": {
+        "strength": 6
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1011,
+    "code": "balta_obsidyen",
+    "display_name": "Obsidyen Balta",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 200,
+    "req_level": 50,
+    "req_class": "warrior",
+    "buy_price": 20800,
+    "sell_price": 5200,
+    "weight": 42,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 418,
+      "attack_delay": 1.75,
+      "range_m": 2.0,
+      "dps": 238.9,
+      "scale_stat": "strength",
+      "bonus": {
+        "strength": 8
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1012,
+    "code": "balta_ejder",
+    "display_name": "Ejder Balta",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 240,
+    "req_level": 70,
+    "req_class": "warrior",
+    "buy_price": 96000,
+    "sell_price": 24000,
+    "weight": 42,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 704,
+      "attack_delay": 1.75,
+      "range_m": 2.0,
+      "dps": 402.3,
+      "scale_stat": "strength",
+      "bonus": {
+        "strength": 12
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1013,
+    "code": "topuz_baslangic",
+    "display_name": "Başlangıç Topuz",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 102,
+    "req_level": 1,
+    "req_class": null,
+    "buy_price": 40,
+    "sell_price": 10,
+    "weight": 39,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 38,
+      "attack_delay": 1.5,
+      "range_m": 2.0,
+      "dps": 25.3,
+      "scale_stat": "strength",
+      "bonus": {
+        "strength": 1
+      }
+    },
+    "_classes": [
+      "warrior",
+      "priest"
+    ]
+  },
+  {
+    "id": 1014,
+    "code": "topuz_demir",
+    "display_name": "Demir Topuz",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 120,
+    "req_level": 10,
+    "req_class": null,
+    "buy_price": 240,
+    "sell_price": 60,
+    "weight": 39,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 68,
+      "attack_delay": 1.5,
+      "range_m": 2.0,
+      "dps": 45.3,
+      "scale_stat": "strength",
+      "bonus": {
+        "strength": 2
+      }
+    },
+    "_classes": [
+      "warrior",
+      "priest"
+    ]
+  },
+  {
+    "id": 1015,
+    "code": "topuz_celik",
+    "display_name": "Çelik Topuz",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 140,
+    "req_level": 20,
+    "req_class": null,
+    "buy_price": 1120,
+    "sell_price": 280,
+    "weight": 39,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 122,
+      "attack_delay": 1.5,
+      "range_m": 2.0,
+      "dps": 81.3,
+      "scale_stat": "strength",
+      "bonus": {
+        "strength": 3
+      }
+    },
+    "_classes": [
+      "warrior",
+      "priest"
+    ]
+  },
+  {
+    "id": 1016,
+    "code": "topuz_gumus",
+    "display_name": "Gümüş Topuz",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 170,
+    "req_level": 35,
+    "req_class": null,
+    "buy_price": 4800,
+    "sell_price": 1200,
+    "weight": 39,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 213,
+      "attack_delay": 1.5,
+      "range_m": 2.0,
+      "dps": 142.0,
+      "scale_stat": "strength",
+      "bonus": {
+        "strength": 6
+      }
+    },
+    "_classes": [
+      "warrior",
+      "priest"
+    ]
+  },
+  {
+    "id": 1017,
+    "code": "topuz_obsidyen",
+    "display_name": "Obsidyen Topuz",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 200,
+    "req_level": 50,
+    "req_class": null,
+    "buy_price": 20800,
+    "sell_price": 5200,
+    "weight": 39,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 361,
+      "attack_delay": 1.5,
+      "range_m": 2.0,
+      "dps": 240.7,
+      "scale_stat": "strength",
+      "bonus": {
+        "strength": 8
+      }
+    },
+    "_classes": [
+      "warrior",
+      "priest"
+    ]
+  },
+  {
+    "id": 1018,
+    "code": "topuz_ejder",
+    "display_name": "Ejder Topuz",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 240,
+    "req_level": 70,
+    "req_class": null,
+    "buy_price": 96000,
+    "sell_price": 24000,
+    "weight": 39,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 608,
+      "attack_delay": 1.5,
+      "range_m": 2.0,
+      "dps": 405.3,
+      "scale_stat": "strength",
+      "bonus": {
+        "strength": 12
+      }
+    },
+    "_classes": [
+      "warrior",
+      "priest"
+    ]
+  },
+  {
+    "id": 1019,
+    "code": "hancer_baslangic",
+    "display_name": "Başlangıç Hançer",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 102,
+    "req_level": 1,
+    "req_class": "rogue",
+    "buy_price": 40,
+    "sell_price": 10,
+    "weight": 31,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 22,
+      "attack_delay": 0.85,
+      "range_m": 1.6,
+      "dps": 25.9,
+      "scale_stat": "dexterity",
+      "bonus": {
+        "dexterity": 1
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1020,
+    "code": "hancer_demir",
+    "display_name": "Demir Hançer",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 120,
+    "req_level": 10,
+    "req_class": "rogue",
+    "buy_price": 240,
+    "sell_price": 60,
+    "weight": 31,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 40,
+      "attack_delay": 0.85,
+      "range_m": 1.6,
+      "dps": 47.1,
+      "scale_stat": "dexterity",
+      "bonus": {
+        "dexterity": 2
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1021,
+    "code": "hancer_celik",
+    "display_name": "Çelik Hançer",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 140,
+    "req_level": 20,
+    "req_class": "rogue",
+    "buy_price": 1120,
+    "sell_price": 280,
+    "weight": 31,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 70,
+      "attack_delay": 0.85,
+      "range_m": 1.6,
+      "dps": 82.4,
+      "scale_stat": "dexterity",
+      "bonus": {
+        "dexterity": 3
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1022,
+    "code": "hancer_gumus",
+    "display_name": "Gümüş Hançer",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 170,
+    "req_level": 35,
+    "req_class": "rogue",
+    "buy_price": 4800,
+    "sell_price": 1200,
+    "weight": 31,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 123,
+      "attack_delay": 0.85,
+      "range_m": 1.6,
+      "dps": 144.7,
+      "scale_stat": "dexterity",
+      "bonus": {
+        "dexterity": 6
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1023,
+    "code": "hancer_obsidyen",
+    "display_name": "Obsidyen Hançer",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 200,
+    "req_level": 50,
+    "req_class": "rogue",
+    "buy_price": 20800,
+    "sell_price": 5200,
+    "weight": 31,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 209,
+      "attack_delay": 0.85,
+      "range_m": 1.6,
+      "dps": 245.9,
+      "scale_stat": "dexterity",
+      "bonus": {
+        "dexterity": 8
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1024,
+    "code": "hancer_ejder",
+    "display_name": "Ejder Hançer",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 240,
+    "req_level": 70,
+    "req_class": "rogue",
+    "buy_price": 96000,
+    "sell_price": 24000,
+    "weight": 31,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 352,
+      "attack_delay": 0.85,
+      "range_m": 1.6,
+      "dps": 414.1,
+      "scale_stat": "dexterity",
+      "bonus": {
+        "dexterity": 12
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1025,
+    "code": "yay_baslangic",
+    "display_name": "Başlangıç Yay",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 102,
+    "req_level": 1,
+    "req_class": "rogue",
+    "buy_price": 40,
+    "sell_price": 10,
+    "weight": 35,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 30,
+      "attack_delay": 1.45,
+      "range_m": 14.0,
+      "dps": 20.7,
+      "scale_stat": "dexterity",
+      "bonus": {
+        "dexterity": 1
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1026,
+    "code": "yay_demir",
+    "display_name": "Demir Yay",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 120,
+    "req_level": 10,
+    "req_class": "rogue",
+    "buy_price": 240,
+    "sell_price": 60,
+    "weight": 35,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 54,
+      "attack_delay": 1.45,
+      "range_m": 14.0,
+      "dps": 37.2,
+      "scale_stat": "dexterity",
+      "bonus": {
+        "dexterity": 2
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1027,
+    "code": "yay_celik",
+    "display_name": "Çelik Yay",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 140,
+    "req_level": 20,
+    "req_class": "rogue",
+    "buy_price": 1120,
+    "sell_price": 280,
+    "weight": 35,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 96,
+      "attack_delay": 1.45,
+      "range_m": 14.0,
+      "dps": 66.2,
+      "scale_stat": "dexterity",
+      "bonus": {
+        "dexterity": 3
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1028,
+    "code": "yay_gumus",
+    "display_name": "Gümüş Yay",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 170,
+    "req_level": 35,
+    "req_class": "rogue",
+    "buy_price": 4800,
+    "sell_price": 1200,
+    "weight": 35,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 168,
+      "attack_delay": 1.45,
+      "range_m": 14.0,
+      "dps": 115.9,
+      "scale_stat": "dexterity",
+      "bonus": {
+        "dexterity": 6
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1029,
+    "code": "yay_obsidyen",
+    "display_name": "Obsidyen Yay",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 200,
+    "req_level": 50,
+    "req_class": "rogue",
+    "buy_price": 20800,
+    "sell_price": 5200,
+    "weight": 35,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 285,
+      "attack_delay": 1.45,
+      "range_m": 14.0,
+      "dps": 196.6,
+      "scale_stat": "dexterity",
+      "bonus": {
+        "dexterity": 8
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1030,
+    "code": "yay_ejder",
+    "display_name": "Ejder Yay",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 240,
+    "req_level": 70,
+    "req_class": "rogue",
+    "buy_price": 96000,
+    "sell_price": 24000,
+    "weight": 35,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 480,
+      "attack_delay": 1.45,
+      "range_m": 14.0,
+      "dps": 331.0,
+      "scale_stat": "dexterity",
+      "bonus": {
+        "dexterity": 12
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1031,
+    "code": "asa_baslangic",
+    "display_name": "Başlangıç Asa",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 102,
+    "req_level": 1,
+    "req_class": null,
+    "buy_price": 40,
+    "sell_price": 10,
+    "weight": 33,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 26,
+      "attack_delay": 1.6,
+      "range_m": 3.0,
+      "dps": 16.2,
+      "scale_stat": "intellect",
+      "bonus": {
+        "intellect": 1
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1032,
+    "code": "asa_demir",
+    "display_name": "Demir Asa",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 120,
+    "req_level": 10,
+    "req_class": null,
+    "buy_price": 240,
+    "sell_price": 60,
+    "weight": 33,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 47,
+      "attack_delay": 1.6,
+      "range_m": 3.0,
+      "dps": 29.4,
+      "scale_stat": "intellect",
+      "bonus": {
+        "intellect": 2
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1033,
+    "code": "asa_celik",
+    "display_name": "Çelik Asa",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 140,
+    "req_level": 20,
+    "req_class": null,
+    "buy_price": 1120,
+    "sell_price": 280,
+    "weight": 33,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 83,
+      "attack_delay": 1.6,
+      "range_m": 3.0,
+      "dps": 51.9,
+      "scale_stat": "intellect",
+      "bonus": {
+        "intellect": 3
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1034,
+    "code": "asa_gumus",
+    "display_name": "Gümüş Asa",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 170,
+    "req_level": 35,
+    "req_class": null,
+    "buy_price": 4800,
+    "sell_price": 1200,
+    "weight": 33,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 146,
+      "attack_delay": 1.6,
+      "range_m": 3.0,
+      "dps": 91.2,
+      "scale_stat": "intellect",
+      "bonus": {
+        "intellect": 6
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1035,
+    "code": "asa_obsidyen",
+    "display_name": "Obsidyen Asa",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 200,
+    "req_level": 50,
+    "req_class": null,
+    "buy_price": 20800,
+    "sell_price": 5200,
+    "weight": 33,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 247,
+      "attack_delay": 1.6,
+      "range_m": 3.0,
+      "dps": 154.4,
+      "scale_stat": "intellect",
+      "bonus": {
+        "intellect": 8
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1036,
+    "code": "asa_ejder",
+    "display_name": "Ejder Asa",
+    "category": "weapon",
+    "equip_slot": "main_hand",
+    "max_stack": 1,
+    "max_durability": 240,
+    "req_level": 70,
+    "req_class": null,
+    "buy_price": 96000,
+    "sell_price": 24000,
+    "weight": 33,
+    "is_upgradeable": true,
+    "stats": {
+      "damage": 416,
+      "attack_delay": 1.6,
+      "range_m": 3.0,
+      "dps": 260.0,
+      "scale_stat": "intellect",
+      "bonus": {
+        "intellect": 12
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1037,
+    "code": "plaka_baslik_baslangic",
+    "display_name": "Başlangıç Plaka Başlık",
+    "category": "armor",
+    "equip_slot": "head",
+    "max_stack": 1,
+    "max_durability": 102,
+    "req_level": 1,
+    "req_class": "warrior",
+    "buy_price": 21,
+    "sell_price": 6,
+    "weight": 6,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 16,
+      "bonus": {
+        "stamina": 1,
+        "max_hp": 1
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1038,
+    "code": "plaka_baslik_demir",
+    "display_name": "Demir Plaka Başlık",
+    "category": "armor",
+    "equip_slot": "head",
+    "max_stack": 1,
+    "max_durability": 120,
+    "req_level": 10,
+    "req_class": "warrior",
+    "buy_price": 125,
+    "sell_price": 34,
+    "weight": 6,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 29,
+      "bonus": {
+        "stamina": 1,
+        "max_hp": 10
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1039,
+    "code": "plaka_baslik_celik",
+    "display_name": "Çelik Plaka Başlık",
+    "category": "armor",
+    "equip_slot": "head",
+    "max_stack": 1,
+    "max_durability": 140,
+    "req_level": 20,
+    "req_class": "warrior",
+    "buy_price": 582,
+    "sell_price": 157,
+    "weight": 6,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 51,
+      "bonus": {
+        "stamina": 2,
+        "max_hp": 19
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1040,
+    "code": "plaka_baslik_gumus",
+    "display_name": "Gümüş Plaka Başlık",
+    "category": "armor",
+    "equip_slot": "head",
+    "max_stack": 1,
+    "max_durability": 170,
+    "req_level": 35,
+    "req_class": "warrior",
+    "buy_price": 2496,
+    "sell_price": 672,
+    "weight": 6,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 90,
+      "bonus": {
+        "stamina": 4,
+        "max_hp": 34
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1041,
+    "code": "plaka_baslik_obsidyen",
+    "display_name": "Obsidyen Plaka Başlık",
+    "category": "armor",
+    "equip_slot": "head",
+    "max_stack": 1,
+    "max_durability": 200,
+    "req_level": 50,
+    "req_class": "warrior",
+    "buy_price": 10816,
+    "sell_price": 2912,
+    "weight": 6,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 152,
+      "bonus": {
+        "stamina": 6,
+        "max_hp": 48
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1042,
+    "code": "plaka_baslik_ejder",
+    "display_name": "Ejder Plaka Başlık",
+    "category": "armor",
+    "equip_slot": "head",
+    "max_stack": 1,
+    "max_durability": 240,
+    "req_level": 70,
+    "req_class": "warrior",
+    "buy_price": 49920,
+    "sell_price": 13440,
+    "weight": 6,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 256,
+      "bonus": {
+        "stamina": 9,
+        "max_hp": 67
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1043,
+    "code": "plaka_zirh_baslangic",
+    "display_name": "Başlangıç Plaka Zırh",
+    "category": "armor",
+    "equip_slot": "chest",
+    "max_stack": 1,
+    "max_durability": 102,
+    "req_level": 1,
+    "req_class": "warrior",
+    "buy_price": 44,
+    "sell_price": 12,
+    "weight": 10,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 34,
+      "bonus": {
+        "stamina": 1,
+        "max_hp": 2
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1044,
+    "code": "plaka_zirh_demir",
+    "display_name": "Demir Plaka Zırh",
+    "category": "armor",
+    "equip_slot": "chest",
+    "max_stack": 1,
+    "max_durability": 120,
+    "req_level": 10,
+    "req_class": "warrior",
+    "buy_price": 265,
+    "sell_price": 71,
+    "weight": 10,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 61,
+      "bonus": {
+        "stamina": 1,
+        "max_hp": 20
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1045,
+    "code": "plaka_zirh_celik",
+    "display_name": "Çelik Plaka Zırh",
+    "category": "armor",
+    "equip_slot": "chest",
+    "max_stack": 1,
+    "max_durability": 140,
+    "req_level": 20,
+    "req_class": "warrior",
+    "buy_price": 1238,
+    "sell_price": 333,
+    "weight": 10,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 109,
+      "bonus": {
+        "stamina": 2,
+        "max_hp": 41
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1046,
+    "code": "plaka_zirh_gumus",
+    "display_name": "Gümüş Plaka Zırh",
+    "category": "armor",
+    "equip_slot": "chest",
+    "max_stack": 1,
+    "max_durability": 170,
+    "req_level": 35,
+    "req_class": "warrior",
+    "buy_price": 5304,
+    "sell_price": 1428,
+    "weight": 10,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 190,
+      "bonus": {
+        "stamina": 4,
+        "max_hp": 71
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1047,
+    "code": "plaka_zirh_obsidyen",
+    "display_name": "Obsidyen Plaka Zırh",
+    "category": "armor",
+    "equip_slot": "chest",
+    "max_stack": 1,
+    "max_durability": 200,
+    "req_level": 50,
+    "req_class": "warrior",
+    "buy_price": 22984,
+    "sell_price": 6188,
+    "weight": 10,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 323,
+      "bonus": {
+        "stamina": 6,
+        "max_hp": 102
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1048,
+    "code": "plaka_zirh_ejder",
+    "display_name": "Ejder Plaka Zırh",
+    "category": "armor",
+    "equip_slot": "chest",
+    "max_stack": 1,
+    "max_durability": 240,
+    "req_level": 70,
+    "req_class": "warrior",
+    "buy_price": 106080,
+    "sell_price": 28560,
+    "weight": 10,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 544,
+      "bonus": {
+        "stamina": 9,
+        "max_hp": 143
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1049,
+    "code": "plaka_pantolon_baslangic",
+    "display_name": "Başlangıç Plaka Pantolon",
+    "category": "armor",
+    "equip_slot": "legs",
+    "max_stack": 1,
+    "max_durability": 102,
+    "req_level": 1,
+    "req_class": "warrior",
+    "buy_price": 31,
+    "sell_price": 8,
+    "weight": 8,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 24,
+      "bonus": {
+        "stamina": 1,
+        "max_hp": 1
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1050,
+    "code": "plaka_pantolon_demir",
+    "display_name": "Demir Plaka Pantolon",
+    "category": "armor",
+    "equip_slot": "legs",
+    "max_stack": 1,
+    "max_durability": 120,
+    "req_level": 10,
+    "req_class": "warrior",
+    "buy_price": 187,
+    "sell_price": 50,
+    "weight": 8,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 43,
+      "bonus": {
+        "stamina": 1,
+        "max_hp": 14
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1051,
+    "code": "plaka_pantolon_celik",
+    "display_name": "Çelik Plaka Pantolon",
+    "category": "armor",
+    "equip_slot": "legs",
+    "max_stack": 1,
+    "max_durability": 140,
+    "req_level": 20,
+    "req_class": "warrior",
+    "buy_price": 874,
+    "sell_price": 235,
+    "weight": 8,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 77,
+      "bonus": {
+        "stamina": 2,
+        "max_hp": 29
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1052,
+    "code": "plaka_pantolon_gumus",
+    "display_name": "Gümüş Plaka Pantolon",
+    "category": "armor",
+    "equip_slot": "legs",
+    "max_stack": 1,
+    "max_durability": 170,
+    "req_level": 35,
+    "req_class": "warrior",
+    "buy_price": 3744,
+    "sell_price": 1008,
+    "weight": 8,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 134,
+      "bonus": {
+        "stamina": 4,
+        "max_hp": 50
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1053,
+    "code": "plaka_pantolon_obsidyen",
+    "display_name": "Obsidyen Plaka Pantolon",
+    "category": "armor",
+    "equip_slot": "legs",
+    "max_stack": 1,
+    "max_durability": 200,
+    "req_level": 50,
+    "req_class": "warrior",
+    "buy_price": 16224,
+    "sell_price": 4368,
+    "weight": 8,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 228,
+      "bonus": {
+        "stamina": 6,
+        "max_hp": 72
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1054,
+    "code": "plaka_pantolon_ejder",
+    "display_name": "Ejder Plaka Pantolon",
+    "category": "armor",
+    "equip_slot": "legs",
+    "max_stack": 1,
+    "max_durability": 240,
+    "req_level": 70,
+    "req_class": "warrior",
+    "buy_price": 74880,
+    "sell_price": 20160,
+    "weight": 8,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 384,
+      "bonus": {
+        "stamina": 9,
+        "max_hp": 101
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1055,
+    "code": "plaka_eldiven_baslangic",
+    "display_name": "Başlangıç Plaka Eldiven",
+    "category": "armor",
+    "equip_slot": "hands",
+    "max_stack": 1,
+    "max_durability": 102,
+    "req_level": 1,
+    "req_class": "warrior",
+    "buy_price": 16,
+    "sell_price": 4,
+    "weight": 5,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 12,
+      "bonus": {
+        "stamina": 1,
+        "max_hp": 1
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1056,
+    "code": "plaka_eldiven_demir",
+    "display_name": "Demir Plaka Eldiven",
+    "category": "armor",
+    "equip_slot": "hands",
+    "max_stack": 1,
+    "max_durability": 120,
+    "req_level": 10,
+    "req_class": "warrior",
+    "buy_price": 94,
+    "sell_price": 25,
+    "weight": 5,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 22,
+      "bonus": {
+        "stamina": 1,
+        "max_hp": 7
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1057,
+    "code": "plaka_eldiven_celik",
+    "display_name": "Çelik Plaka Eldiven",
+    "category": "armor",
+    "equip_slot": "hands",
+    "max_stack": 1,
+    "max_durability": 140,
+    "req_level": 20,
+    "req_class": "warrior",
+    "buy_price": 437,
+    "sell_price": 118,
+    "weight": 5,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 38,
+      "bonus": {
+        "stamina": 2,
+        "max_hp": 14
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1058,
+    "code": "plaka_eldiven_gumus",
+    "display_name": "Gümüş Plaka Eldiven",
+    "category": "armor",
+    "equip_slot": "hands",
+    "max_stack": 1,
+    "max_durability": 170,
+    "req_level": 35,
+    "req_class": "warrior",
+    "buy_price": 1872,
+    "sell_price": 504,
+    "weight": 5,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 67,
+      "bonus": {
+        "stamina": 4,
+        "max_hp": 25
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1059,
+    "code": "plaka_eldiven_obsidyen",
+    "display_name": "Obsidyen Plaka Eldiven",
+    "category": "armor",
+    "equip_slot": "hands",
+    "max_stack": 1,
+    "max_durability": 200,
+    "req_level": 50,
+    "req_class": "warrior",
+    "buy_price": 8112,
+    "sell_price": 2184,
+    "weight": 5,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 114,
+      "bonus": {
+        "stamina": 6,
+        "max_hp": 36
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1060,
+    "code": "plaka_eldiven_ejder",
+    "display_name": "Ejder Plaka Eldiven",
+    "category": "armor",
+    "equip_slot": "hands",
+    "max_stack": 1,
+    "max_durability": 240,
+    "req_level": 70,
+    "req_class": "warrior",
+    "buy_price": 37440,
+    "sell_price": 10080,
+    "weight": 5,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 192,
+      "bonus": {
+        "stamina": 9,
+        "max_hp": 50
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1061,
+    "code": "plaka_bot_baslangic",
+    "display_name": "Başlangıç Plaka Bot",
+    "category": "armor",
+    "equip_slot": "feet",
+    "max_stack": 1,
+    "max_durability": 102,
+    "req_level": 1,
+    "req_class": "warrior",
+    "buy_price": 18,
+    "sell_price": 5,
+    "weight": 6,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 14,
+      "bonus": {
+        "stamina": 1,
+        "max_hp": 1
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1062,
+    "code": "plaka_bot_demir",
+    "display_name": "Demir Plaka Bot",
+    "category": "armor",
+    "equip_slot": "feet",
+    "max_stack": 1,
+    "max_durability": 120,
+    "req_level": 10,
+    "req_class": "warrior",
+    "buy_price": 109,
+    "sell_price": 29,
+    "weight": 6,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 25,
+      "bonus": {
+        "stamina": 1,
+        "max_hp": 8
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1063,
+    "code": "plaka_bot_celik",
+    "display_name": "Çelik Plaka Bot",
+    "category": "armor",
+    "equip_slot": "feet",
+    "max_stack": 1,
+    "max_durability": 140,
+    "req_level": 20,
+    "req_class": "warrior",
+    "buy_price": 510,
+    "sell_price": 137,
+    "weight": 6,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 45,
+      "bonus": {
+        "stamina": 2,
+        "max_hp": 17
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1064,
+    "code": "plaka_bot_gumus",
+    "display_name": "Gümüş Plaka Bot",
+    "category": "armor",
+    "equip_slot": "feet",
+    "max_stack": 1,
+    "max_durability": 170,
+    "req_level": 35,
+    "req_class": "warrior",
+    "buy_price": 2184,
+    "sell_price": 588,
+    "weight": 6,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 78,
+      "bonus": {
+        "stamina": 4,
+        "max_hp": 29
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1065,
+    "code": "plaka_bot_obsidyen",
+    "display_name": "Obsidyen Plaka Bot",
+    "category": "armor",
+    "equip_slot": "feet",
+    "max_stack": 1,
+    "max_durability": 200,
+    "req_level": 50,
+    "req_class": "warrior",
+    "buy_price": 9464,
+    "sell_price": 2548,
+    "weight": 6,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 133,
+      "bonus": {
+        "stamina": 6,
+        "max_hp": 42
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1066,
+    "code": "plaka_bot_ejder",
+    "display_name": "Ejder Plaka Bot",
+    "category": "armor",
+    "equip_slot": "feet",
+    "max_stack": 1,
+    "max_durability": 240,
+    "req_level": 70,
+    "req_class": "warrior",
+    "buy_price": 43680,
+    "sell_price": 11760,
+    "weight": 6,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 224,
+      "bonus": {
+        "stamina": 9,
+        "max_hp": 59
+      }
+    },
+    "_classes": [
+      "warrior"
+    ]
+  },
+  {
+    "id": 1067,
+    "code": "deri_baslik_baslangic",
+    "display_name": "Başlangıç Deri Başlık",
+    "category": "armor",
+    "equip_slot": "head",
+    "max_stack": 1,
+    "max_durability": 102,
+    "req_level": 1,
+    "req_class": "rogue",
+    "buy_price": 21,
+    "sell_price": 6,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 10,
+      "bonus": {
+        "dexterity": 1,
+        "max_hp": 1
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1068,
+    "code": "deri_baslik_demir",
+    "display_name": "Demir Deri Başlık",
+    "category": "armor",
+    "equip_slot": "head",
+    "max_stack": 1,
+    "max_durability": 120,
+    "req_level": 10,
+    "req_class": "rogue",
+    "buy_price": 125,
+    "sell_price": 34,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 18,
+      "bonus": {
+        "dexterity": 1,
+        "max_hp": 10
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1069,
+    "code": "deri_baslik_celik",
+    "display_name": "Çelik Deri Başlık",
+    "category": "armor",
+    "equip_slot": "head",
+    "max_stack": 1,
+    "max_durability": 140,
+    "req_level": 20,
+    "req_class": "rogue",
+    "buy_price": 582,
+    "sell_price": 157,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 32,
+      "bonus": {
+        "dexterity": 2,
+        "max_hp": 19
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1070,
+    "code": "deri_baslik_gumus",
+    "display_name": "Gümüş Deri Başlık",
+    "category": "armor",
+    "equip_slot": "head",
+    "max_stack": 1,
+    "max_durability": 170,
+    "req_level": 35,
+    "req_class": "rogue",
+    "buy_price": 2496,
+    "sell_price": 672,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 56,
+      "bonus": {
+        "dexterity": 4,
+        "max_hp": 34
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1071,
+    "code": "deri_baslik_obsidyen",
+    "display_name": "Obsidyen Deri Başlık",
+    "category": "armor",
+    "equip_slot": "head",
+    "max_stack": 1,
+    "max_durability": 200,
+    "req_level": 50,
+    "req_class": "rogue",
+    "buy_price": 10816,
+    "sell_price": 2912,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 94,
+      "bonus": {
+        "dexterity": 6,
+        "max_hp": 48
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1072,
+    "code": "deri_baslik_ejder",
+    "display_name": "Ejder Deri Başlık",
+    "category": "armor",
+    "equip_slot": "head",
+    "max_stack": 1,
+    "max_durability": 240,
+    "req_level": 70,
+    "req_class": "rogue",
+    "buy_price": 49920,
+    "sell_price": 13440,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 159,
+      "bonus": {
+        "dexterity": 9,
+        "max_hp": 67
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1073,
+    "code": "deri_zirh_baslangic",
+    "display_name": "Başlangıç Deri Zırh",
+    "category": "armor",
+    "equip_slot": "chest",
+    "max_stack": 1,
+    "max_durability": 102,
+    "req_level": 1,
+    "req_class": "rogue",
+    "buy_price": 44,
+    "sell_price": 12,
+    "weight": 7,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 21,
+      "bonus": {
+        "dexterity": 1,
+        "max_hp": 2
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1074,
+    "code": "deri_zirh_demir",
+    "display_name": "Demir Deri Zırh",
+    "category": "armor",
+    "equip_slot": "chest",
+    "max_stack": 1,
+    "max_durability": 120,
+    "req_level": 10,
+    "req_class": "rogue",
+    "buy_price": 265,
+    "sell_price": 71,
+    "weight": 7,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 38,
+      "bonus": {
+        "dexterity": 1,
+        "max_hp": 20
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1075,
+    "code": "deri_zirh_celik",
+    "display_name": "Çelik Deri Zırh",
+    "category": "armor",
+    "equip_slot": "chest",
+    "max_stack": 1,
+    "max_durability": 140,
+    "req_level": 20,
+    "req_class": "rogue",
+    "buy_price": 1238,
+    "sell_price": 333,
+    "weight": 7,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 67,
+      "bonus": {
+        "dexterity": 2,
+        "max_hp": 41
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1076,
+    "code": "deri_zirh_gumus",
+    "display_name": "Gümüş Deri Zırh",
+    "category": "armor",
+    "equip_slot": "chest",
+    "max_stack": 1,
+    "max_durability": 170,
+    "req_level": 35,
+    "req_class": "rogue",
+    "buy_price": 5304,
+    "sell_price": 1428,
+    "weight": 7,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 118,
+      "bonus": {
+        "dexterity": 4,
+        "max_hp": 71
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1077,
+    "code": "deri_zirh_obsidyen",
+    "display_name": "Obsidyen Deri Zırh",
+    "category": "armor",
+    "equip_slot": "chest",
+    "max_stack": 1,
+    "max_durability": 200,
+    "req_level": 50,
+    "req_class": "rogue",
+    "buy_price": 22984,
+    "sell_price": 6188,
+    "weight": 7,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 200,
+      "bonus": {
+        "dexterity": 6,
+        "max_hp": 102
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1078,
+    "code": "deri_zirh_ejder",
+    "display_name": "Ejder Deri Zırh",
+    "category": "armor",
+    "equip_slot": "chest",
+    "max_stack": 1,
+    "max_durability": 240,
+    "req_level": 70,
+    "req_class": "rogue",
+    "buy_price": 106080,
+    "sell_price": 28560,
+    "weight": 7,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 337,
+      "bonus": {
+        "dexterity": 9,
+        "max_hp": 143
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1079,
+    "code": "deri_pantolon_baslangic",
+    "display_name": "Başlangıç Deri Pantolon",
+    "category": "armor",
+    "equip_slot": "legs",
+    "max_stack": 1,
+    "max_durability": 102,
+    "req_level": 1,
+    "req_class": "rogue",
+    "buy_price": 31,
+    "sell_price": 8,
+    "weight": 6,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 15,
+      "bonus": {
+        "dexterity": 1,
+        "max_hp": 1
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1080,
+    "code": "deri_pantolon_demir",
+    "display_name": "Demir Deri Pantolon",
+    "category": "armor",
+    "equip_slot": "legs",
+    "max_stack": 1,
+    "max_durability": 120,
+    "req_level": 10,
+    "req_class": "rogue",
+    "buy_price": 187,
+    "sell_price": 50,
+    "weight": 6,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 27,
+      "bonus": {
+        "dexterity": 1,
+        "max_hp": 14
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1081,
+    "code": "deri_pantolon_celik",
+    "display_name": "Çelik Deri Pantolon",
+    "category": "armor",
+    "equip_slot": "legs",
+    "max_stack": 1,
+    "max_durability": 140,
+    "req_level": 20,
+    "req_class": "rogue",
+    "buy_price": 874,
+    "sell_price": 235,
+    "weight": 6,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 48,
+      "bonus": {
+        "dexterity": 2,
+        "max_hp": 29
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1082,
+    "code": "deri_pantolon_gumus",
+    "display_name": "Gümüş Deri Pantolon",
+    "category": "armor",
+    "equip_slot": "legs",
+    "max_stack": 1,
+    "max_durability": 170,
+    "req_level": 35,
+    "req_class": "rogue",
+    "buy_price": 3744,
+    "sell_price": 1008,
+    "weight": 6,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 83,
+      "bonus": {
+        "dexterity": 4,
+        "max_hp": 50
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1083,
+    "code": "deri_pantolon_obsidyen",
+    "display_name": "Obsidyen Deri Pantolon",
+    "category": "armor",
+    "equip_slot": "legs",
+    "max_stack": 1,
+    "max_durability": 200,
+    "req_level": 50,
+    "req_class": "rogue",
+    "buy_price": 16224,
+    "sell_price": 4368,
+    "weight": 6,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 141,
+      "bonus": {
+        "dexterity": 6,
+        "max_hp": 72
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1084,
+    "code": "deri_pantolon_ejder",
+    "display_name": "Ejder Deri Pantolon",
+    "category": "armor",
+    "equip_slot": "legs",
+    "max_stack": 1,
+    "max_durability": 240,
+    "req_level": 70,
+    "req_class": "rogue",
+    "buy_price": 74880,
+    "sell_price": 20160,
+    "weight": 6,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 238,
+      "bonus": {
+        "dexterity": 9,
+        "max_hp": 101
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1085,
+    "code": "deri_eldiven_baslangic",
+    "display_name": "Başlangıç Deri Eldiven",
+    "category": "armor",
+    "equip_slot": "hands",
+    "max_stack": 1,
+    "max_durability": 102,
+    "req_level": 1,
+    "req_class": "rogue",
+    "buy_price": 16,
+    "sell_price": 4,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 7,
+      "bonus": {
+        "dexterity": 1,
+        "max_hp": 1
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1086,
+    "code": "deri_eldiven_demir",
+    "display_name": "Demir Deri Eldiven",
+    "category": "armor",
+    "equip_slot": "hands",
+    "max_stack": 1,
+    "max_durability": 120,
+    "req_level": 10,
+    "req_class": "rogue",
+    "buy_price": 94,
+    "sell_price": 25,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 13,
+      "bonus": {
+        "dexterity": 1,
+        "max_hp": 7
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1087,
+    "code": "deri_eldiven_celik",
+    "display_name": "Çelik Deri Eldiven",
+    "category": "armor",
+    "equip_slot": "hands",
+    "max_stack": 1,
+    "max_durability": 140,
+    "req_level": 20,
+    "req_class": "rogue",
+    "buy_price": 437,
+    "sell_price": 118,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 24,
+      "bonus": {
+        "dexterity": 2,
+        "max_hp": 14
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1088,
+    "code": "deri_eldiven_gumus",
+    "display_name": "Gümüş Deri Eldiven",
+    "category": "armor",
+    "equip_slot": "hands",
+    "max_stack": 1,
+    "max_durability": 170,
+    "req_level": 35,
+    "req_class": "rogue",
+    "buy_price": 1872,
+    "sell_price": 504,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 42,
+      "bonus": {
+        "dexterity": 4,
+        "max_hp": 25
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1089,
+    "code": "deri_eldiven_obsidyen",
+    "display_name": "Obsidyen Deri Eldiven",
+    "category": "armor",
+    "equip_slot": "hands",
+    "max_stack": 1,
+    "max_durability": 200,
+    "req_level": 50,
+    "req_class": "rogue",
+    "buy_price": 8112,
+    "sell_price": 2184,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 71,
+      "bonus": {
+        "dexterity": 6,
+        "max_hp": 36
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1090,
+    "code": "deri_eldiven_ejder",
+    "display_name": "Ejder Deri Eldiven",
+    "category": "armor",
+    "equip_slot": "hands",
+    "max_stack": 1,
+    "max_durability": 240,
+    "req_level": 70,
+    "req_class": "rogue",
+    "buy_price": 37440,
+    "sell_price": 10080,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 119,
+      "bonus": {
+        "dexterity": 9,
+        "max_hp": 50
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1091,
+    "code": "deri_bot_baslangic",
+    "display_name": "Başlangıç Deri Bot",
+    "category": "armor",
+    "equip_slot": "feet",
+    "max_stack": 1,
+    "max_durability": 102,
+    "req_level": 1,
+    "req_class": "rogue",
+    "buy_price": 18,
+    "sell_price": 5,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 9,
+      "bonus": {
+        "dexterity": 1,
+        "max_hp": 1
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1092,
+    "code": "deri_bot_demir",
+    "display_name": "Demir Deri Bot",
+    "category": "armor",
+    "equip_slot": "feet",
+    "max_stack": 1,
+    "max_durability": 120,
+    "req_level": 10,
+    "req_class": "rogue",
+    "buy_price": 109,
+    "sell_price": 29,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 16,
+      "bonus": {
+        "dexterity": 1,
+        "max_hp": 8
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1093,
+    "code": "deri_bot_celik",
+    "display_name": "Çelik Deri Bot",
+    "category": "armor",
+    "equip_slot": "feet",
+    "max_stack": 1,
+    "max_durability": 140,
+    "req_level": 20,
+    "req_class": "rogue",
+    "buy_price": 510,
+    "sell_price": 137,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 28,
+      "bonus": {
+        "dexterity": 2,
+        "max_hp": 17
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1094,
+    "code": "deri_bot_gumus",
+    "display_name": "Gümüş Deri Bot",
+    "category": "armor",
+    "equip_slot": "feet",
+    "max_stack": 1,
+    "max_durability": 170,
+    "req_level": 35,
+    "req_class": "rogue",
+    "buy_price": 2184,
+    "sell_price": 588,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 49,
+      "bonus": {
+        "dexterity": 4,
+        "max_hp": 29
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1095,
+    "code": "deri_bot_obsidyen",
+    "display_name": "Obsidyen Deri Bot",
+    "category": "armor",
+    "equip_slot": "feet",
+    "max_stack": 1,
+    "max_durability": 200,
+    "req_level": 50,
+    "req_class": "rogue",
+    "buy_price": 9464,
+    "sell_price": 2548,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 82,
+      "bonus": {
+        "dexterity": 6,
+        "max_hp": 42
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1096,
+    "code": "deri_bot_ejder",
+    "display_name": "Ejder Deri Bot",
+    "category": "armor",
+    "equip_slot": "feet",
+    "max_stack": 1,
+    "max_durability": 240,
+    "req_level": 70,
+    "req_class": "rogue",
+    "buy_price": 43680,
+    "sell_price": 11760,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 139,
+      "bonus": {
+        "dexterity": 9,
+        "max_hp": 59
+      }
+    },
+    "_classes": [
+      "rogue"
+    ]
+  },
+  {
+    "id": 1097,
+    "code": "kumas_baslik_baslangic",
+    "display_name": "Başlangıç Kumaş Başlık",
+    "category": "armor",
+    "equip_slot": "head",
+    "max_stack": 1,
+    "max_durability": 102,
+    "req_level": 1,
+    "req_class": null,
+    "buy_price": 21,
+    "sell_price": 6,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 6,
+      "bonus": {
+        "intellect": 1,
+        "max_hp": 1
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1098,
+    "code": "kumas_baslik_demir",
+    "display_name": "Demir Kumaş Başlık",
+    "category": "armor",
+    "equip_slot": "head",
+    "max_stack": 1,
+    "max_durability": 120,
+    "req_level": 10,
+    "req_class": null,
+    "buy_price": 125,
+    "sell_price": 34,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 12,
+      "bonus": {
+        "intellect": 1,
+        "max_hp": 10
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1099,
+    "code": "kumas_baslik_celik",
+    "display_name": "Çelik Kumaş Başlık",
+    "category": "armor",
+    "equip_slot": "head",
+    "max_stack": 1,
+    "max_durability": 140,
+    "req_level": 20,
+    "req_class": null,
+    "buy_price": 582,
+    "sell_price": 157,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 20,
+      "bonus": {
+        "intellect": 2,
+        "max_hp": 19
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1100,
+    "code": "kumas_baslik_gumus",
+    "display_name": "Gümüş Kumaş Başlık",
+    "category": "armor",
+    "equip_slot": "head",
+    "max_stack": 1,
+    "max_durability": 170,
+    "req_level": 35,
+    "req_class": null,
+    "buy_price": 2496,
+    "sell_price": 672,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 36,
+      "bonus": {
+        "intellect": 4,
+        "max_hp": 34
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1101,
+    "code": "kumas_baslik_obsidyen",
+    "display_name": "Obsidyen Kumaş Başlık",
+    "category": "armor",
+    "equip_slot": "head",
+    "max_stack": 1,
+    "max_durability": 200,
+    "req_level": 50,
+    "req_class": null,
+    "buy_price": 10816,
+    "sell_price": 2912,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 61,
+      "bonus": {
+        "intellect": 6,
+        "max_hp": 48
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1102,
+    "code": "kumas_baslik_ejder",
+    "display_name": "Ejder Kumaş Başlık",
+    "category": "armor",
+    "equip_slot": "head",
+    "max_stack": 1,
+    "max_durability": 240,
+    "req_level": 70,
+    "req_class": null,
+    "buy_price": 49920,
+    "sell_price": 13440,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 102,
+      "bonus": {
+        "intellect": 9,
+        "max_hp": 67
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1103,
+    "code": "kumas_zirh_baslangic",
+    "display_name": "Başlangıç Kumaş Zırh",
+    "category": "armor",
+    "equip_slot": "chest",
+    "max_stack": 1,
+    "max_durability": 102,
+    "req_level": 1,
+    "req_class": null,
+    "buy_price": 44,
+    "sell_price": 12,
+    "weight": 5,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 14,
+      "bonus": {
+        "intellect": 1,
+        "max_hp": 2
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1104,
+    "code": "kumas_zirh_demir",
+    "display_name": "Demir Kumaş Zırh",
+    "category": "armor",
+    "equip_slot": "chest",
+    "max_stack": 1,
+    "max_durability": 120,
+    "req_level": 10,
+    "req_class": null,
+    "buy_price": 265,
+    "sell_price": 71,
+    "weight": 5,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 24,
+      "bonus": {
+        "intellect": 1,
+        "max_hp": 20
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1105,
+    "code": "kumas_zirh_celik",
+    "display_name": "Çelik Kumaş Zırh",
+    "category": "armor",
+    "equip_slot": "chest",
+    "max_stack": 1,
+    "max_durability": 140,
+    "req_level": 20,
+    "req_class": null,
+    "buy_price": 1238,
+    "sell_price": 333,
+    "weight": 5,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 44,
+      "bonus": {
+        "intellect": 2,
+        "max_hp": 41
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1106,
+    "code": "kumas_zirh_gumus",
+    "display_name": "Gümüş Kumaş Zırh",
+    "category": "armor",
+    "equip_slot": "chest",
+    "max_stack": 1,
+    "max_durability": 170,
+    "req_level": 35,
+    "req_class": null,
+    "buy_price": 5304,
+    "sell_price": 1428,
+    "weight": 5,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 76,
+      "bonus": {
+        "intellect": 4,
+        "max_hp": 71
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1107,
+    "code": "kumas_zirh_obsidyen",
+    "display_name": "Obsidyen Kumaş Zırh",
+    "category": "armor",
+    "equip_slot": "chest",
+    "max_stack": 1,
+    "max_durability": 200,
+    "req_level": 50,
+    "req_class": null,
+    "buy_price": 22984,
+    "sell_price": 6188,
+    "weight": 5,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 129,
+      "bonus": {
+        "intellect": 6,
+        "max_hp": 102
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1108,
+    "code": "kumas_zirh_ejder",
+    "display_name": "Ejder Kumaş Zırh",
+    "category": "armor",
+    "equip_slot": "chest",
+    "max_stack": 1,
+    "max_durability": 240,
+    "req_level": 70,
+    "req_class": null,
+    "buy_price": 106080,
+    "sell_price": 28560,
+    "weight": 5,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 218,
+      "bonus": {
+        "intellect": 9,
+        "max_hp": 143
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1109,
+    "code": "kumas_pantolon_baslangic",
+    "display_name": "Başlangıç Kumaş Pantolon",
+    "category": "armor",
+    "equip_slot": "legs",
+    "max_stack": 1,
+    "max_durability": 102,
+    "req_level": 1,
+    "req_class": null,
+    "buy_price": 31,
+    "sell_price": 8,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 10,
+      "bonus": {
+        "intellect": 1,
+        "max_hp": 1
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1110,
+    "code": "kumas_pantolon_demir",
+    "display_name": "Demir Kumaş Pantolon",
+    "category": "armor",
+    "equip_slot": "legs",
+    "max_stack": 1,
+    "max_durability": 120,
+    "req_level": 10,
+    "req_class": null,
+    "buy_price": 187,
+    "sell_price": 50,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 17,
+      "bonus": {
+        "intellect": 1,
+        "max_hp": 14
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1111,
+    "code": "kumas_pantolon_celik",
+    "display_name": "Çelik Kumaş Pantolon",
+    "category": "armor",
+    "equip_slot": "legs",
+    "max_stack": 1,
+    "max_durability": 140,
+    "req_level": 20,
+    "req_class": null,
+    "buy_price": 874,
+    "sell_price": 235,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 31,
+      "bonus": {
+        "intellect": 2,
+        "max_hp": 29
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1112,
+    "code": "kumas_pantolon_gumus",
+    "display_name": "Gümüş Kumaş Pantolon",
+    "category": "armor",
+    "equip_slot": "legs",
+    "max_stack": 1,
+    "max_durability": 170,
+    "req_level": 35,
+    "req_class": null,
+    "buy_price": 3744,
+    "sell_price": 1008,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 54,
+      "bonus": {
+        "intellect": 4,
+        "max_hp": 50
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1113,
+    "code": "kumas_pantolon_obsidyen",
+    "display_name": "Obsidyen Kumaş Pantolon",
+    "category": "armor",
+    "equip_slot": "legs",
+    "max_stack": 1,
+    "max_durability": 200,
+    "req_level": 50,
+    "req_class": null,
+    "buy_price": 16224,
+    "sell_price": 4368,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 91,
+      "bonus": {
+        "intellect": 6,
+        "max_hp": 72
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1114,
+    "code": "kumas_pantolon_ejder",
+    "display_name": "Ejder Kumaş Pantolon",
+    "category": "armor",
+    "equip_slot": "legs",
+    "max_stack": 1,
+    "max_durability": 240,
+    "req_level": 70,
+    "req_class": null,
+    "buy_price": 74880,
+    "sell_price": 20160,
+    "weight": 4,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 154,
+      "bonus": {
+        "intellect": 9,
+        "max_hp": 101
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1115,
+    "code": "kumas_eldiven_baslangic",
+    "display_name": "Başlangıç Kumaş Eldiven",
+    "category": "armor",
+    "equip_slot": "hands",
+    "max_stack": 1,
+    "max_durability": 102,
+    "req_level": 1,
+    "req_class": null,
+    "buy_price": 16,
+    "sell_price": 4,
+    "weight": 3,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 5,
+      "bonus": {
+        "intellect": 1,
+        "max_hp": 1
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1116,
+    "code": "kumas_eldiven_demir",
+    "display_name": "Demir Kumaş Eldiven",
+    "category": "armor",
+    "equip_slot": "hands",
+    "max_stack": 1,
+    "max_durability": 120,
+    "req_level": 10,
+    "req_class": null,
+    "buy_price": 94,
+    "sell_price": 25,
+    "weight": 3,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 9,
+      "bonus": {
+        "intellect": 1,
+        "max_hp": 7
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1117,
+    "code": "kumas_eldiven_celik",
+    "display_name": "Çelik Kumaş Eldiven",
+    "category": "armor",
+    "equip_slot": "hands",
+    "max_stack": 1,
+    "max_durability": 140,
+    "req_level": 20,
+    "req_class": null,
+    "buy_price": 437,
+    "sell_price": 118,
+    "weight": 3,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 15,
+      "bonus": {
+        "intellect": 2,
+        "max_hp": 14
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1118,
+    "code": "kumas_eldiven_gumus",
+    "display_name": "Gümüş Kumaş Eldiven",
+    "category": "armor",
+    "equip_slot": "hands",
+    "max_stack": 1,
+    "max_durability": 170,
+    "req_level": 35,
+    "req_class": null,
+    "buy_price": 1872,
+    "sell_price": 504,
+    "weight": 3,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 27,
+      "bonus": {
+        "intellect": 4,
+        "max_hp": 25
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1119,
+    "code": "kumas_eldiven_obsidyen",
+    "display_name": "Obsidyen Kumaş Eldiven",
+    "category": "armor",
+    "equip_slot": "hands",
+    "max_stack": 1,
+    "max_durability": 200,
+    "req_level": 50,
+    "req_class": null,
+    "buy_price": 8112,
+    "sell_price": 2184,
+    "weight": 3,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 46,
+      "bonus": {
+        "intellect": 6,
+        "max_hp": 36
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1120,
+    "code": "kumas_eldiven_ejder",
+    "display_name": "Ejder Kumaş Eldiven",
+    "category": "armor",
+    "equip_slot": "hands",
+    "max_stack": 1,
+    "max_durability": 240,
+    "req_level": 70,
+    "req_class": null,
+    "buy_price": 37440,
+    "sell_price": 10080,
+    "weight": 3,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 77,
+      "bonus": {
+        "intellect": 9,
+        "max_hp": 50
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1121,
+    "code": "kumas_bot_baslangic",
+    "display_name": "Başlangıç Kumaş Bot",
+    "category": "armor",
+    "equip_slot": "feet",
+    "max_stack": 1,
+    "max_durability": 102,
+    "req_level": 1,
+    "req_class": null,
+    "buy_price": 18,
+    "sell_price": 5,
+    "weight": 3,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 6,
+      "bonus": {
+        "intellect": 1,
+        "max_hp": 1
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1122,
+    "code": "kumas_bot_demir",
+    "display_name": "Demir Kumaş Bot",
+    "category": "armor",
+    "equip_slot": "feet",
+    "max_stack": 1,
+    "max_durability": 120,
+    "req_level": 10,
+    "req_class": null,
+    "buy_price": 109,
+    "sell_price": 29,
+    "weight": 3,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 10,
+      "bonus": {
+        "intellect": 1,
+        "max_hp": 8
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1123,
+    "code": "kumas_bot_celik",
+    "display_name": "Çelik Kumaş Bot",
+    "category": "armor",
+    "equip_slot": "feet",
+    "max_stack": 1,
+    "max_durability": 140,
+    "req_level": 20,
+    "req_class": null,
+    "buy_price": 510,
+    "sell_price": 137,
+    "weight": 3,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 18,
+      "bonus": {
+        "intellect": 2,
+        "max_hp": 17
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1124,
+    "code": "kumas_bot_gumus",
+    "display_name": "Gümüş Kumaş Bot",
+    "category": "armor",
+    "equip_slot": "feet",
+    "max_stack": 1,
+    "max_durability": 170,
+    "req_level": 35,
+    "req_class": null,
+    "buy_price": 2184,
+    "sell_price": 588,
+    "weight": 3,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 31,
+      "bonus": {
+        "intellect": 4,
+        "max_hp": 29
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1125,
+    "code": "kumas_bot_obsidyen",
+    "display_name": "Obsidyen Kumaş Bot",
+    "category": "armor",
+    "equip_slot": "feet",
+    "max_stack": 1,
+    "max_durability": 200,
+    "req_level": 50,
+    "req_class": null,
+    "buy_price": 9464,
+    "sell_price": 2548,
+    "weight": 3,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 53,
+      "bonus": {
+        "intellect": 6,
+        "max_hp": 42
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1126,
+    "code": "kumas_bot_ejder",
+    "display_name": "Ejder Kumaş Bot",
+    "category": "armor",
+    "equip_slot": "feet",
+    "max_stack": 1,
+    "max_durability": 240,
+    "req_level": 70,
+    "req_class": null,
+    "buy_price": 43680,
+    "sell_price": 11760,
+    "weight": 3,
+    "is_upgradeable": true,
+    "stats": {
+      "armor": 90,
+      "bonus": {
+        "intellect": 9,
+        "max_hp": 59
+      }
+    },
+    "_classes": [
+      "mage",
+      "priest"
+    ]
+  },
+  {
+    "id": 1127,
+    "code": "yuzuk_strength_demir",
+    "display_name": "Demir Güç Yüzük",
+    "category": "accessory",
+    "equip_slot": "ring",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 10,
+    "req_class": null,
+    "buy_price": 540,
+    "sell_price": 132,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "strength": 2
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1128,
+    "code": "yuzuk_strength_celik",
+    "display_name": "Çelik Güç Yüzük",
+    "category": "accessory",
+    "equip_slot": "ring",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 20,
+    "req_class": null,
+    "buy_price": 2520,
+    "sell_price": 616,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "strength": 5
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1129,
+    "code": "yuzuk_strength_gumus",
+    "display_name": "Gümüş Güç Yüzük",
+    "category": "accessory",
+    "equip_slot": "ring",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 35,
+    "req_class": null,
+    "buy_price": 10800,
+    "sell_price": 2640,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "strength": 9
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1130,
+    "code": "yuzuk_strength_obsidyen",
+    "display_name": "Obsidyen Güç Yüzük",
+    "category": "accessory",
+    "equip_slot": "ring",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 50,
+    "req_class": null,
+    "buy_price": 46800,
+    "sell_price": 11440,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "strength": 12
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1131,
+    "code": "yuzuk_strength_ejder",
+    "display_name": "Ejder Güç Yüzük",
+    "category": "accessory",
+    "equip_slot": "ring",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 70,
+    "req_class": null,
+    "buy_price": 216000,
+    "sell_price": 52800,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "strength": 18
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1132,
+    "code": "yuzuk_dexterity_demir",
+    "display_name": "Demir Çeviklik Yüzük",
+    "category": "accessory",
+    "equip_slot": "ring",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 10,
+    "req_class": null,
+    "buy_price": 540,
+    "sell_price": 132,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "dexterity": 2
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1133,
+    "code": "yuzuk_dexterity_celik",
+    "display_name": "Çelik Çeviklik Yüzük",
+    "category": "accessory",
+    "equip_slot": "ring",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 20,
+    "req_class": null,
+    "buy_price": 2520,
+    "sell_price": 616,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "dexterity": 5
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1134,
+    "code": "yuzuk_dexterity_gumus",
+    "display_name": "Gümüş Çeviklik Yüzük",
+    "category": "accessory",
+    "equip_slot": "ring",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 35,
+    "req_class": null,
+    "buy_price": 10800,
+    "sell_price": 2640,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "dexterity": 9
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1135,
+    "code": "yuzuk_dexterity_obsidyen",
+    "display_name": "Obsidyen Çeviklik Yüzük",
+    "category": "accessory",
+    "equip_slot": "ring",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 50,
+    "req_class": null,
+    "buy_price": 46800,
+    "sell_price": 11440,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "dexterity": 12
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1136,
+    "code": "yuzuk_dexterity_ejder",
+    "display_name": "Ejder Çeviklik Yüzük",
+    "category": "accessory",
+    "equip_slot": "ring",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 70,
+    "req_class": null,
+    "buy_price": 216000,
+    "sell_price": 52800,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "dexterity": 18
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1137,
+    "code": "yuzuk_intellect_demir",
+    "display_name": "Demir Zekâ Yüzük",
+    "category": "accessory",
+    "equip_slot": "ring",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 10,
+    "req_class": null,
+    "buy_price": 540,
+    "sell_price": 132,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "intellect": 2
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1138,
+    "code": "yuzuk_intellect_celik",
+    "display_name": "Çelik Zekâ Yüzük",
+    "category": "accessory",
+    "equip_slot": "ring",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 20,
+    "req_class": null,
+    "buy_price": 2520,
+    "sell_price": 616,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "intellect": 5
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1139,
+    "code": "yuzuk_intellect_gumus",
+    "display_name": "Gümüş Zekâ Yüzük",
+    "category": "accessory",
+    "equip_slot": "ring",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 35,
+    "req_class": null,
+    "buy_price": 10800,
+    "sell_price": 2640,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "intellect": 9
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1140,
+    "code": "yuzuk_intellect_obsidyen",
+    "display_name": "Obsidyen Zekâ Yüzük",
+    "category": "accessory",
+    "equip_slot": "ring",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 50,
+    "req_class": null,
+    "buy_price": 46800,
+    "sell_price": 11440,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "intellect": 12
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1141,
+    "code": "yuzuk_intellect_ejder",
+    "display_name": "Ejder Zekâ Yüzük",
+    "category": "accessory",
+    "equip_slot": "ring",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 70,
+    "req_class": null,
+    "buy_price": 216000,
+    "sell_price": 52800,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "intellect": 18
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1142,
+    "code": "yuzuk_stamina_demir",
+    "display_name": "Demir Dayanıklılık Yüzük",
+    "category": "accessory",
+    "equip_slot": "ring",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 10,
+    "req_class": null,
+    "buy_price": 540,
+    "sell_price": 132,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "stamina": 2
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1143,
+    "code": "yuzuk_stamina_celik",
+    "display_name": "Çelik Dayanıklılık Yüzük",
+    "category": "accessory",
+    "equip_slot": "ring",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 20,
+    "req_class": null,
+    "buy_price": 2520,
+    "sell_price": 616,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "stamina": 5
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1144,
+    "code": "yuzuk_stamina_gumus",
+    "display_name": "Gümüş Dayanıklılık Yüzük",
+    "category": "accessory",
+    "equip_slot": "ring",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 35,
+    "req_class": null,
+    "buy_price": 10800,
+    "sell_price": 2640,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "stamina": 9
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1145,
+    "code": "yuzuk_stamina_obsidyen",
+    "display_name": "Obsidyen Dayanıklılık Yüzük",
+    "category": "accessory",
+    "equip_slot": "ring",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 50,
+    "req_class": null,
+    "buy_price": 46800,
+    "sell_price": 11440,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "stamina": 12
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1146,
+    "code": "yuzuk_stamina_ejder",
+    "display_name": "Ejder Dayanıklılık Yüzük",
+    "category": "accessory",
+    "equip_slot": "ring",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 70,
+    "req_class": null,
+    "buy_price": 216000,
+    "sell_price": 52800,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "stamina": 18
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1147,
+    "code": "kolye_strength_demir",
+    "display_name": "Demir Güç Kolye",
+    "category": "accessory",
+    "equip_slot": "necklace",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 10,
+    "req_class": null,
+    "buy_price": 540,
+    "sell_price": 132,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "strength": 2
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1148,
+    "code": "kolye_strength_celik",
+    "display_name": "Çelik Güç Kolye",
+    "category": "accessory",
+    "equip_slot": "necklace",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 20,
+    "req_class": null,
+    "buy_price": 2520,
+    "sell_price": 616,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "strength": 5
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1149,
+    "code": "kolye_strength_gumus",
+    "display_name": "Gümüş Güç Kolye",
+    "category": "accessory",
+    "equip_slot": "necklace",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 35,
+    "req_class": null,
+    "buy_price": 10800,
+    "sell_price": 2640,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "strength": 9
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1150,
+    "code": "kolye_strength_obsidyen",
+    "display_name": "Obsidyen Güç Kolye",
+    "category": "accessory",
+    "equip_slot": "necklace",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 50,
+    "req_class": null,
+    "buy_price": 46800,
+    "sell_price": 11440,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "strength": 12
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1151,
+    "code": "kolye_strength_ejder",
+    "display_name": "Ejder Güç Kolye",
+    "category": "accessory",
+    "equip_slot": "necklace",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 70,
+    "req_class": null,
+    "buy_price": 216000,
+    "sell_price": 52800,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "strength": 18
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1152,
+    "code": "kolye_dexterity_demir",
+    "display_name": "Demir Çeviklik Kolye",
+    "category": "accessory",
+    "equip_slot": "necklace",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 10,
+    "req_class": null,
+    "buy_price": 540,
+    "sell_price": 132,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "dexterity": 2
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1153,
+    "code": "kolye_dexterity_celik",
+    "display_name": "Çelik Çeviklik Kolye",
+    "category": "accessory",
+    "equip_slot": "necklace",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 20,
+    "req_class": null,
+    "buy_price": 2520,
+    "sell_price": 616,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "dexterity": 5
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1154,
+    "code": "kolye_dexterity_gumus",
+    "display_name": "Gümüş Çeviklik Kolye",
+    "category": "accessory",
+    "equip_slot": "necklace",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 35,
+    "req_class": null,
+    "buy_price": 10800,
+    "sell_price": 2640,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "dexterity": 9
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1155,
+    "code": "kolye_dexterity_obsidyen",
+    "display_name": "Obsidyen Çeviklik Kolye",
+    "category": "accessory",
+    "equip_slot": "necklace",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 50,
+    "req_class": null,
+    "buy_price": 46800,
+    "sell_price": 11440,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "dexterity": 12
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1156,
+    "code": "kolye_dexterity_ejder",
+    "display_name": "Ejder Çeviklik Kolye",
+    "category": "accessory",
+    "equip_slot": "necklace",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 70,
+    "req_class": null,
+    "buy_price": 216000,
+    "sell_price": 52800,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "dexterity": 18
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1157,
+    "code": "kolye_intellect_demir",
+    "display_name": "Demir Zekâ Kolye",
+    "category": "accessory",
+    "equip_slot": "necklace",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 10,
+    "req_class": null,
+    "buy_price": 540,
+    "sell_price": 132,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "intellect": 2
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1158,
+    "code": "kolye_intellect_celik",
+    "display_name": "Çelik Zekâ Kolye",
+    "category": "accessory",
+    "equip_slot": "necklace",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 20,
+    "req_class": null,
+    "buy_price": 2520,
+    "sell_price": 616,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "intellect": 5
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1159,
+    "code": "kolye_intellect_gumus",
+    "display_name": "Gümüş Zekâ Kolye",
+    "category": "accessory",
+    "equip_slot": "necklace",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 35,
+    "req_class": null,
+    "buy_price": 10800,
+    "sell_price": 2640,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "intellect": 9
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1160,
+    "code": "kolye_intellect_obsidyen",
+    "display_name": "Obsidyen Zekâ Kolye",
+    "category": "accessory",
+    "equip_slot": "necklace",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 50,
+    "req_class": null,
+    "buy_price": 46800,
+    "sell_price": 11440,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "intellect": 12
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1161,
+    "code": "kolye_intellect_ejder",
+    "display_name": "Ejder Zekâ Kolye",
+    "category": "accessory",
+    "equip_slot": "necklace",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 70,
+    "req_class": null,
+    "buy_price": 216000,
+    "sell_price": 52800,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "intellect": 18
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1162,
+    "code": "kolye_stamina_demir",
+    "display_name": "Demir Dayanıklılık Kolye",
+    "category": "accessory",
+    "equip_slot": "necklace",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 10,
+    "req_class": null,
+    "buy_price": 540,
+    "sell_price": 132,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "stamina": 2
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1163,
+    "code": "kolye_stamina_celik",
+    "display_name": "Çelik Dayanıklılık Kolye",
+    "category": "accessory",
+    "equip_slot": "necklace",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 20,
+    "req_class": null,
+    "buy_price": 2520,
+    "sell_price": 616,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "stamina": 5
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1164,
+    "code": "kolye_stamina_gumus",
+    "display_name": "Gümüş Dayanıklılık Kolye",
+    "category": "accessory",
+    "equip_slot": "necklace",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 35,
+    "req_class": null,
+    "buy_price": 10800,
+    "sell_price": 2640,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "stamina": 9
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1165,
+    "code": "kolye_stamina_obsidyen",
+    "display_name": "Obsidyen Dayanıklılık Kolye",
+    "category": "accessory",
+    "equip_slot": "necklace",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 50,
+    "req_class": null,
+    "buy_price": 46800,
+    "sell_price": 11440,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "stamina": 12
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1166,
+    "code": "kolye_stamina_ejder",
+    "display_name": "Ejder Dayanıklılık Kolye",
+    "category": "accessory",
+    "equip_slot": "necklace",
+    "max_stack": 1,
+    "max_durability": 0,
+    "req_level": 70,
+    "req_class": null,
+    "buy_price": 216000,
+    "sell_price": 52800,
+    "weight": 1,
+    "is_upgradeable": true,
+    "stats": {
+      "bonus": {
+        "stamina": 18
+      }
+    },
+    "_classes": []
+  },
+  {
+    "id": 1167,
+    "code": "sifa_kucuk",
+    "display_name": "Küçük Şifa İksiri",
+    "category": "consumable",
+    "equip_slot": null,
+    "max_stack": 200,
+    "max_durability": 0,
+    "req_level": 1,
+    "req_class": null,
+    "buy_price": 15,
+    "sell_price": 3,
+    "weight": 1,
+    "is_upgradeable": false,
+    "stats": {
+      "effect": "heal_hp",
+      "potency": 120
+    },
+    "_classes": []
+  },
+  {
+    "id": 1168,
+    "code": "sifa_orta",
+    "display_name": "Orta Şifa İksiri",
+    "category": "consumable",
+    "equip_slot": null,
+    "max_stack": 200,
+    "max_durability": 0,
+    "req_level": 20,
+    "req_class": null,
+    "buy_price": 70,
+    "sell_price": 17,
+    "weight": 1,
+    "is_upgradeable": false,
+    "stats": {
+      "effect": "heal_hp",
+      "potency": 400
+    },
+    "_classes": []
+  },
+  {
+    "id": 1169,
+    "code": "sifa_buyuk",
+    "display_name": "Büyük Şifa İksiri",
+    "category": "consumable",
+    "equip_slot": null,
+    "max_stack": 200,
+    "max_durability": 0,
+    "req_level": 45,
+    "req_class": null,
+    "buy_price": 260,
+    "sell_price": 65,
+    "weight": 1,
+    "is_upgradeable": false,
+    "stats": {
+      "effect": "heal_hp",
+      "potency": 1200
+    },
+    "_classes": []
+  },
+  {
+    "id": 1170,
+    "code": "mana_kucuk",
+    "display_name": "Küçük Mana İksiri",
+    "category": "consumable",
+    "equip_slot": null,
+    "max_stack": 200,
+    "max_durability": 0,
+    "req_level": 1,
+    "req_class": null,
+    "buy_price": 18,
+    "sell_price": 4,
+    "weight": 1,
+    "is_upgradeable": false,
+    "stats": {
+      "effect": "heal_mp",
+      "potency": 100
+    },
+    "_classes": []
+  },
+  {
+    "id": 1171,
+    "code": "mana_orta",
+    "display_name": "Orta Mana İksiri",
+    "category": "consumable",
+    "equip_slot": null,
+    "max_stack": 200,
+    "max_durability": 0,
+    "req_level": 20,
+    "req_class": null,
+    "buy_price": 80,
+    "sell_price": 20,
+    "weight": 1,
+    "is_upgradeable": false,
+    "stats": {
+      "effect": "heal_mp",
+      "potency": 340
+    },
+    "_classes": []
+  },
+  {
+    "id": 1172,
+    "code": "mana_buyuk",
+    "display_name": "Büyük Mana İksiri",
+    "category": "consumable",
+    "equip_slot": null,
+    "max_stack": 200,
+    "max_durability": 0,
+    "req_level": 45,
+    "req_class": null,
+    "buy_price": 300,
+    "sell_price": 75,
+    "weight": 1,
+    "is_upgradeable": false,
+    "stats": {
+      "effect": "heal_mp",
+      "potency": 1000
+    },
+    "_classes": []
+  },
+  {
+    "id": 1173,
+    "code": "sehir_tasi",
+    "display_name": "Şehir Taşı",
+    "category": "consumable",
+    "equip_slot": null,
+    "max_stack": 200,
+    "max_durability": 0,
+    "req_level": 5,
+    "req_class": null,
+    "buy_price": 50,
+    "sell_price": 12,
+    "weight": 1,
+    "is_upgradeable": false,
+    "stats": {
+      "effect": "teleport",
+      "potency": 0
+    },
+    "_classes": []
+  },
+  {
+    "id": 1174,
+    "code": "tamir_kiti",
+    "display_name": "Tamir Kiti",
+    "category": "consumable",
+    "equip_slot": null,
+    "max_stack": 200,
+    "max_durability": 0,
+    "req_level": 10,
+    "req_class": null,
+    "buy_price": 120,
+    "sell_price": 30,
+    "weight": 1,
+    "is_upgradeable": false,
+    "stats": {
+      "effect": "repair",
+      "potency": 50
+    },
+    "_classes": []
+  },
+  {
+    "id": 1175,
+    "code": "kaba_deri",
+    "display_name": "Kaba Deri",
+    "category": "material",
+    "equip_slot": null,
+    "max_stack": 999,
+    "max_durability": 0,
+    "req_level": 1,
+    "req_class": null,
+    "buy_price": 6,
+    "sell_price": 1,
+    "weight": 1,
+    "is_upgradeable": false,
+    "stats": {
+      "material_tier": 1
+    },
+    "_classes": []
+  },
+  {
+    "id": 1176,
+    "code": "demir_cubuk",
+    "display_name": "Demir Çubuk",
+    "category": "material",
+    "equip_slot": null,
+    "max_stack": 999,
+    "max_durability": 0,
+    "req_level": 1,
+    "req_class": null,
+    "buy_price": 20,
+    "sell_price": 4,
+    "weight": 1,
+    "is_upgradeable": false,
+    "stats": {
+      "material_tier": 10
+    },
+    "_classes": []
+  },
+  {
+    "id": 1177,
+    "code": "celik_cubuk",
+    "display_name": "Çelik Çubuk",
+    "category": "material",
+    "equip_slot": null,
+    "max_stack": 999,
+    "max_durability": 0,
+    "req_level": 1,
+    "req_class": null,
+    "buy_price": 85,
+    "sell_price": 17,
+    "weight": 1,
+    "is_upgradeable": false,
+    "stats": {
+      "material_tier": 20
+    },
+    "_classes": []
+  },
+  {
+    "id": 1178,
+    "code": "gumus_toz",
+    "display_name": "Gümüş Tozu",
+    "category": "material",
+    "equip_slot": null,
+    "max_stack": 999,
+    "max_durability": 0,
+    "req_level": 1,
+    "req_class": null,
+    "buy_price": 340,
+    "sell_price": 68,
+    "weight": 1,
+    "is_upgradeable": false,
+    "stats": {
+      "material_tier": 35
+    },
+    "_classes": []
+  },
+  {
+    "id": 1179,
+    "code": "obsidyen_parca",
+    "display_name": "Obsidyen Parçası",
+    "category": "material",
+    "equip_slot": null,
+    "max_stack": 999,
+    "max_durability": 0,
+    "req_level": 1,
+    "req_class": null,
+    "buy_price": 1400,
+    "sell_price": 280,
+    "weight": 1,
+    "is_upgradeable": false,
+    "stats": {
+      "material_tier": 50
+    },
+    "_classes": []
+  },
+  {
+    "id": 1180,
+    "code": "ejder_pulu",
+    "display_name": "Ejder Pulu",
+    "category": "material",
+    "equip_slot": null,
+    "max_stack": 999,
+    "max_durability": 0,
+    "req_level": 1,
+    "req_class": null,
+    "buy_price": 6000,
+    "sell_price": 1200,
+    "weight": 1,
+    "is_upgradeable": false,
+    "stats": {
+      "material_tier": 70
+    },
+    "_classes": []
+  },
+  {
+    "id": 1181,
+    "code": "kutsama_tasi",
+    "display_name": "Kutsama Taşı",
+    "category": "material",
+    "equip_slot": null,
+    "max_stack": 999,
+    "max_durability": 0,
+    "req_level": 1,
+    "req_class": null,
+    "buy_price": 500,
+    "sell_price": 100,
+    "weight": 1,
+    "is_upgradeable": false,
+    "stats": {
+      "material_tier": 15
+    },
+    "_classes": []
+  }
+]
