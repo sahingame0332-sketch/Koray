@@ -13,6 +13,10 @@ haritasıyla başlıyor.
 | [`docs/03-icerik-uretim-rehberi.md`](docs/03-icerik-uretim-rehberi.md) | İçerik üretim hattı: karakter, item, skill, mob, harita ve arayüz için veri modeli, dengeleme yöntemi, UI ekran envanteri ve sanat varlığı kaynakları |
 | [`docs/schema/01_core_schema.sql`](docs/schema/01_core_schema.sql) | Normalize PostgreSQL çekirdek şeması (27 tablo + 2 görünüm). KO'nun yedi temel kusuru baştan çözülmüş. PostgreSQL 16.15'te test edildi. |
 | [`docs/schema/02_content_seed.sql`](docs/schema/02_content_seed.sql) | Üretilmiş başlangıç içeriği: 181 eşya, 40 beceri, 44 NPC, 242 loot satırı, 100 doğma noktası, 10 bölge (otomatik üretildi — elle düzenlemeyin) |
+| [`docs/04-stat-dagitimi-ve-hold-repeat.md`](docs/04-stat-dagitimi-ve-hold-repeat.md) | Stat dağıtım butonunun basılı-tutma tekrarlama hızı: analiz, ölçüm sonuçları ve Unity kurulum adımları |
+| [`unity/Assets/Scripts/`](unity/Assets/Scripts) | Unity C# kaynakları: `HoldRepeatButton`, `StatAllocationPanel`, `StatRepeatTuning`, stat servisi arayüzü + test taklidi |
+| [`tools/analyze_hold_repeat.py`](tools/analyze_hold_repeat.py) | Tekrarlama eğrisi simülatörü ve hedef denetimi |
+| [`tools/unity-compile-check/`](tools/unity-compile-check) | Unity kurmadan C# derleme kontrolü + C#'ın analizle aynı sonucu verdiğini doğrulayan koşum |
 | [`tools/generate_content.py`](tools/generate_content.py) | İçerik üreteci. Tasarım parametrelerini değiştir, çalıştır, içerik + dengeleme raporu yeniden üretilir |
 | `content/*.json` | Üretilen içeriğin okunabilir hâli + `balance_report.txt` |
 
@@ -26,11 +30,18 @@ psql -d oyun -f docs/schema/02_content_seed.sql # içerik
 cat content/balance_report.txt                  # "Sorunlu mob sayısı: 0" olmalı
 ```
 
+Unity kodunu Unity kurmadan doğrulamak için:
+
+```bash
+apt-get install -y mono-mcs                     # tek seferlik
+bash tools/unity-compile-check/check.sh --run   # derleme + zamanlama doğrulaması
+```
+
 ## Durum
 
-Veri modeli ve başlangıç içeriği hazır ve PostgreSQL'de doğrulandı. Oyun kodu
-(sunucu + Unity istemcisi) henüz yok — sıradaki iş `01` Bölüm 7'deki **Faz 1
-dikey dilimi**.
+Veri modeli ve başlangıç içeriği hazır, PostgreSQL'de doğrulandı. İlk Unity
+arayüz bileşeni (stat dağıtım paneli) yazıldı ve zamanlaması ölçüldü. Sunucu
+tarafı henüz yok — sıradaki iş `01` Bölüm 7'deki **Faz 1 dikey dilimi**.
 
 ## Önemli notlar
 
