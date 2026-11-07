@@ -33,8 +33,9 @@ namespace Olympos.UI
         [Tooltip("Pencerenin siyah zemini. Saydamlık backgroundAlpha ile ayarlanır.")]
         public Image background;
         [Range(0f, 1f)]
-        [Tooltip("1 = tamamen siyah, 0 = tamamen saydam. Varsayılan 0.85: oyun dünyası arkadan hafifçe görünür.")]
-        public float backgroundAlpha = 0.85f;
+        [Tooltip("1 = tamamen siyah, 0 = tamamen saydam. Varsayılan 0.92: orijinal ekran görüntüsünden ölçüldü " +
+                 "(geçirgenlik t≈0.075). Ayrıntı: arayuz/04-saydamlik.md")]
+        public float backgroundAlpha = 0.92f;
 
         [Header("Sekmeler")]
         public Button tabCharInfo;

@@ -19,18 +19,21 @@ Arayüz işi ile altyapı işi aynı oyunun iki yüzü: `docs/03-icerik-uretim-r
    Küçük, oyun içi boyuttaki görsellerde yazılar da orijinal piksellerden korunur.
 2. **Önce görsel.** Dosya/doküman/paket yapmadan önce sonucu **görsel olarak** göster (orijinal ↔ yeni yan yana).
    Kullanıcı onaylayınca ("Süpersin… Unity editöre aktarabileceğim şekilde dosya haline getir") Unity paketine geç.
-3. **Saydamlık.** Pencere iç zemini **düz siyah** (kahverengi doku YOK) ve **yarı saydam** (varsayılan alfa **0.85**);
+3. **Saydamlık.** Pencere iç zemini **düz siyah** (kahverengi doku YOK) ve **yarı saydam**;
    oyun dünyası arkadan hafifçe görünür. Unity'de ayrı bir siyah Image + Inspector'da `backgroundAlpha` ile ayarlanır.
    Pencere dışında kalan oyun sahnesi parçaları **tamamen saydam**. Kutular/butonlar **opak**.
-   İSTİSNA: **Save Stat Preset** penceresi **mat** (opak) — saydam yapılmaz.
+   Alfa değerleri **orijinal ekran görüntülerinden ölçüldü** (bkz. `arayuz/04-saydamlik.md`), varsayılmadı:
+   Character **0.92** · Ana menü **0.92** · Stat butonları **0.92** · OPTIONS dış alan **0.95**.
+   İSTİSNA: **Save Stat Preset** **mat** (ölçüm: alfa 0.99) ve **OPTIONS içerik paneli** opak (kendi siyah zemini var).
+   Yeni pencerede alfa tahmin edilmez: `araclar/saydamlik_olcumu/saydamlik.py` ile ölçülür.
 4. Kullanıcı "Dur" derse hemen dur, durumu kısaca söyle, bekle.
 
 ## Teslim edilenler
 | Paket | Pencere | Boyut (px) | Zemin |
 |---|---|---|---|
-| `arayuz/unity_paketleri/OlymposCharacter1298.unitypackage` | Character › CHAR INFO sekmesi | 654 × 1030 | yarı saydam siyah 0.85 |
+| `arayuz/unity_paketleri/OlymposCharacter1298.unitypackage` | Character › CHAR INFO sekmesi | 654 × 1030 | yarı saydam siyah **0.92** |
 | `arayuz/unity_paketleri/OlymposStatWindows1298.unitypackage` | SAVE STAT PRESET | 293 × 454 | mat |
-| (aynı paket) | Stat butonları STR/HP/DEX/INT/MP | 197 × 243 | yarı saydam siyah 0.85 |
+| (aynı paket) | Stat butonları STR/HP/DEX/INT/MP | 197 × 243 | yarı saydam siyah **0.92** |
 
 Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `OLYMPOS > 1298 > Character Penceresi Oluştur`, `… > Save Stat Preset Penceresi Oluştur`, `… > Stat Butonları Penceresi Oluştur`.

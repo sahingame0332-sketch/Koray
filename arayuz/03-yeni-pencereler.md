@@ -21,17 +21,16 @@ görsel onayı bekleniyor.
 
 | pencere | x | y | boyut | zemin |
 |---|---|---|---|---|
-| Character (dört sekme ortak) | 303–1063 | 143–1348 | 760 × 1205 | **yarı saydam** |
-| OPTIONS | 1018–1872 | 166–1337 | 854 × 1171 | **mat (opak)** |
-| Ana menü | 1864–2185 | 379–1368 | 321 × 989 | mat |
-| Save Stat Preset | 1080–1652 | 404–1275 | 572 × 871 | mat |
+| Character (dört sekme ortak) | 303–1063 | 143–1348 | 760 × 1205 | **yarı saydam 0,92** |
+| OPTIONS | 1018–1872 | 166–1337 | 854 × 1171 | **yarı saydam 0,95** (içerik paneli opak) |
+| Ana menü | 1864–2185 | 379–1368 | 321 × 989 | **yarı saydam 0,92** |
+| Save Stat Preset | 1080–1652 | 404–1275 | 572 × 871 | **mat** (ölçüm: 0,99) |
 | Kapat (X) düğmesi | — | — | 82 × 84 | daire, ortak parça |
 
-**Saydamlık kanıtı:** Character penceresinin içinden arkadaki sohbet kutusunun yazıları
-okunuyor — yani gerçekten yarı saydam. OPTIONS'ta ise iki farklı ekran görüntüsünde pencere
-içi pikseller **birebir aynı** ve değerleri rgb(2,2,1); arkadaki taş zemin parlak olmasına
-rağmen hiç sızmıyor → opak. Ana menünün içi de aynı şekilde rgb(2,2,2) civarı.
-Yine de her pencerede `backgroundAlpha` Inspector ayarı açık kalacak.
+**Saydamlık:** Dördü de yarı saydam. Alfa değerleri kenar ölçümüyle bulundu —
+Character 0,92 · Ana menü 0,92 · OPTIONS dış alan 0,95; OPTIONS'ın içerik paneli ise
+kendi opak siyah zeminine sahip. Yöntem ve sonuç tablosu: `04-saydamlik.md`.
+(Bu belgenin ilk hâlinde OPTIONS yanlışlıkla "mat" yazılmıştı; düzeltildi.)
 
 **Ölçek:** Mevcut Character paketi 654 × 1030; bu çekimde aynı pencere 760 × 1205
 (oran 0,86). Kullanıcı kararı: **mevcut 654 ölçeği korunuyor**. Sprite'lar yine de 760'lık

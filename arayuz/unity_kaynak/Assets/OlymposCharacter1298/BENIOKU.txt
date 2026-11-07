@@ -51,7 +51,8 @@ KODDAN DEĞER DOLDURMA
     w.statResetButton.onClick.AddListener(...);
 
 ZEMİN SAYDAMLIĞI
-Pencerenin iç zemini düz siyahtır ve %85 opaktır; oyun dünyası arkadan hafifçe görünür.
+Pencerenin iç zemini düz siyahtır ve %92 opaktır. Bu değer tahmin değil: orijinal ekran
+görüntüsünde pencere kenarının iki yanı ölçülerek bulundu (bkz. arayuz/04-saydamlik.md).
 Ayarlamak için: CharacterWindow_1298 objesi > OlymposCharacterWindow > Background Alpha
 (1 = tamamen siyah, 0 = tamamen saydam). Kutuların ve butonların içi opaktır,
 sekme aralıkları ve buton köşeleri saydamdır.

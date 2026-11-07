@@ -76,7 +76,7 @@ namespace Olympos.UI.EditorTools
 
             var win = root.AddComponent<OlymposCharacterWindow>();
 
-            // Zemin: düz siyah, yarı saydam (oyun dünyası arkadan hafifçe görünür)
+            // Zemin: düz siyah, yarı saydam. Alfa orijinalden ölçüldü (0.92) — bkz. arayuz/04-saydamlik.md
             var bg = root.AddComponent<Image>();
             bg.sprite = null;
             bg.color = new Color(0f, 0f, 0f, win.backgroundAlpha);

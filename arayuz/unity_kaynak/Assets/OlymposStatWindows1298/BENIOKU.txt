@@ -22,7 +22,7 @@ PENCERELER
 
 - StatButtons_1298 (197 x 243) · YARI SAYDAM zemin
   Çerçeve ve STR / HP / DEX / INT / MP butonları orijinalden birebir alınmıştır.
-  İç zemin %85 opak siyahtır; oyun dünyası arkadan hafifçe görünür.
+  İç zemin %92 opak siyahtır (orijinalden ölçüldü); oyun dünyası arkadan hafifçe görünür.
   Ayar: StatButtons_1298 > OlymposStatButtonsWindow > Background Alpha
   (1 = tamamen siyah, 0 = tamamen saydam).
 
