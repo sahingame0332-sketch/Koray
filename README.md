@@ -26,10 +26,12 @@ Proje bağlamı ve çalışma kuralları: [`CLAUDE.md`](CLAUDE.md).
 | [`arayuz/00-sohbet-ozeti.md`](arayuz/00-sohbet-ozeti.md) | claude.ai'daki arayüz sohbetinin adım adım kaydı — hangi pencere hangi istek üzerine, nasıl üretildi |
 | [`arayuz/01-dogrulama.md`](arayuz/01-dogrulama.md) | Devir paketinin doğrulama raporu: derleme sonucu, paket/GUID tutarlılığı, iyileştirme adayları, açık kalanlar |
 | [`arayuz/02-font-kalibrasyonu.md`](arayuz/02-font-kalibrasyonu.md) | Roboto Slab Bold'un temini ve puntoların orijinale göre ölçülerek kalibre edilmesi: yöntem, aday font sıralaması, punto tablosu, sonuçlar |
+| [`arayuz/03-yeni-pencereler.md`](arayuz/03-yeni-pencereler.md) | FRIENDS, CLAN, ana menü ve OPTIONS pencerelerinin ölçümleri ve sprite çıkarımı: kutular, öğe koordinatları, saydamlık ölçümü, doğrulama |
 | `arayuz/unity_paketleri/*.unitypackage` | Unity'ye doğrudan import edilebilir iki paket: Character (Char Info) ve Save Stat Preset + Stat butonları |
 | `arayuz/unity_kaynak/Assets/` | Paketlerin kaynağı (`.meta` dosyalarıyla): sprite'lar, fontlar, çalışma zamanı betikleri, editör kurucuları |
-| `arayuz/kaynak/` | Sprite çıkarımının ara ürünleri ve HTML önizleme (`kaynak/char_info/unity_preview.html`) |
-| `arayuz/referans_gorseller/`, `arayuz/onizlemeler/` | Orijinal oyun ekran görüntüleri ve orijinal ↔ yeni karşılaştırma görselleri |
+| `arayuz/kaynak/` | Çıkarılan sprite'lar (`char_info/`, `friends/`, `clan/`, `ana_menu/`, `options/`) ve HTML önizleme (`kaynak/char_info/unity_preview.html`) |
+| `arayuz/referans_gorseller/` | Orijinal ekran görüntüleri; `1298_ekranlar/` altında 16 tam ekran çekim (FRIENDS, CLAN, ana menü, OPTIONS'ın 11 sayfası) |
+| `arayuz/onizlemeler/` | Orijinal ↔ yeni karşılaştırma görselleri |
 | `arayuz/araclar/` | RAR5 okuyucu, `.unitypackage` üreteci, sprite üreteci, `derleme_kontrolu/` (Unity'siz C# derlemesi) ve `font_kalibrasyonu/` (font/punto ölçümü) |
 
 ## Hızlı başlangıç
