@@ -2,6 +2,8 @@
 
 Tarih: 7 Kasım 2026 · Ortam: Claude Code (Linux konteyner, Unity yok)
 
+> Font ve punto tarafı ayrı belgede: `02-font-kalibrasyonu.md`.
+
 Devir notundaki açık nokta şuydu: *"Unity ve C# derleyicisi bulunmayan bir ortamda yazıldı →
 derlenmedi, Unity'de denenmedi."* Bu ortamda **C# derleyicisi (Mono `mcs` 6.8) kuruldu** ve
 derleme adımı kapatıldı. Unity'nin kendisi hâlâ yok, dolayısıyla import/çalışma zamanı denemesi
@@ -16,6 +18,7 @@ kullanıcıda duruyor.
 | 3 | Paketteki GUID'ler ↔ `unity_kaynak/` içindeki `.meta` GUID'leri | **Hepsi aynı** (0 uyuşmazlık) |
 | 4 | Paketteki dosya içerikleri ↔ `unity_kaynak/` kaynakları (SHA-256) | **Hepsi aynı** (26 dosya, 0 fark) |
 | 5 | Sprite piksel ölçüleri ↔ kurucudaki koordinatlar | Uyumlu (aşağıdaki not 1 hariç) |
+| 6 | Font kalibrasyonu sonrası paketler yeniden üretildi; 2–4 tekrar koşuldu | **0 uyuşmazlık**, mevcut GUID'ler değişmedi |
 
 3 ve 4 birlikte şunu garanti eder: paketi **Import Package** ile almak ile `Assets/` klasörünü
 elle kopyalamak aynı sonucu verir; GUID'ler kaymaz, prefab/referanslar kopmaz.
@@ -63,9 +66,9 @@ koda dokunulmadı, kayda geçiriliyor.
 ## Hâlâ açık
 
 - **Unity'de ilk import ve derleme.** Kullanıcının `OLYMPOS > 1298 > …` menülerini çalıştırıp
-  Console çıktısını getirmesi gerekiyor. Beklenen tek uyarı kaynakları: not 4 ve
-  `RobotoSlab-Bold.ttf` yokluğu (kurucu bunu zaten kendisi `LogWarning` ile söylüyor).
+  Console çıktısını getirmesi gerekiyor. Beklenen tek uyarı kaynağı: not 4.
+  (`RobotoSlab-Bold.ttf` artık pakette olduğu için font uyarısı çıkmayacak.)
 - Üç pencerenin ölçeklerinin birbirine oranlanması (Char Info daha büyük bir ekran
   görüntüsünden geldi — kök `RectTransform.Scale` ile ayarlanacak).
-- `RobotoSlab-Bold.ttf` gelirse etiketlerin yeniden kurulması.
+- Puntoların Unity'de de tuttuğunun doğrulanması (Chromium üzerinden ölçüldü; ±1 rötuş gerekebilir) — `02-font-kalibrasyonu.md`.
 - QUESTS / CLAN / FRIENDS sekmeleri ve yeni pencereler.

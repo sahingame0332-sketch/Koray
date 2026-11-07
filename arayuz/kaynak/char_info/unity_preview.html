@@ -3,12 +3,16 @@
 <head>
 <meta charset="utf-8">
 <title>OLYMPOS-KO · Character · Char Info</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet">
+
 <style>
+@font-face{font-family:"RobotoSlabLocal";src:url(fonts/RobotoSlab-Bold.ttf);font-weight:700}
 @font-face{font-family:"RobotoLocal";src:url(fonts/Roboto-Regular.ttf);font-weight:400}
 @font-face{font-family:"RobotoLocal";src:url(fonts/Roboto-Bold.ttf);font-weight:700}
 :root{
-  --slab:"Roboto Slab","DejaVu Serif Condensed","DejaVu Serif",Georgia,serif;
+  --slab:"RobotoSlabLocal",serif;
+  /* Roboto Slab Bold icin olculerek kalibre edildi — bkz. arayuz/02-font-kalibrasyonu.md */
+  --fs-tab:21px; --fs-lbl:21px; --fs-statk:21px; --fs-resk:19px;
+  --fs-human:20px; --fs-name:25px; --fs-job:22px; --fs-btn:22px; --fs-statv:25px; --fs-resv:23px;
   --sans:"Roboto","RobotoLocal",Arial,sans-serif;
   --tan:#dfc5ae;          /* kutu kenarı */
   --tan-dark:#9f8a75;
@@ -35,19 +39,19 @@ body{display:flex;justify-content:center;align-items:flex-start;padding:0}
 
 /* ---- Sekmeler ---- */
 .tab{position:absolute;top:10px;height:82px;display:flex;align-items:center;justify-content:center;
-  font:700 20px var(--slab);color:#f4f4f4;text-shadow:0 1px 2px #000;letter-spacing:.2px}
+  font:700 var(--fs-tab) var(--slab);color:#f4f4f4;text-shadow:0 1px 2px #000;letter-spacing:.2px}
 #tabsbg{position:absolute;left:9px;top:8px;width:637px;height:92px}
 
 /* ---- Irk & isim ---- */
 #race{left:66px;top:118px;width:56px;height:56px}
-#human{left:40px;top:172px;width:104px;text-align:center;font:700 19px var(--slab);
+#human{left:40px;top:172px;width:104px;text-align:center;font:700 var(--fs-human) var(--slab);
   color:#fafafa;letter-spacing:1.2px;text-shadow:1px 1px 1px #000}
-#name{left:174px;top:126px;font:700 25px var(--slab);color:var(--name);text-shadow:1px 1px 2px #000}
+#name{left:174px;top:126px;font:700 var(--fs-name) var(--slab);color:var(--name);text-shadow:1px 1px 2px #000}
 
 /* ---- Etiket butonları (koyu metal) ---- */
 .lbl{position:absolute;height:30px;border-style:solid;border-width:8px 8px 8px 18px;
   border-image:url(sprites/label_button.png) 8 8 8 18 fill stretch;
-  font:700 19px var(--slab);color:#f2f2f2;text-shadow:1px 1px 1px #000;
+  font:700 var(--fs-lbl) var(--slab);color:#f2f2f2;text-shadow:1px 1px 1px #000;
   display:flex;align-items:center;padding-left:0;margin-left:0;white-space:nowrap}
 .lbl>span{position:absolute;left:187px}
 .lbl.o{color:var(--orange)}
@@ -61,15 +65,15 @@ body{display:flex;justify-content:center;align-items:flex-start;padding:0}
 .stat .k,.stat .v,.res .k,.res .v{margin-left:-6px}
 .box.t{color:var(--val-tan);letter-spacing:.3px}
 .stat{justify-content:flex-start}
-.stat .k{position:absolute;font:700 19px var(--slab);color:#f5f5f5;text-shadow:1px 1px 1px #000}
-.stat .v{position:absolute;font:700 21px var(--slab);color:var(--val-tan)}
-.res .k{position:absolute;font:700 18px var(--slab);color:#f0f0f0;letter-spacing:-.2px;text-shadow:1px 1px 1px #000}
-.res .v{position:absolute;font:700 21px var(--slab);color:var(--val-tan)}
+.stat .k{position:absolute;font:700 var(--fs-statk) var(--slab);color:#f5f5f5;text-shadow:1px 1px 1px #000}
+.stat .v{position:absolute;font:700 var(--fs-statv) var(--slab);color:var(--val-tan)}
+.res .k{position:absolute;font:700 var(--fs-resk) var(--slab);color:#f0f0f0;letter-spacing:-.2px;text-shadow:1px 1px 1px #000}
+.res .v{position:absolute;font:700 var(--fs-resv) var(--slab);color:var(--val-tan)}
 
 /* ---- Mavi butonlar ---- */
 .btn{position:absolute;width:145px;height:45px;background-size:100% 100%;
   display:flex;align-items:center;justify-content:center;
-  font:700 21px var(--slab);color:#f5f5f5;text-shadow:1px 1px 1px #000;white-space:pre}
+  font:700 var(--fs-btn) var(--slab);color:#f5f5f5;text-shadow:1px 1px 1px #000;white-space:pre}
 .btn.r{color:var(--reset)}
 </style>
 </head>
@@ -121,7 +125,7 @@ body{display:flex;justify-content:center;align-items:flex-start;padding:0}
   <div class="box" style="left:363px;top:224px;width:240px;height:48px;font-size:22px">1.673 / 1.673</div>
 
   <div class="lbl" style="left:38px;top:291px;width:81px">Job</div>
-  <div class="box" style="left:122px;top:280px;width:99px;height:51px;font:700 19px var(--slab);text-shadow:1px 1px 1px #000">Magician</div>
+  <div class="box" style="left:122px;top:280px;width:99px;height:51px;font:700 var(--fs-job) var(--slab);text-shadow:1px 1px 1px #000">Magician</div>
   <div class="lbl" style="left:228px;top:291px;width:121px">MP Point</div>
   <div class="box" style="left:363px;top:281px;width:240px;height:48px;font-size:22px">3.417 / 3.417</div>
 

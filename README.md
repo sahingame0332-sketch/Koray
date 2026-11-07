@@ -25,11 +25,12 @@ Proje bağlamı ve çalışma kuralları: [`CLAUDE.md`](CLAUDE.md).
 |---|---|
 | [`arayuz/00-sohbet-ozeti.md`](arayuz/00-sohbet-ozeti.md) | claude.ai'daki arayüz sohbetinin adım adım kaydı — hangi pencere hangi istek üzerine, nasıl üretildi |
 | [`arayuz/01-dogrulama.md`](arayuz/01-dogrulama.md) | Devir paketinin doğrulama raporu: derleme sonucu, paket/GUID tutarlılığı, iyileştirme adayları, açık kalanlar |
+| [`arayuz/02-font-kalibrasyonu.md`](arayuz/02-font-kalibrasyonu.md) | Roboto Slab Bold'un temini ve puntoların orijinale göre ölçülerek kalibre edilmesi: yöntem, aday font sıralaması, punto tablosu, sonuçlar |
 | `arayuz/unity_paketleri/*.unitypackage` | Unity'ye doğrudan import edilebilir iki paket: Character (Char Info) ve Save Stat Preset + Stat butonları |
 | `arayuz/unity_kaynak/Assets/` | Paketlerin kaynağı (`.meta` dosyalarıyla): sprite'lar, fontlar, çalışma zamanı betikleri, editör kurucuları |
 | `arayuz/kaynak/` | Sprite çıkarımının ara ürünleri ve HTML önizleme (`kaynak/char_info/unity_preview.html`) |
 | `arayuz/referans_gorseller/`, `arayuz/onizlemeler/` | Orijinal oyun ekran görüntüleri ve orijinal ↔ yeni karşılaştırma görselleri |
-| `arayuz/araclar/` | RAR5 okuyucu, `.unitypackage` üreteci, sprite üreteci ve `derleme_kontrolu/` (Unity'siz C# derleme kontrolü) |
+| `arayuz/araclar/` | RAR5 okuyucu, `.unitypackage` üreteci, sprite üreteci, `derleme_kontrolu/` (Unity'siz C# derlemesi) ve `font_kalibrasyonu/` (font/punto ölçümü) |
 
 ## Hızlı başlangıç
 
@@ -50,7 +51,9 @@ sıradaki iş `01` Bölüm 7'deki **Faz 1 dikey dilimi**.
 
 Arayüz tarafında üç pencere (Char Info, Save Stat Preset, Stat butonları) Unity paketi hâlinde
 hazır; betikler bu ortamda **derlendi (0 hata)** ve paketler yapı/GUID/içerik olarak doğrulandı.
-Unity'de ilk import henüz denenmedi — ayrıntı ve açık noktalar `arayuz/01-dogrulama.md`.
+Char Info'nun fontu gerçek **Roboto Slab Bold** ile kuruldu ve puntolar orijinale göre ölçülerek
+kalibre edildi: 31 yazı bölgesinde örtüşme 0.478 → **0.627**, 31/31 iyileşti.
+Unity'de ilk import henüz denenmedi — `arayuz/01-dogrulama.md` ve `arayuz/02-font-kalibrasyonu.md`.
 
 ## Önemli notlar
 

@@ -26,9 +26,14 @@ KLASÖRLER
 - Preview/    Önizleme ve orijinal referans görsel
 
 FONT NOTU
-Etiketlerdeki orijinal font "Roboto Slab Bold"dur ve pakette yoktur.
-RobotoSlab-Bold.ttf dosyasını Fonts/ klasörüne koyup menüyü tekrar çalıştırırsanız
-tüm etiketler otomatik olarak Roboto Slab ile kurulur. Font yoksa Roboto Bold kullanılır.
+Etiketlerin fontu "Roboto Slab Bold" (v2.002) ve pakete dahildir: Fonts/RobotoSlab-Bold.ttf
+Kurucu onu otomatik bulur; dosya silinirse Roboto Bold'a düşer.
+
+Etiketlerin punto degerleri bu fonta gore, orijinal ekran goruntusuyle olculerek secildi
+(sekme 21, etiket 21, HUMAN 20, isim 25, Magician 22, stat adi 21, stat degeri 25,
+direnc adi 19, direnc degeri 23, buton 22). Fontu degistirirseniz puntolarin yeniden
+olculmesi gerekir - yontem: arayuz/02-font-kalibrasyonu.md
+Puntolar tarayici render'i uzerinden olculdu; Unity'de +-1 rotus gerekebilir.
 
 KODDAN DEĞER DOLDURMA
     var w = GetComponent<Olympos.UI.OlymposCharacterWindow>();

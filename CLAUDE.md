@@ -40,9 +40,10 @@ UI sistemi: **uGUI + legacy `UnityEngine.UI.Text`** (TMP kullanılmadı). Namesp
 
 **Doğrulama durumu:** Yerleşim Python/Chrome ile simüle edilip orijinalle karşılaştırıldı.
 Claude Code'a devirden sonra Mono (`mcs`) kurulup betikler **derlendi: 0 hata, 0 uyarı**; paketlerin arşiv yapısı,
-GUID'leri ve dosya içerikleri `unity_kaynak/` ile birebir eşleşiyor. **Unity'de import hâlâ denenmedi** (ortamda Unity yok).
-Ayrıntı, derlemenin sınırları ve iyileştirme adayları: `arayuz/01-dogrulama.md`. Kontrolü tekrarlamak için
-`arayuz/araclar/derleme_kontrolu/derle.sh`.
+GUID'leri ve dosya içerikleri `unity_kaynak/` ile birebir eşleşiyor. Font kalibrasyonundan sonra ölçülen
+31 yazı bölgesinde orijinale örtüşme 0.478 → **0.627** (31/31 iyileşti). **Unity'de import hâlâ denenmedi** (ortamda Unity yok).
+Ayrıntı: `arayuz/01-dogrulama.md` (derleme/paket) ve `arayuz/02-font-kalibrasyonu.md` (font/punto).
+Kontroller: `arayuz/araclar/derleme_kontrolu/derle.sh`, `arayuz/araclar/font_kalibrasyonu/olc.py`.
 
 ## Char Info (654×1030) ölçüleri
 Renkler: etiket beyaz `#F4F4F4`, isim `#F2E79C`, turuncu etiket (Exp/NP/Attack/Defence) `#E2B47C`, değer tan `#DCB98A`,
@@ -52,8 +53,10 @@ orijinal doku, CHAR INFO altın alt çizgisi dahil), `label_button` (9-slice L18
 `btn_preset`/`btn_reset` (145×45), `race_human` (57×57 @ 64,116, dairesel alfa).
 Sekmeler: CHAR INFO (15,10,200,82) · QUESTS (224,10,128,82) · CLAN (365,10,156,82) · FRIENDS (525,10,120,82).
 Diğer tüm koordinatlar `OlymposCharacterWindowBuilder.cs` içinde.
-Bilinen fark: **Roboto Slab bu ortamda yoktu** (ağ kapalı); önizlemelerde DejaVu Serif, Unity'de Roboto Bold yedeği.
-`RobotoSlab-Bold.ttf` `Fonts/` içine konup menü tekrar çalıştırılınca otomatik kullanılır.
+Font: **Roboto Slab Bold v2.002** artık pakette (`Fonts/RobotoSlab-Bold.ttf`, her iki pakette de).
+Puntolar bu fonta göre ölçülerek kalibre edildi — sekme 21, etiket 21, HUMAN 20, isim 25, Magician 22,
+stat adı 21, stat değeri 25, direnç adı 19, direnç değeri 23, buton 22. Değiştirmeden önce
+`arayuz/02-font-kalibrasyonu.md` oku; puntolar fonta bağlı, font değişirse yeniden ölçülmeli.
 
 ## Stat pencereleri ölçüleri
 - Save Stat Preset: orijinal 299×479'dan (3,8)-(296,462) kesildi. Slot aralığı **103 px**; slot 2–4 temiz **slot 1**'den üretildi
@@ -70,12 +73,15 @@ Bilinen fark: **Roboto Slab bu ortamda yoktu** (ağ kapalı); önizlemelerde Dej
   `.meta` yazar, `.unitypackage` (tar.gz: guid/asset, asset.meta, pathname) ve zip üretir.
 - `build_windows2.py`: Save Stat Preset + stat butonları sprite'larını orijinallerden üretir (`preset_orig.png`, `stats_orig.png` bekler).
 - `derleme_kontrolu/derle.sh`: Unity olmadan tüm `.cs` dosyalarını Mono ile derler (Unity API taslakları yanında).
+- `font_kalibrasyonu/`: `font_kimligi.py` (orijinaldeki yazı hangi fonta ait — adayları ölçüp sıralar),
+  `olc.py` (önizleme ↔ orijinal bölge bölge örtüşme), `bolgeler.json` (Char Info'daki 31 yazı bölgesi).
+  Yeni pencere birebir yapılırken punto bunlarla seçilir, gözle değil.
 - Char Info sprite çıkarımı (OpenCV inpaint + aynı satırdan doku örnekleme) sohbet içinde satır içi yapıldı; sonuçlar
   `arayuz/kaynak/char_info/sprites/`. HTML önizleme: `arayuz/kaynak/char_info/unity_preview.html` (sprite'larla, Moradon arka planı üzerinde).
 
 ## Sıradaki olası işler
 - Kullanıcının Unity'de ilk import sonucunu almak, Console çıktısındaki hataları düzeltmek.
-  (Beklenen uyarılar: `RobotoSlab-Bold.ttf` yokluğu ve Unity 2023.1+ için eskimiş `FindObjectOfType` — ikisi de hata değil.)
+  (Beklenen tek uyarı: Unity 2023.1+ için eskimiş `FindObjectOfType` — hata değil.)
+  Aynı denemede puntoların Unity'de de tutup tutmadığına bakılmalı (±1 rötuş gerekebilir).
 - Üç pencerenin ölçeklerini birbirine oranlamak (Char Info daha büyük bir ekran görüntüsünden geldi).
-- Roboto Slab TTF gelirse etiketleri yeniden kurmak.
 - QUESTS / CLAN / FRIENDS sekmeleri ve kullanıcının göndereceği yeni pencereler — aynı yöntemle.

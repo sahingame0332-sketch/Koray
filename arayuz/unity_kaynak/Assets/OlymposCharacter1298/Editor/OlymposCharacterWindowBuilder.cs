@@ -3,6 +3,10 @@
 // - Doku import ayarlarını yapar (Sprite, sıkıştırmasız, 9-slice kenarlar)
 // - Pencereyi referans görseldeki piksel koordinatlarıyla kurar (654 x 1030)
 // - Prefabs/CharacterWindow_1298.prefab olarak kaydeder ve sahnedeki Canvas'a ekler
+//
+// PUNTOLAR: Roboto Slab Bold icin olculerek kalibre edildi (orijinal ekran goruntusundeki
+// yazi pikselleriyle ortusme en yuksek olan punto secildi). Font yoksa Roboto Bold'a dusulur
+// ve bu puntolar hafif sapar. Ayrinti: arayuz/02-font-kalibrasyonu.md
 using System.IO;
 using Olympos.UI;
 using UnityEditor;
@@ -91,7 +95,7 @@ namespace Olympos.UI.EditorTools
 
             // ---- Irk & isim ----
             win.raceIcon = Img(root, "RaceIcon", "race_human", 64, 116, 57, 57, false);
-            win.raceText = Txt(root, "RaceText", "HUMAN", 40, 172, 104, 26, Slab, 19, White, TextAnchor.MiddleCenter);
+            win.raceText = Txt(root, "RaceText", "HUMAN", 40, 172, 104, 26, Slab, 20, White, TextAnchor.MiddleCenter);
             win.nameText = Txt(root, "NameText", "xDarKPasT", 174, 126, 320, 34, Slab, 25, NameYellow, TextAnchor.MiddleLeft);
 
             // ---- Level / Job / HP / MP ----
@@ -101,7 +105,7 @@ namespace Olympos.UI.EditorTools
             win.hpText = Box(root, "Box_HP", "1.673 / 1.673", 363, 224, 240, 48, Sans, 22, White);
 
             Label(root, "Lbl_Job", "Job", 38, 291, 81, White);
-            win.jobText = Box(root, "Box_Job", "Magician", 122, 280, 99, 51, Slab, 19, White);
+            win.jobText = Box(root, "Box_Job", "Magician", 122, 280, 99, 51, Slab, 22, White);
             Label(root, "Lbl_MP", "MP Point", 228, 291, 121, White);
             win.mpText = Box(root, "Box_MP", "3.417 / 3.417", 363, 281, 240, 48, Sans, 22, White);
 
@@ -119,7 +123,7 @@ namespace Olympos.UI.EditorTools
 
             // ---- Stat puanları ----
             var sp = Label(root, "Lbl_StatPoints", "Your Stat Points", 48, 584, 239, White);
-            win.statPointsText = Txt(sp, "Value", "0", 205, 0, 30, 30, Slab, 19, StatGreen, TextAnchor.MiddleLeft);
+            win.statPointsText = Txt(sp, "Value", "0", 205, 0, 30, 30, Slab, 21, StatGreen, TextAnchor.MiddleLeft);
 
             win.strText   = Stat(root, "Stat_STR", "STR", "50",  49, 619, 18, 137);
             win.dexText   = Stat(root, "Stat_DEX", "DEX", "70",  49, 678, 16, 137);
@@ -197,14 +201,14 @@ namespace Olympos.UI.EditorTools
             var b = go.AddComponent<Button>();
             b.targetGraphic = hit;
             b.transition = Selectable.Transition.None;
-            Txt(go, "Text", text, 0, 0, w, h, Slab, 20, White, TextAnchor.MiddleCenter);
+            Txt(go, "Text", text, 0, 0, w, h, Slab, 21, White, TextAnchor.MiddleCenter);
             return b;
         }
 
         static GameObject Label(GameObject parent, string name, string text, float x, float y, float w, Color color)
         {
             var img = Img(parent, name, "label_button", x, y, w, 30, true);
-            Txt(img.gameObject, "Text", text, 17, 0, w - 17, 30, Slab, 19, color, TextAnchor.MiddleLeft);
+            Txt(img.gameObject, "Text", text, 17, 0, w - 17, 30, Slab, 21, color, TextAnchor.MiddleLeft);
             return img.gameObject;
         }
 
@@ -218,15 +222,15 @@ namespace Olympos.UI.EditorTools
         static Text Stat(GameObject parent, string name, string key, string value, float x, float y, float keyX, float valX)
         {
             var img = Img(parent, name, "value_box", x, y, 238, 51, true);
-            Txt(img.gameObject, "Key", key, keyX, 0, 80, 51, Slab, 19, White, TextAnchor.MiddleLeft);
-            return Txt(img.gameObject, "Value", value, valX, 0, 80, 51, Slab, 21, ValueTan, TextAnchor.MiddleLeft);
+            Txt(img.gameObject, "Key", key, keyX, 0, 80, 51, Slab, 21, White, TextAnchor.MiddleLeft);
+            return Txt(img.gameObject, "Value", value, valX, 0, 80, 51, Slab, 25, ValueTan, TextAnchor.MiddleLeft);
         }
 
         static Text Resist(GameObject parent, string name, string key, float x, float y, float w, float keyX, float valX)
         {
             var img = Img(parent, name, "value_box", x, y, w, 53, true);
-            Txt(img.gameObject, "Key", key, keyX, 0, 180, 53, Slab, 18, White, TextAnchor.MiddleLeft);
-            return Txt(img.gameObject, "Value", "0", valX, 0, 40, 53, Slab, 21, ValueTan, TextAnchor.MiddleLeft);
+            Txt(img.gameObject, "Key", key, keyX, 0, 180, 53, Slab, 19, White, TextAnchor.MiddleLeft);
+            return Txt(img.gameObject, "Value", "0", valX, 0, 40, 53, Slab, 23, ValueTan, TextAnchor.MiddleLeft);
         }
 
         static Button Btn(GameObject parent, string name, string sprite, string text, float x, float y, Color color)
@@ -235,7 +239,7 @@ namespace Olympos.UI.EditorTools
             img.raycastTarget = true;
             var b = img.gameObject.AddComponent<Button>();
             b.targetGraphic = img;
-            Txt(img.gameObject, "Text", text, 0, 0, 145, 45, Slab, 21, color, TextAnchor.MiddleCenter);
+            Txt(img.gameObject, "Text", text, 0, 0, 145, 45, Slab, 22, color, TextAnchor.MiddleCenter);
             return b;
         }
 

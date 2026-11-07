@@ -41,9 +41,9 @@ KODDAN KULLANIM
     s.SetInteractable(false);   // stat puanı bitince butonları kilitle
 
 FONT NOTU
-Görsellerdeki yazılar orijinal piksellerdir, font gerektirmez.
-Sadece SetSlotStatus ile yazılan metin font kullanır: Fonts/ içine RobotoSlab-Bold.ttf koyup
-menüyü tekrar çalıştırırsanız orijinaldeki gibi Roboto Slab olur; yoksa Roboto Bold kullanılır.
+Görsellerdeki yazılar orijinal pikselerdir, font gerektirmez.
+Sadece SetSlotStatus ile yazılan metin font kullanır. Roboto Slab Bold (v2.002) pakete
+dahildir: Fonts/RobotoSlab-Bold.ttf - kurucu onu otomatik kullanır, yoksa Roboto Bold'a düşer.
 
 BOYUT
 Bu iki görsel oyun içi boyuttadır. Char Info penceresi (654 x 1030) daha büyük bir ekran

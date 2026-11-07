@@ -1,0 +1,315 @@
+{
+  "_aciklama": "Char Info penceresindeki yazi bolgeleri. kutu = orijinal gorseldeki piksel kutusu [x0,y0,x1,y1]; metin = o kutudaki gercek yazi; grup = ayni puntoyu paylasan metinler.",
+  "bolgeler": {
+    "CHAR INFO": {
+      "kutu": [
+        20,
+        25,
+        212,
+        80
+      ],
+      "grup": "tab",
+      "metin": "CHAR INFO"
+    },
+    "QUESTS": {
+      "kutu": [
+        228,
+        25,
+        350,
+        80
+      ],
+      "grup": "tab",
+      "metin": "QUESTS"
+    },
+    "CLAN": {
+      "kutu": [
+        370,
+        25,
+        518,
+        80
+      ],
+      "grup": "tab",
+      "metin": "CLAN"
+    },
+    "FRIENDS": {
+      "kutu": [
+        530,
+        25,
+        645,
+        80
+      ],
+      "grup": "tab",
+      "metin": "FRIENDS"
+    },
+    "HUMAN": {
+      "kutu": [
+        50,
+        174,
+        140,
+        198
+      ],
+      "grup": "human",
+      "metin": "HUMAN"
+    },
+    "xDarKPasT": {
+      "kutu": [
+        174,
+        128,
+        330,
+        164
+      ],
+      "grup": "name",
+      "metin": "xDarKPasT"
+    },
+    "Magician": {
+      "kutu": [
+        130,
+        290,
+        216,
+        320
+      ],
+      "grup": "job",
+      "metin": "Magician"
+    },
+    "Level": {
+      "kutu": [
+        55,
+        240,
+        120,
+        262
+      ],
+      "grup": "lbl",
+      "metin": "Level"
+    },
+    "HP Point": {
+      "kutu": [
+        245,
+        240,
+        348,
+        262
+      ],
+      "grup": "lbl",
+      "metin": "HP Point"
+    },
+    "Job": {
+      "kutu": [
+        55,
+        296,
+        118,
+        318
+      ],
+      "grup": "lbl",
+      "metin": "Job"
+    },
+    "MP Point": {
+      "kutu": [
+        245,
+        296,
+        348,
+        318
+      ],
+      "grup": "lbl",
+      "metin": "MP Point"
+    },
+    "Exp Points": {
+      "kutu": [
+        64,
+        376,
+        200,
+        398
+      ],
+      "grup": "lbl",
+      "metin": "Exp Points"
+    },
+    "NP Points": {
+      "kutu": [
+        64,
+        439,
+        196,
+        461
+      ],
+      "grup": "lbl",
+      "metin": "NP Points"
+    },
+    "Attack": {
+      "kutu": [
+        64,
+        530,
+        168,
+        552
+      ],
+      "grup": "lbl",
+      "metin": "Attack"
+    },
+    "Defence": {
+      "kutu": [
+        362,
+        530,
+        470,
+        552
+      ],
+      "grup": "lbl",
+      "metin": "Defence"
+    },
+    "Your Stat Points": {
+      "kutu": [
+        65,
+        589,
+        230,
+        611
+      ],
+      "grup": "lbl",
+      "metin": "Your Stat Points"
+    },
+    "Resistance": {
+      "kutu": [
+        67,
+        863,
+        186,
+        885
+      ],
+      "grup": "lbl",
+      "metin": "Resistance"
+    },
+    "STR": {
+      "kutu": [
+        67,
+        632,
+        112,
+        658
+      ],
+      "grup": "statk",
+      "metin": "STR"
+    },
+    "DEX": {
+      "kutu": [
+        65,
+        691,
+        115,
+        717
+      ],
+      "grup": "statk",
+      "metin": "DEX"
+    },
+    "INT": {
+      "kutu": [
+        67,
+        748,
+        110,
+        774
+      ],
+      "grup": "statk",
+      "metin": "INT"
+    },
+    "HP (stat)": {
+      "kutu": [
+        392,
+        632,
+        436,
+        658
+      ],
+      "grup": "statk",
+      "metin": "HP"
+    },
+    "MP (stat)": {
+      "kutu": [
+        390,
+        691,
+        436,
+        717
+      ],
+      "grup": "statk",
+      "metin": "MP"
+    },
+    "deger 50": {
+      "kutu": [
+        176,
+        632,
+        215,
+        658
+      ],
+      "grup": "statv",
+      "metin": "50"
+    },
+    "deger 70": {
+      "kutu": [
+        176,
+        691,
+        215,
+        717
+      ],
+      "grup": "statv",
+      "metin": "70"
+    },
+    "deger 112": {
+      "kutu": [
+        176,
+        748,
+        222,
+        774
+      ],
+      "grup": "statv",
+      "metin": "112"
+    },
+    "Flame Resist.": {
+      "kutu": [
+        94,
+        915,
+        250,
+        945
+      ],
+      "grup": "resk",
+      "metin": "Flame Resist."
+    },
+    "Poison Resist.": {
+      "kutu": [
+        388,
+        915,
+        545,
+        945
+      ],
+      "grup": "resk",
+      "metin": "Poison Resist."
+    },
+    "Glacier Resist.": {
+      "kutu": [
+        92,
+        972,
+        250,
+        1002
+      ],
+      "grup": "resk",
+      "metin": "Glacier Resist."
+    },
+    "Lightning Resist.": {
+      "kutu": [
+        386,
+        972,
+        560,
+        1002
+      ],
+      "grup": "resk",
+      "metin": "Lightning Resist."
+    },
+    "Stat Preset": {
+      "kutu": [
+        468,
+        752,
+        592,
+        782
+      ],
+      "grup": "btn",
+      "metin": "Stat Preset"
+    },
+    "Stat Reset": {
+      "kutu": [
+        470,
+        860,
+        590,
+        884
+      ],
+      "grup": "btn",
+      "metin": "Stat Reset"
+    }
+  }
+}
