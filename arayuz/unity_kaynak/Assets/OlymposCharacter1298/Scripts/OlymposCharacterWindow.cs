@@ -43,6 +43,23 @@ namespace Olympos.UI
         public Button tabClan;
         public Button tabFriends;
 
+        [Header("Sekme panelleri")]
+        public GameObject charInfoPanel;
+        public GameObject questsPanel;
+        public GameObject clanPanel;
+        public GameObject friendsPanel;
+
+        [Tooltip("Aktif sekmenin altındaki altın çizgi; sekme değişince kayar.")]
+        public RectTransform tabUnderline;
+        [Tooltip("Her sekme için altın çizginin x konumu ve genişliği (pencere-yerel, sol-üst). " +
+                 "Sıra: Char Info, Quests, Clan, Friends. Orijinal ekran görüntülerinden ölçüldü.")]
+        public Vector2[] tabUnderlineRects = {
+            new Vector2(  9f, 210f), new Vector2(224f, 128f),
+            new Vector2(362f, 162f), new Vector2(526f, 120f)
+        };
+        [Tooltip("Açılışta gösterilecek sekme: 0 Char Info, 1 Quests, 2 Clan, 3 Friends.")]
+        public int startTab = 0;
+
         [Header("Kimlik")]
         public Image raceIcon;
         public Text raceText;
@@ -101,11 +118,37 @@ namespace Olympos.UI
             Hook(tabQuests, 1);
             Hook(tabClan, 2);
             Hook(tabFriends, 3);
+            ShowTab(startTab, false);
         }
 
         void Hook(Button b, int index)
         {
-            if (b != null) b.onClick.AddListener(() => onTabSelected.Invoke(index));
+            if (b != null) b.onClick.AddListener(() => ShowTab(index));
+        }
+
+        /// <summary>Sekmeyi değiştirir ve onTabSelected olayını gönderir.</summary>
+        public void ShowTab(int index) { ShowTab(index, true); }
+
+        public void ShowTab(int index, bool olayGonder)
+        {
+            if (index < 0 || index > 3) return;
+            Goster(charInfoPanel, index == 0);
+            Goster(questsPanel,   index == 1);
+            Goster(clanPanel,     index == 2);
+            Goster(friendsPanel,  index == 3);
+
+            if (tabUnderline != null && tabUnderlineRects != null && index < tabUnderlineRects.Length)
+            {
+                var r = tabUnderlineRects[index];
+                tabUnderline.anchoredPosition = new Vector2(r.x, tabUnderline.anchoredPosition.y);
+                tabUnderline.sizeDelta = new Vector2(r.y, tabUnderline.sizeDelta.y);
+            }
+            if (olayGonder) onTabSelected.Invoke(index);
+        }
+
+        static void Goster(GameObject go, bool acik)
+        {
+            if (go != null) go.SetActive(acik);
         }
 
         public void SetData(OlymposCharacterData d)

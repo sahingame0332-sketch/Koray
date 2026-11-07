@@ -1,0 +1,56 @@
+OLYMPOS-KO · 1298 Ana Menü + OPTIONS · Unity Paketi
+====================================================
+
+KURULUM
+1) Unity'de: Assets > Import Package > Custom Package... ile
+   OlymposMenuOptions1298.unitypackage dosyasını seçip Import deyin.
+2) Üst menüden:
+   OLYMPOS > 1298 > Ana Menü Paneli Oluştur
+   OLYMPOS > 1298 > OPTIONS Penceresi Oluştur
+   - Doku ayarları otomatik yapılır (Sprite, sıkıştırmasız, mipmap yok).
+   - Pencereler orijinal ekran görüntüsündeki piksel ölçüleriyle kurulur.
+   - Prefabs/ klasörüne prefab kaydedilir ve sahnedeki Canvas'a eklenir.
+
+PENCERELER
+- AnaMenu_1298 (321 x 989) · zemin yarı saydam siyah, alfa 0.92
+  Sekiz düğme: POWER-UP-STORE, OPEN MERCHANT, SLAVE MERCHANT, SEEKING PARTY,
+  OPTIONS, FORUM, DISCORD, INSTAGRAM. Düğme yazıları orijinal piksellerdir;
+  düğmeler görselin üzerindeki görünmez tıklama alanlarıdır.
+
+- OptionsWindow_1298 (854 x 1171) · dış alan yarı saydam siyah, alfa 0.95
+  İçerik panelinin kendi opak siyah zemini vardır (orijinalde de öyle).
+  Sol menüde 11 sayfa; her düğmenin normal ve seçili görseli orijinalden alındı.
+  Sayfa sırası: Looting, Cospre, VFX, Game Option 1, Game Option 2, Game Option 3,
+  Block Options, Battle Options, PM Block, Hide Option, Sound Option.
+
+SAYDAMLIK
+Alfa değerleri tahmin değil: orijinal ekran görüntülerinde pencere kenarının iki
+yanı ölçülerek bulundu. Ayarlamak için kök objenin OlymposMainMenu /
+OlymposOptionsWindow bileşenindeki Background Alpha alanını kullanın.
+Yöntem ve sonuç tablosu: arayuz/04-saydamlik.md
+
+KODDAN KULLANIM
+    // Ana menü
+    var m = GetComponent<Olympos.UI.OlymposMainMenu>();
+    m.onMenuSelected.AddListener(oge => Debug.Log("Menü: " + oge));   // OlymposMenuOgesi
+    m.onClose.AddListener(() => Debug.Log("Kapandı"));
+    m.SetInteractable(Olympos.UI.OlymposMenuOgesi.SlaveMerchant, false);
+
+    // OPTIONS
+    var o = GetComponent<Olympos.UI.OlymposOptionsWindow>();
+    o.ShowPage(Olympos.UI.OlymposOptionSayfa.SoundOption);
+    o.onPageChanged.AddListener(s => Debug.Log("Sayfa: " + s));
+    o.onReset.AddListener(() => Debug.Log("RESET SETTINGS"));
+    o.onClose.AddListener(() => Debug.Log("Kapandı"));
+
+BİLİNEN SINIR
+Sayfa içindeki onay kutuları ve kaydırıcılar şu an sayfa görselinin parçasıdır:
+görsel olarak birebir, ama henüz tıklanabilir değil. İşaretli/işaretsiz kutu ve
+kaydırıcı durumlarının hepsi kaynak ekran görüntülerinde mevcut; bir sonraki
+adımda ayrı sprite'lara çıkarılıp etkileşimli hâle getirilecek.
+
+BOYUT
+Pencereler oyun içi boyutundadır. Character penceresi (654 x 1030) ile birlikte
+kullanırken kök objelerin RectTransform Scale değerleriyle oranlayın: bu iki
+pencere 760'lık çekimden geldiği için Character ölçeğine inmek isterseniz
+0.86 ile çarpın.

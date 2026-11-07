@@ -34,9 +34,14 @@ Arayüz işi ile altyapı işi aynı oyunun iki yüzü: `docs/03-icerik-uretim-r
 | `arayuz/unity_paketleri/OlymposCharacter1298.unitypackage` | Character › CHAR INFO sekmesi | 654 × 1030 | yarı saydam siyah **0.92** |
 | `arayuz/unity_paketleri/OlymposStatWindows1298.unitypackage` | SAVE STAT PRESET | 293 × 454 | mat |
 | (aynı paket) | Stat butonları STR/HP/DEX/INT/MP | 197 × 243 | yarı saydam siyah **0.92** |
+| `arayuz/unity_paketleri/OlymposCharacter1298.unitypackage` | Character › CLAN ve FRIENDS sekmeleri | 654 × 1030 | yarı saydam **0.92** |
+| `arayuz/unity_paketleri/OlymposMenuOptions1298.unitypackage` | Ana menü paneli | 321 × 989 | yarı saydam **0.92** |
+| (aynı paket) | OPTIONS (11 sayfa) | 854 × 1171 | dış **0.95**, içerik paneli opak |
 
 Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
-`OLYMPOS > 1298 > Character Penceresi Oluştur`, `… > Save Stat Preset Penceresi Oluştur`, `… > Stat Butonları Penceresi Oluştur`.
+`OLYMPOS > 1298 > Character Penceresi Oluştur` (CHAR INFO + CLAN + FRIENDS sekmeleriyle birlikte),
+`… > Save Stat Preset Penceresi Oluştur`, `… > Stat Butonları Penceresi Oluştur`,
+`… > Ana Menü Paneli Oluştur`, `… > OPTIONS Penceresi Oluştur`.
 Kurucular: doku import ayarları (Sprite, sıkıştırmasız, mipmap yok, 9-slice kenarlar) → hiyerarşiyi **sol-üst piksel
 koordinatlarıyla** kurar → `Prefabs/` altına prefab → sahnedeki Canvas'a ekler (yoksa 1920×1080, match=1 Canvas + EventSystem).
 UI sistemi: **uGUI + legacy `UnityEngine.UI.Text`** (TMP kullanılmadı). Namespace `Olympos.UI` / `Olympos.UI.EditorTools`.
@@ -87,4 +92,7 @@ stat adı 21, stat değeri 25, direnç adı 19, direnç değeri 23, buton 22. De
   (Beklenen tek uyarı: Unity 2023.1+ için eskimiş `FindObjectOfType` — hata değil.)
   Aynı denemede puntoların Unity'de de tutup tutmadığına bakılmalı (±1 rötuş gerekebilir).
 - Üç pencerenin ölçeklerini birbirine oranlamak (Char Info daha büyük bir ekran görüntüsünden geldi).
-- QUESTS / CLAN / FRIENDS sekmeleri ve kullanıcının göndereceği yeni pencereler — aynı yöntemle.
+- OPTIONS sayfalarındaki onay kutuları ve kaydırıcıları etkileşimli hâle getirmek
+  (şu an sayfa görselinin parçası; her iki durum da kaynak ekranlarda mevcut).
+- QUESTS sekmesi — ekran görüntüsü gelince, aynı yöntemle.
+- Kullanıcının göndereceği yeni pencereler.

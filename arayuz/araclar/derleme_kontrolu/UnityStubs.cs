@@ -22,6 +22,12 @@ namespace UnityEngine
         public static Color black { get { return new Color(0, 0, 0, 1); } }
         public static Color white { get { return new Color(1, 1, 1, 1); } }
     }
+    public struct Color32 {
+        public byte r, g, b, a;
+        public Color32(byte r, byte g, byte b, byte a) { this.r = r; this.g = g; this.b = b; this.a = a; }
+        public static implicit operator Color(Color32 c) { return new Color(c.r/255f, c.g/255f, c.b/255f, c.a/255f); }
+        public static implicit operator Color32(Color c) { return new Color32((byte)(c.r*255), (byte)(c.g*255), (byte)(c.b*255), (byte)(c.a*255)); }
+    }
     public static class ColorUtility {
         public static bool TryParseHtmlString(string s, out Color c) { c = Color.black; return true; }
     }
@@ -107,6 +113,7 @@ namespace UnityEngine.UI
     public class Graphic : UnityEngine.Behaviour {
         public UnityEngine.Color color;
         public bool raycastTarget;
+        public UnityEngine.RectTransform rectTransform { get { return null; } }
     }
     public class MaskableGraphic : Graphic { }
 

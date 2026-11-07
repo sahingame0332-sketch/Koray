@@ -87,60 +87,73 @@ namespace Olympos.UI.EditorTools
             Img(root, "Frame", "window_frame", 0, 0, W, H, false);
 
             // ---- Sekmeler ----
-            Img(root, "TabsStrip", "tabs_strip", 9, 8, 637, 92, false);
+            // Serit yazisiz ve alt cizgisiz; aktif sekmenin altin cizgisi ayri bir Image olarak kayar.
+            Img(root, "TabsStrip", "tabs_strip_plain", 9, 8, 637, 92, false);
+            win.tabUnderline = Img(root, "TabUnderline", "tab_underline", 9, 93, 210, 7, true).rectTransform;
             win.tabCharInfo = Tab(root, "Tab_CharInfo", "CHAR INFO", 15, 10, 200, 82);
             win.tabQuests   = Tab(root, "Tab_Quests",   "QUESTS",   224, 10, 128, 82);
             win.tabClan     = Tab(root, "Tab_Clan",     "CLAN",     365, 10, 156, 82);
             win.tabFriends  = Tab(root, "Tab_Friends",  "FRIENDS",  525, 10, 120, 82);
 
+            // ---- Sekme panelleri ----
+            var ci = Panel(root, "Panel_CharInfo");
+            win.charInfoPanel = ci;
+            win.questsPanel   = Panel(root, "Panel_Quests");   // icerik yok (ekran goruntusu gelmedi)
+            win.clanPanel     = BuildClan(root);
+            win.friendsPanel  = BuildFriends(root);
+            // Prefab'da yalnizca Char Info acik dursun; calisma zamaninda ShowTab yonetir.
+            win.questsPanel.SetActive(false);
+            win.clanPanel.SetActive(false);
+            win.friendsPanel.SetActive(false);
+
             // ---- Irk & isim ----
-            win.raceIcon = Img(root, "RaceIcon", "race_human", 64, 116, 57, 57, false);
-            win.raceText = Txt(root, "RaceText", "HUMAN", 40, 172, 104, 26, Slab, 20, White, TextAnchor.MiddleCenter);
-            win.nameText = Txt(root, "NameText", "xDarKPasT", 174, 126, 320, 34, Slab, 25, NameYellow, TextAnchor.MiddleLeft);
+            win.raceIcon = Img(ci, "RaceIcon", "race_human", 64, 116, 57, 57, false);
+            win.raceText = Txt(ci, "RaceText", "HUMAN", 40, 172, 104, 26, Slab, 20, White, TextAnchor.MiddleCenter);
+            win.nameText = Txt(ci, "NameText", "xDarKPasT", 174, 126, 320, 34, Slab, 25, NameYellow, TextAnchor.MiddleLeft);
 
             // ---- Level / Job / HP / MP ----
-            Label(root, "Lbl_Level", "Level", 38, 235, 81, White);
-            win.levelText = Box(root, "Box_Level", "72", 128, 224, 93, 51, Sans, 21, White);
-            Label(root, "Lbl_HP", "HP Point", 228, 235, 121, White);
-            win.hpText = Box(root, "Box_HP", "1.673 / 1.673", 363, 224, 240, 48, Sans, 22, White);
+            Label(ci, "Lbl_Level", "Level", 38, 235, 81, White);
+            win.levelText = Box(ci, "Box_Level", "72", 128, 224, 93, 51, Sans, 21, White);
+            Label(ci, "Lbl_HP", "HP Point", 228, 235, 121, White);
+            win.hpText = Box(ci, "Box_HP", "1.673 / 1.673", 363, 224, 240, 48, Sans, 22, White);
 
-            Label(root, "Lbl_Job", "Job", 38, 291, 81, White);
-            win.jobText = Box(root, "Box_Job", "Magician", 122, 280, 99, 51, Slab, 22, White);
-            Label(root, "Lbl_MP", "MP Point", 228, 291, 121, White);
-            win.mpText = Box(root, "Box_MP", "3.417 / 3.417", 363, 281, 240, 48, Sans, 22, White);
+            Label(ci, "Lbl_Job", "Job", 38, 291, 81, White);
+            win.jobText = Box(ci, "Box_Job", "Magician", 122, 280, 99, 51, Slab, 22, White);
+            Label(ci, "Lbl_MP", "MP Point", 228, 291, 121, White);
+            win.mpText = Box(ci, "Box_MP", "3.417 / 3.417", 363, 281, 240, 48, Sans, 22, White);
 
             // ---- Exp / NP ----
-            Label(root, "Lbl_Exp", "Exp Points", 47, 371, 152, LabelOrng);
-            win.expText = Box(root, "Box_Exp", "0 / 7.049.084.376", 216, 358, 392, 53, Sans, 22, ValueTan);
-            Label(root, "Lbl_NP", "NP Points", 47, 434, 152, LabelOrng);
-            win.npText = Box(root, "Box_NP", "2.077.085 / 935.170", 216, 422, 392, 52, Sans, 22, ValueTan);
+            Label(ci, "Lbl_Exp", "Exp Points", 47, 371, 152, LabelOrng);
+            win.expText = Box(ci, "Box_Exp", "0 / 7.049.084.376", 216, 358, 392, 53, Sans, 22, ValueTan);
+            Label(ci, "Lbl_NP", "NP Points", 47, 434, 152, LabelOrng);
+            win.npText = Box(ci, "Box_NP", "2.077.085 / 935.170", 216, 422, 392, 52, Sans, 22, ValueTan);
 
             // ---- Attack / Defence ----
-            Label(root, "Lbl_Attack", "Attack", 47, 525, 122, LabelOrng);
-            win.attackText = Box(root, "Box_Attack", "5", 178, 513, 149, 52, Sans, 21, White);
-            Label(root, "Lbl_Defence", "Defence", 345, 525, 122, LabelOrng);
-            win.defenceText = Box(root, "Box_Defence", "182", 484, 513, 124, 52, Sans, 21, White);
+            Label(ci, "Lbl_Attack", "Attack", 47, 525, 122, LabelOrng);
+            win.attackText = Box(ci, "Box_Attack", "5", 178, 513, 149, 52, Sans, 21, White);
+            Label(ci, "Lbl_Defence", "Defence", 345, 525, 122, LabelOrng);
+            win.defenceText = Box(ci, "Box_Defence", "182", 484, 513, 124, 52, Sans, 21, White);
 
             // ---- Stat puanları ----
-            var sp = Label(root, "Lbl_StatPoints", "Your Stat Points", 48, 584, 239, White);
+            var sp = Label(ci, "Lbl_StatPoints", "Your Stat Points", 48, 584, 239, White);
             win.statPointsText = Txt(sp, "Value", "0", 205, 0, 30, 30, Slab, 21, StatGreen, TextAnchor.MiddleLeft);
 
-            win.strText   = Stat(root, "Stat_STR", "STR", "50",  49, 619, 18, 137);
-            win.dexText   = Stat(root, "Stat_DEX", "DEX", "70",  49, 678, 16, 137);
-            win.intText   = Stat(root, "Stat_INT", "INT", "112", 49, 735, 20, 132);
-            win.hpStatText= Stat(root, "Stat_HP",  "HP",  "52",  372, 619, 26, 144);
-            win.mpStatText= Stat(root, "Stat_MP",  "MP",  "255", 372, 678, 24, 138);
+            win.strText   = Stat(ci, "Stat_STR", "STR", "50",  49, 619, 18, 137);
+            win.dexText   = Stat(ci, "Stat_DEX", "DEX", "70",  49, 678, 16, 137);
+            win.intText   = Stat(ci, "Stat_INT", "INT", "112", 49, 735, 20, 132);
+            win.hpStatText= Stat(ci, "Stat_HP",  "HP",  "52",  372, 619, 26, 144);
+            win.mpStatText= Stat(ci, "Stat_MP",  "MP",  "255", 372, 678, 24, 138);
 
-            win.statPresetButton = Btn(root, "Btn_StatPreset", "btn_preset", "Stat  Preset", 456, 742, White);
+            win.statPresetButton = Btn(ci, "Btn_StatPreset", "btn_preset", "Stat  Preset", 456, 742, White);
 
             // ---- Dirençler ----
-            Label(root, "Lbl_Resistance", "Resistance", 50, 858, 138, White);
-            win.statResetButton = Btn(root, "Btn_StatReset", "btn_reset", "Stat Reset", 456, 849, ResetOrng);
+            Label(ci, "Lbl_Resistance", "Resistance", 50, 858, 138, White);
+            win.statResetButton = Btn(ci, "Btn_StatReset", "btn_reset", "Stat Reset", 456, 849, ResetOrng);
 
-            win.flameText     = Resist(root, "Res_Flame",     "Flame Resist.",     46,  903, 272, 48, 226);
-            win.poisonText    = Resist(root, "Res_Poison",    "Poison Resist.",    340, 903, 270, 46, 228);
-            win.glacierText   = Resist(root, "Res_Glacier",   "Glacier Resist.",   46,  960, 272, 44, 226);
-            win.lightningText = Resist(root, "Res_Lightning", "Lightning Resist.", 340, 960, 270, 46, 228);
+            win.flameText     = Resist(ci, "Res_Flame",     "Flame Resist.",     46,  903, 272, 48, 226);
+            win.poisonText    = Resist(ci, "Res_Poison",    "Poison Resist.",    340, 903, 270, 46, 228);
+            win.glacierText   = Resist(ci, "Res_Glacier",   "Glacier Resist.",   46,  960, 272, 44, 226);
+            win.lightningText = Resist(ci, "Res_Lightning", "Lightning Resist.", 340, 960, 270, 46, 228);
 
             return root;
         }
@@ -244,6 +257,135 @@ namespace Olympos.UI.EditorTools
         }
 
         // ------------------------------------------------------------------
+        // FRIENDS ve CLAN sekmeleri
+        //
+        // Bu iki sekmenin olculeri 2266x1488'lik ekran goruntulerinden alindi; orada pencere
+        // 760x1205. Mevcut pencere 654x1030 oldugu icin asagidaki yardimcilar ekran
+        // koordinatini pencere-yereline cevirir. Olcu tablolari: arayuz/03-yeni-pencereler.md
+        const float SX = 654f / 760f;      // yatay olcek
+        const float SY = 1030f / 1205f;    // dikey olcek
+        const float AX0 = 303f, AY0 = 143f; // ekran goruntusunde pencerenin sol-ust kosesi
+
+        static float LX(float ax) { return (ax - AX0) * SX; }
+        static float LY(float ay) { return (ay - AY0) * SY; }
+        static float LW(float aw) { return aw * SX; }
+        static float LH(float ah) { return ah * SY; }
+
+        static GameObject Panel(GameObject parent, string name)
+        {
+            var go = new GameObject(name, typeof(RectTransform));
+            Place(go, parent, 0, 0, W, H);
+            return go;
+        }
+
+        /// <summary>Gorselin uzerinde gorunmez tiklama alani (ekran koordinatiyla).</summary>
+        static Button Hit(GameObject parent, string name, float ax, float ay, float aw, float ah)
+        {
+            var go = new GameObject(name, typeof(RectTransform));
+            Place(go, parent, LX(ax), LY(ay), LW(aw), LH(ah));
+            var img = go.AddComponent<Image>();
+            img.color = Color.black;
+            img.raycastTarget = true;
+            var b = go.AddComponent<Button>();
+            b.targetGraphic = img;
+            b.transition = Selectable.Transition.ColorTint;
+            var cb = ColorBlock.defaultColorBlock;
+            cb.normalColor      = new Color(1f, 1f, 1f, 0f);
+            cb.highlightedColor = new Color(1f, 1f, 1f, 0.12f);
+            cb.pressedColor     = new Color(1f, 1f, 1f, 0.35f);
+            cb.selectedColor    = new Color(1f, 1f, 1f, 0f);
+            cb.disabledColor    = new Color(1f, 1f, 1f, 0.45f);
+            cb.colorMultiplier  = 1f;
+            cb.fadeDuration     = 0.05f;
+            b.colors = cb;
+            var nav = b.navigation; nav.mode = Navigation.Mode.None; b.navigation = nav;
+            return b;
+        }
+
+        /// <summary>Ekran koordinatiyla yerlestirilen yazi.</summary>
+        static Text TxtA(GameObject parent, string name, string text, float ax, float ay, float aw, float ah,
+                         Font font, int size, Color color, TextAnchor anchor)
+        {
+            return Txt(parent, name, text, LX(ax), LY(ay), LW(aw), LH(ah), font, size, color, anchor);
+        }
+
+        // Puntolar orijinal yazilarin murekkep yuksekliginden hesaplandi
+        // (Roboto Slab Bold oranlari): arayuz/03-yeni-pencereler.md
+        static GameObject BuildFriends(GameObject parent)
+        {
+            var p = Panel(parent, "Panel_Friends");
+            var tab = p.AddComponent<OlymposFriendsTab>();
+
+            var bg = Img(p, "Icerik", "friends_icerik", 0, 0, W, H, false);
+            bg.raycastTarget = false;
+
+            const float RX = 345f, RW = 676f, RY = 361f, RP = 70.857f, RH = 70f;
+            for (int i = 0; i < OlymposFriendsTab.SatirSayisi; i++)
+            {
+                float ay = RY + RP * i;
+                tab.rowButtons[i] = Hit(p, "Row_" + (i + 1), RX, ay, RW, RH);
+                tab.rowNames[i] = TxtA(p, "RowName_" + (i + 1), "", RX, ay, RW, RH,
+                                       Slab, 25, White, TextAnchor.MiddleCenter);
+            }
+
+            tab.prevPageButton = Hit(p, "Btn_PrevPage", 593, 931, 56, 56);
+            tab.nextPageButton = Hit(p, "Btn_NextPage", 717, 931, 58, 56);
+            tab.pageText = TxtA(p, "PageText", "1", 660, 931, 46, 56, Slab, 57, ValueTan, TextAnchor.MiddleCenter);
+
+            tab.registerButton = Hit(p, "Btn_Register", 475, 1196, 196, 46);
+            tab.deleteButton   = Hit(p, "Btn_Delete",   689, 1196, 198, 46);
+            tab.privateButton  = Hit(p, "Btn_Private",  354, 1272, 203, 47);
+            tab.partyButton    = Hit(p, "Btn_Party",    575, 1272, 205, 47);
+            tab.refreshButton  = Hit(p, "Btn_Refresh",  797, 1272, 205, 47);
+            return p;
+        }
+
+        static GameObject BuildClan(GameObject parent)
+        {
+            var p = Panel(parent, "Panel_Clan");
+            var tab = p.AddComponent<OlymposClanTab>();
+
+            // Bayrak icerik sprite'inin altinda kalmali: once olusturulur.
+            tab.flagImage = Img(p, "ClanFlag", "clan_bayrak", LX(367), LY(327), LW(196), LH(169), false);
+
+            var bg = Img(p, "Icerik", "clan_icerik", 0, 0, W, H, false);
+            bg.raycastTarget = false;
+
+            tab.upgradeButton = Hit(p, "Btn_Upgrade", 390, 280, 142, 36);
+            tab.clanNameText  = TxtA(p, "ClanName", "OLYMPOS", 590, 352, 400, 56, Slab, 34, White, TextAnchor.MiddleLeft);
+            tab.gradeText     = TxtA(p, "ClanGrade", "Grade: AccreditedKnight2", 590, 404, 430, 50,
+                                     Slab, 29, White, TextAnchor.MiddleLeft);
+
+            // Uye tablosu: 12 satir, sutun sinirlari 350 / 472 / 814 / 914 / 1029
+            const float TY = 627f, TP = 36.95f;
+            for (int i = 0; i < OlymposClanTab.SatirSayisi; i++)
+            {
+                float ay = TY + TP * i;
+                tab.rowButtons[i]  = Hit(p, "ClanRow_" + (i + 1), 350, ay, 679, TP);
+                tab.roleTexts[i]   = TxtA(p, "Role_"  + (i + 1), "", 350, ay, 122, TP, Slab, 18, White, TextAnchor.MiddleCenter);
+                tab.nameTexts[i]   = TxtA(p, "Name_"  + (i + 1), "", 472, ay, 342, TP, Slab, 18, White, TextAnchor.MiddleCenter);
+                tab.levelTexts[i]  = TxtA(p, "Level_" + (i + 1), "", 814, ay, 100, TP, Slab, 18, White, TextAnchor.MiddleCenter);
+                tab.jobTexts[i]    = TxtA(p, "Job_"   + (i + 1), "", 914, ay, 115, TP, Slab, 18, White, TextAnchor.MiddleCenter);
+            }
+
+            tab.donatedListButton = Hit(p, "Btn_DonatedList", 341, 1100, 164, 37);
+            tab.prevPageButton    = Hit(p, "Btn_PrevPage",    570, 1099,  47, 40);
+            tab.nextPageButton    = Hit(p, "Btn_NextPage",    770, 1099,  47, 40);
+            tab.pageText          = TxtA(p, "PageText", "1",  660, 1099,  46, 40, Slab, 30, ValueTan, TextAnchor.MiddleCenter);
+            tab.refreshButton     = Hit(p, "Btn_Refresh",     875, 1100, 162, 37);
+
+            tab.onlineCountText = TxtA(p, "OnlineCount", "",  627, 1172, 62, 30, Slab, 19, White, TextAnchor.MiddleCenter);
+            tab.memberCountText = TxtA(p, "MemberCount", "",  615, 1217, 74, 32, Slab, 19, White, TextAnchor.MiddleCenter);
+            tab.joinClanButton  = Hit(p, "Btn_JoinClan",      877, 1167, 155, 37);
+
+            tab.joinPartyButton = Hit(p, "Btn_JoinParty", 343, 1269, 157, 40);
+            tab.appointButton   = Hit(p, "Btn_Appoint",   520, 1269, 157, 40);
+            tab.leaveButton     = Hit(p, "Btn_Leave",     697, 1269, 157, 40);
+            tab.privateButton   = Hit(p, "Btn_Private",   877, 1269, 157, 40);
+            return p;
+        }
+
+        // ------------------------------------------------------------------
         static string FindRoot()
         {
             var guids = AssetDatabase.FindAssets("OlymposCharacterWindowBuilder t:MonoScript");
@@ -275,6 +417,11 @@ namespace Olympos.UI.EditorTools
             // 9-slice kenarları: (sol, alt, sağ, üst)
             Tex("window_frame", Vector4.zero);
             Tex("tabs_strip",   Vector4.zero);
+            Tex("tabs_strip_plain", Vector4.zero);
+            Tex("tab_underline", new Vector4(8, 0, 8, 0));   // yatay 9-slice: sekme genisligine uzar
+            Tex("friends_icerik", Vector4.zero);
+            Tex("clan_icerik",    Vector4.zero);
+            Tex("clan_bayrak",    Vector4.zero);
             Tex("race_human",   Vector4.zero);
             Tex("label_button", new Vector4(18, 8, 8, 8));
             Tex("value_box",    new Vector4(6, 6, 6, 6));

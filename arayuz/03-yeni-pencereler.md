@@ -115,9 +115,53 @@ değişen pikseller saydam, sabit kalanlar opak işaretlendi.
 arka planı üzerine konduğunda orijinalle **birebir aynı** çıkıyor (ortalama fark 0,000–0,005;
 farklı piksel %0,00). Yani çıkarım kayıpsız.
 
-## Sıradaki adım
+## Unity paketleri (tamamlandı)
 
-Görsel onayından sonra: Unity çalışma zamanı bileşenleri (`OlymposFriendsTab`,
-`OlymposClanTab`, `OlymposMainMenu`, `OlymposOptionsWindow`), editör kurucuları ve paketler.
-Panel içi onay kutuları ve kaydırıcılar şu an sayfa görselinin parçası; bir sonraki turda
-tıklanabilir hâle getirilecek.
+| paket | pencere | boyut | zemin |
+|---|---|---|---|
+| `OlymposCharacter1298` | Character › CHAR INFO · **CLAN** · **FRIENDS** sekmeleri | 654 × 1030 | yarı saydam 0,92 |
+| `OlymposMenuOptions1298` | **Ana menü** | 321 × 989 | yarı saydam 0,92 |
+| (aynı paket) | **OPTIONS** (11 sayfa) | 854 × 1171 | dış 0,95 · içerik paneli opak |
+
+Unity menüsü: `OLYMPOS > 1298 > Ana Menü Paneli Oluştur`, `… > OPTIONS Penceresi Oluştur`.
+FRIENDS ve CLAN, Character kurucusunun bir parçası olarak kuruluyor.
+
+### Sekme yapısı
+
+Character penceresi artık dört panelden oluşuyor (`Panel_CharInfo`, `Panel_Quests`,
+`Panel_Clan`, `Panel_Friends`); `OlymposCharacterWindow.ShowTab(i)` birini açıp
+diğerlerini kapatıyor. Aktif sekmenin altındaki altın çizgi artık şeride gömülü değil:
+`tabs_strip_plain.png` + kayan `tab_underline.png` (9-slice) ile dört sekmede de doğru
+yere gidiyor. Çizginin her sekmedeki x/genişliği orijinal ekran görüntülerinden ölçüldü
+(Char Info 9/210 · Quests 224/128 · Clan 362/162 · Friends 526/120).
+
+QUESTS sekmesinin içeriği yok — o sekmenin ekran görüntüsü gelmedi; panel boş duruyor.
+
+### Punto kalibrasyonu
+
+Yeni sekmelerdeki yazıların puntosu, orijinal yazının **mürekkep yüksekliğinden**
+hesaplandı (Roboto Slab Bold'un harf oranları ölçülerek), 654 ölçeğine çevrildi:
+
+| yazı | orijinal ink (760) | punto (654) |
+|---|---:|---:|
+| Arkadaş adı | 21 px | **25** |
+| FRIENDS sayfa numarası | 47 px | **57** |
+| Klan adı | 29 px | **34** |
+| Klan derecesi | 33 px | **29** |
+| Üye tablosu (4 sütun) | 17 px | **18** |
+| CLAN sayfa numarası | 25 px | **30** |
+| Sayaçlar (16 · 29/50) | 17 px | **19** |
+
+### Bilinen sınır
+
+OPTIONS sayfalarındaki onay kutuları ve kaydırıcılar şu an sayfa görselinin parçası:
+görsel olarak birebir, ama henüz tıklanabilir değil. İşaretli/işaretsiz kutu ve kaydırıcı
+durumlarının hepsi kaynak ekran görüntülerinde mevcut; bir sonraki adımda ayrı sprite'lara
+çıkarılıp etkileşimli hâle getirilecek.
+
+### Doğrulama
+
+- Üç paket de yapı / GUID / içerik SHA-256 kontrolünden geçti, mevcut GUID'ler kaymadı.
+- Tüm C# dosyaları derleniyor (0 hata).
+- Kurucunun ürettiği yerleşim Python'da birebir simüle edilip orijinalle karşılaştırıldı:
+  `onizlemeler/cmp_sekme_yerlesimi.png`.
