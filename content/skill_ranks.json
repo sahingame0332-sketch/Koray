@@ -1,0 +1,3332 @@
+[
+  {
+    "skill_id": 101,
+    "rank": 1,
+    "req_level": 2,
+    "mp_cost": 12,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 4000,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 70,
+        "weapon_scale": 1.35
+      }
+    ]
+  },
+  {
+    "skill_id": 101,
+    "rank": 2,
+    "req_level": 26,
+    "mp_cost": 15,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 3840,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 94,
+        "weapon_scale": 1.823
+      }
+    ]
+  },
+  {
+    "skill_id": 101,
+    "rank": 3,
+    "req_level": 50,
+    "mp_cost": 18,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 3680,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 119,
+        "weapon_scale": 2.295
+      }
+    ]
+  },
+  {
+    "skill_id": 101,
+    "rank": 4,
+    "req_level": 74,
+    "mp_cost": 21,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 3520,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 144,
+        "weapon_scale": 2.768
+      }
+    ]
+  },
+  {
+    "skill_id": 101,
+    "rank": 5,
+    "req_level": 98,
+    "mp_cost": 24,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 3360,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 168,
+        "weapon_scale": 3.24
+      }
+    ]
+  },
+  {
+    "skill_id": 102,
+    "rank": 1,
+    "req_level": 8,
+    "mp_cost": 20,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 30000,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "armor",
+        "magnitude_pct": 11,
+        "duration_ms": 15000
+      }
+    ]
+  },
+  {
+    "skill_id": 102,
+    "rank": 2,
+    "req_level": 30,
+    "mp_cost": 25,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 28800,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "armor",
+        "magnitude_pct": 14,
+        "duration_ms": 17250
+      }
+    ]
+  },
+  {
+    "skill_id": 102,
+    "rank": 3,
+    "req_level": 52,
+    "mp_cost": 30,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 27600,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "armor",
+        "magnitude_pct": 17,
+        "duration_ms": 19500
+      }
+    ]
+  },
+  {
+    "skill_id": 102,
+    "rank": 4,
+    "req_level": 74,
+    "mp_cost": 35,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 26400,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "armor",
+        "magnitude_pct": 20,
+        "duration_ms": 21750
+      }
+    ]
+  },
+  {
+    "skill_id": 102,
+    "rank": 5,
+    "req_level": 96,
+    "mp_cost": 40,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 25200,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "armor",
+        "magnitude_pct": 23,
+        "duration_ms": 24000
+      }
+    ]
+  },
+  {
+    "skill_id": 103,
+    "rank": 1,
+    "req_level": 14,
+    "mp_cost": 28,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 10000,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 136,
+        "weapon_scale": 1.1
+      }
+    ]
+  },
+  {
+    "skill_id": 103,
+    "rank": 2,
+    "req_level": 35,
+    "mp_cost": 35,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 9600,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 184,
+        "weapon_scale": 1.485
+      }
+    ]
+  },
+  {
+    "skill_id": 103,
+    "rank": 3,
+    "req_level": 56,
+    "mp_cost": 42,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 9200,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 231,
+        "weapon_scale": 1.87
+      }
+    ]
+  },
+  {
+    "skill_id": 103,
+    "rank": 4,
+    "req_level": 77,
+    "mp_cost": 49,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 8800,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 279,
+        "weapon_scale": 2.255
+      }
+    ]
+  },
+  {
+    "skill_id": 103,
+    "rank": 5,
+    "req_level": 98,
+    "mp_cost": 56,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 8400,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 326,
+        "weapon_scale": 2.64
+      }
+    ]
+  },
+  {
+    "skill_id": 104,
+    "rank": 1,
+    "req_level": 20,
+    "mp_cost": 15,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 8000,
+    "effects": [
+      {
+        "kind": "threat",
+        "multiplier": 4.0,
+        "duration_ms": 6000
+      }
+    ]
+  },
+  {
+    "skill_id": 104,
+    "rank": 2,
+    "req_level": 39,
+    "mp_cost": 19,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 7680,
+    "effects": [
+      {
+        "kind": "threat",
+        "multiplier": 4.0,
+        "duration_ms": 6900
+      }
+    ]
+  },
+  {
+    "skill_id": 104,
+    "rank": 3,
+    "req_level": 58,
+    "mp_cost": 22,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 7360,
+    "effects": [
+      {
+        "kind": "threat",
+        "multiplier": 4.0,
+        "duration_ms": 7800
+      }
+    ]
+  },
+  {
+    "skill_id": 104,
+    "rank": 4,
+    "req_level": 77,
+    "mp_cost": 26,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 7040,
+    "effects": [
+      {
+        "kind": "threat",
+        "multiplier": 4.0,
+        "duration_ms": 8700
+      }
+    ]
+  },
+  {
+    "skill_id": 104,
+    "rank": 5,
+    "req_level": 96,
+    "mp_cost": 30,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 6720,
+    "effects": [
+      {
+        "kind": "threat",
+        "multiplier": 4.0,
+        "duration_ms": 9600
+      }
+    ]
+  },
+  {
+    "skill_id": 105,
+    "rank": 1,
+    "req_level": 28,
+    "mp_cost": 35,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 60000,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "armor",
+        "magnitude_pct": 15,
+        "duration_ms": 15000
+      }
+    ]
+  },
+  {
+    "skill_id": 105,
+    "rank": 2,
+    "req_level": 45,
+    "mp_cost": 44,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 57600,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "armor",
+        "magnitude_pct": 18,
+        "duration_ms": 17250
+      }
+    ]
+  },
+  {
+    "skill_id": 105,
+    "rank": 3,
+    "req_level": 62,
+    "mp_cost": 52,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 55200,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "armor",
+        "magnitude_pct": 21,
+        "duration_ms": 19500
+      }
+    ]
+  },
+  {
+    "skill_id": 105,
+    "rank": 4,
+    "req_level": 79,
+    "mp_cost": 61,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 52800,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "armor",
+        "magnitude_pct": 24,
+        "duration_ms": 21750
+      }
+    ]
+  },
+  {
+    "skill_id": 105,
+    "rank": 5,
+    "req_level": 96,
+    "mp_cost": 70,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 50400,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "armor",
+        "magnitude_pct": 27,
+        "duration_ms": 24000
+      }
+    ]
+  },
+  {
+    "skill_id": 106,
+    "rank": 1,
+    "req_level": 36,
+    "mp_cost": 30,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 15000,
+    "effects": [
+      {
+        "kind": "debuff",
+        "attribute": "armor",
+        "magnitude_pct": -19,
+        "duration_ms": 10000
+      }
+    ]
+  },
+  {
+    "skill_id": 106,
+    "rank": 2,
+    "req_level": 51,
+    "mp_cost": 38,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 14400,
+    "effects": [
+      {
+        "kind": "debuff",
+        "attribute": "armor",
+        "magnitude_pct": -22,
+        "duration_ms": 11500
+      }
+    ]
+  },
+  {
+    "skill_id": 106,
+    "rank": 3,
+    "req_level": 66,
+    "mp_cost": 45,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 13800,
+    "effects": [
+      {
+        "kind": "debuff",
+        "attribute": "armor",
+        "magnitude_pct": -25,
+        "duration_ms": 13000
+      }
+    ]
+  },
+  {
+    "skill_id": 106,
+    "rank": 4,
+    "req_level": 81,
+    "mp_cost": 52,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 13200,
+    "effects": [
+      {
+        "kind": "debuff",
+        "attribute": "armor",
+        "magnitude_pct": -28,
+        "duration_ms": 14500
+      }
+    ]
+  },
+  {
+    "skill_id": 106,
+    "rank": 5,
+    "req_level": 96,
+    "mp_cost": 60,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 12600,
+    "effects": [
+      {
+        "kind": "debuff",
+        "attribute": "armor",
+        "magnitude_pct": -31,
+        "duration_ms": 16000
+      }
+    ]
+  },
+  {
+    "skill_id": 107,
+    "rank": 1,
+    "req_level": 45,
+    "mp_cost": 50,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 120000,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "armor",
+        "magnitude_pct": 19,
+        "duration_ms": 15000
+      }
+    ]
+  },
+  {
+    "skill_id": 107,
+    "rank": 2,
+    "req_level": 58,
+    "mp_cost": 62,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 115200,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "armor",
+        "magnitude_pct": 22,
+        "duration_ms": 17250
+      }
+    ]
+  },
+  {
+    "skill_id": 107,
+    "rank": 3,
+    "req_level": 71,
+    "mp_cost": 75,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 110400,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "armor",
+        "magnitude_pct": 25,
+        "duration_ms": 19500
+      }
+    ]
+  },
+  {
+    "skill_id": 107,
+    "rank": 4,
+    "req_level": 84,
+    "mp_cost": 88,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 105600,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "armor",
+        "magnitude_pct": 28,
+        "duration_ms": 21750
+      }
+    ]
+  },
+  {
+    "skill_id": 107,
+    "rank": 5,
+    "req_level": 97,
+    "mp_cost": 100,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 100800,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "armor",
+        "magnitude_pct": 31,
+        "duration_ms": 24000
+      }
+    ]
+  },
+  {
+    "skill_id": 108,
+    "rank": 1,
+    "req_level": 55,
+    "mp_cost": 55,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 18000,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 574,
+        "weapon_scale": 1.55
+      }
+    ]
+  },
+  {
+    "skill_id": 108,
+    "rank": 2,
+    "req_level": 65,
+    "mp_cost": 69,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 17280,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 775,
+        "weapon_scale": 2.093
+      }
+    ]
+  },
+  {
+    "skill_id": 108,
+    "rank": 3,
+    "req_level": 75,
+    "mp_cost": 82,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 16560,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 976,
+        "weapon_scale": 2.635
+      }
+    ]
+  },
+  {
+    "skill_id": 108,
+    "rank": 4,
+    "req_level": 85,
+    "mp_cost": 96,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 15840,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 1177,
+        "weapon_scale": 3.177
+      }
+    ]
+  },
+  {
+    "skill_id": 108,
+    "rank": 5,
+    "req_level": 95,
+    "mp_cost": 110,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 15120,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 1378,
+        "weapon_scale": 3.72
+      }
+    ]
+  },
+  {
+    "skill_id": 109,
+    "rank": 1,
+    "req_level": 68,
+    "mp_cost": 60,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 25000,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 1254,
+        "weapon_scale": 2.8,
+        "bonus_below_hp_pct": 25,
+        "bonus_multiplier": 2.0
+      }
+    ]
+  },
+  {
+    "skill_id": 109,
+    "rank": 2,
+    "req_level": 75,
+    "mp_cost": 75,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 24000,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 1693,
+        "weapon_scale": 3.78,
+        "bonus_below_hp_pct": 25,
+        "bonus_multiplier": 2.0
+      }
+    ]
+  },
+  {
+    "skill_id": 109,
+    "rank": 3,
+    "req_level": 82,
+    "mp_cost": 90,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 23000,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 2132,
+        "weapon_scale": 4.76,
+        "bonus_below_hp_pct": 25,
+        "bonus_multiplier": 2.0
+      }
+    ]
+  },
+  {
+    "skill_id": 109,
+    "rank": 4,
+    "req_level": 89,
+    "mp_cost": 105,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 22000,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 2571,
+        "weapon_scale": 5.74,
+        "bonus_below_hp_pct": 25,
+        "bonus_multiplier": 2.0
+      }
+    ]
+  },
+  {
+    "skill_id": 109,
+    "rank": 5,
+    "req_level": 96,
+    "mp_cost": 120,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 21000,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 3010,
+        "weapon_scale": 6.72,
+        "bonus_below_hp_pct": 25,
+        "bonus_multiplier": 2.0
+      }
+    ]
+  },
+  {
+    "skill_id": 110,
+    "rank": 1,
+    "req_level": 82,
+    "mp_cost": 100,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 300000,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "armor",
+        "magnitude_pct": 26,
+        "duration_ms": 15000
+      }
+    ]
+  },
+  {
+    "skill_id": 110,
+    "rank": 2,
+    "req_level": 86,
+    "mp_cost": 125,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 288000,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "armor",
+        "magnitude_pct": 29,
+        "duration_ms": 17250
+      }
+    ]
+  },
+  {
+    "skill_id": 110,
+    "rank": 3,
+    "req_level": 90,
+    "mp_cost": 150,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 276000,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "armor",
+        "magnitude_pct": 32,
+        "duration_ms": 19500
+      }
+    ]
+  },
+  {
+    "skill_id": 110,
+    "rank": 4,
+    "req_level": 94,
+    "mp_cost": 175,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 264000,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "armor",
+        "magnitude_pct": 35,
+        "duration_ms": 21750
+      }
+    ]
+  },
+  {
+    "skill_id": 110,
+    "rank": 5,
+    "req_level": 98,
+    "mp_cost": 200,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 252000,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "armor",
+        "magnitude_pct": 38,
+        "duration_ms": 24000
+      }
+    ]
+  },
+  {
+    "skill_id": 111,
+    "rank": 1,
+    "req_level": 2,
+    "mp_cost": 10,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 3000,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 62,
+        "weapon_scale": 1.2
+      }
+    ]
+  },
+  {
+    "skill_id": 111,
+    "rank": 2,
+    "req_level": 26,
+    "mp_cost": 12,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 2880,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 84,
+        "weapon_scale": 1.62
+      }
+    ]
+  },
+  {
+    "skill_id": 111,
+    "rank": 3,
+    "req_level": 50,
+    "mp_cost": 15,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 2760,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 105,
+        "weapon_scale": 2.04
+      }
+    ]
+  },
+  {
+    "skill_id": 111,
+    "rank": 4,
+    "req_level": 74,
+    "mp_cost": 18,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 2640,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 127,
+        "weapon_scale": 2.46
+      }
+    ]
+  },
+  {
+    "skill_id": 111,
+    "rank": 5,
+    "req_level": 98,
+    "mp_cost": 20,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 2520,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 149,
+        "weapon_scale": 2.88
+      }
+    ]
+  },
+  {
+    "skill_id": 112,
+    "rank": 1,
+    "req_level": 8,
+    "mp_cost": 18,
+    "hp_cost": 0,
+    "cast_time_ms": 0,
+    "cooldown_ms": 12000,
+    "effects": [
+      {
+        "kind": "movement",
+        "effect": "dash",
+        "distance_m": 8
+      }
+    ]
+  },
+  {
+    "skill_id": 112,
+    "rank": 2,
+    "req_level": 30,
+    "mp_cost": 22,
+    "hp_cost": 0,
+    "cast_time_ms": 0,
+    "cooldown_ms": 11520,
+    "effects": [
+      {
+        "kind": "movement",
+        "effect": "dash",
+        "distance_m": 8
+      }
+    ]
+  },
+  {
+    "skill_id": 112,
+    "rank": 3,
+    "req_level": 52,
+    "mp_cost": 27,
+    "hp_cost": 0,
+    "cast_time_ms": 0,
+    "cooldown_ms": 11040,
+    "effects": [
+      {
+        "kind": "movement",
+        "effect": "dash",
+        "distance_m": 8
+      }
+    ]
+  },
+  {
+    "skill_id": 112,
+    "rank": 4,
+    "req_level": 74,
+    "mp_cost": 32,
+    "hp_cost": 0,
+    "cast_time_ms": 0,
+    "cooldown_ms": 10560,
+    "effects": [
+      {
+        "kind": "movement",
+        "effect": "dash",
+        "distance_m": 8
+      }
+    ]
+  },
+  {
+    "skill_id": 112,
+    "rank": 5,
+    "req_level": 96,
+    "mp_cost": 36,
+    "hp_cost": 0,
+    "cast_time_ms": 0,
+    "cooldown_ms": 10080,
+    "effects": [
+      {
+        "kind": "movement",
+        "effect": "dash",
+        "distance_m": 8
+      }
+    ]
+  },
+  {
+    "skill_id": 113,
+    "rank": 1,
+    "req_level": 14,
+    "mp_cost": 22,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 9000,
+    "effects": [
+      {
+        "kind": "damage_over_time",
+        "school": "poison",
+        "tick_damage": 46,
+        "tick_interval_ms": 2000,
+        "duration_ms": 12000
+      }
+    ]
+  },
+  {
+    "skill_id": 113,
+    "rank": 2,
+    "req_level": 35,
+    "mp_cost": 28,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 8640,
+    "effects": [
+      {
+        "kind": "damage_over_time",
+        "school": "poison",
+        "tick_damage": 62,
+        "tick_interval_ms": 2000,
+        "duration_ms": 13800
+      }
+    ]
+  },
+  {
+    "skill_id": 113,
+    "rank": 3,
+    "req_level": 56,
+    "mp_cost": 33,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 8280,
+    "effects": [
+      {
+        "kind": "damage_over_time",
+        "school": "poison",
+        "tick_damage": 78,
+        "tick_interval_ms": 2000,
+        "duration_ms": 15600
+      }
+    ]
+  },
+  {
+    "skill_id": 113,
+    "rank": 4,
+    "req_level": 77,
+    "mp_cost": 38,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 7920,
+    "effects": [
+      {
+        "kind": "damage_over_time",
+        "school": "poison",
+        "tick_damage": 94,
+        "tick_interval_ms": 2000,
+        "duration_ms": 17400
+      }
+    ]
+  },
+  {
+    "skill_id": 113,
+    "rank": 5,
+    "req_level": 98,
+    "mp_cost": 44,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 7560,
+    "effects": [
+      {
+        "kind": "damage_over_time",
+        "school": "poison",
+        "tick_damage": 110,
+        "tick_interval_ms": 2000,
+        "duration_ms": 19200
+      }
+    ]
+  },
+  {
+    "skill_id": 114,
+    "rank": 1,
+    "req_level": 20,
+    "mp_cost": 30,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 14000,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 336,
+        "weapon_scale": 2.1
+      }
+    ]
+  },
+  {
+    "skill_id": 114,
+    "rank": 2,
+    "req_level": 39,
+    "mp_cost": 38,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 13440,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 454,
+        "weapon_scale": 2.835
+      }
+    ]
+  },
+  {
+    "skill_id": 114,
+    "rank": 3,
+    "req_level": 58,
+    "mp_cost": 45,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 12880,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 571,
+        "weapon_scale": 3.57
+      }
+    ]
+  },
+  {
+    "skill_id": 114,
+    "rank": 4,
+    "req_level": 77,
+    "mp_cost": 52,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 12320,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 689,
+        "weapon_scale": 4.305
+      }
+    ]
+  },
+  {
+    "skill_id": 114,
+    "rank": 5,
+    "req_level": 96,
+    "mp_cost": 60,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 11760,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 806,
+        "weapon_scale": 5.04
+      }
+    ]
+  },
+  {
+    "skill_id": 115,
+    "rank": 1,
+    "req_level": 28,
+    "mp_cost": 26,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 20000,
+    "effects": [
+      {
+        "kind": "control",
+        "effect": "root",
+        "duration_ms": 3560
+      }
+    ]
+  },
+  {
+    "skill_id": 115,
+    "rank": 2,
+    "req_level": 45,
+    "mp_cost": 32,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 19200,
+    "effects": [
+      {
+        "kind": "control",
+        "effect": "root",
+        "duration_ms": 4094
+      }
+    ]
+  },
+  {
+    "skill_id": 115,
+    "rank": 3,
+    "req_level": 62,
+    "mp_cost": 39,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 18400,
+    "effects": [
+      {
+        "kind": "control",
+        "effect": "root",
+        "duration_ms": 4628
+      }
+    ]
+  },
+  {
+    "skill_id": 115,
+    "rank": 4,
+    "req_level": 79,
+    "mp_cost": 46,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 17600,
+    "effects": [
+      {
+        "kind": "control",
+        "effect": "root",
+        "duration_ms": 5162
+      }
+    ]
+  },
+  {
+    "skill_id": 115,
+    "rank": 5,
+    "req_level": 96,
+    "mp_cost": 52,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 16800,
+    "effects": [
+      {
+        "kind": "control",
+        "effect": "root",
+        "duration_ms": 5696
+      }
+    ]
+  },
+  {
+    "skill_id": 116,
+    "rank": 1,
+    "req_level": 36,
+    "mp_cost": 40,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 16000,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 333,
+        "weapon_scale": 1.3
+      }
+    ]
+  },
+  {
+    "skill_id": 116,
+    "rank": 2,
+    "req_level": 51,
+    "mp_cost": 50,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 15360,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 450,
+        "weapon_scale": 1.755
+      }
+    ]
+  },
+  {
+    "skill_id": 116,
+    "rank": 3,
+    "req_level": 66,
+    "mp_cost": 60,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 14720,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 566,
+        "weapon_scale": 2.21
+      }
+    ]
+  },
+  {
+    "skill_id": 116,
+    "rank": 4,
+    "req_level": 81,
+    "mp_cost": 70,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 14080,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 683,
+        "weapon_scale": 2.665
+      }
+    ]
+  },
+  {
+    "skill_id": 116,
+    "rank": 5,
+    "req_level": 96,
+    "mp_cost": 80,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 13440,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 799,
+        "weapon_scale": 3.12
+      }
+    ]
+  },
+  {
+    "skill_id": 117,
+    "rank": 1,
+    "req_level": 45,
+    "mp_cost": 45,
+    "hp_cost": 0,
+    "cast_time_ms": 0,
+    "cooldown_ms": 45000,
+    "effects": [
+      {
+        "kind": "stealth",
+        "duration_ms": 20000
+      }
+    ]
+  },
+  {
+    "skill_id": 117,
+    "rank": 2,
+    "req_level": 58,
+    "mp_cost": 56,
+    "hp_cost": 0,
+    "cast_time_ms": 0,
+    "cooldown_ms": 43200,
+    "effects": [
+      {
+        "kind": "stealth",
+        "duration_ms": 23000
+      }
+    ]
+  },
+  {
+    "skill_id": 117,
+    "rank": 3,
+    "req_level": 71,
+    "mp_cost": 68,
+    "hp_cost": 0,
+    "cast_time_ms": 0,
+    "cooldown_ms": 41400,
+    "effects": [
+      {
+        "kind": "stealth",
+        "duration_ms": 26000
+      }
+    ]
+  },
+  {
+    "skill_id": 117,
+    "rank": 4,
+    "req_level": 84,
+    "mp_cost": 79,
+    "hp_cost": 0,
+    "cast_time_ms": 0,
+    "cooldown_ms": 39600,
+    "effects": [
+      {
+        "kind": "stealth",
+        "duration_ms": 29000
+      }
+    ]
+  },
+  {
+    "skill_id": 117,
+    "rank": 5,
+    "req_level": 97,
+    "mp_cost": 90,
+    "hp_cost": 0,
+    "cast_time_ms": 0,
+    "cooldown_ms": 37800,
+    "effects": [
+      {
+        "kind": "stealth",
+        "duration_ms": 32000
+      }
+    ]
+  },
+  {
+    "skill_id": 118,
+    "rank": 1,
+    "req_level": 55,
+    "mp_cost": 50,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 22000,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 962,
+        "weapon_scale": 2.6
+      }
+    ]
+  },
+  {
+    "skill_id": 118,
+    "rank": 2,
+    "req_level": 65,
+    "mp_cost": 62,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 21120,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 1299,
+        "weapon_scale": 3.51
+      }
+    ]
+  },
+  {
+    "skill_id": 118,
+    "rank": 3,
+    "req_level": 75,
+    "mp_cost": 75,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 20240,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 1635,
+        "weapon_scale": 4.42
+      }
+    ]
+  },
+  {
+    "skill_id": 118,
+    "rank": 4,
+    "req_level": 85,
+    "mp_cost": 88,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 19360,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 1972,
+        "weapon_scale": 5.33
+      }
+    ]
+  },
+  {
+    "skill_id": 118,
+    "rank": 5,
+    "req_level": 95,
+    "mp_cost": 100,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 18480,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 2309,
+        "weapon_scale": 6.24
+      }
+    ]
+  },
+  {
+    "skill_id": 119,
+    "rank": 1,
+    "req_level": 68,
+    "mp_cost": 60,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 24000,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 806,
+        "weapon_scale": 1.8
+      }
+    ]
+  },
+  {
+    "skill_id": 119,
+    "rank": 2,
+    "req_level": 75,
+    "mp_cost": 75,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 23040,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 1088,
+        "weapon_scale": 2.43
+      }
+    ]
+  },
+  {
+    "skill_id": 119,
+    "rank": 3,
+    "req_level": 82,
+    "mp_cost": 90,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 22080,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 1370,
+        "weapon_scale": 3.06
+      }
+    ]
+  },
+  {
+    "skill_id": 119,
+    "rank": 4,
+    "req_level": 89,
+    "mp_cost": 105,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 21120,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 1652,
+        "weapon_scale": 3.69
+      }
+    ]
+  },
+  {
+    "skill_id": 119,
+    "rank": 5,
+    "req_level": 96,
+    "mp_cost": 120,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 20160,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 1934,
+        "weapon_scale": 4.32
+      }
+    ]
+  },
+  {
+    "skill_id": 120,
+    "rank": 1,
+    "req_level": 82,
+    "mp_cost": 90,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 180000,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 1809,
+        "weapon_scale": 3.4,
+        "bonus_below_hp_pct": 25,
+        "bonus_multiplier": 2.0
+      }
+    ]
+  },
+  {
+    "skill_id": 120,
+    "rank": 2,
+    "req_level": 86,
+    "mp_cost": 112,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 172800,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 2442,
+        "weapon_scale": 4.59,
+        "bonus_below_hp_pct": 25,
+        "bonus_multiplier": 2.0
+      }
+    ]
+  },
+  {
+    "skill_id": 120,
+    "rank": 3,
+    "req_level": 90,
+    "mp_cost": 135,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 165600,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 3075,
+        "weapon_scale": 5.78,
+        "bonus_below_hp_pct": 25,
+        "bonus_multiplier": 2.0
+      }
+    ]
+  },
+  {
+    "skill_id": 120,
+    "rank": 4,
+    "req_level": 94,
+    "mp_cost": 158,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 158400,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 3708,
+        "weapon_scale": 6.97,
+        "bonus_below_hp_pct": 25,
+        "bonus_multiplier": 2.0
+      }
+    ]
+  },
+  {
+    "skill_id": 120,
+    "rank": 5,
+    "req_level": 98,
+    "mp_cost": 180,
+    "hp_cost": 0,
+    "cast_time_ms": 400,
+    "cooldown_ms": 151200,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "physical",
+        "base": 4342,
+        "weapon_scale": 8.16,
+        "bonus_below_hp_pct": 25,
+        "bonus_multiplier": 2.0
+      }
+    ]
+  },
+  {
+    "skill_id": 121,
+    "rank": 1,
+    "req_level": 2,
+    "mp_cost": 14,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 2500,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 75,
+        "weapon_scale": 1.45
+      }
+    ]
+  },
+  {
+    "skill_id": 121,
+    "rank": 2,
+    "req_level": 26,
+    "mp_cost": 18,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 2400,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 101,
+        "weapon_scale": 1.958
+      }
+    ]
+  },
+  {
+    "skill_id": 121,
+    "rank": 3,
+    "req_level": 50,
+    "mp_cost": 21,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 2300,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 128,
+        "weapon_scale": 2.465
+      }
+    ]
+  },
+  {
+    "skill_id": 121,
+    "rank": 4,
+    "req_level": 74,
+    "mp_cost": 24,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 2200,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 154,
+        "weapon_scale": 2.972
+      }
+    ]
+  },
+  {
+    "skill_id": 121,
+    "rank": 5,
+    "req_level": 98,
+    "mp_cost": 28,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 2100,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 180,
+        "weapon_scale": 3.48
+      }
+    ]
+  },
+  {
+    "skill_id": 122,
+    "rank": 1,
+    "req_level": 8,
+    "mp_cost": 20,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 14000,
+    "effects": [
+      {
+        "kind": "control",
+        "effect": "root",
+        "duration_ms": 3160
+      }
+    ]
+  },
+  {
+    "skill_id": 122,
+    "rank": 2,
+    "req_level": 30,
+    "mp_cost": 25,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 13440,
+    "effects": [
+      {
+        "kind": "control",
+        "effect": "root",
+        "duration_ms": 3634
+      }
+    ]
+  },
+  {
+    "skill_id": 122,
+    "rank": 3,
+    "req_level": 52,
+    "mp_cost": 30,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 12880,
+    "effects": [
+      {
+        "kind": "control",
+        "effect": "root",
+        "duration_ms": 4108
+      }
+    ]
+  },
+  {
+    "skill_id": 122,
+    "rank": 4,
+    "req_level": 74,
+    "mp_cost": 35,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 12320,
+    "effects": [
+      {
+        "kind": "control",
+        "effect": "root",
+        "duration_ms": 4582
+      }
+    ]
+  },
+  {
+    "skill_id": 122,
+    "rank": 5,
+    "req_level": 96,
+    "mp_cost": 40,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 11760,
+    "effects": [
+      {
+        "kind": "control",
+        "effect": "root",
+        "duration_ms": 5056
+      }
+    ]
+  },
+  {
+    "skill_id": 123,
+    "rank": 1,
+    "req_level": 14,
+    "mp_cost": 34,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 11000,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 155,
+        "weapon_scale": 1.25
+      }
+    ]
+  },
+  {
+    "skill_id": 123,
+    "rank": 2,
+    "req_level": 35,
+    "mp_cost": 42,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 10560,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 209,
+        "weapon_scale": 1.688
+      }
+    ]
+  },
+  {
+    "skill_id": 123,
+    "rank": 3,
+    "req_level": 56,
+    "mp_cost": 51,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 10120,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 264,
+        "weapon_scale": 2.125
+      }
+    ]
+  },
+  {
+    "skill_id": 123,
+    "rank": 4,
+    "req_level": 77,
+    "mp_cost": 60,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 9680,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 318,
+        "weapon_scale": 2.562
+      }
+    ]
+  },
+  {
+    "skill_id": 123,
+    "rank": 5,
+    "req_level": 98,
+    "mp_cost": 68,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 9240,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 372,
+        "weapon_scale": 3.0
+      }
+    ]
+  },
+  {
+    "skill_id": 124,
+    "rank": 1,
+    "req_level": 20,
+    "mp_cost": 28,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 35000,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "all_stats",
+        "magnitude_pct": 14,
+        "duration_ms": 15000
+      }
+    ]
+  },
+  {
+    "skill_id": 124,
+    "rank": 2,
+    "req_level": 39,
+    "mp_cost": 35,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 33600,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "all_stats",
+        "magnitude_pct": 17,
+        "duration_ms": 17250
+      }
+    ]
+  },
+  {
+    "skill_id": 124,
+    "rank": 3,
+    "req_level": 58,
+    "mp_cost": 42,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 32200,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "all_stats",
+        "magnitude_pct": 20,
+        "duration_ms": 19500
+      }
+    ]
+  },
+  {
+    "skill_id": 124,
+    "rank": 4,
+    "req_level": 77,
+    "mp_cost": 49,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 30800,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "all_stats",
+        "magnitude_pct": 23,
+        "duration_ms": 21750
+      }
+    ]
+  },
+  {
+    "skill_id": 124,
+    "rank": 5,
+    "req_level": 96,
+    "mp_cost": 56,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 29400,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "all_stats",
+        "magnitude_pct": 26,
+        "duration_ms": 24000
+      }
+    ]
+  },
+  {
+    "skill_id": 125,
+    "rank": 1,
+    "req_level": 28,
+    "mp_cost": 42,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 9000,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 416,
+        "weapon_scale": 2.0
+      }
+    ]
+  },
+  {
+    "skill_id": 125,
+    "rank": 2,
+    "req_level": 45,
+    "mp_cost": 52,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 8640,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 562,
+        "weapon_scale": 2.7
+      }
+    ]
+  },
+  {
+    "skill_id": 125,
+    "rank": 3,
+    "req_level": 62,
+    "mp_cost": 63,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 8280,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 707,
+        "weapon_scale": 3.4
+      }
+    ]
+  },
+  {
+    "skill_id": 125,
+    "rank": 4,
+    "req_level": 79,
+    "mp_cost": 74,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 7920,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 853,
+        "weapon_scale": 4.1
+      }
+    ]
+  },
+  {
+    "skill_id": 125,
+    "rank": 5,
+    "req_level": 96,
+    "mp_cost": 84,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 7560,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 998,
+        "weapon_scale": 4.8
+      }
+    ]
+  },
+  {
+    "skill_id": 126,
+    "rank": 1,
+    "req_level": 36,
+    "mp_cost": 48,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 25000,
+    "effects": [
+      {
+        "kind": "control",
+        "effect": "root",
+        "duration_ms": 3720
+      }
+    ]
+  },
+  {
+    "skill_id": 126,
+    "rank": 2,
+    "req_level": 51,
+    "mp_cost": 60,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 24000,
+    "effects": [
+      {
+        "kind": "control",
+        "effect": "root",
+        "duration_ms": 4278
+      }
+    ]
+  },
+  {
+    "skill_id": 126,
+    "rank": 3,
+    "req_level": 66,
+    "mp_cost": 72,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 23000,
+    "effects": [
+      {
+        "kind": "control",
+        "effect": "root",
+        "duration_ms": 4836
+      }
+    ]
+  },
+  {
+    "skill_id": 126,
+    "rank": 4,
+    "req_level": 81,
+    "mp_cost": 84,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 22000,
+    "effects": [
+      {
+        "kind": "control",
+        "effect": "root",
+        "duration_ms": 5394
+      }
+    ]
+  },
+  {
+    "skill_id": 126,
+    "rank": 5,
+    "req_level": 96,
+    "mp_cost": 96,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 21000,
+    "effects": [
+      {
+        "kind": "control",
+        "effect": "root",
+        "duration_ms": 5952
+      }
+    ]
+  },
+  {
+    "skill_id": 127,
+    "rank": 1,
+    "req_level": 45,
+    "mp_cost": 40,
+    "hp_cost": 0,
+    "cast_time_ms": 0,
+    "cooldown_ms": 30000,
+    "effects": [
+      {
+        "kind": "movement",
+        "effect": "dash",
+        "distance_m": 8
+      }
+    ]
+  },
+  {
+    "skill_id": 127,
+    "rank": 2,
+    "req_level": 58,
+    "mp_cost": 50,
+    "hp_cost": 0,
+    "cast_time_ms": 0,
+    "cooldown_ms": 28800,
+    "effects": [
+      {
+        "kind": "movement",
+        "effect": "dash",
+        "distance_m": 8
+      }
+    ]
+  },
+  {
+    "skill_id": 127,
+    "rank": 3,
+    "req_level": 71,
+    "mp_cost": 60,
+    "hp_cost": 0,
+    "cast_time_ms": 0,
+    "cooldown_ms": 27600,
+    "effects": [
+      {
+        "kind": "movement",
+        "effect": "dash",
+        "distance_m": 8
+      }
+    ]
+  },
+  {
+    "skill_id": 127,
+    "rank": 4,
+    "req_level": 84,
+    "mp_cost": 70,
+    "hp_cost": 0,
+    "cast_time_ms": 0,
+    "cooldown_ms": 26400,
+    "effects": [
+      {
+        "kind": "movement",
+        "effect": "dash",
+        "distance_m": 8
+      }
+    ]
+  },
+  {
+    "skill_id": 127,
+    "rank": 5,
+    "req_level": 97,
+    "mp_cost": 80,
+    "hp_cost": 0,
+    "cast_time_ms": 0,
+    "cooldown_ms": 25200,
+    "effects": [
+      {
+        "kind": "movement",
+        "effect": "dash",
+        "distance_m": 8
+      }
+    ]
+  },
+  {
+    "skill_id": 128,
+    "rank": 1,
+    "req_level": 55,
+    "mp_cost": 70,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 28000,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 888,
+        "weapon_scale": 2.4
+      }
+    ]
+  },
+  {
+    "skill_id": 128,
+    "rank": 2,
+    "req_level": 65,
+    "mp_cost": 88,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 26880,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 1199,
+        "weapon_scale": 3.24
+      }
+    ]
+  },
+  {
+    "skill_id": 128,
+    "rank": 3,
+    "req_level": 75,
+    "mp_cost": 105,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 25760,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 1510,
+        "weapon_scale": 4.08
+      }
+    ]
+  },
+  {
+    "skill_id": 128,
+    "rank": 4,
+    "req_level": 85,
+    "mp_cost": 122,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 24640,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 1820,
+        "weapon_scale": 4.92
+      }
+    ]
+  },
+  {
+    "skill_id": 128,
+    "rank": 5,
+    "req_level": 95,
+    "mp_cost": 140,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 23520,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 2131,
+        "weapon_scale": 5.76
+      }
+    ]
+  },
+  {
+    "skill_id": 129,
+    "rank": 1,
+    "req_level": 68,
+    "mp_cost": 65,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 40000,
+    "effects": [
+      {
+        "kind": "debuff",
+        "attribute": "armor",
+        "magnitude_pct": -27,
+        "duration_ms": 10000
+      }
+    ]
+  },
+  {
+    "skill_id": 129,
+    "rank": 2,
+    "req_level": 75,
+    "mp_cost": 81,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 38400,
+    "effects": [
+      {
+        "kind": "debuff",
+        "attribute": "armor",
+        "magnitude_pct": -30,
+        "duration_ms": 11500
+      }
+    ]
+  },
+  {
+    "skill_id": 129,
+    "rank": 3,
+    "req_level": 82,
+    "mp_cost": 98,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 36800,
+    "effects": [
+      {
+        "kind": "debuff",
+        "attribute": "armor",
+        "magnitude_pct": -33,
+        "duration_ms": 13000
+      }
+    ]
+  },
+  {
+    "skill_id": 129,
+    "rank": 4,
+    "req_level": 89,
+    "mp_cost": 114,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 35200,
+    "effects": [
+      {
+        "kind": "debuff",
+        "attribute": "armor",
+        "magnitude_pct": -36,
+        "duration_ms": 14500
+      }
+    ]
+  },
+  {
+    "skill_id": 129,
+    "rank": 5,
+    "req_level": 96,
+    "mp_cost": 130,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 33600,
+    "effects": [
+      {
+        "kind": "debuff",
+        "attribute": "armor",
+        "magnitude_pct": -39,
+        "duration_ms": 16000
+      }
+    ]
+  },
+  {
+    "skill_id": 130,
+    "rank": 1,
+    "req_level": 82,
+    "mp_cost": 130,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 240000,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 1915,
+        "weapon_scale": 3.6
+      }
+    ]
+  },
+  {
+    "skill_id": 130,
+    "rank": 2,
+    "req_level": 86,
+    "mp_cost": 162,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 230400,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 2585,
+        "weapon_scale": 4.86
+      }
+    ]
+  },
+  {
+    "skill_id": 130,
+    "rank": 3,
+    "req_level": 90,
+    "mp_cost": 195,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 220800,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 3256,
+        "weapon_scale": 6.12
+      }
+    ]
+  },
+  {
+    "skill_id": 130,
+    "rank": 4,
+    "req_level": 94,
+    "mp_cost": 228,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 211200,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 3926,
+        "weapon_scale": 7.38
+      }
+    ]
+  },
+  {
+    "skill_id": 130,
+    "rank": 5,
+    "req_level": 98,
+    "mp_cost": 260,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 201600,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 4596,
+        "weapon_scale": 8.64
+      }
+    ]
+  },
+  {
+    "skill_id": 131,
+    "rank": 1,
+    "req_level": 2,
+    "mp_cost": 16,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 2000,
+    "effects": [
+      {
+        "kind": "heal",
+        "base": 92
+      }
+    ]
+  },
+  {
+    "skill_id": 131,
+    "rank": 2,
+    "req_level": 26,
+    "mp_cost": 20,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 1920,
+    "effects": [
+      {
+        "kind": "heal",
+        "base": 124
+      }
+    ]
+  },
+  {
+    "skill_id": 131,
+    "rank": 3,
+    "req_level": 50,
+    "mp_cost": 24,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 1840,
+    "effects": [
+      {
+        "kind": "heal",
+        "base": 156
+      }
+    ]
+  },
+  {
+    "skill_id": 131,
+    "rank": 4,
+    "req_level": 74,
+    "mp_cost": 28,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 1760,
+    "effects": [
+      {
+        "kind": "heal",
+        "base": 189
+      }
+    ]
+  },
+  {
+    "skill_id": 131,
+    "rank": 5,
+    "req_level": 98,
+    "mp_cost": 32,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 1680,
+    "effects": [
+      {
+        "kind": "heal",
+        "base": 221
+      }
+    ]
+  },
+  {
+    "skill_id": 132,
+    "rank": 1,
+    "req_level": 8,
+    "mp_cost": 22,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 25000,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "all_stats",
+        "magnitude_pct": 11,
+        "duration_ms": 15000
+      }
+    ]
+  },
+  {
+    "skill_id": 132,
+    "rank": 2,
+    "req_level": 30,
+    "mp_cost": 28,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 24000,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "all_stats",
+        "magnitude_pct": 14,
+        "duration_ms": 17250
+      }
+    ]
+  },
+  {
+    "skill_id": 132,
+    "rank": 3,
+    "req_level": 52,
+    "mp_cost": 33,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 23000,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "all_stats",
+        "magnitude_pct": 17,
+        "duration_ms": 19500
+      }
+    ]
+  },
+  {
+    "skill_id": 132,
+    "rank": 4,
+    "req_level": 74,
+    "mp_cost": 38,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 22000,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "all_stats",
+        "magnitude_pct": 20,
+        "duration_ms": 21750
+      }
+    ]
+  },
+  {
+    "skill_id": 132,
+    "rank": 5,
+    "req_level": 96,
+    "mp_cost": 44,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 21000,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "all_stats",
+        "magnitude_pct": 23,
+        "duration_ms": 24000
+      }
+    ]
+  },
+  {
+    "skill_id": 133,
+    "rank": 1,
+    "req_level": 14,
+    "mp_cost": 18,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 8000,
+    "effects": [
+      {
+        "kind": "cleanse",
+        "max_effects": 2
+      }
+    ]
+  },
+  {
+    "skill_id": 133,
+    "rank": 2,
+    "req_level": 35,
+    "mp_cost": 22,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 7680,
+    "effects": [
+      {
+        "kind": "cleanse",
+        "max_effects": 2
+      }
+    ]
+  },
+  {
+    "skill_id": 133,
+    "rank": 3,
+    "req_level": 56,
+    "mp_cost": 27,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 7360,
+    "effects": [
+      {
+        "kind": "cleanse",
+        "max_effects": 2
+      }
+    ]
+  },
+  {
+    "skill_id": 133,
+    "rank": 4,
+    "req_level": 77,
+    "mp_cost": 32,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 7040,
+    "effects": [
+      {
+        "kind": "cleanse",
+        "max_effects": 2
+      }
+    ]
+  },
+  {
+    "skill_id": 133,
+    "rank": 5,
+    "req_level": 98,
+    "mp_cost": 36,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 6720,
+    "effects": [
+      {
+        "kind": "cleanse",
+        "max_effects": 2
+      }
+    ]
+  },
+  {
+    "skill_id": 134,
+    "rank": 1,
+    "req_level": 20,
+    "mp_cost": 24,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 6000,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 184,
+        "weapon_scale": 1.15
+      }
+    ]
+  },
+  {
+    "skill_id": 134,
+    "rank": 2,
+    "req_level": 39,
+    "mp_cost": 30,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 5760,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 248,
+        "weapon_scale": 1.552
+      }
+    ]
+  },
+  {
+    "skill_id": 134,
+    "rank": 3,
+    "req_level": 58,
+    "mp_cost": 36,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 5520,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 313,
+        "weapon_scale": 1.955
+      }
+    ]
+  },
+  {
+    "skill_id": 134,
+    "rank": 4,
+    "req_level": 77,
+    "mp_cost": 42,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 5280,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 377,
+        "weapon_scale": 2.357
+      }
+    ]
+  },
+  {
+    "skill_id": 134,
+    "rank": 5,
+    "req_level": 96,
+    "mp_cost": 48,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 5040,
+    "effects": [
+      {
+        "kind": "damage",
+        "school": "magic",
+        "base": 442,
+        "weapon_scale": 2.76
+      }
+    ]
+  },
+  {
+    "skill_id": 135,
+    "rank": 1,
+    "req_level": 28,
+    "mp_cost": 55,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 15000,
+    "effects": [
+      {
+        "kind": "heal",
+        "base": 274
+      }
+    ]
+  },
+  {
+    "skill_id": 135,
+    "rank": 2,
+    "req_level": 45,
+    "mp_cost": 69,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 14400,
+    "effects": [
+      {
+        "kind": "heal",
+        "base": 370
+      }
+    ]
+  },
+  {
+    "skill_id": 135,
+    "rank": 3,
+    "req_level": 62,
+    "mp_cost": 82,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 13800,
+    "effects": [
+      {
+        "kind": "heal",
+        "base": 466
+      }
+    ]
+  },
+  {
+    "skill_id": 135,
+    "rank": 4,
+    "req_level": 79,
+    "mp_cost": 96,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 13200,
+    "effects": [
+      {
+        "kind": "heal",
+        "base": 562
+      }
+    ]
+  },
+  {
+    "skill_id": 135,
+    "rank": 5,
+    "req_level": 96,
+    "mp_cost": 110,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 12600,
+    "effects": [
+      {
+        "kind": "heal",
+        "base": 658
+      }
+    ]
+  },
+  {
+    "skill_id": 136,
+    "rank": 1,
+    "req_level": 36,
+    "mp_cost": 30,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 18000,
+    "effects": [
+      {
+        "kind": "debuff",
+        "attribute": "armor",
+        "magnitude_pct": -19,
+        "duration_ms": 10000
+      }
+    ]
+  },
+  {
+    "skill_id": 136,
+    "rank": 2,
+    "req_level": 51,
+    "mp_cost": 38,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 17280,
+    "effects": [
+      {
+        "kind": "debuff",
+        "attribute": "armor",
+        "magnitude_pct": -22,
+        "duration_ms": 11500
+      }
+    ]
+  },
+  {
+    "skill_id": 136,
+    "rank": 3,
+    "req_level": 66,
+    "mp_cost": 45,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 16560,
+    "effects": [
+      {
+        "kind": "debuff",
+        "attribute": "armor",
+        "magnitude_pct": -25,
+        "duration_ms": 13000
+      }
+    ]
+  },
+  {
+    "skill_id": 136,
+    "rank": 4,
+    "req_level": 81,
+    "mp_cost": 52,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 15840,
+    "effects": [
+      {
+        "kind": "debuff",
+        "attribute": "armor",
+        "magnitude_pct": -28,
+        "duration_ms": 14500
+      }
+    ]
+  },
+  {
+    "skill_id": 136,
+    "rank": 5,
+    "req_level": 96,
+    "mp_cost": 60,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 15120,
+    "effects": [
+      {
+        "kind": "debuff",
+        "attribute": "armor",
+        "magnitude_pct": -31,
+        "duration_ms": 16000
+      }
+    ]
+  },
+  {
+    "skill_id": 137,
+    "rank": 1,
+    "req_level": 45,
+    "mp_cost": 80,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 300000,
+    "effects": [
+      {
+        "kind": "revive",
+        "hp_pct": 30,
+        "mp_pct": 20
+      }
+    ]
+  },
+  {
+    "skill_id": 137,
+    "rank": 2,
+    "req_level": 58,
+    "mp_cost": 100,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 288000,
+    "effects": [
+      {
+        "kind": "revive",
+        "hp_pct": 30,
+        "mp_pct": 20
+      }
+    ]
+  },
+  {
+    "skill_id": 137,
+    "rank": 3,
+    "req_level": 71,
+    "mp_cost": 120,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 276000,
+    "effects": [
+      {
+        "kind": "revive",
+        "hp_pct": 30,
+        "mp_pct": 20
+      }
+    ]
+  },
+  {
+    "skill_id": 137,
+    "rank": 4,
+    "req_level": 84,
+    "mp_cost": 140,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 264000,
+    "effects": [
+      {
+        "kind": "revive",
+        "hp_pct": 30,
+        "mp_pct": 20
+      }
+    ]
+  },
+  {
+    "skill_id": 137,
+    "rank": 5,
+    "req_level": 97,
+    "mp_cost": 160,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 252000,
+    "effects": [
+      {
+        "kind": "revive",
+        "hp_pct": 30,
+        "mp_pct": 20
+      }
+    ]
+  },
+  {
+    "skill_id": 138,
+    "rank": 1,
+    "req_level": 55,
+    "mp_cost": 75,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 30000,
+    "effects": [
+      {
+        "kind": "heal",
+        "base": 784
+      }
+    ]
+  },
+  {
+    "skill_id": 138,
+    "rank": 2,
+    "req_level": 65,
+    "mp_cost": 94,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 28800,
+    "effects": [
+      {
+        "kind": "heal",
+        "base": 1058
+      }
+    ]
+  },
+  {
+    "skill_id": 138,
+    "rank": 3,
+    "req_level": 75,
+    "mp_cost": 112,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 27600,
+    "effects": [
+      {
+        "kind": "heal",
+        "base": 1333
+      }
+    ]
+  },
+  {
+    "skill_id": 138,
+    "rank": 4,
+    "req_level": 85,
+    "mp_cost": 131,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 26400,
+    "effects": [
+      {
+        "kind": "heal",
+        "base": 1607
+      }
+    ]
+  },
+  {
+    "skill_id": 138,
+    "rank": 5,
+    "req_level": 95,
+    "mp_cost": 150,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 25200,
+    "effects": [
+      {
+        "kind": "heal",
+        "base": 1882
+      }
+    ]
+  },
+  {
+    "skill_id": 139,
+    "rank": 1,
+    "req_level": 68,
+    "mp_cost": 90,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 90000,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "all_stats",
+        "magnitude_pct": 23,
+        "duration_ms": 15000
+      }
+    ]
+  },
+  {
+    "skill_id": 139,
+    "rank": 2,
+    "req_level": 75,
+    "mp_cost": 112,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 86400,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "all_stats",
+        "magnitude_pct": 26,
+        "duration_ms": 17250
+      }
+    ]
+  },
+  {
+    "skill_id": 139,
+    "rank": 3,
+    "req_level": 82,
+    "mp_cost": 135,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 82800,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "all_stats",
+        "magnitude_pct": 29,
+        "duration_ms": 19500
+      }
+    ]
+  },
+  {
+    "skill_id": 139,
+    "rank": 4,
+    "req_level": 89,
+    "mp_cost": 158,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 79200,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "all_stats",
+        "magnitude_pct": 32,
+        "duration_ms": 21750
+      }
+    ]
+  },
+  {
+    "skill_id": 139,
+    "rank": 5,
+    "req_level": 96,
+    "mp_cost": 180,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 75600,
+    "effects": [
+      {
+        "kind": "buff",
+        "attribute": "all_stats",
+        "magnitude_pct": 35,
+        "duration_ms": 24000
+      }
+    ]
+  },
+  {
+    "skill_id": 140,
+    "rank": 1,
+    "req_level": 82,
+    "mp_cost": 150,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 240000,
+    "effects": [
+      {
+        "kind": "heal",
+        "base": 1977
+      }
+    ]
+  },
+  {
+    "skill_id": 140,
+    "rank": 2,
+    "req_level": 86,
+    "mp_cost": 188,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 230400,
+    "effects": [
+      {
+        "kind": "heal",
+        "base": 2669
+      }
+    ]
+  },
+  {
+    "skill_id": 140,
+    "rank": 3,
+    "req_level": 90,
+    "mp_cost": 225,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 220800,
+    "effects": [
+      {
+        "kind": "heal",
+        "base": 3361
+      }
+    ]
+  },
+  {
+    "skill_id": 140,
+    "rank": 4,
+    "req_level": 94,
+    "mp_cost": 262,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 211200,
+    "effects": [
+      {
+        "kind": "heal",
+        "base": 4053
+      }
+    ]
+  },
+  {
+    "skill_id": 140,
+    "rank": 5,
+    "req_level": 98,
+    "mp_cost": 300,
+    "hp_cost": 0,
+    "cast_time_ms": 1200,
+    "cooldown_ms": 201600,
+    "effects": [
+      {
+        "kind": "heal",
+        "base": 4745
+      }
+    ]
+  }
+]

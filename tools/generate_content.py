@@ -81,6 +81,16 @@ ARMOR_FAMILIES = [
     ("kumas", "Kumaş",  40, ["mage", "priest"],    "intellect"),
 ]
 
+# --- Beceri rank (kademe) sistemi ---
+# Her beceri birden fazla rank'a sahiptir; oyuncu beceri puani harcayarak
+# rank yukseltir. KO'da bu "skill level" idi ve her rank MAGIC tablosunda
+# AYRI SATIR tutuluyordu (1522 satirin sebebi bu). Burada beceri tanimi tek,
+# ranklar ayri bir tabloda -- isim ve aciklama tekrar etmez.
+SKILL_RANKS = 5
+RANK_POWER_STEP = 0.35      # her rank etki buyuklugunu bu kadar artirir
+RANK_COST_STEP = 0.25       # her rank MP maliyetini bu kadar artirir
+RANK_MAX_LEVEL = 98         # son rank en fazla bu seviyede acilir
+
 # Sinif tanimlari (01_core_schema.sql'deki sira ile ayni olmali)
 CLASSES = [
     (1, "warrior", "Savaşçı",   "strength"),
@@ -447,6 +457,58 @@ def gen_skills():
     return skills
 
 
+def gen_skill_ranks(skills):
+    """Her beceri icin SKILL_RANKS adet rank uretir.
+
+    Rank araligi beceriye gore hesaplanir: son rank RANK_MAX_LEVEL'i gecmez.
+    Erken ogrenilen beceriler genis aralikla (uzun sure gelisir), gec
+    ogrenilenler sik aralikla rank atlar.
+    """
+    rows = []
+    for s in skills:
+        base = s["req_level"]
+        span = max(3, (RANK_MAX_LEVEL - base) // max(1, SKILL_RANKS - 1))
+
+        for r in range(1, SKILL_RANKS + 1):
+            level = min(RANK_MAX_LEVEL, base + span * (r - 1))
+            power = 1.0 + RANK_POWER_STEP * (r - 1)
+            cost = 1.0 + RANK_COST_STEP * (r - 1)
+
+            # Etkileri rank'a gore olcekle
+            effects = []
+            for e in s["effects"]:
+                scaled = dict(e)
+                for key in ("base", "tick_damage"):
+                    if key in scaled:
+                        scaled[key] = round(scaled[key] * power)
+                for key in ("magnitude_pct",):
+                    if key in scaled:
+                        # Yuzdeler carpilmaz, toplanir -- carpmak gec rankta
+                        # %200 buff gibi sacma degerler uretir
+                        sign = -1 if scaled[key] < 0 else 1
+                        scaled[key] = sign * (abs(scaled[key]) + 3 * (r - 1))
+                for key in ("duration_ms",):
+                    if key in scaled:
+                        scaled[key] = round(scaled[key] * (1.0 + 0.15 * (r - 1)))
+                if "weapon_scale" in scaled:
+                    scaled["weapon_scale"] = round(scaled["weapon_scale"] * power, 3)
+                effects.append(scaled)
+
+            rows.append({
+                "skill_id": s["id"],
+                "rank": r,
+                "req_level": level,
+                "mp_cost": round(s["mp_cost"] * cost),
+                "hp_cost": round(s["hp_cost"] * cost),
+                "cast_time_ms": s["cast_time_ms"],
+                # Bekleme suresi rank ile HAFIF dusser -- tamamen sabit kalirsa
+                # yuksek rank sadece "daha pahali ayni sey" olur
+                "cooldown_ms": round(s["cooldown_ms"] * (1.0 - 0.04 * (r - 1))),
+                "effects": effects,
+            })
+    return rows
+
+
 def gen_mobs_and_spawns(items):
     """Her bolge icin seviye bandina uygun moblar + loot tablolari + dogma noktalari."""
     mobs, loot, spawns = [], [], []
@@ -630,6 +692,109 @@ def gen_merchants():
 
 
 # =============================================================================
+#  UNITY IHRACI
+# =============================================================================
+#  Unity'nin JsonUtility'si ic ice sozluk ve polimorfik tip okuyamaz; yalnizca
+#  alanlari sabit, duz siniflari deserialize eder. content/skills.json ise
+#  etki tipine gore DEGISEN anahtarlar tasiyor (damage'da "base", control'de
+#  "effect" gibi). Bu yuzden Unity icin AYRI, DUZLESTIRILMIS bir surum yazilir:
+#  butun etki alanlari her kayitta bulunur, kullanilmayanlar 0 / "" kalir.
+#
+#  Alternatif Newtonsoft.Json ile polimorfik okuma olurdu ama o ek paket
+#  bagimliligi demek; duz sema hem bagimsiz hem daha hizli.
+
+UNITY_EFFECT_FIELDS = {
+    # json anahtari -> (C# alan adi, varsayilan)
+    "kind":                ("kind",              ""),
+    "school":              ("school",            ""),
+    "attribute":           ("attribute",         ""),
+    "effect":              ("effectName",        ""),
+    "base":                ("baseValue",         0),
+    "tick_damage":         ("tickDamage",        0),
+    "weapon_scale":        ("weaponScale",       0.0),
+    "magnitude_pct":       ("magnitudePct",      0),
+    "duration_ms":         ("durationMs",        0),
+    "tick_interval_ms":    ("tickIntervalMs",    0),
+    "distance_m":          ("distanceM",         0.0),
+    "multiplier":          ("multiplier",        0.0),
+    "max_effects":         ("maxEffects",        0),
+    "hp_pct":              ("hpPct",             0),
+    "mp_pct":              ("mpPct",             0),
+    "bonus_below_hp_pct":  ("bonusBelowHpPct",   0),
+    "bonus_multiplier":    ("bonusMultiplier",   0.0),
+}
+
+
+def flatten_effect(effect):
+    """Degisken anahtarli etkiyi sabit semali duz kayda cevirir."""
+    out = {}
+    for cs_name, default in UNITY_EFFECT_FIELDS.values():
+        out[cs_name] = default
+    for json_key, value in effect.items():
+        if json_key in UNITY_EFFECT_FIELDS:
+            cs_name, _ = UNITY_EFFECT_FIELDS[json_key]
+            out[cs_name] = value
+    unknown = set(effect.keys()) - set(UNITY_EFFECT_FIELDS.keys())
+    if unknown:
+        # Sessizce yutmak yerine bagir: yeni etki alani eklenmis ama Unity
+        # semasina yansitilmamis demektir.
+        raise ValueError(
+            f"Unity semasinda tanimsiz etki alani: {sorted(unknown)}. "
+            f"UNITY_EFFECT_FIELDS'a ekle ve SkillEffectData.cs'i guncelle.")
+    return out
+
+
+def export_unity_skills(skills, ranks):
+    """Unity Resources altina JsonUtility uyumlu skill veritabani yazar."""
+    ranks_by_skill = {}
+    for r in ranks:
+        ranks_by_skill.setdefault(r["skill_id"], []).append(r)
+
+    out_skills = []
+    for s in sorted(skills, key=lambda x: (x["class"], x["req_level"])):
+        rank_rows = sorted(ranks_by_skill.get(s["id"], []), key=lambda r: r["rank"])
+        out_skills.append({
+            "id": s["id"],
+            "code": s["code"],
+            "displayName": s["display_name"],
+            "description": s["description"],
+            "className": s["class"],
+            "targetType": s["target_type"],
+            "reqLevel": s["req_level"],
+            # JsonUtility null tasimaz -> yoklugu 0 ile ifade edilir
+            "reqSkillId": s["req_skill_id"] or 0,
+            "rangeM": s["range_m"],
+            "areaRadiusM": s["area_radius_m"],
+            "ranks": [
+                {
+                    "rank": r["rank"],
+                    "reqLevel": r["req_level"],
+                    "mpCost": r["mp_cost"],
+                    "hpCost": r["hp_cost"],
+                    "castTimeMs": r["cast_time_ms"],
+                    "cooldownMs": r["cooldown_ms"],
+                    "effects": [flatten_effect(e) for e in r["effects"]],
+                }
+                for r in rank_rows
+            ],
+        })
+
+    payload = {
+        "schemaVersion": 1,
+        "generatedBy": "tools/generate_content.py",
+        "skillCount": len(out_skills),
+        "rankCount": len(ranks),
+        "skills": out_skills,
+    }
+
+    path = ROOT / "unity" / "Assets" / "Resources" / "GameData" / "skills.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=1) + "\n",
+                    encoding="utf-8")
+    return path
+
+
+# =============================================================================
 #  SQL YAZICI
 # =============================================================================
 
@@ -646,7 +811,7 @@ def q(v):
     return "'" + str(v).replace("'", "''") + "'"
 
 
-def write_sql(items, skills, mobs, loot, spawns, merchants):
+def write_sql(items, skills, ranks, mobs, loot, spawns, merchants):
     out = []
     w = out.append
     w("-- =============================================================================")
@@ -701,6 +866,24 @@ def write_sql(items, skills, mobs, loot, spawns, merchants):
         w(f"  {q(s['req_skill_id'])}, {q(s['target_type'])}, {s['mp_cost']}, {s['hp_cost']},")
         w(f"  {s['cast_time_ms']}, {s['cooldown_ms']}, {s['range_m']}, {s['area_radius_m']}, {q(s['effects'])}")
         w(") ON CONFLICT (id) DO UPDATE SET display_name=EXCLUDED.display_name, effects=EXCLUDED.effects;")
+    w("")
+
+    w(f"-- ---------- BECERI RANKLARI ({len(ranks)} kayit) ----------")
+    w("-- Her becerinin SKILL_RANKS adet rank'i var; oyuncu beceri puani ile yukseltir.")
+    w("--")
+    w("-- DELETE KULLANILMAZ: character_skill tablosu (skill_id, skill_rank) ile")
+    w("-- buraya FK ile bagli. Canli bir veritabaninda tek bir oyuncu beceri")
+    w("-- ogrenmisse DELETE FROM skill_rank FK ihlaliyle patlar ve butun seed")
+    w("-- basarisiz olur. ON CONFLICT DO UPDATE ile yerinde guncellenir.")
+    for r in ranks:
+        w("INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,")
+        w("    cast_time_ms, cooldown_ms, effects) VALUES (")
+        w(f"  {r['skill_id']}, {r['rank']}, {r['req_level']}, {r['mp_cost']}, {r['hp_cost']},")
+        w(f"  {r['cast_time_ms']}, {r['cooldown_ms']}, {q(r['effects'])}")
+        w(") ON CONFLICT (skill_id, rank) DO UPDATE SET")
+        w("    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,")
+        w("    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,")
+        w("    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;")
     w("")
 
     all_npcs = mobs + merchants
@@ -803,6 +986,7 @@ def main():
 
     items = gen_items()
     skills = gen_skills()
+    ranks = gen_skill_ranks(skills)
     mobs, loot, spawns = gen_mobs_and_spawns(items)
     merchants = gen_merchants()
 
@@ -814,6 +998,7 @@ def main():
 
     dump("items", items)
     dump("skills", skills)
+    dump("skill_ranks", ranks)
     dump("npcs", mobs + merchants)
     dump("loot", loot)
     dump("spawns", spawns)
@@ -821,18 +1006,22 @@ def main():
                     "level_min": z[4], "level_max": z[5]} for z in ZONES])
 
     sql_path = SCHEMA / "02_content_seed.sql"
-    sql_path.write_text(write_sql(items, skills, mobs, loot, spawns, merchants) , encoding="utf-8")
+    sql_path.write_text(write_sql(items, skills, ranks, mobs, loot, spawns, merchants),
+                        encoding="utf-8")
+
+    unity_path = export_unity_skills(skills, ranks)
 
     report = balance_report(items, skills, mobs)
     (CONTENT / "balance_report.txt").write_text(report + "\n", encoding="utf-8")
 
     print(f"esya      : {len(items)}")
-    print(f"beceri    : {len(skills)}")
+    print(f"beceri    : {len(skills)}  ({len(ranks)} rank kaydi)")
     print(f"npc/mob   : {len(mobs) + len(merchants)}")
     print(f"loot satir: {len(loot)}")
     print(f"dogma nk. : {len(spawns)}")
     print(f"bolge     : {len(ZONES)}")
-    print(f"\nSQL: {sql_path.relative_to(ROOT)}  ({sql_path.stat().st_size // 1024} KB)")
+    print(f"\nSQL  : {sql_path.relative_to(ROOT)}  ({sql_path.stat().st_size // 1024} KB)")
+    print(f"Unity: {unity_path.relative_to(ROOT)}  ({unity_path.stat().st_size // 1024} KB)")
     print()
     print(report)
 

@@ -14,7 +14,9 @@ haritasıyla başlıyor.
 | [`docs/schema/01_core_schema.sql`](docs/schema/01_core_schema.sql) | Normalize PostgreSQL çekirdek şeması (27 tablo + 2 görünüm). KO'nun yedi temel kusuru baştan çözülmüş. PostgreSQL 16.15'te test edildi. |
 | [`docs/schema/02_content_seed.sql`](docs/schema/02_content_seed.sql) | Üretilmiş başlangıç içeriği: 181 eşya, 40 beceri, 44 NPC, 242 loot satırı, 100 doğma noktası, 10 bölge (otomatik üretildi — elle düzenlemeyin) |
 | [`docs/04-stat-dagitimi-ve-hold-repeat.md`](docs/04-stat-dagitimi-ve-hold-repeat.md) | Stat dağıtım butonunun basılı-tutma tekrarlama hızı: analiz, ölçüm sonuçları ve Unity kurulum adımları |
-| [`unity/Assets/Scripts/`](unity/Assets/Scripts) | Unity C# kaynakları: `HoldRepeatButton`, `StatAllocationPanel`, `StatRepeatTuning`, stat servisi arayüzü + test taklidi |
+| [`docs/06-skill-sistemi-unity.md`](docs/06-skill-sistemi-unity.md) | Skill sistemi: 40 beceri / 200 rank, 11 etki tipi, Unity yükleyici ve ScriptableObject importer |
+| [`unity/Assets/Scripts/`](unity/Assets/Scripts) | Unity C# kaynakları: `SkillDatabase`, `SkillData`, `SkillDefinition`, `SkillImporter`, `HoldRepeatButton`, `StatAllocationPanel` |
+| [`unity/Assets/Resources/GameData/skills.json`](unity/Assets/Resources/GameData/skills.json) | Oyunun okuduğu skill verisi (40 beceri, 200 rank) — üretilir, elle düzenlenmez |
 | [`docs/05-ilerleme-simulasyonu.md`](docs/05-ilerleme-simulasyonu.md) | İçeriği baştan sona simüle edip gerçek değer üretme: seviye 1→100 süresi, tempo, ekonomi, loot beklentisi — ve bulunan seviye eğrisi hatası |
 | [`tools/simulate_progression.py`](tools/simulate_progression.py) | İlerleme simülatörü ve seviye eğrisi kalibrasyonu (`--calibrate`) |
 | [`tools/analyze_hold_repeat.py`](tools/analyze_hold_repeat.py) | Tekrarlama eğrisi simülatörü ve hedef denetimi |

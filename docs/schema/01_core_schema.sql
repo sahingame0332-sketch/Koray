@@ -422,12 +422,36 @@ CREATE TABLE skill_template (
     is_enabled      boolean     NOT NULL DEFAULT true
 );
 
+-- Becerinin rank (kademe) basina sayilari.
+--
+-- NEDEN AYRI TABLO: Knight Online'da her beceri rank'i MAGIC tablosunda AYRI
+-- SATIR tutuluyordu -- 1522 satirin sebebi bu. Isim, aciklama, hedef tipi her
+-- rank icin tekrar ediliyordu; bir ismi degistirmek 5 satir guncellemek
+-- demekti. Burada tanim (skill_template) tek, degisen sayilar burada.
+CREATE TABLE skill_rank (
+    skill_id        integer     NOT NULL REFERENCES skill_template(id) ON DELETE CASCADE,
+    rank            smallint    NOT NULL CHECK (rank >= 1),
+    req_level       integer     NOT NULL,
+    mp_cost         integer     NOT NULL DEFAULT 0,
+    hp_cost         integer     NOT NULL DEFAULT 0,
+    cast_time_ms    integer     NOT NULL DEFAULT 0,
+    cooldown_ms     integer     NOT NULL DEFAULT 0,
+    -- Rank'a gore olceklenmis etki listesi (skill_template.effects ile ayni sema)
+    effects         jsonb       NOT NULL DEFAULT '[]'::jsonb,
+    PRIMARY KEY (skill_id, rank)
+);
+
+CREATE INDEX skill_rank_level_idx ON skill_rank (req_level);
+
+
 CREATE TABLE character_skill (
     character_id    bigint      NOT NULL REFERENCES game_character(id) ON DELETE CASCADE,
     skill_id        integer     NOT NULL REFERENCES skill_template(id),
     skill_rank      smallint    NOT NULL DEFAULT 1,
     learned_at      timestamptz NOT NULL DEFAULT now(),
-    PRIMARY KEY (character_id, skill_id)
+    PRIMARY KEY (character_id, skill_id),
+    -- Karakterin rank'i gercekten tanimli olmali
+    FOREIGN KEY (skill_id, skill_rank) REFERENCES skill_rank (skill_id, rank)
 );
 
 -- Beceri cubugu (KO'daki USERDATA_SKILLSHORTCUT)

@@ -1,0 +1,6368 @@
+{
+ "schemaVersion": 1,
+ "generatedBy": "tools/generate_content.py",
+ "skillCount": 40,
+ "rankCount": 200,
+ "skills": [
+  {
+   "id": 121,
+   "code": "mage_ates_oku",
+   "displayName": "Ateş Oku",
+   "description": "Ateş Oku — mage becerisi (seviye 2).",
+   "className": "mage",
+   "targetType": "single_enemy",
+   "reqLevel": 2,
+   "reqSkillId": 0,
+   "rangeM": 18.0,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 2,
+     "mpCost": 14,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 2500,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 75,
+       "tickDamage": 0,
+       "weaponScale": 1.45,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 26,
+     "mpCost": 18,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 2400,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 101,
+       "tickDamage": 0,
+       "weaponScale": 1.958,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 50,
+     "mpCost": 21,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 2300,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 128,
+       "tickDamage": 0,
+       "weaponScale": 2.465,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 74,
+     "mpCost": 24,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 2200,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 154,
+       "tickDamage": 0,
+       "weaponScale": 2.972,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 98,
+     "mpCost": 28,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 2100,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 180,
+       "tickDamage": 0,
+       "weaponScale": 3.48,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 122,
+   "code": "mage_buz_zinciri",
+   "displayName": "Buz Zinciri",
+   "description": "Buz Zinciri — mage becerisi (seviye 8).",
+   "className": "mage",
+   "targetType": "single_enemy",
+   "reqLevel": 8,
+   "reqSkillId": 121,
+   "rangeM": 16.0,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 8,
+     "mpCost": 20,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 14000,
+     "effects": [
+      {
+       "kind": "control",
+       "school": "",
+       "attribute": "",
+       "effectName": "root",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 3160,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 30,
+     "mpCost": 25,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 13440,
+     "effects": [
+      {
+       "kind": "control",
+       "school": "",
+       "attribute": "",
+       "effectName": "root",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 3634,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 52,
+     "mpCost": 30,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 12880,
+     "effects": [
+      {
+       "kind": "control",
+       "school": "",
+       "attribute": "",
+       "effectName": "root",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 4108,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 74,
+     "mpCost": 35,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 12320,
+     "effects": [
+      {
+       "kind": "control",
+       "school": "",
+       "attribute": "",
+       "effectName": "root",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 4582,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 96,
+     "mpCost": 40,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 11760,
+     "effects": [
+      {
+       "kind": "control",
+       "school": "",
+       "attribute": "",
+       "effectName": "root",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 5056,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 123,
+   "code": "mage_alev_halkasi",
+   "displayName": "Alev Halkası",
+   "description": "Alev Halkası — mage becerisi (seviye 14).",
+   "className": "mage",
+   "targetType": "area_enemy",
+   "reqLevel": 14,
+   "reqSkillId": 122,
+   "rangeM": 14.0,
+   "areaRadiusM": 6.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 14,
+     "mpCost": 34,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 11000,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 155,
+       "tickDamage": 0,
+       "weaponScale": 1.25,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 35,
+     "mpCost": 42,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 10560,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 209,
+       "tickDamage": 0,
+       "weaponScale": 1.688,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 56,
+     "mpCost": 51,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 10120,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 264,
+       "tickDamage": 0,
+       "weaponScale": 2.125,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 77,
+     "mpCost": 60,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 9680,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 318,
+       "tickDamage": 0,
+       "weaponScale": 2.562,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 98,
+     "mpCost": 68,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 9240,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 372,
+       "tickDamage": 0,
+       "weaponScale": 3.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 124,
+   "code": "mage_mana_kalkani",
+   "displayName": "Mana Kalkanı",
+   "description": "Mana Kalkanı — mage becerisi (seviye 20).",
+   "className": "mage",
+   "targetType": "self",
+   "reqLevel": 20,
+   "reqSkillId": 123,
+   "rangeM": 0.0,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 20,
+     "mpCost": 28,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 35000,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "all_stats",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 14,
+       "durationMs": 15000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 39,
+     "mpCost": 35,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 33600,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "all_stats",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 17,
+       "durationMs": 17250,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 58,
+     "mpCost": 42,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 32200,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "all_stats",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 20,
+       "durationMs": 19500,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 77,
+     "mpCost": 49,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 30800,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "all_stats",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 23,
+       "durationMs": 21750,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 96,
+     "mpCost": 56,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 29400,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "all_stats",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 26,
+       "durationMs": 24000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 125,
+   "code": "mage_yildirim",
+   "displayName": "Yıldırım",
+   "description": "Yıldırım — mage becerisi (seviye 28).",
+   "className": "mage",
+   "targetType": "single_enemy",
+   "reqLevel": 28,
+   "reqSkillId": 124,
+   "rangeM": 20.0,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 28,
+     "mpCost": 42,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 9000,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 416,
+       "tickDamage": 0,
+       "weaponScale": 2.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 45,
+     "mpCost": 52,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 8640,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 562,
+       "tickDamage": 0,
+       "weaponScale": 2.7,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 62,
+     "mpCost": 63,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 8280,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 707,
+       "tickDamage": 0,
+       "weaponScale": 3.4,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 79,
+     "mpCost": 74,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 7920,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 853,
+       "tickDamage": 0,
+       "weaponScale": 4.1,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 96,
+     "mpCost": 84,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 7560,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 998,
+       "tickDamage": 0,
+       "weaponScale": 4.8,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 126,
+   "code": "mage_donma",
+   "displayName": "Donma",
+   "description": "Donma — mage becerisi (seviye 36).",
+   "className": "mage",
+   "targetType": "area_enemy",
+   "reqLevel": 36,
+   "reqSkillId": 125,
+   "rangeM": 14.0,
+   "areaRadiusM": 6.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 36,
+     "mpCost": 48,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 25000,
+     "effects": [
+      {
+       "kind": "control",
+       "school": "",
+       "attribute": "",
+       "effectName": "root",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 3720,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 51,
+     "mpCost": 60,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 24000,
+     "effects": [
+      {
+       "kind": "control",
+       "school": "",
+       "attribute": "",
+       "effectName": "root",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 4278,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 66,
+     "mpCost": 72,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 23000,
+     "effects": [
+      {
+       "kind": "control",
+       "school": "",
+       "attribute": "",
+       "effectName": "root",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 4836,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 81,
+     "mpCost": 84,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 22000,
+     "effects": [
+      {
+       "kind": "control",
+       "school": "",
+       "attribute": "",
+       "effectName": "root",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 5394,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 96,
+     "mpCost": 96,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 21000,
+     "effects": [
+      {
+       "kind": "control",
+       "school": "",
+       "attribute": "",
+       "effectName": "root",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 5952,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 127,
+   "code": "mage_isinlanma",
+   "displayName": "Işınlanma",
+   "description": "Işınlanma — mage becerisi (seviye 45).",
+   "className": "mage",
+   "targetType": "self",
+   "reqLevel": 45,
+   "reqSkillId": 126,
+   "rangeM": 0.0,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 45,
+     "mpCost": 40,
+     "hpCost": 0,
+     "castTimeMs": 0,
+     "cooldownMs": 30000,
+     "effects": [
+      {
+       "kind": "movement",
+       "school": "",
+       "attribute": "",
+       "effectName": "dash",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 8,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 58,
+     "mpCost": 50,
+     "hpCost": 0,
+     "castTimeMs": 0,
+     "cooldownMs": 28800,
+     "effects": [
+      {
+       "kind": "movement",
+       "school": "",
+       "attribute": "",
+       "effectName": "dash",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 8,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 71,
+     "mpCost": 60,
+     "hpCost": 0,
+     "castTimeMs": 0,
+     "cooldownMs": 27600,
+     "effects": [
+      {
+       "kind": "movement",
+       "school": "",
+       "attribute": "",
+       "effectName": "dash",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 8,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 84,
+     "mpCost": 70,
+     "hpCost": 0,
+     "castTimeMs": 0,
+     "cooldownMs": 26400,
+     "effects": [
+      {
+       "kind": "movement",
+       "school": "",
+       "attribute": "",
+       "effectName": "dash",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 8,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 97,
+     "mpCost": 80,
+     "hpCost": 0,
+     "castTimeMs": 0,
+     "cooldownMs": 25200,
+     "effects": [
+      {
+       "kind": "movement",
+       "school": "",
+       "attribute": "",
+       "effectName": "dash",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 8,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 128,
+   "code": "mage_meteor",
+   "displayName": "Meteor",
+   "description": "Meteor — mage becerisi (seviye 55).",
+   "className": "mage",
+   "targetType": "area_enemy",
+   "reqLevel": 55,
+   "reqSkillId": 127,
+   "rangeM": 22.0,
+   "areaRadiusM": 6.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 55,
+     "mpCost": 70,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 28000,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 888,
+       "tickDamage": 0,
+       "weaponScale": 2.4,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 65,
+     "mpCost": 88,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 26880,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 1199,
+       "tickDamage": 0,
+       "weaponScale": 3.24,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 75,
+     "mpCost": 105,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 25760,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 1510,
+       "tickDamage": 0,
+       "weaponScale": 4.08,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 85,
+     "mpCost": 122,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 24640,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 1820,
+       "tickDamage": 0,
+       "weaponScale": 4.92,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 95,
+     "mpCost": 140,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 23520,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 2131,
+       "tickDamage": 0,
+       "weaponScale": 5.76,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 129,
+   "code": "mage_zaman_yarigi",
+   "displayName": "Zaman Yarığı",
+   "description": "Zaman Yarığı — mage becerisi (seviye 68).",
+   "className": "mage",
+   "targetType": "area_enemy",
+   "reqLevel": 68,
+   "reqSkillId": 128,
+   "rangeM": 18.0,
+   "areaRadiusM": 6.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 68,
+     "mpCost": 65,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 40000,
+     "effects": [
+      {
+       "kind": "debuff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": -27,
+       "durationMs": 10000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 75,
+     "mpCost": 81,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 38400,
+     "effects": [
+      {
+       "kind": "debuff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": -30,
+       "durationMs": 11500,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 82,
+     "mpCost": 98,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 36800,
+     "effects": [
+      {
+       "kind": "debuff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": -33,
+       "durationMs": 13000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 89,
+     "mpCost": 114,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 35200,
+     "effects": [
+      {
+       "kind": "debuff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": -36,
+       "durationMs": 14500,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 96,
+     "mpCost": 130,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 33600,
+     "effects": [
+      {
+       "kind": "debuff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": -39,
+       "durationMs": 16000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 130,
+   "code": "mage_kiyamet",
+   "displayName": "Kıyamet",
+   "description": "Kıyamet — mage becerisi (seviye 82).",
+   "className": "mage",
+   "targetType": "area_enemy",
+   "reqLevel": 82,
+   "reqSkillId": 129,
+   "rangeM": 24.0,
+   "areaRadiusM": 6.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 82,
+     "mpCost": 130,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 240000,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 1915,
+       "tickDamage": 0,
+       "weaponScale": 3.6,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 86,
+     "mpCost": 162,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 230400,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 2585,
+       "tickDamage": 0,
+       "weaponScale": 4.86,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 90,
+     "mpCost": 195,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 220800,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 3256,
+       "tickDamage": 0,
+       "weaponScale": 6.12,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 94,
+     "mpCost": 228,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 211200,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 3926,
+       "tickDamage": 0,
+       "weaponScale": 7.38,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 98,
+     "mpCost": 260,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 201600,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 4596,
+       "tickDamage": 0,
+       "weaponScale": 8.64,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 131,
+   "code": "priest_kutsal_isik",
+   "displayName": "Kutsal Işık",
+   "description": "Kutsal Işık — priest becerisi (seviye 2).",
+   "className": "priest",
+   "targetType": "single_ally",
+   "reqLevel": 2,
+   "reqSkillId": 0,
+   "rangeM": 16.0,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 2,
+     "mpCost": 16,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 2000,
+     "effects": [
+      {
+       "kind": "heal",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 92,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 26,
+     "mpCost": 20,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 1920,
+     "effects": [
+      {
+       "kind": "heal",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 124,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 50,
+     "mpCost": 24,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 1840,
+     "effects": [
+      {
+       "kind": "heal",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 156,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 74,
+     "mpCost": 28,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 1760,
+     "effects": [
+      {
+       "kind": "heal",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 189,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 98,
+     "mpCost": 32,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 1680,
+     "effects": [
+      {
+       "kind": "heal",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 221,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 132,
+   "code": "priest_koruma",
+   "displayName": "Koruma",
+   "description": "Koruma — priest becerisi (seviye 8).",
+   "className": "priest",
+   "targetType": "single_ally",
+   "reqLevel": 8,
+   "reqSkillId": 131,
+   "rangeM": 16.0,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 8,
+     "mpCost": 22,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 25000,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "all_stats",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 11,
+       "durationMs": 15000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 30,
+     "mpCost": 28,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 24000,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "all_stats",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 14,
+       "durationMs": 17250,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 52,
+     "mpCost": 33,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 23000,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "all_stats",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 17,
+       "durationMs": 19500,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 74,
+     "mpCost": 38,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 22000,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "all_stats",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 20,
+       "durationMs": 21750,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 96,
+     "mpCost": 44,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 21000,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "all_stats",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 23,
+       "durationMs": 24000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 133,
+   "code": "priest_arindirma",
+   "displayName": "Arındırma",
+   "description": "Arındırma — priest becerisi (seviye 14).",
+   "className": "priest",
+   "targetType": "single_ally",
+   "reqLevel": 14,
+   "reqSkillId": 132,
+   "rangeM": 16.0,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 14,
+     "mpCost": 18,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 8000,
+     "effects": [
+      {
+       "kind": "cleanse",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 2,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 35,
+     "mpCost": 22,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 7680,
+     "effects": [
+      {
+       "kind": "cleanse",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 2,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 56,
+     "mpCost": 27,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 7360,
+     "effects": [
+      {
+       "kind": "cleanse",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 2,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 77,
+     "mpCost": 32,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 7040,
+     "effects": [
+      {
+       "kind": "cleanse",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 2,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 98,
+     "mpCost": 36,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 6720,
+     "effects": [
+      {
+       "kind": "cleanse",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 2,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 134,
+   "code": "priest_ceza",
+   "displayName": "Ceza",
+   "description": "Ceza — priest becerisi (seviye 20).",
+   "className": "priest",
+   "targetType": "single_enemy",
+   "reqLevel": 20,
+   "reqSkillId": 133,
+   "rangeM": 14.0,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 20,
+     "mpCost": 24,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 6000,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 184,
+       "tickDamage": 0,
+       "weaponScale": 1.15,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 39,
+     "mpCost": 30,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 5760,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 248,
+       "tickDamage": 0,
+       "weaponScale": 1.552,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 58,
+     "mpCost": 36,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 5520,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 313,
+       "tickDamage": 0,
+       "weaponScale": 1.955,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 77,
+     "mpCost": 42,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 5280,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 377,
+       "tickDamage": 0,
+       "weaponScale": 2.357,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 96,
+     "mpCost": 48,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 5040,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "magic",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 442,
+       "tickDamage": 0,
+       "weaponScale": 2.76,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 135,
+   "code": "priest_toplu_sifa",
+   "displayName": "Toplu Şifa",
+   "description": "Toplu Şifa — priest becerisi (seviye 28).",
+   "className": "priest",
+   "targetType": "party",
+   "reqLevel": 28,
+   "reqSkillId": 134,
+   "rangeM": 12.0,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 28,
+     "mpCost": 55,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 15000,
+     "effects": [
+      {
+       "kind": "heal",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 274,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 45,
+     "mpCost": 69,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 14400,
+     "effects": [
+      {
+       "kind": "heal",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 370,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 62,
+     "mpCost": 82,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 13800,
+     "effects": [
+      {
+       "kind": "heal",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 466,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 79,
+     "mpCost": 96,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 13200,
+     "effects": [
+      {
+       "kind": "heal",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 562,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 96,
+     "mpCost": 110,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 12600,
+     "effects": [
+      {
+       "kind": "heal",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 658,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 136,
+   "code": "priest_lanet",
+   "displayName": "Lanet",
+   "description": "Lanet — priest becerisi (seviye 36).",
+   "className": "priest",
+   "targetType": "single_enemy",
+   "reqLevel": 36,
+   "reqSkillId": 135,
+   "rangeM": 14.0,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 36,
+     "mpCost": 30,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 18000,
+     "effects": [
+      {
+       "kind": "debuff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": -19,
+       "durationMs": 10000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 51,
+     "mpCost": 38,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 17280,
+     "effects": [
+      {
+       "kind": "debuff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": -22,
+       "durationMs": 11500,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 66,
+     "mpCost": 45,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 16560,
+     "effects": [
+      {
+       "kind": "debuff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": -25,
+       "durationMs": 13000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 81,
+     "mpCost": 52,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 15840,
+     "effects": [
+      {
+       "kind": "debuff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": -28,
+       "durationMs": 14500,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 96,
+     "mpCost": 60,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 15120,
+     "effects": [
+      {
+       "kind": "debuff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": -31,
+       "durationMs": 16000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 137,
+   "code": "priest_dirilis",
+   "displayName": "Diriliş",
+   "description": "Diriliş — priest becerisi (seviye 45).",
+   "className": "priest",
+   "targetType": "single_ally",
+   "reqLevel": 45,
+   "reqSkillId": 136,
+   "rangeM": 8.0,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 45,
+     "mpCost": 80,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 300000,
+     "effects": [
+      {
+       "kind": "revive",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 30,
+       "mpPct": 20,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 58,
+     "mpCost": 100,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 288000,
+     "effects": [
+      {
+       "kind": "revive",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 30,
+       "mpPct": 20,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 71,
+     "mpCost": 120,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 276000,
+     "effects": [
+      {
+       "kind": "revive",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 30,
+       "mpPct": 20,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 84,
+     "mpCost": 140,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 264000,
+     "effects": [
+      {
+       "kind": "revive",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 30,
+       "mpPct": 20,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 97,
+     "mpCost": 160,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 252000,
+     "effects": [
+      {
+       "kind": "revive",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 30,
+       "mpPct": 20,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 138,
+   "code": "priest_kutsal_alan",
+   "displayName": "Kutsal Alan",
+   "description": "Kutsal Alan — priest becerisi (seviye 55).",
+   "className": "priest",
+   "targetType": "area_ally",
+   "reqLevel": 55,
+   "reqSkillId": 137,
+   "rangeM": 10.0,
+   "areaRadiusM": 6.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 55,
+     "mpCost": 75,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 30000,
+     "effects": [
+      {
+       "kind": "heal",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 784,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 65,
+     "mpCost": 94,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 28800,
+     "effects": [
+      {
+       "kind": "heal",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 1058,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 75,
+     "mpCost": 112,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 27600,
+     "effects": [
+      {
+       "kind": "heal",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 1333,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 85,
+     "mpCost": 131,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 26400,
+     "effects": [
+      {
+       "kind": "heal",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 1607,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 95,
+     "mpCost": 150,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 25200,
+     "effects": [
+      {
+       "kind": "heal",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 1882,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 139,
+   "code": "priest_ilahi_kalkan",
+   "displayName": "İlahi Kalkan",
+   "description": "İlahi Kalkan — priest becerisi (seviye 68).",
+   "className": "priest",
+   "targetType": "party",
+   "reqLevel": 68,
+   "reqSkillId": 138,
+   "rangeM": 12.0,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 68,
+     "mpCost": 90,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 90000,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "all_stats",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 23,
+       "durationMs": 15000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 75,
+     "mpCost": 112,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 86400,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "all_stats",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 26,
+       "durationMs": 17250,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 82,
+     "mpCost": 135,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 82800,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "all_stats",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 29,
+       "durationMs": 19500,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 89,
+     "mpCost": 158,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 79200,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "all_stats",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 32,
+       "durationMs": 21750,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 96,
+     "mpCost": 180,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 75600,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "all_stats",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 35,
+       "durationMs": 24000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 140,
+   "code": "priest_yeniden_dogus",
+   "displayName": "Yeniden Doğuş",
+   "description": "Yeniden Doğuş — priest becerisi (seviye 82).",
+   "className": "priest",
+   "targetType": "party",
+   "reqLevel": 82,
+   "reqSkillId": 139,
+   "rangeM": 12.0,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 82,
+     "mpCost": 150,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 240000,
+     "effects": [
+      {
+       "kind": "heal",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 1977,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 86,
+     "mpCost": 188,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 230400,
+     "effects": [
+      {
+       "kind": "heal",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 2669,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 90,
+     "mpCost": 225,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 220800,
+     "effects": [
+      {
+       "kind": "heal",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 3361,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 94,
+     "mpCost": 262,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 211200,
+     "effects": [
+      {
+       "kind": "heal",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 4053,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 98,
+     "mpCost": 300,
+     "hpCost": 0,
+     "castTimeMs": 1200,
+     "cooldownMs": 201600,
+     "effects": [
+      {
+       "kind": "heal",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 4745,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 111,
+   "code": "rogue_hizli_kesik",
+   "displayName": "Hızlı Kesik",
+   "description": "Hızlı Kesik — rogue becerisi (seviye 2).",
+   "className": "rogue",
+   "targetType": "single_enemy",
+   "reqLevel": 2,
+   "reqSkillId": 0,
+   "rangeM": 1.6,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 2,
+     "mpCost": 10,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 3000,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 62,
+       "tickDamage": 0,
+       "weaponScale": 1.2,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 26,
+     "mpCost": 12,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 2880,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 84,
+       "tickDamage": 0,
+       "weaponScale": 1.62,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 50,
+     "mpCost": 15,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 2760,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 105,
+       "tickDamage": 0,
+       "weaponScale": 2.04,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 74,
+     "mpCost": 18,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 2640,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 127,
+       "tickDamage": 0,
+       "weaponScale": 2.46,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 98,
+     "mpCost": 20,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 2520,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 149,
+       "tickDamage": 0,
+       "weaponScale": 2.88,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 112,
+   "code": "rogue_golge_adim",
+   "displayName": "Gölge Adım",
+   "description": "Gölge Adım — rogue becerisi (seviye 8).",
+   "className": "rogue",
+   "targetType": "self",
+   "reqLevel": 8,
+   "reqSkillId": 111,
+   "rangeM": 0.0,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 8,
+     "mpCost": 18,
+     "hpCost": 0,
+     "castTimeMs": 0,
+     "cooldownMs": 12000,
+     "effects": [
+      {
+       "kind": "movement",
+       "school": "",
+       "attribute": "",
+       "effectName": "dash",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 8,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 30,
+     "mpCost": 22,
+     "hpCost": 0,
+     "castTimeMs": 0,
+     "cooldownMs": 11520,
+     "effects": [
+      {
+       "kind": "movement",
+       "school": "",
+       "attribute": "",
+       "effectName": "dash",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 8,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 52,
+     "mpCost": 27,
+     "hpCost": 0,
+     "castTimeMs": 0,
+     "cooldownMs": 11040,
+     "effects": [
+      {
+       "kind": "movement",
+       "school": "",
+       "attribute": "",
+       "effectName": "dash",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 8,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 74,
+     "mpCost": 32,
+     "hpCost": 0,
+     "castTimeMs": 0,
+     "cooldownMs": 10560,
+     "effects": [
+      {
+       "kind": "movement",
+       "school": "",
+       "attribute": "",
+       "effectName": "dash",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 8,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 96,
+     "mpCost": 36,
+     "hpCost": 0,
+     "castTimeMs": 0,
+     "cooldownMs": 10080,
+     "effects": [
+      {
+       "kind": "movement",
+       "school": "",
+       "attribute": "",
+       "effectName": "dash",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 8,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 113,
+   "code": "rogue_zehirli_bicak",
+   "displayName": "Zehirli Bıçak",
+   "description": "Zehirli Bıçak — rogue becerisi (seviye 14).",
+   "className": "rogue",
+   "targetType": "single_enemy",
+   "reqLevel": 14,
+   "reqSkillId": 112,
+   "rangeM": 1.6,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 14,
+     "mpCost": 22,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 9000,
+     "effects": [
+      {
+       "kind": "damage_over_time",
+       "school": "poison",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 46,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 12000,
+       "tickIntervalMs": 2000,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 35,
+     "mpCost": 28,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 8640,
+     "effects": [
+      {
+       "kind": "damage_over_time",
+       "school": "poison",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 62,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 13800,
+       "tickIntervalMs": 2000,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 56,
+     "mpCost": 33,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 8280,
+     "effects": [
+      {
+       "kind": "damage_over_time",
+       "school": "poison",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 78,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 15600,
+       "tickIntervalMs": 2000,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 77,
+     "mpCost": 38,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 7920,
+     "effects": [
+      {
+       "kind": "damage_over_time",
+       "school": "poison",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 94,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 17400,
+       "tickIntervalMs": 2000,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 98,
+     "mpCost": 44,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 7560,
+     "effects": [
+      {
+       "kind": "damage_over_time",
+       "school": "poison",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 110,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 19200,
+       "tickIntervalMs": 2000,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 114,
+   "code": "rogue_sirt_hancer",
+   "displayName": "Sırttan Hançer",
+   "description": "Sırttan Hançer — rogue becerisi (seviye 20).",
+   "className": "rogue",
+   "targetType": "single_enemy",
+   "reqLevel": 20,
+   "reqSkillId": 113,
+   "rangeM": 1.6,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 20,
+     "mpCost": 30,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 14000,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 336,
+       "tickDamage": 0,
+       "weaponScale": 2.1,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 39,
+     "mpCost": 38,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 13440,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 454,
+       "tickDamage": 0,
+       "weaponScale": 2.835,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 58,
+     "mpCost": 45,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 12880,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 571,
+       "tickDamage": 0,
+       "weaponScale": 3.57,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 77,
+     "mpCost": 52,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 12320,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 689,
+       "tickDamage": 0,
+       "weaponScale": 4.305,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 96,
+     "mpCost": 60,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 11760,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 806,
+       "tickDamage": 0,
+       "weaponScale": 5.04,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 115,
+   "code": "rogue_tuzak",
+   "displayName": "Tuzak",
+   "description": "Tuzak — rogue becerisi (seviye 28).",
+   "className": "rogue",
+   "targetType": "area_enemy",
+   "reqLevel": 28,
+   "reqSkillId": 114,
+   "rangeM": 6.0,
+   "areaRadiusM": 6.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 28,
+     "mpCost": 26,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 20000,
+     "effects": [
+      {
+       "kind": "control",
+       "school": "",
+       "attribute": "",
+       "effectName": "root",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 3560,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 45,
+     "mpCost": 32,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 19200,
+     "effects": [
+      {
+       "kind": "control",
+       "school": "",
+       "attribute": "",
+       "effectName": "root",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 4094,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 62,
+     "mpCost": 39,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 18400,
+     "effects": [
+      {
+       "kind": "control",
+       "school": "",
+       "attribute": "",
+       "effectName": "root",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 4628,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 79,
+     "mpCost": 46,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 17600,
+     "effects": [
+      {
+       "kind": "control",
+       "school": "",
+       "attribute": "",
+       "effectName": "root",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 5162,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 96,
+     "mpCost": 52,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 16800,
+     "effects": [
+      {
+       "kind": "control",
+       "school": "",
+       "attribute": "",
+       "effectName": "root",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 5696,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 116,
+   "code": "rogue_ok_yagmuru",
+   "displayName": "Ok Yağmuru",
+   "description": "Ok Yağmuru — rogue becerisi (seviye 36).",
+   "className": "rogue",
+   "targetType": "area_enemy",
+   "reqLevel": 36,
+   "reqSkillId": 115,
+   "rangeM": 16.0,
+   "areaRadiusM": 6.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 36,
+     "mpCost": 40,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 16000,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 333,
+       "tickDamage": 0,
+       "weaponScale": 1.3,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 51,
+     "mpCost": 50,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 15360,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 450,
+       "tickDamage": 0,
+       "weaponScale": 1.755,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 66,
+     "mpCost": 60,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 14720,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 566,
+       "tickDamage": 0,
+       "weaponScale": 2.21,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 81,
+     "mpCost": 70,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 14080,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 683,
+       "tickDamage": 0,
+       "weaponScale": 2.665,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 96,
+     "mpCost": 80,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 13440,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 799,
+       "tickDamage": 0,
+       "weaponScale": 3.12,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 117,
+   "code": "rogue_gizlenme",
+   "displayName": "Gizlenme",
+   "description": "Gizlenme — rogue becerisi (seviye 45).",
+   "className": "rogue",
+   "targetType": "self",
+   "reqLevel": 45,
+   "reqSkillId": 116,
+   "rangeM": 0.0,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 45,
+     "mpCost": 45,
+     "hpCost": 0,
+     "castTimeMs": 0,
+     "cooldownMs": 45000,
+     "effects": [
+      {
+       "kind": "stealth",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 20000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 58,
+     "mpCost": 56,
+     "hpCost": 0,
+     "castTimeMs": 0,
+     "cooldownMs": 43200,
+     "effects": [
+      {
+       "kind": "stealth",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 23000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 71,
+     "mpCost": 68,
+     "hpCost": 0,
+     "castTimeMs": 0,
+     "cooldownMs": 41400,
+     "effects": [
+      {
+       "kind": "stealth",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 26000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 84,
+     "mpCost": 79,
+     "hpCost": 0,
+     "castTimeMs": 0,
+     "cooldownMs": 39600,
+     "effects": [
+      {
+       "kind": "stealth",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 29000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 97,
+     "mpCost": 90,
+     "hpCost": 0,
+     "castTimeMs": 0,
+     "cooldownMs": 37800,
+     "effects": [
+      {
+       "kind": "stealth",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 32000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 118,
+   "code": "rogue_olumcul_isabet",
+   "displayName": "Ölümcül İsabet",
+   "description": "Ölümcül İsabet — rogue becerisi (seviye 55).",
+   "className": "rogue",
+   "targetType": "single_enemy",
+   "reqLevel": 55,
+   "reqSkillId": 117,
+   "rangeM": 14.0,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 55,
+     "mpCost": 50,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 22000,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 962,
+       "tickDamage": 0,
+       "weaponScale": 2.6,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 65,
+     "mpCost": 62,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 21120,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 1299,
+       "tickDamage": 0,
+       "weaponScale": 3.51,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 75,
+     "mpCost": 75,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 20240,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 1635,
+       "tickDamage": 0,
+       "weaponScale": 4.42,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 85,
+     "mpCost": 88,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 19360,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 1972,
+       "tickDamage": 0,
+       "weaponScale": 5.33,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 95,
+     "mpCost": 100,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 18480,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 2309,
+       "tickDamage": 0,
+       "weaponScale": 6.24,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 119,
+   "code": "rogue_bicak_firtinasi",
+   "displayName": "Bıçak Fırtınası",
+   "description": "Bıçak Fırtınası — rogue becerisi (seviye 68).",
+   "className": "rogue",
+   "targetType": "area_enemy",
+   "reqLevel": 68,
+   "reqSkillId": 118,
+   "rangeM": 3.0,
+   "areaRadiusM": 6.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 68,
+     "mpCost": 60,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 24000,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 806,
+       "tickDamage": 0,
+       "weaponScale": 1.8,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 75,
+     "mpCost": 75,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 23040,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 1088,
+       "tickDamage": 0,
+       "weaponScale": 2.43,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 82,
+     "mpCost": 90,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 22080,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 1370,
+       "tickDamage": 0,
+       "weaponScale": 3.06,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 89,
+     "mpCost": 105,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 21120,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 1652,
+       "tickDamage": 0,
+       "weaponScale": 3.69,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 96,
+     "mpCost": 120,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 20160,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 1934,
+       "tickDamage": 0,
+       "weaponScale": 4.32,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 120,
+   "code": "rogue_suikast",
+   "displayName": "Suikast",
+   "description": "Suikast — rogue becerisi (seviye 82).",
+   "className": "rogue",
+   "targetType": "single_enemy",
+   "reqLevel": 82,
+   "reqSkillId": 119,
+   "rangeM": 1.6,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 82,
+     "mpCost": 90,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 180000,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 1809,
+       "tickDamage": 0,
+       "weaponScale": 3.4,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 25,
+       "bonusMultiplier": 2.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 86,
+     "mpCost": 112,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 172800,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 2442,
+       "tickDamage": 0,
+       "weaponScale": 4.59,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 25,
+       "bonusMultiplier": 2.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 90,
+     "mpCost": 135,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 165600,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 3075,
+       "tickDamage": 0,
+       "weaponScale": 5.78,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 25,
+       "bonusMultiplier": 2.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 94,
+     "mpCost": 158,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 158400,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 3708,
+       "tickDamage": 0,
+       "weaponScale": 6.97,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 25,
+       "bonusMultiplier": 2.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 98,
+     "mpCost": 180,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 151200,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 4342,
+       "tickDamage": 0,
+       "weaponScale": 8.16,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 25,
+       "bonusMultiplier": 2.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 101,
+   "code": "warrior_sert_vurus",
+   "displayName": "Sert Vuruş",
+   "description": "Sert Vuruş — warrior becerisi (seviye 2).",
+   "className": "warrior",
+   "targetType": "single_enemy",
+   "reqLevel": 2,
+   "reqSkillId": 0,
+   "rangeM": 2.0,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 2,
+     "mpCost": 12,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 4000,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 70,
+       "tickDamage": 0,
+       "weaponScale": 1.35,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 26,
+     "mpCost": 15,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 3840,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 94,
+       "tickDamage": 0,
+       "weaponScale": 1.823,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 50,
+     "mpCost": 18,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 3680,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 119,
+       "tickDamage": 0,
+       "weaponScale": 2.295,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 74,
+     "mpCost": 21,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 3520,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 144,
+       "tickDamage": 0,
+       "weaponScale": 2.768,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 98,
+     "mpCost": 24,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 3360,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 168,
+       "tickDamage": 0,
+       "weaponScale": 3.24,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 102,
+   "code": "warrior_kalkan_duvari",
+   "displayName": "Kalkan Duvarı",
+   "description": "Kalkan Duvarı — warrior becerisi (seviye 8).",
+   "className": "warrior",
+   "targetType": "self",
+   "reqLevel": 8,
+   "reqSkillId": 101,
+   "rangeM": 0.0,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 8,
+     "mpCost": 20,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 30000,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 11,
+       "durationMs": 15000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 30,
+     "mpCost": 25,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 28800,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 14,
+       "durationMs": 17250,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 52,
+     "mpCost": 30,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 27600,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 17,
+       "durationMs": 19500,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 74,
+     "mpCost": 35,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 26400,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 20,
+       "durationMs": 21750,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 96,
+     "mpCost": 40,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 25200,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 23,
+       "durationMs": 24000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 103,
+   "code": "warrior_yarma",
+   "displayName": "Yarma",
+   "description": "Yarma — warrior becerisi (seviye 14).",
+   "className": "warrior",
+   "targetType": "area_enemy",
+   "reqLevel": 14,
+   "reqSkillId": 102,
+   "rangeM": 3.5,
+   "areaRadiusM": 6.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 14,
+     "mpCost": 28,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 10000,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 136,
+       "tickDamage": 0,
+       "weaponScale": 1.1,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 35,
+     "mpCost": 35,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 9600,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 184,
+       "tickDamage": 0,
+       "weaponScale": 1.485,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 56,
+     "mpCost": 42,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 9200,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 231,
+       "tickDamage": 0,
+       "weaponScale": 1.87,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 77,
+     "mpCost": 49,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 8800,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 279,
+       "tickDamage": 0,
+       "weaponScale": 2.255,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 98,
+     "mpCost": 56,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 8400,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 326,
+       "tickDamage": 0,
+       "weaponScale": 2.64,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 104,
+   "code": "warrior_meydan_okuma",
+   "displayName": "Meydan Okuma",
+   "description": "Meydan Okuma — warrior becerisi (seviye 20).",
+   "className": "warrior",
+   "targetType": "single_enemy",
+   "reqLevel": 20,
+   "reqSkillId": 103,
+   "rangeM": 8.0,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 20,
+     "mpCost": 15,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 8000,
+     "effects": [
+      {
+       "kind": "threat",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 6000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 4.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 39,
+     "mpCost": 19,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 7680,
+     "effects": [
+      {
+       "kind": "threat",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 6900,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 4.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 58,
+     "mpCost": 22,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 7360,
+     "effects": [
+      {
+       "kind": "threat",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 7800,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 4.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 77,
+     "mpCost": 26,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 7040,
+     "effects": [
+      {
+       "kind": "threat",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 8700,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 4.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 96,
+     "mpCost": 30,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 6720,
+     "effects": [
+      {
+       "kind": "threat",
+       "school": "",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 0,
+       "durationMs": 9600,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 4.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 105,
+   "code": "warrior_kan_cigligi",
+   "displayName": "Kan Çığlığı",
+   "description": "Kan Çığlığı — warrior becerisi (seviye 28).",
+   "className": "warrior",
+   "targetType": "party",
+   "reqLevel": 28,
+   "reqSkillId": 104,
+   "rangeM": 0.0,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 28,
+     "mpCost": 35,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 60000,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 15,
+       "durationMs": 15000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 45,
+     "mpCost": 44,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 57600,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 18,
+       "durationMs": 17250,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 62,
+     "mpCost": 52,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 55200,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 21,
+       "durationMs": 19500,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 79,
+     "mpCost": 61,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 52800,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 24,
+       "durationMs": 21750,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 96,
+     "mpCost": 70,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 50400,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 27,
+       "durationMs": 24000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 106,
+   "code": "warrior_zirh_kirici",
+   "displayName": "Zırh Kırıcı",
+   "description": "Zırh Kırıcı — warrior becerisi (seviye 36).",
+   "className": "warrior",
+   "targetType": "single_enemy",
+   "reqLevel": 36,
+   "reqSkillId": 105,
+   "rangeM": 2.0,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 36,
+     "mpCost": 30,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 15000,
+     "effects": [
+      {
+       "kind": "debuff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": -19,
+       "durationMs": 10000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 51,
+     "mpCost": 38,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 14400,
+     "effects": [
+      {
+       "kind": "debuff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": -22,
+       "durationMs": 11500,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 66,
+     "mpCost": 45,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 13800,
+     "effects": [
+      {
+       "kind": "debuff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": -25,
+       "durationMs": 13000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 81,
+     "mpCost": 52,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 13200,
+     "effects": [
+      {
+       "kind": "debuff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": -28,
+       "durationMs": 14500,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 96,
+     "mpCost": 60,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 12600,
+     "effects": [
+      {
+       "kind": "debuff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": -31,
+       "durationMs": 16000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 107,
+   "code": "warrior_son_duran",
+   "displayName": "Son Duran",
+   "description": "Son Duran — warrior becerisi (seviye 45).",
+   "className": "warrior",
+   "targetType": "self",
+   "reqLevel": 45,
+   "reqSkillId": 106,
+   "rangeM": 0.0,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 45,
+     "mpCost": 50,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 120000,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 19,
+       "durationMs": 15000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 58,
+     "mpCost": 62,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 115200,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 22,
+       "durationMs": 17250,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 71,
+     "mpCost": 75,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 110400,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 25,
+       "durationMs": 19500,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 84,
+     "mpCost": 88,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 105600,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 28,
+       "durationMs": 21750,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 97,
+     "mpCost": 100,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 100800,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 31,
+       "durationMs": 24000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 108,
+   "code": "warrior_girdap",
+   "displayName": "Girdap",
+   "description": "Girdap — warrior becerisi (seviye 55).",
+   "className": "warrior",
+   "targetType": "area_enemy",
+   "reqLevel": 55,
+   "reqSkillId": 107,
+   "rangeM": 4.0,
+   "areaRadiusM": 6.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 55,
+     "mpCost": 55,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 18000,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 574,
+       "tickDamage": 0,
+       "weaponScale": 1.55,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 65,
+     "mpCost": 69,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 17280,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 775,
+       "tickDamage": 0,
+       "weaponScale": 2.093,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 75,
+     "mpCost": 82,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 16560,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 976,
+       "tickDamage": 0,
+       "weaponScale": 2.635,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 85,
+     "mpCost": 96,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 15840,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 1177,
+       "tickDamage": 0,
+       "weaponScale": 3.177,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 95,
+     "mpCost": 110,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 15120,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 1378,
+       "tickDamage": 0,
+       "weaponScale": 3.72,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 109,
+   "code": "warrior_infaz",
+   "displayName": "İnfaz",
+   "description": "İnfaz — warrior becerisi (seviye 68).",
+   "className": "warrior",
+   "targetType": "single_enemy",
+   "reqLevel": 68,
+   "reqSkillId": 108,
+   "rangeM": 2.0,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 68,
+     "mpCost": 60,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 25000,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 1254,
+       "tickDamage": 0,
+       "weaponScale": 2.8,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 25,
+       "bonusMultiplier": 2.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 75,
+     "mpCost": 75,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 24000,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 1693,
+       "tickDamage": 0,
+       "weaponScale": 3.78,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 25,
+       "bonusMultiplier": 2.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 82,
+     "mpCost": 90,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 23000,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 2132,
+       "tickDamage": 0,
+       "weaponScale": 4.76,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 25,
+       "bonusMultiplier": 2.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 89,
+     "mpCost": 105,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 22000,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 2571,
+       "tickDamage": 0,
+       "weaponScale": 5.74,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 25,
+       "bonusMultiplier": 2.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 96,
+     "mpCost": 120,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 21000,
+     "effects": [
+      {
+       "kind": "damage",
+       "school": "physical",
+       "attribute": "",
+       "effectName": "",
+       "baseValue": 3010,
+       "tickDamage": 0,
+       "weaponScale": 6.72,
+       "magnitudePct": 0,
+       "durationMs": 0,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 25,
+       "bonusMultiplier": 2.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 110,
+   "code": "warrior_savas_tanrisi",
+   "displayName": "Savaş Tanrısı",
+   "description": "Savaş Tanrısı — warrior becerisi (seviye 82).",
+   "className": "warrior",
+   "targetType": "self",
+   "reqLevel": 82,
+   "reqSkillId": 109,
+   "rangeM": 0.0,
+   "areaRadiusM": 0.0,
+   "ranks": [
+    {
+     "rank": 1,
+     "reqLevel": 82,
+     "mpCost": 100,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 300000,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 26,
+       "durationMs": 15000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 2,
+     "reqLevel": 86,
+     "mpCost": 125,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 288000,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 29,
+       "durationMs": 17250,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 3,
+     "reqLevel": 90,
+     "mpCost": 150,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 276000,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 32,
+       "durationMs": 19500,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 4,
+     "reqLevel": 94,
+     "mpCost": 175,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 264000,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 35,
+       "durationMs": 21750,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    },
+    {
+     "rank": 5,
+     "reqLevel": 98,
+     "mpCost": 200,
+     "hpCost": 0,
+     "castTimeMs": 400,
+     "cooldownMs": 252000,
+     "effects": [
+      {
+       "kind": "buff",
+       "school": "",
+       "attribute": "armor",
+       "effectName": "",
+       "baseValue": 0,
+       "tickDamage": 0,
+       "weaponScale": 0.0,
+       "magnitudePct": 38,
+       "durationMs": 24000,
+       "tickIntervalMs": 0,
+       "distanceM": 0.0,
+       "multiplier": 0.0,
+       "maxEffects": 0,
+       "hpPct": 0,
+       "mpPct": 0,
+       "bonusBelowHpPct": 0,
+       "bonusMultiplier": 0.0
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

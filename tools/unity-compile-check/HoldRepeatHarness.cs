@@ -223,6 +223,13 @@ public static class HoldRepeatHarness
             fpsOk ? "ok (sapma birikmiyor)" : "SORUN (sapma birikiyor)");
 
         Console.WriteLine();
+        Console.WriteLine();
+
+        // Skill verisi dogrulamasi ayri dosyada
+        bool skillsOk = SkillChecks.Run();
+        allOk = allOk && skillsOk;
+
+        Console.WriteLine();
         Console.WriteLine(allOk ? "SONUC: butun kontroller gecti"
                                 : "SONUC: KONTROL BASARISIZ");
         return allOk ? 0 : 1;

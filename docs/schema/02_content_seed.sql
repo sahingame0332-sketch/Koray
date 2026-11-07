@@ -1943,6 +1943,1614 @@ INSERT INTO skill_template (id, code, display_name, description, class_id, req_l
   1200, 240000, 12.0, 0.0, '[{"kind": "heal", "base": 1977}]'::jsonb
 ) ON CONFLICT (id) DO UPDATE SET display_name=EXCLUDED.display_name, effects=EXCLUDED.effects;
 
+-- ---------- BECERI RANKLARI (200 kayit) ----------
+-- Her becerinin SKILL_RANKS adet rank'i var; oyuncu beceri puani ile yukseltir.
+--
+-- DELETE KULLANILMAZ: character_skill tablosu (skill_id, skill_rank) ile
+-- buraya FK ile bagli. Canli bir veritabaninda tek bir oyuncu beceri
+-- ogrenmisse DELETE FROM skill_rank FK ihlaliyle patlar ve butun seed
+-- basarisiz olur. ON CONFLICT DO UPDATE ile yerinde guncellenir.
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  101, 1, 2, 12, 0,
+  400, 4000, '[{"kind": "damage", "school": "physical", "base": 70, "weapon_scale": 1.35}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  101, 2, 26, 15, 0,
+  400, 3840, '[{"kind": "damage", "school": "physical", "base": 94, "weapon_scale": 1.823}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  101, 3, 50, 18, 0,
+  400, 3680, '[{"kind": "damage", "school": "physical", "base": 119, "weapon_scale": 2.295}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  101, 4, 74, 21, 0,
+  400, 3520, '[{"kind": "damage", "school": "physical", "base": 144, "weapon_scale": 2.768}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  101, 5, 98, 24, 0,
+  400, 3360, '[{"kind": "damage", "school": "physical", "base": 168, "weapon_scale": 3.24}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  102, 1, 8, 20, 0,
+  400, 30000, '[{"kind": "buff", "attribute": "armor", "magnitude_pct": 11, "duration_ms": 15000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  102, 2, 30, 25, 0,
+  400, 28800, '[{"kind": "buff", "attribute": "armor", "magnitude_pct": 14, "duration_ms": 17250}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  102, 3, 52, 30, 0,
+  400, 27600, '[{"kind": "buff", "attribute": "armor", "magnitude_pct": 17, "duration_ms": 19500}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  102, 4, 74, 35, 0,
+  400, 26400, '[{"kind": "buff", "attribute": "armor", "magnitude_pct": 20, "duration_ms": 21750}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  102, 5, 96, 40, 0,
+  400, 25200, '[{"kind": "buff", "attribute": "armor", "magnitude_pct": 23, "duration_ms": 24000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  103, 1, 14, 28, 0,
+  400, 10000, '[{"kind": "damage", "school": "physical", "base": 136, "weapon_scale": 1.1}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  103, 2, 35, 35, 0,
+  400, 9600, '[{"kind": "damage", "school": "physical", "base": 184, "weapon_scale": 1.485}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  103, 3, 56, 42, 0,
+  400, 9200, '[{"kind": "damage", "school": "physical", "base": 231, "weapon_scale": 1.87}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  103, 4, 77, 49, 0,
+  400, 8800, '[{"kind": "damage", "school": "physical", "base": 279, "weapon_scale": 2.255}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  103, 5, 98, 56, 0,
+  400, 8400, '[{"kind": "damage", "school": "physical", "base": 326, "weapon_scale": 2.64}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  104, 1, 20, 15, 0,
+  400, 8000, '[{"kind": "threat", "multiplier": 4.0, "duration_ms": 6000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  104, 2, 39, 19, 0,
+  400, 7680, '[{"kind": "threat", "multiplier": 4.0, "duration_ms": 6900}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  104, 3, 58, 22, 0,
+  400, 7360, '[{"kind": "threat", "multiplier": 4.0, "duration_ms": 7800}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  104, 4, 77, 26, 0,
+  400, 7040, '[{"kind": "threat", "multiplier": 4.0, "duration_ms": 8700}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  104, 5, 96, 30, 0,
+  400, 6720, '[{"kind": "threat", "multiplier": 4.0, "duration_ms": 9600}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  105, 1, 28, 35, 0,
+  400, 60000, '[{"kind": "buff", "attribute": "armor", "magnitude_pct": 15, "duration_ms": 15000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  105, 2, 45, 44, 0,
+  400, 57600, '[{"kind": "buff", "attribute": "armor", "magnitude_pct": 18, "duration_ms": 17250}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  105, 3, 62, 52, 0,
+  400, 55200, '[{"kind": "buff", "attribute": "armor", "magnitude_pct": 21, "duration_ms": 19500}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  105, 4, 79, 61, 0,
+  400, 52800, '[{"kind": "buff", "attribute": "armor", "magnitude_pct": 24, "duration_ms": 21750}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  105, 5, 96, 70, 0,
+  400, 50400, '[{"kind": "buff", "attribute": "armor", "magnitude_pct": 27, "duration_ms": 24000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  106, 1, 36, 30, 0,
+  400, 15000, '[{"kind": "debuff", "attribute": "armor", "magnitude_pct": -19, "duration_ms": 10000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  106, 2, 51, 38, 0,
+  400, 14400, '[{"kind": "debuff", "attribute": "armor", "magnitude_pct": -22, "duration_ms": 11500}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  106, 3, 66, 45, 0,
+  400, 13800, '[{"kind": "debuff", "attribute": "armor", "magnitude_pct": -25, "duration_ms": 13000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  106, 4, 81, 52, 0,
+  400, 13200, '[{"kind": "debuff", "attribute": "armor", "magnitude_pct": -28, "duration_ms": 14500}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  106, 5, 96, 60, 0,
+  400, 12600, '[{"kind": "debuff", "attribute": "armor", "magnitude_pct": -31, "duration_ms": 16000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  107, 1, 45, 50, 0,
+  400, 120000, '[{"kind": "buff", "attribute": "armor", "magnitude_pct": 19, "duration_ms": 15000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  107, 2, 58, 62, 0,
+  400, 115200, '[{"kind": "buff", "attribute": "armor", "magnitude_pct": 22, "duration_ms": 17250}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  107, 3, 71, 75, 0,
+  400, 110400, '[{"kind": "buff", "attribute": "armor", "magnitude_pct": 25, "duration_ms": 19500}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  107, 4, 84, 88, 0,
+  400, 105600, '[{"kind": "buff", "attribute": "armor", "magnitude_pct": 28, "duration_ms": 21750}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  107, 5, 97, 100, 0,
+  400, 100800, '[{"kind": "buff", "attribute": "armor", "magnitude_pct": 31, "duration_ms": 24000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  108, 1, 55, 55, 0,
+  400, 18000, '[{"kind": "damage", "school": "physical", "base": 574, "weapon_scale": 1.55}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  108, 2, 65, 69, 0,
+  400, 17280, '[{"kind": "damage", "school": "physical", "base": 775, "weapon_scale": 2.093}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  108, 3, 75, 82, 0,
+  400, 16560, '[{"kind": "damage", "school": "physical", "base": 976, "weapon_scale": 2.635}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  108, 4, 85, 96, 0,
+  400, 15840, '[{"kind": "damage", "school": "physical", "base": 1177, "weapon_scale": 3.177}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  108, 5, 95, 110, 0,
+  400, 15120, '[{"kind": "damage", "school": "physical", "base": 1378, "weapon_scale": 3.72}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  109, 1, 68, 60, 0,
+  400, 25000, '[{"kind": "damage", "school": "physical", "base": 1254, "weapon_scale": 2.8, "bonus_below_hp_pct": 25, "bonus_multiplier": 2.0}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  109, 2, 75, 75, 0,
+  400, 24000, '[{"kind": "damage", "school": "physical", "base": 1693, "weapon_scale": 3.78, "bonus_below_hp_pct": 25, "bonus_multiplier": 2.0}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  109, 3, 82, 90, 0,
+  400, 23000, '[{"kind": "damage", "school": "physical", "base": 2132, "weapon_scale": 4.76, "bonus_below_hp_pct": 25, "bonus_multiplier": 2.0}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  109, 4, 89, 105, 0,
+  400, 22000, '[{"kind": "damage", "school": "physical", "base": 2571, "weapon_scale": 5.74, "bonus_below_hp_pct": 25, "bonus_multiplier": 2.0}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  109, 5, 96, 120, 0,
+  400, 21000, '[{"kind": "damage", "school": "physical", "base": 3010, "weapon_scale": 6.72, "bonus_below_hp_pct": 25, "bonus_multiplier": 2.0}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  110, 1, 82, 100, 0,
+  400, 300000, '[{"kind": "buff", "attribute": "armor", "magnitude_pct": 26, "duration_ms": 15000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  110, 2, 86, 125, 0,
+  400, 288000, '[{"kind": "buff", "attribute": "armor", "magnitude_pct": 29, "duration_ms": 17250}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  110, 3, 90, 150, 0,
+  400, 276000, '[{"kind": "buff", "attribute": "armor", "magnitude_pct": 32, "duration_ms": 19500}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  110, 4, 94, 175, 0,
+  400, 264000, '[{"kind": "buff", "attribute": "armor", "magnitude_pct": 35, "duration_ms": 21750}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  110, 5, 98, 200, 0,
+  400, 252000, '[{"kind": "buff", "attribute": "armor", "magnitude_pct": 38, "duration_ms": 24000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  111, 1, 2, 10, 0,
+  400, 3000, '[{"kind": "damage", "school": "physical", "base": 62, "weapon_scale": 1.2}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  111, 2, 26, 12, 0,
+  400, 2880, '[{"kind": "damage", "school": "physical", "base": 84, "weapon_scale": 1.62}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  111, 3, 50, 15, 0,
+  400, 2760, '[{"kind": "damage", "school": "physical", "base": 105, "weapon_scale": 2.04}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  111, 4, 74, 18, 0,
+  400, 2640, '[{"kind": "damage", "school": "physical", "base": 127, "weapon_scale": 2.46}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  111, 5, 98, 20, 0,
+  400, 2520, '[{"kind": "damage", "school": "physical", "base": 149, "weapon_scale": 2.88}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  112, 1, 8, 18, 0,
+  0, 12000, '[{"kind": "movement", "effect": "dash", "distance_m": 8}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  112, 2, 30, 22, 0,
+  0, 11520, '[{"kind": "movement", "effect": "dash", "distance_m": 8}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  112, 3, 52, 27, 0,
+  0, 11040, '[{"kind": "movement", "effect": "dash", "distance_m": 8}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  112, 4, 74, 32, 0,
+  0, 10560, '[{"kind": "movement", "effect": "dash", "distance_m": 8}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  112, 5, 96, 36, 0,
+  0, 10080, '[{"kind": "movement", "effect": "dash", "distance_m": 8}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  113, 1, 14, 22, 0,
+  400, 9000, '[{"kind": "damage_over_time", "school": "poison", "tick_damage": 46, "tick_interval_ms": 2000, "duration_ms": 12000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  113, 2, 35, 28, 0,
+  400, 8640, '[{"kind": "damage_over_time", "school": "poison", "tick_damage": 62, "tick_interval_ms": 2000, "duration_ms": 13800}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  113, 3, 56, 33, 0,
+  400, 8280, '[{"kind": "damage_over_time", "school": "poison", "tick_damage": 78, "tick_interval_ms": 2000, "duration_ms": 15600}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  113, 4, 77, 38, 0,
+  400, 7920, '[{"kind": "damage_over_time", "school": "poison", "tick_damage": 94, "tick_interval_ms": 2000, "duration_ms": 17400}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  113, 5, 98, 44, 0,
+  400, 7560, '[{"kind": "damage_over_time", "school": "poison", "tick_damage": 110, "tick_interval_ms": 2000, "duration_ms": 19200}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  114, 1, 20, 30, 0,
+  400, 14000, '[{"kind": "damage", "school": "physical", "base": 336, "weapon_scale": 2.1}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  114, 2, 39, 38, 0,
+  400, 13440, '[{"kind": "damage", "school": "physical", "base": 454, "weapon_scale": 2.835}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  114, 3, 58, 45, 0,
+  400, 12880, '[{"kind": "damage", "school": "physical", "base": 571, "weapon_scale": 3.57}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  114, 4, 77, 52, 0,
+  400, 12320, '[{"kind": "damage", "school": "physical", "base": 689, "weapon_scale": 4.305}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  114, 5, 96, 60, 0,
+  400, 11760, '[{"kind": "damage", "school": "physical", "base": 806, "weapon_scale": 5.04}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  115, 1, 28, 26, 0,
+  400, 20000, '[{"kind": "control", "effect": "root", "duration_ms": 3560}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  115, 2, 45, 32, 0,
+  400, 19200, '[{"kind": "control", "effect": "root", "duration_ms": 4094}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  115, 3, 62, 39, 0,
+  400, 18400, '[{"kind": "control", "effect": "root", "duration_ms": 4628}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  115, 4, 79, 46, 0,
+  400, 17600, '[{"kind": "control", "effect": "root", "duration_ms": 5162}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  115, 5, 96, 52, 0,
+  400, 16800, '[{"kind": "control", "effect": "root", "duration_ms": 5696}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  116, 1, 36, 40, 0,
+  400, 16000, '[{"kind": "damage", "school": "physical", "base": 333, "weapon_scale": 1.3}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  116, 2, 51, 50, 0,
+  400, 15360, '[{"kind": "damage", "school": "physical", "base": 450, "weapon_scale": 1.755}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  116, 3, 66, 60, 0,
+  400, 14720, '[{"kind": "damage", "school": "physical", "base": 566, "weapon_scale": 2.21}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  116, 4, 81, 70, 0,
+  400, 14080, '[{"kind": "damage", "school": "physical", "base": 683, "weapon_scale": 2.665}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  116, 5, 96, 80, 0,
+  400, 13440, '[{"kind": "damage", "school": "physical", "base": 799, "weapon_scale": 3.12}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  117, 1, 45, 45, 0,
+  0, 45000, '[{"kind": "stealth", "duration_ms": 20000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  117, 2, 58, 56, 0,
+  0, 43200, '[{"kind": "stealth", "duration_ms": 23000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  117, 3, 71, 68, 0,
+  0, 41400, '[{"kind": "stealth", "duration_ms": 26000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  117, 4, 84, 79, 0,
+  0, 39600, '[{"kind": "stealth", "duration_ms": 29000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  117, 5, 97, 90, 0,
+  0, 37800, '[{"kind": "stealth", "duration_ms": 32000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  118, 1, 55, 50, 0,
+  400, 22000, '[{"kind": "damage", "school": "physical", "base": 962, "weapon_scale": 2.6}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  118, 2, 65, 62, 0,
+  400, 21120, '[{"kind": "damage", "school": "physical", "base": 1299, "weapon_scale": 3.51}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  118, 3, 75, 75, 0,
+  400, 20240, '[{"kind": "damage", "school": "physical", "base": 1635, "weapon_scale": 4.42}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  118, 4, 85, 88, 0,
+  400, 19360, '[{"kind": "damage", "school": "physical", "base": 1972, "weapon_scale": 5.33}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  118, 5, 95, 100, 0,
+  400, 18480, '[{"kind": "damage", "school": "physical", "base": 2309, "weapon_scale": 6.24}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  119, 1, 68, 60, 0,
+  400, 24000, '[{"kind": "damage", "school": "physical", "base": 806, "weapon_scale": 1.8}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  119, 2, 75, 75, 0,
+  400, 23040, '[{"kind": "damage", "school": "physical", "base": 1088, "weapon_scale": 2.43}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  119, 3, 82, 90, 0,
+  400, 22080, '[{"kind": "damage", "school": "physical", "base": 1370, "weapon_scale": 3.06}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  119, 4, 89, 105, 0,
+  400, 21120, '[{"kind": "damage", "school": "physical", "base": 1652, "weapon_scale": 3.69}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  119, 5, 96, 120, 0,
+  400, 20160, '[{"kind": "damage", "school": "physical", "base": 1934, "weapon_scale": 4.32}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  120, 1, 82, 90, 0,
+  400, 180000, '[{"kind": "damage", "school": "physical", "base": 1809, "weapon_scale": 3.4, "bonus_below_hp_pct": 25, "bonus_multiplier": 2.0}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  120, 2, 86, 112, 0,
+  400, 172800, '[{"kind": "damage", "school": "physical", "base": 2442, "weapon_scale": 4.59, "bonus_below_hp_pct": 25, "bonus_multiplier": 2.0}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  120, 3, 90, 135, 0,
+  400, 165600, '[{"kind": "damage", "school": "physical", "base": 3075, "weapon_scale": 5.78, "bonus_below_hp_pct": 25, "bonus_multiplier": 2.0}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  120, 4, 94, 158, 0,
+  400, 158400, '[{"kind": "damage", "school": "physical", "base": 3708, "weapon_scale": 6.97, "bonus_below_hp_pct": 25, "bonus_multiplier": 2.0}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  120, 5, 98, 180, 0,
+  400, 151200, '[{"kind": "damage", "school": "physical", "base": 4342, "weapon_scale": 8.16, "bonus_below_hp_pct": 25, "bonus_multiplier": 2.0}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  121, 1, 2, 14, 0,
+  1200, 2500, '[{"kind": "damage", "school": "magic", "base": 75, "weapon_scale": 1.45}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  121, 2, 26, 18, 0,
+  1200, 2400, '[{"kind": "damage", "school": "magic", "base": 101, "weapon_scale": 1.958}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  121, 3, 50, 21, 0,
+  1200, 2300, '[{"kind": "damage", "school": "magic", "base": 128, "weapon_scale": 2.465}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  121, 4, 74, 24, 0,
+  1200, 2200, '[{"kind": "damage", "school": "magic", "base": 154, "weapon_scale": 2.972}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  121, 5, 98, 28, 0,
+  1200, 2100, '[{"kind": "damage", "school": "magic", "base": 180, "weapon_scale": 3.48}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  122, 1, 8, 20, 0,
+  1200, 14000, '[{"kind": "control", "effect": "root", "duration_ms": 3160}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  122, 2, 30, 25, 0,
+  1200, 13440, '[{"kind": "control", "effect": "root", "duration_ms": 3634}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  122, 3, 52, 30, 0,
+  1200, 12880, '[{"kind": "control", "effect": "root", "duration_ms": 4108}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  122, 4, 74, 35, 0,
+  1200, 12320, '[{"kind": "control", "effect": "root", "duration_ms": 4582}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  122, 5, 96, 40, 0,
+  1200, 11760, '[{"kind": "control", "effect": "root", "duration_ms": 5056}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  123, 1, 14, 34, 0,
+  1200, 11000, '[{"kind": "damage", "school": "magic", "base": 155, "weapon_scale": 1.25}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  123, 2, 35, 42, 0,
+  1200, 10560, '[{"kind": "damage", "school": "magic", "base": 209, "weapon_scale": 1.688}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  123, 3, 56, 51, 0,
+  1200, 10120, '[{"kind": "damage", "school": "magic", "base": 264, "weapon_scale": 2.125}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  123, 4, 77, 60, 0,
+  1200, 9680, '[{"kind": "damage", "school": "magic", "base": 318, "weapon_scale": 2.562}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  123, 5, 98, 68, 0,
+  1200, 9240, '[{"kind": "damage", "school": "magic", "base": 372, "weapon_scale": 3.0}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  124, 1, 20, 28, 0,
+  1200, 35000, '[{"kind": "buff", "attribute": "all_stats", "magnitude_pct": 14, "duration_ms": 15000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  124, 2, 39, 35, 0,
+  1200, 33600, '[{"kind": "buff", "attribute": "all_stats", "magnitude_pct": 17, "duration_ms": 17250}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  124, 3, 58, 42, 0,
+  1200, 32200, '[{"kind": "buff", "attribute": "all_stats", "magnitude_pct": 20, "duration_ms": 19500}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  124, 4, 77, 49, 0,
+  1200, 30800, '[{"kind": "buff", "attribute": "all_stats", "magnitude_pct": 23, "duration_ms": 21750}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  124, 5, 96, 56, 0,
+  1200, 29400, '[{"kind": "buff", "attribute": "all_stats", "magnitude_pct": 26, "duration_ms": 24000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  125, 1, 28, 42, 0,
+  1200, 9000, '[{"kind": "damage", "school": "magic", "base": 416, "weapon_scale": 2.0}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  125, 2, 45, 52, 0,
+  1200, 8640, '[{"kind": "damage", "school": "magic", "base": 562, "weapon_scale": 2.7}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  125, 3, 62, 63, 0,
+  1200, 8280, '[{"kind": "damage", "school": "magic", "base": 707, "weapon_scale": 3.4}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  125, 4, 79, 74, 0,
+  1200, 7920, '[{"kind": "damage", "school": "magic", "base": 853, "weapon_scale": 4.1}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  125, 5, 96, 84, 0,
+  1200, 7560, '[{"kind": "damage", "school": "magic", "base": 998, "weapon_scale": 4.8}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  126, 1, 36, 48, 0,
+  1200, 25000, '[{"kind": "control", "effect": "root", "duration_ms": 3720}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  126, 2, 51, 60, 0,
+  1200, 24000, '[{"kind": "control", "effect": "root", "duration_ms": 4278}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  126, 3, 66, 72, 0,
+  1200, 23000, '[{"kind": "control", "effect": "root", "duration_ms": 4836}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  126, 4, 81, 84, 0,
+  1200, 22000, '[{"kind": "control", "effect": "root", "duration_ms": 5394}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  126, 5, 96, 96, 0,
+  1200, 21000, '[{"kind": "control", "effect": "root", "duration_ms": 5952}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  127, 1, 45, 40, 0,
+  0, 30000, '[{"kind": "movement", "effect": "dash", "distance_m": 8}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  127, 2, 58, 50, 0,
+  0, 28800, '[{"kind": "movement", "effect": "dash", "distance_m": 8}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  127, 3, 71, 60, 0,
+  0, 27600, '[{"kind": "movement", "effect": "dash", "distance_m": 8}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  127, 4, 84, 70, 0,
+  0, 26400, '[{"kind": "movement", "effect": "dash", "distance_m": 8}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  127, 5, 97, 80, 0,
+  0, 25200, '[{"kind": "movement", "effect": "dash", "distance_m": 8}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  128, 1, 55, 70, 0,
+  1200, 28000, '[{"kind": "damage", "school": "magic", "base": 888, "weapon_scale": 2.4}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  128, 2, 65, 88, 0,
+  1200, 26880, '[{"kind": "damage", "school": "magic", "base": 1199, "weapon_scale": 3.24}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  128, 3, 75, 105, 0,
+  1200, 25760, '[{"kind": "damage", "school": "magic", "base": 1510, "weapon_scale": 4.08}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  128, 4, 85, 122, 0,
+  1200, 24640, '[{"kind": "damage", "school": "magic", "base": 1820, "weapon_scale": 4.92}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  128, 5, 95, 140, 0,
+  1200, 23520, '[{"kind": "damage", "school": "magic", "base": 2131, "weapon_scale": 5.76}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  129, 1, 68, 65, 0,
+  1200, 40000, '[{"kind": "debuff", "attribute": "armor", "magnitude_pct": -27, "duration_ms": 10000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  129, 2, 75, 81, 0,
+  1200, 38400, '[{"kind": "debuff", "attribute": "armor", "magnitude_pct": -30, "duration_ms": 11500}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  129, 3, 82, 98, 0,
+  1200, 36800, '[{"kind": "debuff", "attribute": "armor", "magnitude_pct": -33, "duration_ms": 13000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  129, 4, 89, 114, 0,
+  1200, 35200, '[{"kind": "debuff", "attribute": "armor", "magnitude_pct": -36, "duration_ms": 14500}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  129, 5, 96, 130, 0,
+  1200, 33600, '[{"kind": "debuff", "attribute": "armor", "magnitude_pct": -39, "duration_ms": 16000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  130, 1, 82, 130, 0,
+  1200, 240000, '[{"kind": "damage", "school": "magic", "base": 1915, "weapon_scale": 3.6}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  130, 2, 86, 162, 0,
+  1200, 230400, '[{"kind": "damage", "school": "magic", "base": 2585, "weapon_scale": 4.86}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  130, 3, 90, 195, 0,
+  1200, 220800, '[{"kind": "damage", "school": "magic", "base": 3256, "weapon_scale": 6.12}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  130, 4, 94, 228, 0,
+  1200, 211200, '[{"kind": "damage", "school": "magic", "base": 3926, "weapon_scale": 7.38}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  130, 5, 98, 260, 0,
+  1200, 201600, '[{"kind": "damage", "school": "magic", "base": 4596, "weapon_scale": 8.64}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  131, 1, 2, 16, 0,
+  1200, 2000, '[{"kind": "heal", "base": 92}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  131, 2, 26, 20, 0,
+  1200, 1920, '[{"kind": "heal", "base": 124}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  131, 3, 50, 24, 0,
+  1200, 1840, '[{"kind": "heal", "base": 156}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  131, 4, 74, 28, 0,
+  1200, 1760, '[{"kind": "heal", "base": 189}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  131, 5, 98, 32, 0,
+  1200, 1680, '[{"kind": "heal", "base": 221}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  132, 1, 8, 22, 0,
+  1200, 25000, '[{"kind": "buff", "attribute": "all_stats", "magnitude_pct": 11, "duration_ms": 15000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  132, 2, 30, 28, 0,
+  1200, 24000, '[{"kind": "buff", "attribute": "all_stats", "magnitude_pct": 14, "duration_ms": 17250}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  132, 3, 52, 33, 0,
+  1200, 23000, '[{"kind": "buff", "attribute": "all_stats", "magnitude_pct": 17, "duration_ms": 19500}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  132, 4, 74, 38, 0,
+  1200, 22000, '[{"kind": "buff", "attribute": "all_stats", "magnitude_pct": 20, "duration_ms": 21750}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  132, 5, 96, 44, 0,
+  1200, 21000, '[{"kind": "buff", "attribute": "all_stats", "magnitude_pct": 23, "duration_ms": 24000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  133, 1, 14, 18, 0,
+  1200, 8000, '[{"kind": "cleanse", "max_effects": 2}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  133, 2, 35, 22, 0,
+  1200, 7680, '[{"kind": "cleanse", "max_effects": 2}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  133, 3, 56, 27, 0,
+  1200, 7360, '[{"kind": "cleanse", "max_effects": 2}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  133, 4, 77, 32, 0,
+  1200, 7040, '[{"kind": "cleanse", "max_effects": 2}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  133, 5, 98, 36, 0,
+  1200, 6720, '[{"kind": "cleanse", "max_effects": 2}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  134, 1, 20, 24, 0,
+  1200, 6000, '[{"kind": "damage", "school": "magic", "base": 184, "weapon_scale": 1.15}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  134, 2, 39, 30, 0,
+  1200, 5760, '[{"kind": "damage", "school": "magic", "base": 248, "weapon_scale": 1.552}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  134, 3, 58, 36, 0,
+  1200, 5520, '[{"kind": "damage", "school": "magic", "base": 313, "weapon_scale": 1.955}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  134, 4, 77, 42, 0,
+  1200, 5280, '[{"kind": "damage", "school": "magic", "base": 377, "weapon_scale": 2.357}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  134, 5, 96, 48, 0,
+  1200, 5040, '[{"kind": "damage", "school": "magic", "base": 442, "weapon_scale": 2.76}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  135, 1, 28, 55, 0,
+  1200, 15000, '[{"kind": "heal", "base": 274}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  135, 2, 45, 69, 0,
+  1200, 14400, '[{"kind": "heal", "base": 370}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  135, 3, 62, 82, 0,
+  1200, 13800, '[{"kind": "heal", "base": 466}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  135, 4, 79, 96, 0,
+  1200, 13200, '[{"kind": "heal", "base": 562}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  135, 5, 96, 110, 0,
+  1200, 12600, '[{"kind": "heal", "base": 658}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  136, 1, 36, 30, 0,
+  1200, 18000, '[{"kind": "debuff", "attribute": "armor", "magnitude_pct": -19, "duration_ms": 10000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  136, 2, 51, 38, 0,
+  1200, 17280, '[{"kind": "debuff", "attribute": "armor", "magnitude_pct": -22, "duration_ms": 11500}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  136, 3, 66, 45, 0,
+  1200, 16560, '[{"kind": "debuff", "attribute": "armor", "magnitude_pct": -25, "duration_ms": 13000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  136, 4, 81, 52, 0,
+  1200, 15840, '[{"kind": "debuff", "attribute": "armor", "magnitude_pct": -28, "duration_ms": 14500}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  136, 5, 96, 60, 0,
+  1200, 15120, '[{"kind": "debuff", "attribute": "armor", "magnitude_pct": -31, "duration_ms": 16000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  137, 1, 45, 80, 0,
+  1200, 300000, '[{"kind": "revive", "hp_pct": 30, "mp_pct": 20}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  137, 2, 58, 100, 0,
+  1200, 288000, '[{"kind": "revive", "hp_pct": 30, "mp_pct": 20}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  137, 3, 71, 120, 0,
+  1200, 276000, '[{"kind": "revive", "hp_pct": 30, "mp_pct": 20}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  137, 4, 84, 140, 0,
+  1200, 264000, '[{"kind": "revive", "hp_pct": 30, "mp_pct": 20}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  137, 5, 97, 160, 0,
+  1200, 252000, '[{"kind": "revive", "hp_pct": 30, "mp_pct": 20}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  138, 1, 55, 75, 0,
+  1200, 30000, '[{"kind": "heal", "base": 784}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  138, 2, 65, 94, 0,
+  1200, 28800, '[{"kind": "heal", "base": 1058}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  138, 3, 75, 112, 0,
+  1200, 27600, '[{"kind": "heal", "base": 1333}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  138, 4, 85, 131, 0,
+  1200, 26400, '[{"kind": "heal", "base": 1607}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  138, 5, 95, 150, 0,
+  1200, 25200, '[{"kind": "heal", "base": 1882}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  139, 1, 68, 90, 0,
+  1200, 90000, '[{"kind": "buff", "attribute": "all_stats", "magnitude_pct": 23, "duration_ms": 15000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  139, 2, 75, 112, 0,
+  1200, 86400, '[{"kind": "buff", "attribute": "all_stats", "magnitude_pct": 26, "duration_ms": 17250}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  139, 3, 82, 135, 0,
+  1200, 82800, '[{"kind": "buff", "attribute": "all_stats", "magnitude_pct": 29, "duration_ms": 19500}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  139, 4, 89, 158, 0,
+  1200, 79200, '[{"kind": "buff", "attribute": "all_stats", "magnitude_pct": 32, "duration_ms": 21750}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  139, 5, 96, 180, 0,
+  1200, 75600, '[{"kind": "buff", "attribute": "all_stats", "magnitude_pct": 35, "duration_ms": 24000}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  140, 1, 82, 150, 0,
+  1200, 240000, '[{"kind": "heal", "base": 1977}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  140, 2, 86, 188, 0,
+  1200, 230400, '[{"kind": "heal", "base": 2669}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  140, 3, 90, 225, 0,
+  1200, 220800, '[{"kind": "heal", "base": 3361}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  140, 4, 94, 262, 0,
+  1200, 211200, '[{"kind": "heal", "base": 4053}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+INSERT INTO skill_rank (skill_id, rank, req_level, mp_cost, hp_cost,
+    cast_time_ms, cooldown_ms, effects) VALUES (
+  140, 5, 98, 300, 0,
+  1200, 201600, '[{"kind": "heal", "base": 4745}]'::jsonb
+) ON CONFLICT (skill_id, rank) DO UPDATE SET
+    req_level=EXCLUDED.req_level, mp_cost=EXCLUDED.mp_cost,
+    hp_cost=EXCLUDED.hp_cost, cast_time_ms=EXCLUDED.cast_time_ms,
+    cooldown_ms=EXCLUDED.cooldown_ms, effects=EXCLUDED.effects;
+
 -- ---------- NPC / MOB SABLONLARI (44 kayit) ----------
 INSERT INTO npc_template (id, code, display_name, npc_kind, level, max_hp, max_mp,
     combat, exp_reward, faction_point_reward, gold_min, gold_max, ai_profile,
