@@ -2,7 +2,10 @@
 
 Bu depo, MykoMobile (Knight Online kimliğiyle pazarlanan Unity tabanlı mobil MMORPG)
 altyapısının teknik incelemesi ve buradan yola çıkarak **kendi oyununu** yapmak için hazırlanan yol
-haritasıyla başlıyor.
+haritasıyla başlıyor. İkinci hat, oyunun arayüzü: `arayuz/` altında **OLYMPOS-KO** adıyla,
+Knight Online 1298 istemcisinin pencereleri birebir Unity'ye aktarılıyor.
+
+Proje bağlamı ve çalışma kuralları: [`CLAUDE.md`](CLAUDE.md).
 
 ## Dokümanlar
 
@@ -16,6 +19,18 @@ haritasıyla başlıyor.
 | [`tools/generate_content.py`](tools/generate_content.py) | İçerik üreteci. Tasarım parametrelerini değiştir, çalıştır, içerik + dengeleme raporu yeniden üretilir |
 | `content/*.json` | Üretilen içeriğin okunabilir hâli + `balance_report.txt` |
 
+### Arayüz (`arayuz/`)
+
+| Dosya | İçerik |
+|---|---|
+| [`arayuz/00-sohbet-ozeti.md`](arayuz/00-sohbet-ozeti.md) | claude.ai'daki arayüz sohbetinin adım adım kaydı — hangi pencere hangi istek üzerine, nasıl üretildi |
+| [`arayuz/01-dogrulama.md`](arayuz/01-dogrulama.md) | Devir paketinin doğrulama raporu: derleme sonucu, paket/GUID tutarlılığı, iyileştirme adayları, açık kalanlar |
+| `arayuz/unity_paketleri/*.unitypackage` | Unity'ye doğrudan import edilebilir iki paket: Character (Char Info) ve Save Stat Preset + Stat butonları |
+| `arayuz/unity_kaynak/Assets/` | Paketlerin kaynağı (`.meta` dosyalarıyla): sprite'lar, fontlar, çalışma zamanı betikleri, editör kurucuları |
+| `arayuz/kaynak/` | Sprite çıkarımının ara ürünleri ve HTML önizleme (`kaynak/char_info/unity_preview.html`) |
+| `arayuz/referans_gorseller/`, `arayuz/onizlemeler/` | Orijinal oyun ekran görüntüleri ve orijinal ↔ yeni karşılaştırma görselleri |
+| `arayuz/araclar/` | RAR5 okuyucu, `.unitypackage` üreteci, sprite üreteci ve `derleme_kontrolu/` (Unity'siz C# derleme kontrolü) |
+
 ## Hızlı başlangıç
 
 ```bash
@@ -24,13 +39,18 @@ createdb oyun
 psql -d oyun -f docs/schema/01_core_schema.sql  # şema
 psql -d oyun -f docs/schema/02_content_seed.sql # içerik
 cat content/balance_report.txt                  # "Sorunlu mob sayısı: 0" olmalı
+
+arayuz/araclar/derleme_kontrolu/derle.sh        # arayüz betiklerini Unity'siz derle (mono-devel gerekir)
 ```
 
 ## Durum
 
-Veri modeli ve başlangıç içeriği hazır ve PostgreSQL'de doğrulandı. Oyun kodu
-(sunucu + Unity istemcisi) henüz yok — sıradaki iş `01` Bölüm 7'deki **Faz 1
-dikey dilimi**.
+Veri modeli ve başlangıç içeriği hazır ve PostgreSQL'de doğrulandı. Sunucu kodu henüz yok —
+sıradaki iş `01` Bölüm 7'deki **Faz 1 dikey dilimi**.
+
+Arayüz tarafında üç pencere (Char Info, Save Stat Preset, Stat butonları) Unity paketi hâlinde
+hazır; betikler bu ortamda **derlendi (0 hata)** ve paketler yapı/GUID/içerik olarak doğrulandı.
+Unity'de ilk import henüz denenmedi — ayrıntı ve açık noktalar `arayuz/01-dogrulama.md`.
 
 ## Önemli notlar
 

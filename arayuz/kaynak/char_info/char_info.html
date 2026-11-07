@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>OLYMPOS-KO · Character · Char Info</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:"RobotoLocal";src:url(fonts/Roboto-Regular.ttf);font-weight:400}
+@font-face{font-family:"RobotoLocal";src:url(fonts/Roboto-Bold.ttf);font-weight:700}
+:root{
+  --slab:"Roboto Slab","DejaVu Serif Condensed","DejaVu Serif",Georgia,serif;
+  --sans:"Roboto","RobotoLocal",Arial,sans-serif;
+  --tan:#dfc5ae;          /* kutu kenarı */
+  --tan-dark:#9f8a75;
+  --val-tan:#dcb98a;      /* stat / exp değerleri */
+  --orange:#e2b47c;       /* Exp/NP/Attack/Defence etiketleri */
+  --reset:#d98a34;
+  --green:#a6dc3c;
+  --name:#f2e79c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#111;}
+body{display:flex;justify-content:center;align-items:flex-start;padding:0}
+#win{position:relative;width:654px;height:1030px;overflow:hidden;
+  background:#0b0806;}
+/* zemin dokusu */
+#bg{position:absolute;inset:0}
+/* dış çerçeve */
+#frame{position:absolute;inset:0;pointer-events:none;
+  border:9px solid transparent;
+  border-image:linear-gradient(180deg,#a8894f,#6f5426 30%,#8a6a33 60%,#4c330a) 1;
+  box-shadow:inset 0 0 0 1px #1c0d00, inset 0 0 0 3px #3a2608, inset 0 0 18px rgba(0,0,0,.9);}
+#frame:before{content:"";position:absolute;inset:-7px;border:1px solid #c9a865;opacity:.55}
+.abs{position:absolute}
+
+/* ---- Sekmeler ---- */
+.tab{position:absolute;top:10px;height:82px;display:flex;align-items:center;justify-content:center;
+  font:700 20px var(--slab);color:#f4f4f4;text-shadow:0 1px 2px #000;letter-spacing:.2px}
+#tabsbg{position:absolute;left:9px;top:8px;width:637px;height:92px}
+
+/* ---- Irk & isim ---- */
+#race{left:66px;top:118px;width:56px;height:56px}
+#human{left:40px;top:172px;width:104px;text-align:center;font:700 19px var(--slab);
+  color:#fafafa;letter-spacing:1.2px;text-shadow:1px 1px 1px #000}
+#name{left:174px;top:126px;font:700 25px var(--slab);color:var(--name);text-shadow:1px 1px 2px #000}
+
+/* ---- Etiket butonları (koyu metal) ---- */
+.lbl{position:absolute;height:30px;border-radius:5px;
+  background:linear-gradient(180deg,#5a5847 0%,#3a382b 18%,#1d1c15 55%,#0a0a06 100%);
+  border:1px solid #0d0d08;
+  box-shadow:inset 0 1px 0 rgba(190,185,150,.35),inset 0 -1px 0 rgba(120,115,90,.25),0 1px 2px rgba(0,0,0,.9);
+  font:700 19px var(--slab);color:#f2f2f2;text-shadow:1px 1px 1px #000;
+  display:flex;align-items:center;padding-left:17px;white-space:nowrap}
+.lbl:before{content:"";position:absolute;left:5px;top:50%;width:8px;height:12px;margin-top:-6px;border-radius:50%;
+  background:radial-gradient(circle at 40% 35%,#9a9a8e,#3c3c34 60%,#111 100%);}
+.lbl.o{color:var(--orange)}
+.lbl.c{justify-content:center;padding-left:6px}
+
+/* ---- Değer kutuları ---- */
+.box{position:absolute;background:#020100;
+  border:2px solid var(--tan);
+  box-shadow:inset 0 0 0 1px rgba(80,60,40,.6),0 0 0 1px rgba(0,0,0,.7);
+  display:flex;align-items:center;justify-content:center;
+  font:700 21px var(--sans);color:#f3f3f3}
+.box.t{color:var(--val-tan);letter-spacing:.3px}
+.stat{justify-content:flex-start}
+.stat .k{position:absolute;font:700 19px var(--slab);color:#f5f5f5;text-shadow:1px 1px 1px #000}
+.stat .v{position:absolute;font:700 21px var(--slab);color:var(--val-tan)}
+.res .k{position:absolute;font:700 18px var(--slab);color:#f0f0f0;letter-spacing:-.2px;text-shadow:1px 1px 1px #000}
+.res .v{position:absolute;font:700 21px var(--slab);color:var(--val-tan)}
+
+/* ---- Mavi butonlar ---- */
+.btn{position:absolute;width:145px;height:45px;background-size:100% 100%;
+  display:flex;align-items:center;justify-content:center;
+  font:700 21px var(--slab);color:#f5f5f5;text-shadow:1px 1px 1px #000;white-space:pre}
+.btn.r{color:var(--reset)}
+</style>
+</head>
+<body>
+<div id="win">
+  <svg id="bg" width="654" height="1030" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="grain" x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.012 0.05" numOctaves="4" seed="7"/>
+        <feColorMatrix values="0 0 0 0 0.32  0 0 0 0 0.22  0 0 0 0 0.12  0 0 0 1.1 -0.38"/>
+      </filter>
+      <filter id="fine" x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" seed="3"/>
+        <feColorMatrix values="0 0 0 0 0.2  0 0 0 0 0.14  0 0 0 0 0.08  0 0 0 .55 -0.12"/>
+      </filter>
+      <radialGradient id="vig" cx="50%" cy="40%" r="75%">
+        <stop offset="0" stop-color="#1a130f" stop-opacity="0"/>
+        <stop offset="1" stop-color="#000" stop-opacity=".75"/>
+      </radialGradient>
+      <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#16110e"/>
+        <stop offset=".45" stop-color="#0d0907"/>
+        <stop offset="1" stop-color="#050302"/>
+      </linearGradient>
+    </defs>
+    <rect width="654" height="1030" fill="url(#fade)"/>
+    <rect width="654" height="1030" filter="url(#grain)" opacity=".42"/>
+    <rect width="654" height="1030" filter="url(#fine)" opacity=".35"/>
+    <rect width="654" height="1030" fill="url(#vig)"/>
+  </svg>
+
+  <!-- Sekmeler -->
+  <img id="tabsbg" src="sprites/tabs_strip.png" alt="">
+  <div class="tab" style="left:15px;width:200px">CHAR INFO</div>
+  <div class="tab" style="left:224px;width:128px">QUESTS</div>
+  <div class="tab" style="left:365px;width:156px">CLAN</div>
+  <div class="tab" style="left:525px;width:120px">FRIENDS</div>
+  
+
+  <!-- Irk simgesi -->
+  <svg id="race" class="abs" viewBox="0 0 56 56">
+    <defs>
+      <radialGradient id="ring" cx="40%" cy="35%" r="70%">
+        <stop offset="0" stop-color="#e2e2e2"/><stop offset=".55" stop-color="#8d8d8d"/><stop offset="1" stop-color="#3a3a3a"/>
+      </radialGradient>
+      <radialGradient id="core" cx="50%" cy="50%" r="50%">
+        <stop offset="0" stop-color="#3a1414"/><stop offset="1" stop-color="#140707"/>
+      </radialGradient>
+    </defs>
+    <circle cx="28" cy="28" r="27" fill="url(#ring)"/>
+    <circle cx="28" cy="28" r="22" fill="url(#core)" stroke="#2a2a2a" stroke-width="1"/>
+    <g fill="#e07070" stroke="#f3a9a0" stroke-width=".6">
+      <path id="sp" d="M28 8 L31 15 L28 14 L25 15Z"/>
+      <use href="#sp" transform="rotate(30 28 28)"/><use href="#sp" transform="rotate(60 28 28)"/>
+      <use href="#sp" transform="rotate(90 28 28)"/><use href="#sp" transform="rotate(120 28 28)"/>
+      <use href="#sp" transform="rotate(150 28 28)"/><use href="#sp" transform="rotate(180 28 28)"/>
+      <use href="#sp" transform="rotate(210 28 28)"/><use href="#sp" transform="rotate(240 28 28)"/>
+      <use href="#sp" transform="rotate(270 28 28)"/><use href="#sp" transform="rotate(300 28 28)"/>
+      <use href="#sp" transform="rotate(330 28 28)"/>
+    </g>
+    <circle cx="28" cy="28" r="12.5" fill="none" stroke="#e98a84" stroke-width="3.2"/>
+    <path d="M22 26 A7 7 0 1 1 30 35" fill="none" stroke="#ffd2cc" stroke-width="1.6"/>
+    <circle cx="28" cy="28" r="5" fill="#2a0b0b"/>
+  </svg>
+  <div id="human" class="abs">HUMAN</div>
+  <div id="name" class="abs">xDarKPasT</div>
+
+  <!-- Level / Job / HP / MP -->
+  <div class="lbl" style="left:38px;top:235px;width:81px">Level</div>
+  <div class="box" style="left:128px;top:224px;width:93px;height:51px">72</div>
+  <div class="lbl" style="left:228px;top:235px;width:121px">HP Point</div>
+  <div class="box" style="left:363px;top:224px;width:240px;height:48px;font-size:22px">1.673 / 1.673</div>
+
+  <div class="lbl" style="left:38px;top:291px;width:81px">Job</div>
+  <div class="box" style="left:122px;top:280px;width:99px;height:51px;font:700 19px var(--slab);text-shadow:1px 1px 1px #000">Magician</div>
+  <div class="lbl" style="left:228px;top:291px;width:121px">MP Point</div>
+  <div class="box" style="left:363px;top:281px;width:240px;height:48px;font-size:22px">3.417 / 3.417</div>
+
+  <!-- Exp / NP -->
+  <div class="lbl o" style="left:47px;top:371px;width:152px">Exp Points</div>
+  <div class="box t" style="left:216px;top:358px;width:392px;height:53px;font-size:22px">0 / 7.049.084.376</div>
+  <div class="lbl o" style="left:47px;top:434px;width:152px">NP Points</div>
+  <div class="box t" style="left:216px;top:422px;width:392px;height:52px;font-size:22px">2.077.085 / 935.170</div>
+
+  <!-- Attack / Defence -->
+  <div class="lbl o" style="left:47px;top:525px;width:122px">Attack</div>
+  <div class="box" style="left:178px;top:513px;width:149px;height:52px">5</div>
+  <div class="lbl o" style="left:345px;top:525px;width:122px">Defence</div>
+  <div class="box" style="left:484px;top:513px;width:124px;height:52px">182</div>
+
+  <!-- Stat points -->
+  <div class="lbl" style="left:48px;top:584px;width:239px">Your Stat Points<span style="position:absolute;left:205px;color:var(--green)">0</span></div>
+
+  <div class="box stat" style="left:49px;top:619px;width:238px;height:51px"><span class="k" style="left:18px">STR</span><span class="v" style="left:137px">50</span></div>
+  <div class="box stat" style="left:49px;top:678px;width:238px;height:51px"><span class="k" style="left:16px">DEX</span><span class="v" style="left:137px">70</span></div>
+  <div class="box stat" style="left:49px;top:735px;width:238px;height:51px"><span class="k" style="left:20px">INT</span><span class="v" style="left:132px">112</span></div>
+
+  <div class="box stat" style="left:372px;top:619px;width:238px;height:51px"><span class="k" style="left:26px">HP</span><span class="v" style="left:144px">52</span></div>
+  <div class="box stat" style="left:372px;top:678px;width:238px;height:51px"><span class="k" style="left:24px">MP</span><span class="v" style="left:138px">255</span></div>
+
+  <div class="btn" style="left:456px;top:742px;background-image:url(sprites/btn_preset.png)">Stat  Preset</div>
+
+  <!-- Resistance -->
+  <div class="lbl" style="left:50px;top:858px;width:138px">Resistance</div>
+  <div class="btn r" style="left:456px;top:849px;background-image:url(sprites/btn_reset.png)">Stat Reset</div>
+
+  <div class="box res" style="left:46px;top:903px;width:272px;height:53px"><span class="k" style="left:48px">Flame Resist.</span><span class="v" style="left:226px">0</span></div>
+  <div class="box res" style="left:340px;top:903px;width:270px;height:53px"><span class="k" style="left:46px">Poison Resist.</span><span class="v" style="left:228px">0</span></div>
+  <div class="box res" style="left:46px;top:960px;width:272px;height:53px"><span class="k" style="left:44px">Glacier Resist.</span><span class="v" style="left:226px">0</span></div>
+  <div class="box res" style="left:340px;top:960px;width:270px;height:53px"><span class="k" style="left:46px">Lightning Resist.</span><span class="v" style="left:228px">0</span></div>
+
+  <div id="frame"></div>
+</div>
+</body>
+</html>

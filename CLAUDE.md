@@ -1,0 +1,81 @@
+# OLYMPOS-KO · 1298 Mobil Arayüz — Claude Code proje bağlamı
+
+Bu depo, claude.ai'daki "OLYMPOS arayüz" sohbetinin devamıdır. Arayüz çalışmasının tamamı `arayuz/` altındadır;
+sohbetin adım adım kaydı: `arayuz/00-sohbet-ozeti.md`. Kullanıcıyla **Türkçe** konuş.
+
+Deponun geri kalanı aynı oyunun altyapı tarafıdır (veri modeli, içerik üretimi, APK analizi) — bkz. `README.md` ve `docs/`.
+Arayüz işi ile altyapı işi aynı oyunun iki yüzü: `docs/03-icerik-uretim-rehberi.md` içindeki UI ekran envanteri bu pencerelerle eşleşir.
+
+## Proje
+- Oyun: **OLYMPOS-KO**, Knight Online **1298** istemcisi tarzında bir **mobil** oyun, **Unity** ile geliştiriliyor.
+- Görev: kullanıcının gönderdiği oyun arayüzü ekran görüntülerini **birebir** Unity'ye aktarılabilir pencerelere çevirmek.
+- Kullanıcının referans arşivi (`ara_yüz_görselleri.rar`, kendi bilgisayarında): `01_Onizlemeler`, `02_Unity_Gorselleri`,
+  `03_Hazir_Paketler` (`1298_Mobil_Arayuz_Unity_Hazir`, NPC pencereleri, Moradon referansı), `04_1298_Font_Referanslari`
+  (UIF font kayıtları CSV: 3.698 kayıt; çoğunluk Arial, sonra Gulim). Proje tercihi başlık/etiket fontu: **Roboto Slab Bold**.
+
+## Kullanıcının çalışma tarzı ve kuralları (önemli)
+1. **Birebir.** Yazılar, fontlar, renkler, çerçeveler, buton zeminleri **orijinal görselden alınır**; yeniden çizilmez/tasarlanmaz.
+   Yöntem: ilgili parçayı orijinalden kes → üstündeki yazıyı sil (aynı satırdaki gerçek dokudan örnekleyerek doldur) → yazısız sprite.
+   Küçük, oyun içi boyuttaki görsellerde yazılar da orijinal piksellerden korunur.
+2. **Önce görsel.** Dosya/doküman/paket yapmadan önce sonucu **görsel olarak** göster (orijinal ↔ yeni yan yana).
+   Kullanıcı onaylayınca ("Süpersin… Unity editöre aktarabileceğim şekilde dosya haline getir") Unity paketine geç.
+3. **Saydamlık.** Pencere iç zemini **düz siyah** (kahverengi doku YOK) ve **yarı saydam** (varsayılan alfa **0.85**);
+   oyun dünyası arkadan hafifçe görünür. Unity'de ayrı bir siyah Image + Inspector'da `backgroundAlpha` ile ayarlanır.
+   Pencere dışında kalan oyun sahnesi parçaları **tamamen saydam**. Kutular/butonlar **opak**.
+   İSTİSNA: **Save Stat Preset** penceresi **mat** (opak) — saydam yapılmaz.
+4. Kullanıcı "Dur" derse hemen dur, durumu kısaca söyle, bekle.
+
+## Teslim edilenler
+| Paket | Pencere | Boyut (px) | Zemin |
+|---|---|---|---|
+| `arayuz/unity_paketleri/OlymposCharacter1298.unitypackage` | Character › CHAR INFO sekmesi | 654 × 1030 | yarı saydam siyah 0.85 |
+| `arayuz/unity_paketleri/OlymposStatWindows1298.unitypackage` | SAVE STAT PRESET | 293 × 454 | mat |
+| (aynı paket) | Stat butonları STR/HP/DEX/INT/MP | 197 × 243 | yarı saydam siyah 0.85 |
+
+Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
+`OLYMPOS > 1298 > Character Penceresi Oluştur`, `… > Save Stat Preset Penceresi Oluştur`, `… > Stat Butonları Penceresi Oluştur`.
+Kurucular: doku import ayarları (Sprite, sıkıştırmasız, mipmap yok, 9-slice kenarlar) → hiyerarşiyi **sol-üst piksel
+koordinatlarıyla** kurar → `Prefabs/` altına prefab → sahnedeki Canvas'a ekler (yoksa 1920×1080, match=1 Canvas + EventSystem).
+UI sistemi: **uGUI + legacy `UnityEngine.UI.Text`** (TMP kullanılmadı). Namespace `Olympos.UI` / `Olympos.UI.EditorTools`.
+
+**Doğrulama durumu:** Yerleşim Python/Chrome ile simüle edilip orijinalle karşılaştırıldı.
+Claude Code'a devirden sonra Mono (`mcs`) kurulup betikler **derlendi: 0 hata, 0 uyarı**; paketlerin arşiv yapısı,
+GUID'leri ve dosya içerikleri `unity_kaynak/` ile birebir eşleşiyor. **Unity'de import hâlâ denenmedi** (ortamda Unity yok).
+Ayrıntı, derlemenin sınırları ve iyileştirme adayları: `arayuz/01-dogrulama.md`. Kontrolü tekrarlamak için
+`arayuz/araclar/derleme_kontrolu/derle.sh`.
+
+## Char Info (654×1030) ölçüleri
+Renkler: etiket beyaz `#F4F4F4`, isim `#F2E79C`, turuncu etiket (Exp/NP/Attack/Defence) `#E2B47C`, değer tan `#DCB98A`,
+stat puanı yeşil `#A6DC3C`, Stat Reset turuncu `#D98A34`, kutu kenarı tan `#DFC5AE`.
+Sprite'lar (`arayuz/unity_kaynak/Assets/OlymposCharacter1298/Resources/OlymposCharacter1298/`): `window_frame` (bronz çerçeve 9px, içi saydam), `tabs_strip` (637×92 @ 9,8;
+orijinal doku, CHAR INFO altın alt çizgisi dahil), `label_button` (9-slice L18 B8 R8 T8), `value_box` (9-slice 6),
+`btn_preset`/`btn_reset` (145×45), `race_human` (57×57 @ 64,116, dairesel alfa).
+Sekmeler: CHAR INFO (15,10,200,82) · QUESTS (224,10,128,82) · CLAN (365,10,156,82) · FRIENDS (525,10,120,82).
+Diğer tüm koordinatlar `OlymposCharacterWindowBuilder.cs` içinde.
+Bilinen fark: **Roboto Slab bu ortamda yoktu** (ağ kapalı); önizlemelerde DejaVu Serif, Unity'de Roboto Bold yedeği.
+`RobotoSlab-Bold.ttf` `Fonts/` içine konup menü tekrar çalıştırılınca otomatik kullanılır.
+
+## Stat pencereleri ölçüleri
+- Save Stat Preset: orijinal 299×479'dan (3,8)-(296,462) kesildi. Slot aralığı **103 px**; slot 2–4 temiz **slot 1**'den üretildi
+  (orijinalde 2. ve 3. slotta arkadaki stat penceresinin hayalet izleri vardı), numara rozetleri her slotun kendisinden.
+  Tıklama alanları (sprite koordinatı): Kapat (246,3,28,28); slot k için Save (49,107+103k,95,25), Activate (148,107+103k,95,25);
+  "- Empty -" örtüsü/metni (74,80+103k,146,16) → `SetSlotStatus(slot, text)`.
+- Stat butonları: orijinal 202×251'den (2,0)-(198,242). Çerçeve 3 px. Butonlar x=21, w=163, h=38, y = 22/65/108/151/194.
+  `stat_buttons_frame.png` = çerçeve + butonlar, içi saydam; siyah zemin ayrı Image.
+- Butonlar: görünmez Image + ColorTint (normal α0, hover α0.12, basılı α0.35, disabled α0.45 siyah).
+
+## Araçlar (`arayuz/araclar/`)
+- `rar5list.py` / `rar5stored.py`: RAR5 başlık okuyucu; arşivdeki sıkıştırılmamış (stored) ZIP'i çıkarır (ortamda unrar yoktu).
+- `mkunitypkg.py <klasör> <çıktı.unitypackage> <çıktı.zip>`: `Assets/` altındakilere yoldan türetilen sabit GUID'li minimal
+  `.meta` yazar, `.unitypackage` (tar.gz: guid/asset, asset.meta, pathname) ve zip üretir.
+- `build_windows2.py`: Save Stat Preset + stat butonları sprite'larını orijinallerden üretir (`preset_orig.png`, `stats_orig.png` bekler).
+- `derleme_kontrolu/derle.sh`: Unity olmadan tüm `.cs` dosyalarını Mono ile derler (Unity API taslakları yanında).
+- Char Info sprite çıkarımı (OpenCV inpaint + aynı satırdan doku örnekleme) sohbet içinde satır içi yapıldı; sonuçlar
+  `arayuz/kaynak/char_info/sprites/`. HTML önizleme: `arayuz/kaynak/char_info/unity_preview.html` (sprite'larla, Moradon arka planı üzerinde).
+
+## Sıradaki olası işler
+- Kullanıcının Unity'de ilk import sonucunu almak, Console çıktısındaki hataları düzeltmek.
+  (Beklenen uyarılar: `RobotoSlab-Bold.ttf` yokluğu ve Unity 2023.1+ için eskimiş `FindObjectOfType` — ikisi de hata değil.)
+- Üç pencerenin ölçeklerini birbirine oranlamak (Char Info daha büyük bir ekran görüntüsünden geldi).
+- Roboto Slab TTF gelirse etiketleri yeniden kurmak.
+- QUESTS / CLAN / FRIENDS sekmeleri ve kullanıcının göndereceği yeni pencereler — aynı yöntemle.

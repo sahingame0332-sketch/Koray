@@ -1,0 +1,56 @@
+OLYMPOS-KO · 1298 Character Penceresi (Char Info) · Unity Paketi
+=================================================================
+
+KURULUM
+1) Unity'de: Assets > Import Package > Custom Package... ile
+   OlymposCharacter1298.unitypackage dosyasını seçip Import deyin.
+   (Alternatif: zip içindeki "Assets/OlymposCharacter1298" klasörünü projenizin Assets klasörüne kopyalayın.)
+2) Üst menüden: OLYMPOS > 1298 > Character Penceresi Oluştur
+   - Doku ayarları otomatik yapılır (Sprite, sıkıştırmasız, 9-slice kenarlar).
+   - Pencere, referans görseldeki piksel ölçüleriyle (654 x 1030) kurulur.
+   - Prefabs/CharacterWindow_1298.prefab kaydedilir ve sahnedeki Canvas'a eklenir
+     (Canvas yoksa 1920x1080 referanslı bir Canvas + EventSystem oluşturulur).
+
+KLASÖRLER
+- Resources/OlymposCharacter1298/  Sprite'lar
+    window_frame.png   Bronz pencere çerçevesi (içi saydam)
+    tabs_strip.png     CHAR INFO / QUESTS / CLAN / FRIENDS sekme zemini (orijinal doku, yazısız)
+    label_button.png   Koyu metal etiket butonu (orijinal doku, 9-slice)
+    value_box.png      Tan kenarlı siyah değer kutusu (orijinal doku, 9-slice)
+    btn_preset.png     Stat Preset buton zemini (orijinal doku)
+    btn_reset.png      Stat Reset buton zemini (orijinal doku)
+    race_human.png     HUMAN ırk ikonu (orijinalden, şeffaf arka planlı)
+- Fonts/      Roboto-Regular.ttf, Roboto-Bold.ttf
+- Scripts/    OlymposCharacterWindow.cs  (çalışma zamanı bileşeni)
+- Editor/     OlymposCharacterWindowBuilder.cs  (menü ve kurucu)
+- Preview/    Önizleme ve orijinal referans görsel
+
+FONT NOTU
+Etiketlerdeki orijinal font "Roboto Slab Bold"dur ve pakette yoktur.
+RobotoSlab-Bold.ttf dosyasını Fonts/ klasörüne koyup menüyü tekrar çalıştırırsanız
+tüm etiketler otomatik olarak Roboto Slab ile kurulur. Font yoksa Roboto Bold kullanılır.
+
+KODDAN DEĞER DOLDURMA
+    var w = GetComponent<Olympos.UI.OlymposCharacterWindow>();
+    w.SetData(new Olympos.UI.OlymposCharacterData {
+        name = "xDarKPasT", race = "Human", level = 72, job = "Magician",
+        hp = 1673, maxHp = 1673, mp = 3417, maxMp = 3417,
+        exp = 0, maxExp = 7049084376, np = 2077085, maxNp = 935170,
+        attack = 5, defence = 182, statPoints = 0,
+        str = 50, dex = 70, intel = 112, hpStat = 52, mpStat = 255
+    });
+    // Sayılar 1298 istemcisindeki gibi noktayla ayrılır: 1673 -> "1.673"
+
+    w.onTabSelected.AddListener(i => Debug.Log("Sekme: " + i)); // 0 CharInfo, 1 Quests, 2 Clan, 3 Friends
+    w.statPresetButton.onClick.AddListener(...);
+    w.statResetButton.onClick.AddListener(...);
+
+ZEMİN SAYDAMLIĞI
+Pencerenin iç zemini düz siyahtır ve %85 opaktır; oyun dünyası arkadan hafifçe görünür.
+Ayarlamak için: CharacterWindow_1298 objesi > OlymposCharacterWindow > Background Alpha
+(1 = tamamen siyah, 0 = tamamen saydam). Kutuların ve butonların içi opaktır,
+sekme aralıkları ve buton köşeleri saydamdır.
+
+BOYUT
+Pencere 654 x 1030 birimdir. Oyundaki boyutu için kök objenin (CharacterWindow_1298)
+RectTransform Scale değerini değiştirin (ör. 0.6).

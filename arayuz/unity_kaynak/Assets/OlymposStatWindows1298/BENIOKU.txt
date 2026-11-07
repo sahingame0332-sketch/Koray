@@ -1,0 +1,51 @@
+OLYMPOS-KO · 1298 Save Stat Preset + Stat Butonları · Unity Paketi
+====================================================================
+
+KURULUM
+1) Unity'de: Assets > Import Package > Custom Package... ile
+   OlymposStatWindows1298.unitypackage dosyasını seçip Import deyin.
+   (Alternatif: zip içindeki "Assets/OlymposStatWindows1298" klasörünü projenizin Assets klasörüne kopyalayın.)
+2) Üst menüden:
+   OLYMPOS > 1298 > Save Stat Preset Penceresi Oluştur
+   OLYMPOS > 1298 > Stat Butonları Penceresi Oluştur
+   - Doku ayarları otomatik yapılır (Sprite, sıkıştırmasız).
+   - Pencere orijinal görselin piksel ölçüleriyle kurulur.
+   - Prefabs/ klasörüne prefab kaydedilir ve sahnedeki Canvas'a eklenir
+     (Canvas yoksa 1920x1080 referanslı bir Canvas + EventSystem oluşturulur).
+
+PENCERELER
+- SaveStatPreset_1298 (293 x 454) · MAT zemin
+  Görsel orijinalden birebir alınmıştır (yazılar, fontlar, renkler, çerçeveler).
+  Orijinaldeki 2. ve 3. slotun içindeki arka plan izleri temizlenmiştir.
+  Save, Activate ve X butonları görselin üzerindeki görünmez tıklama alanlarıdır:
+  üzerine gelince hafif, basınca belirgin şekilde kararır.
+
+- StatButtons_1298 (197 x 243) · YARI SAYDAM zemin
+  Çerçeve ve STR / HP / DEX / INT / MP butonları orijinalden birebir alınmıştır.
+  İç zemin %85 opak siyahtır; oyun dünyası arkadan hafifçe görünür.
+  Ayar: StatButtons_1298 > OlymposStatButtonsWindow > Background Alpha
+  (1 = tamamen siyah, 0 = tamamen saydam).
+
+KODDAN KULLANIM
+    // Save Stat Preset
+    var p = GetComponent<Olympos.UI.OlymposSaveStatPresetWindow>();
+    p.onSave.AddListener(slot => Debug.Log("Save " + (slot + 1)));         // slot: 0..3
+    p.onActivate.AddListener(slot => Debug.Log("Activate " + (slot + 1)));
+    p.onClose.AddListener(() => Debug.Log("Kapandı"));                     // X pencereyi gizler
+    p.SetSlotStatus(0, "STR 50 · DEX 70 · INT 112");  // "- Empty -" yerine yazar
+    p.SetSlotStatus(0, null);                         // orijinal "- Empty -" geri gelir
+
+    // Stat butonları
+    var s = GetComponent<Olympos.UI.OlymposStatButtonsWindow>();
+    s.onStatPlus.AddListener(stat => Debug.Log(stat + " +1"));   // STR, HP, DEX, INT, MP
+    s.SetInteractable(false);   // stat puanı bitince butonları kilitle
+
+FONT NOTU
+Görsellerdeki yazılar orijinal piksellerdir, font gerektirmez.
+Sadece SetSlotStatus ile yazılan metin font kullanır: Fonts/ içine RobotoSlab-Bold.ttf koyup
+menüyü tekrar çalıştırırsanız orijinaldeki gibi Roboto Slab olur; yoksa Roboto Bold kullanılır.
+
+BOYUT
+Bu iki görsel oyun içi boyuttadır. Char Info penceresi (654 x 1030) daha büyük bir ekran
+görüntüsünden alındığı için birlikte kullanırken kök objelerin RectTransform Scale
+değerleriyle oranlayın.
