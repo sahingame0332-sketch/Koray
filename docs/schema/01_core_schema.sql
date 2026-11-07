@@ -677,10 +677,27 @@ INSERT INTO zone (id, code, display_name, zone_type, level_min, level_max) VALUE
     (3, 'green_field','Yeşil Ovalar',  'field', 1,  20),
     (4, 'warzone',    'Savaş Bölgesi', 'pvp',  20, 999);
 
--- Ornek seviye egrisi: ilk 10 seviye. Gercek egriyi dengeleme calismasiyla belirle.
+-- Seviye egrisi: exp_required = 8.45 * level^3.4
+--
+-- Bu iki sayi tahmin DEGIL. Ilk denemede 100 * level^2.2 kullanilmisti;
+-- tools/simulate_progression.py ile bastan sona simule edildiginde seviye
+-- 1->100 yolculugunun yalnizca 7.8 saat surdugu ve tempo TERS oldugu
+-- (seviyeler ilerledikce hizlandigi) gorulduu. Sebep matematiksel:
+--   mob tecrubesi    ~ level^1.75
+--   seviye ihtiyaci  ~ coef * p * level^(p-1)
+-- Seviye basina oldurme sayisinin ARTMASI icin p > 2.75 olmali; p=2.2'de
+-- tam tersi olur.
+--
+-- Egri `--calibrate` modu ile cozuldu. Olculen sonuc:
+--   toplam 1->100        : 100 saat   (tek oyuncu, %30 olu zaman varsayimi)
+--   ilk 10 seviye        : 1.40 saat  (yeni oyuncu hizli ilerler)
+--   gec/erken tempo orani: 14.2 kat
+--
+-- DEGISTIRIRSEN tools/simulate_progression.py icindeki EXP_COEF ve
+-- EXP_EXPONENT degerlerini de ayni yap, yoksa simulasyon yalan soyler.
 INSERT INTO level_curve (level, exp_required, stat_points, skill_points)
 SELECT lvl,
-       (100 * power(lvl, 2.2))::bigint,
+       (8.45 * power(lvl, 3.4))::bigint,
        3,
        CASE WHEN lvl % 2 = 0 THEN 2 ELSE 1 END
 FROM generate_series(1, 100) AS lvl;

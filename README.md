@@ -15,6 +15,8 @@ haritasıyla başlıyor.
 | [`docs/schema/02_content_seed.sql`](docs/schema/02_content_seed.sql) | Üretilmiş başlangıç içeriği: 181 eşya, 40 beceri, 44 NPC, 242 loot satırı, 100 doğma noktası, 10 bölge (otomatik üretildi — elle düzenlemeyin) |
 | [`docs/04-stat-dagitimi-ve-hold-repeat.md`](docs/04-stat-dagitimi-ve-hold-repeat.md) | Stat dağıtım butonunun basılı-tutma tekrarlama hızı: analiz, ölçüm sonuçları ve Unity kurulum adımları |
 | [`unity/Assets/Scripts/`](unity/Assets/Scripts) | Unity C# kaynakları: `HoldRepeatButton`, `StatAllocationPanel`, `StatRepeatTuning`, stat servisi arayüzü + test taklidi |
+| [`docs/05-ilerleme-simulasyonu.md`](docs/05-ilerleme-simulasyonu.md) | İçeriği baştan sona simüle edip gerçek değer üretme: seviye 1→100 süresi, tempo, ekonomi, loot beklentisi — ve bulunan seviye eğrisi hatası |
+| [`tools/simulate_progression.py`](tools/simulate_progression.py) | İlerleme simülatörü ve seviye eğrisi kalibrasyonu (`--calibrate`) |
 | [`tools/analyze_hold_repeat.py`](tools/analyze_hold_repeat.py) | Tekrarlama eğrisi simülatörü ve hedef denetimi |
 | [`tools/unity-compile-check/`](tools/unity-compile-check) | Unity kurmadan C# derleme kontrolü + C#'ın analizle aynı sonucu verdiğini doğrulayan koşum |
 | [`tools/generate_content.py`](tools/generate_content.py) | İçerik üreteci. Tasarım parametrelerini değiştir, çalıştır, içerik + dengeleme raporu yeniden üretilir |
@@ -28,6 +30,7 @@ createdb oyun
 psql -d oyun -f docs/schema/01_core_schema.sql  # şema
 psql -d oyun -f docs/schema/02_content_seed.sql # içerik
 cat content/balance_report.txt                  # "Sorunlu mob sayısı: 0" olmalı
+python3 tools/simulate_progression.py           # 1→100 ilerleme değerleri
 ```
 
 Unity kodunu Unity kurmadan doğrulamak için:
