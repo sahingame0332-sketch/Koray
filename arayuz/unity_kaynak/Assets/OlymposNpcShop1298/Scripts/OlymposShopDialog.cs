@@ -1,5 +1,9 @@
-// OLYMPOS-KO · 1298 dükkân diyalogları
-// İki kullanım: satın alma onayı (ürün adı + Rest Money) ve satış adedi (Sell Dna Count).
+// OLYMPOS-KO · 1298 dükkân diyaloğu
+// Ekran görüntülerinde üç mod var:
+//   satın alma onayı : ürün adı + "Need Money : 560"
+//   satış onayı      : ürün adı + "Earn Money : 106"
+//   adet sorma       : ürün adı + "Buy Item Count:" + sayı alanı
+// Üçünde de altta Confirm / Cancel.
 using System;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,26 +11,40 @@ using UnityEngine.UI;
 
 namespace Olympos.UI
 {
+    public enum OlymposDiyalogModu { SatinAlmaOnayi = 0, SatisOnayi = 1, AdetSor = 2 }
+
     [DisallowMultipleComponent]
     public class OlymposShopDialog : MonoBehaviour
     {
         [Header("Zemin")]
         public Image background;
-        [Range(0f, 1f)] public float backgroundAlpha = 0.95f;
+        [Range(0f, 1f)]
+        [Tooltip("Varsayılan 0.93: diyaloğun arkasından sızan yazılar ölçülerek bulundu " +
+                 "(geçirgenlik t≈0.07). Ayrıntı: arayuz/05-npc-dukkan.md")]
+        public float backgroundAlpha = 0.93f;
+        [Tooltip("Altın çerçeve (9-slice); içi saydam, zemini background doldurur.")]
+        public Image frame;
 
         [Header("Parçalar")]
-        public Text titleText;      // ürün adı
-        public Text infoText;       // "Rest Money : 904" ya da "Sell Dna Count"
-        public InputField countField;   // yalnızca adet modunda görünür
+        public Text titleText;
+        public Text infoText;
+        public InputField countField;
         public Button confirmButton;
         public Button cancelButton;
 
+        [Header("Ölçü")]
+        [Tooltip("Adet alanı kapalıyken ve açıkken panelin yüksekliği (orijinalden: 254 / 317).")]
+        public float heightCompact = 254f;
+        public float heightWithCount = 317f;
+
         [Serializable] public class OnayEvent : UnityEvent<int> { }
-        /// <summary>Confirm'e basıldı; parametre adet (onay modunda 1).</summary>
+        /// <summary>Confirm'e basıldı; parametre adet (onay modlarında 1).</summary>
         public OnayEvent onConfirm = new OnayEvent();
         public UnityEvent onCancel = new UnityEvent();
 
         int enCok = 1;
+        OlymposDiyalogModu mod;
+        public OlymposDiyalogModu Mod { get { return mod; } }
 
         void OnValidate() { ApplyBackgroundAlpha(); }
         public void ApplyBackgroundAlpha()
@@ -42,28 +60,38 @@ namespace Olympos.UI
             Hide();
         }
 
-        /// <summary>Satın alma onayı: ürün adı + kalan para.</summary>
-        public void ShowBuy(string urunAdi, long kalanPara)
+        public void ShowBuyConfirm(string urunAdi, long gerekenPara)
         {
-            Kur(urunAdi, "Rest Money : " + OlymposNpcShopWindow.Num(kalanPara), false, 1);
+            Kur(OlymposDiyalogModu.SatinAlmaOnayi, urunAdi,
+                "Need Money : " + OlymposNpcShopWindow.Num(gerekenPara), 1);
         }
 
-        /// <summary>Satış adedi: sayı alanı açılır.</summary>
-        public void ShowSellCount(string urunAdi, int enCokAdet)
+        public void ShowSellConfirm(string urunAdi, long kazanilacak)
         {
-            Kur(urunAdi, "Sell Dna Count", true, enCokAdet);
+            Kur(OlymposDiyalogModu.SatisOnayi, urunAdi,
+                "Earn Money : " + OlymposNpcShopWindow.Num(kazanilacak), 1);
         }
 
-        void Kur(string baslik, string bilgi, bool adetAlani, int enCokAdet)
+        public void ShowBuyCount(string urunAdi, int enCokAdet)
         {
+            Kur(OlymposDiyalogModu.AdetSor, urunAdi, "Buy Item Count:", enCokAdet);
+        }
+
+        void Kur(OlymposDiyalogModu m, string baslik, string bilgi, int enCokAdet)
+        {
+            mod = m;
             enCok = Mathf.Max(1, enCokAdet);
+            bool adet = (m == OlymposDiyalogModu.AdetSor);
             if (titleText != null) titleText.text = baslik ?? "";
             if (infoText != null) infoText.text = bilgi ?? "";
             if (countField != null)
             {
-                countField.gameObject.SetActive(adetAlani);
-                if (adetAlani) countField.text = "1";
+                countField.gameObject.SetActive(adet);
+                if (adet) countField.text = "1";
             }
+            var rt = transform as RectTransform;
+            if (rt != null)
+                rt.sizeDelta = new Vector2(rt.sizeDelta.x, adet ? heightWithCount : heightCompact);
             gameObject.SetActive(true);
         }
 

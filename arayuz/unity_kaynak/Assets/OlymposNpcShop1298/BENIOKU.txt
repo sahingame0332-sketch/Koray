@@ -2,56 +2,65 @@ OLYMPOS-KO · 1298 NPC Dükkân Penceresi · Unity Paketi
 ======================================================
 
 Tyroon[Armor] · Ruber[Healing potion] · Yasbal[Sundries] · Pallus[Arms] · Caspy[Accessory]
-Bu beş NPC ayrı pencere değil: AYNI pencere, farklı başlık ve ürün listesi.
+Beş NPC ayrı pencere değil: AYNI pencere, farklı başlık ve ürün listesi.
 
 KURULUM
 1) Assets > Import Package > Custom Package... ile OlymposNpcShop1298.unitypackage
 2) OLYMPOS > 1298 > NPC Dükkân Penceresi Oluştur
 
 PENCERE
-NpcShopWindow_1298 · 362 x 352 · zemin yarı saydam siyah, alfa 0.93 (videodan ölçüldü)
-  başlık çubuğu + X · 6 x 4 = 24 slotluk ürün ızgarası · sayfa ◀ n/m ▶
-  "Multiple Selling" onay kutusu · "Sell selected items." · "Total Amount :"
+NpcShopWindow_1298 · 750 x 1156 · zemin yarı saydam siyah, alfa 0.96
+  başlık çubuğu + X · dükkân ızgarası 6 x 4 (24 slot/sayfa) · sayfa ◀ n/m ▶
+  "Multiple Selling" · "Sell selected items." · "Total Amount :"
+  ve altta OYUNCUNUN ENVANTERİ 7 x 4 (28 slot) — satış buradan yapılır.
 
 KODDAN KULLANIM
     var s = GetComponent<Olympos.UI.OlymposNpcShopWindow>();
-    s.SetShop("Caspy", "Accessory", urunler);     // urunler: OlymposShopItem listesi
-    s.SetPlayerMoney(127155);
+    s.SetShop("Caspy", "Accessory", urunler);   // OlymposShopItem listesi
+    s.SetInventory(cantadakiler);
+    s.SetPlayerMoney(63261);
 
-    s.onItemClicked.AddListener(i => Debug.Log("Ürün " + i));      // ipucu kutusu otomatik açılır
-    s.onBuyConfirmed.AddListener((i, adet) => Debug.Log("Satın al " + i + " x" + adet));
-    s.onSellSelected.AddListener(() => { foreach (int i in s.SeciliUrunler) ... });
-    s.onPageChanged.AddListener(p => Debug.Log("Sayfa " + p));
+    s.onItemClicked.AddListener(i => s.ShowBuyConfirm(i));   // ipucu zaten açılır
+    s.onBuyConfirmed.AddListener((i, adet) => ...);
+    s.onInventoryClicked.AddListener(i => s.ShowSellConfirm(i));
+    s.onSellConfirmed.AddListener((i, adet) => ...);
+    s.onSellSelected.AddListener(() => { foreach (int i in s.SeciliEnvanterSlotlari) ... });
 
-    s.ShowBuyConfirm(3);          // "ürün adı + Rest Money" onay diyaloğu
-    s.ShowSellCount(3, 50);       // "Sell Dna Count" adet diyaloğu
-
-    // Ürün tanımı, oyundaki ipucu satırlarıyla birebir:
     new Olympos.UI.OlymposShopItem {
-        icon = ikonSprite, name = "Wood Staff(+1)", gradeLine = "Item Grade: Low Class",
-        buyPrice = 568, stackSize = 1,
-        statLines = new[] { "Attack Power : 14", "Required Magic Power : 40", "Required Intelligence : 40" },
-        description = "Basic wooden Staff."
+        icon = ikon, name = "Quilted Pauldron(+1)",
+        kalite = Olympos.UI.OlymposItemKalite.Upgrade,     // ad ve kalite satırı MOR olur
+        buyPrice = 560, stackSize = 1,
+        statLines = new[] {
+            new Olympos.UI.OlymposStatSatiri("Defense Ability : 20"),
+            new Olympos.UI.OlymposStatSatiri("Required Strenght : 62", true)   // kırmızı
+        },
+        classLine = "(Warrior Item)", classLineKirmizi = true,
+        gradeLine = "Item Grade : Low Class",
+        description = "The pauldron worn by novice warriors."
     };
 
-MEKANİKLER (videolardan çıkarıldı)
-- Ürüne basınca ipucu kutusu açılır: ad · kalite satırı · kırmızı Buy Price · stat satırları · açıklama.
-- Satın alma onayı: ürün adı + "Rest Money" (kalan para) + Confirm / Cancel.
-- Satışta adet diyaloğu: "Sell Dna Count" + sayı alanı + Confirm / Cancel.
-- "Multiple Selling" açıkken ürünlere basmak seçer/seçimi kaldırır; seçili slotun üzerine
-  altın çerçeve çıkar. "Sell selected items." seçilenleri satar.
-- Sayfa okları n/m göstergesiyle çalışır (Ruber 1/1, Tyroon 1/3, Pallus 1/4, Caspy 1/5, Yasbal 1/1).
+MEKANİKLER (ekran görüntülerinden birebir)
+- Ürüne basınca ipucu kutusu açılır. Sırası: ikon + ad · kalite satırı · Buy Price ·
+  stat satırları · sınıf satırı · derece satırı · açıklama · Close düğmesi.
+  Kutu içerikle birlikte büyür (VerticalLayoutGroup + ContentSizeFitter).
+- RENK KURALLARI (ölçüldü):
+    ad + kalite satırı : Regular beyaz · Magic mavi · Upgrade mor
+    Buy Price          : oyuncunun parası YETİYORSA sarı, YETMİYORSA kırmızı
+    stat satırı        : şart karşılanmıyorsa kırmızı, karşılanıyorsa beyaz
+    sınıf satırı       : oyuncunun sınıfı değilse kırmızı
+    derece satırı      : yeşil
+- Satın alma: yığılabilir üründe önce "Buy Item Count:" (sayı alanı), ardından
+  "Need Money : N" onayı; tek parçalık üründe doğrudan onay. Confirm / Cancel.
+- Satış: envanterdeki ürüne basılınca "Earn Money : N" onayı.
+- "Multiple Selling" açıkken slota basmak seçer/kaldırır (altın çerçeve);
+  "Sell selected items." seçilenleri satar.
+- Sayfa okları n/m göstergesiyle (Ruber 1/1 · Tyroon 1/3 · Pallus 1/4 · Caspy 1/5 · Yasbal 1/1).
 
-ÇIKARIM OLARAK İŞARETLİ
-"Total Amount" satırının oyuncunun parası olduğunu satın alma sonrası azalmasından
-çıkardım (Tyroon: 136.200 -> 135.780). Kesin değil; farklıysa SetPlayerMoney yerine
-kendi değerinizi yazın.
+ÖLÇÜLEN ALFALAR
+  pencere 0.96 · ipucu kutusu 0.92 · diyalog 0.93
+Diyalogunki en güvenilir ölçüm: diyaloğun arkasından sızan "Multiple Selling" ve
+"Total Amount" yazıları temiz kareyle karşılaştırılarak bulundu (binlerce piksel).
+Hepsi Inspector'dan ayarlanabilir.
 
-GÖRSEL KALİTESİ
-Pencere sprite'ı oynanış videolarından çıkarıldı (1088x720, H.264). Sıkıştırma gürültüsünü
-silmek için 96 kare ortalandı, ama ortalama çözünürlük eklemez: bu sprite diğer pencerelerin
-yarı çözünürlüğünde. Tam çözünürlüklü ekran görüntüsü gelirse yalnızca sprite değişir,
-yerleşim ve kod aynı kalır.
-
-İpucu kutusu ve diyalogların zemini koddan kuruluyor (ölçülen renklerle); orijinalde de
-süssüz koyu panel. Daha iyi kaynak gelirse sprite'a çevrilebilir.
+ÜRÜN İKONLARI paketin parçası değil: oyunun kendi item sprite'ları
+OlymposShopItem.icon alanına verilir.

@@ -96,3 +96,92 @@ süssüz koyu panel. Ürün ikonları paketin parçası değil: oyunun kendi ite
 - Ürün listeleri (5 NPC'nin tüm sayfaları) henüz çıkarılmadı; videolarda yalnızca bazı
   sayfalar görünüyor.
 - Unity'de hiç denenmedi (ortamda Unity yok).
+
+---
+
+# GÜNCELLEME — tam çözünürlüklü ekran görüntüleri (8 Kasım 2026)
+
+Kullanıcı 30 adet 2266 × 1488 ekran görüntüsü gönderdi (beş NPC + diyaloglar + ipuçları).
+Yukarıdaki video tabanlı ölçümlerin yerini bunlar aldı. **Videodan çıkan iki şey yanlıştı:**
+
+1. **Pencere boyutu.** Videoda 362 × 352 ölçmüştüm; gerçek boyut **750 × 1156**.
+   Videoda pencerenin alt yarısını kaçırmışım: oyuncunun envanter ızgarası da
+   aynı çerçevenin içinde.
+2. **Onay diyaloğunun metni.** Videoda "Rest Money" okumuştum; aslı **"Need Money"**.
+
+## Düzeltilmiş ölçüler (ekran koordinatı, pencere kökü 1167,193)
+
+| öğe | konum | boyut |
+|---|---|---|
+| Pencere | 1167, 193 | **750 × 1156** |
+| Başlık çubuğu (X dahil) | 1167, 193 | 750 × 74 |
+| Kapat (X) | 1832, 195 | 72 × 72 |
+| Dükkân slotu `[c,r]` | 1223 + 112,2·c · 286 + 101·r | 86 × 87 |
+| Dükkân ızgarası | 6 × 4 = **24 slot/sayfa** | — |
+| Sayfa ◀ / ▶ | 1397 / 1634, 692 | 65 × 50 |
+| Sayfa yazısı | 1490, 688 | 100 × 58 |
+| "Multiple Selling" kutusu | 1199, 786 | 45 × 45 |
+| "Sell selected items." | 1619, 784 | 275 × 50 |
+| "Total Amount :" | 1202, 854 | 192 × 28 |
+| Para ikonu | 1610, 876 | 46 × 40 |
+| Tutar yazısı | 1700, 870 | 200 × 52 |
+| **Envanter slotu** `[c,r]` | 1209 + 98,2·c · 941 + 98·r | 86 × 90 |
+| Envanter ızgarası | 7 × 4 = **28 slot** | — |
+| Diyalog paneli | 1224, 672 | 642 × 254 (adet modunda 317) |
+| Confirm / Cancel | 1339 / 1554, 837 | 195 × 45 |
+| İpucu Close düğmesi | — | 157 × 58 |
+
+Puntolar: başlık **47** · sayfa **34** · "Multiple Selling" **29** ·
+"Sell selected items." **22** · "Total Amount :" **25** · tutar **26** · diyalog **30**.
+
+## Saydamlık
+
+| panel | geçirgenlik | alfa |
+|---|---:|---:|
+| Pencere | 0,035 – 0,073 | **0,96** |
+| İpucu kutusu | ~0,08 | **0,92** |
+| Diyalog | 0,058 – 0,078 | **0,93** |
+
+Diyalogunki projedeki en güvenilir alfa ölçümü: diyaloğun arkasından sızan
+"Multiple Selling", "Sell selected items.", "Total Amount :" ve tutar yazıları,
+aynı sayfanın temiz karesiyle piksel piksel oranlandı (n = 731…3634, dört ölçüm
+0,922–0,942 arasında). Burada arka planın ne olduğu **biliniyor**, dolayısıyla
+kenar yöntemindeki "arka plan çerçeve boyunca aynı" varsayımına gerek yok.
+
+## Videoda görünmeyen mekanikler
+
+Tam çözünürlük, renk kurallarını ortaya çıkardı:
+
+- **Buy Price rengi paraya bağlı.** Oyuncunun parası 63.261. Pearl Earring 64.000 →
+  **kırmızı**; Holy water 70, Fabric Coat 392, Calling Friend Scroll 10.000 → **sarı**.
+  Platinum bar 1.000.000.000 → kırmızı. Kural: yetmiyorsa kırmızı, yetiyorsa sarı.
+- **Ad ve kalite satırı kaliteye göre renkleniyor:** Regular beyaz, Magic mavi,
+  Upgrade mor.
+- **Karşılanmayan şart kırmızı.** Oyuncu 41. seviye Mage; "Quilted Pauldron(+1)"
+  ipucunda "Defense Ability : 20" beyaz ama "Required Strenght : 62" kırmızı.
+- **Sınıf satırı** oyuncunun sınıfı değilse kırmızı: "(Warrior Item)", "(Priest Item)".
+- **Derece satırı yeşil:** "Item Grade : Low Class".
+- **İpucunda Close düğmesi var** (videoda seçemiyordum).
+- **Satın alma iki adımlı:** yığılabilir üründe önce "Buy Item Count:" sayı alanı,
+  sonra "Need Money : N" onayı.
+- **Satış onayı ayrı metin:** "Earn Money : 106".
+- İpucu ve diyalog **içerikle birlikte boyut değiştiriyor** → sabit sprite değil,
+  9-slice çerçeve + otomatik yerleşim.
+
+## Sprite'lar
+
+`kaynak/npc_dukkan/`: `npc_dukkan_krom.png` (750 × 1156, RGBA),
+`diyalog_cerceve.png` (9-slice altın çerçeve, içi saydam),
+`btn_close.png`, `btn_confirm.png`, `btn_cancel.png`.
+
+Krom üretimi: dükkân ızgarasının boş 2. satırı 1. satırın üzerine, envanterin boş
+3. satırı dolu satırların üzerine kopyalandı; başlık yazısı çubuğun süs deseni
+(periyot **47 px**) faz korunarak döşenerek silindi; sayfa numarası ve tutar yan
+zeminden örneklenerek temizlendi.
+
+## Doğrulama
+
+Kurucunun üreteceği yerleşim Python'da simüle edilip orijinalle karşılaştırıldı
+(`onizlemeler/cmp_npc_dukkan.png`). Simülasyon gerçek bir hata yakaladı: slot
+zeminleri kromda opak olduğu için ikonlar kromun **üstünde** oluşturulmalı —
+kurucudaki sıra buna göre düzeltildi.

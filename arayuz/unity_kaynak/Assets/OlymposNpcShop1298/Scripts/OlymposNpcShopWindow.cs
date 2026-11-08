@@ -15,6 +15,8 @@ namespace Olympos.UI
     {
         public const int Sutun = 6, Satir = 4;
         public const int SayfaBasiSlot = Sutun * Satir;   // 24
+        public const int EnvSutun = 7, EnvSatir = 4;
+        public const int EnvanterSlot = EnvSutun * EnvSatir;   // 28
 
         [Header("Zemin")]
         public Image background;
@@ -35,6 +37,12 @@ namespace Olympos.UI
         [Tooltip("Çoklu satışta seçili slotun üzerine çıkan çerçeve.")]
         public Image[] slotSelection = new Image[SayfaBasiSlot];
 
+        [Header("Envanter ızgarası (7 x 4) — oyuncunun çantası, satış buradan yapılır")]
+        public Image[] invIcons = new Image[EnvanterSlot];
+        public Button[] invButtons = new Button[EnvanterSlot];
+        public Image[] invSelection = new Image[EnvanterSlot];
+        public Text[] invCounts = new Text[EnvanterSlot];
+
         [Header("Sayfa")]
         public Button prevPageButton;
         public Button nextPageButton;
@@ -54,7 +62,10 @@ namespace Olympos.UI
         [Header("İçerik")]
         public string npcName = "Caspy";
         public string category = "Accessory";
+        [Tooltip("NPC'nin sattığı ürünler; 24'erli sayfalara bölünür.")]
         public List<OlymposShopItem> items = new List<OlymposShopItem>();
+        [Tooltip("Oyuncunun çantası (28 slot). Satış bu listeden yapılır.")]
+        public List<OlymposShopItem> inventory = new List<OlymposShopItem>();
 
         [Serializable] public class SlotEvent : UnityEvent<int> { }
         [Serializable] public class AlimEvent : UnityEvent<int, int> { }   // ürün indeksi, adet
@@ -65,6 +76,10 @@ namespace Olympos.UI
         public AlimEvent onBuyConfirmed = new AlimEvent();
         /// <summary>"Sell selected items." ile satış istendi.</summary>
         public UnityEvent onSellSelected = new UnityEvent();
+        /// <summary>Envanterdeki bir ürüne basıldı (envanter indeksi).</summary>
+        public SlotEvent onInventoryClicked = new SlotEvent();
+        /// <summary>Satış onaylandı: (envanter indeksi, adet).</summary>
+        public AlimEvent onSellConfirmed = new AlimEvent();
         public SlotEvent onPageChanged = new SlotEvent();
         public UnityEvent onClose = new UnityEvent();
 
@@ -72,6 +87,7 @@ namespace Olympos.UI
         bool cokluSatis;
         long oyuncuParasi;
         readonly HashSet<int> secili = new HashSet<int>();
+        readonly HashSet<int> seciliEnvanter = new HashSet<int>();
 
         public int Sayfa { get { return sayfa; } }
         public int SayfaSayisi { get { return Mathf.Max(1, Mathf.CeilToInt(items.Count / (float)SayfaBasiSlot)); } }
@@ -94,6 +110,12 @@ namespace Olympos.UI
                 int yerel = i;
                 if (slotButtons != null && i < slotButtons.Length && slotButtons[i] != null)
                     slotButtons[i].onClick.AddListener(() => SlotaBasildi(yerel));
+            }
+            for (int i = 0; i < EnvanterSlot; i++)
+            {
+                int yerel = i;
+                if (invButtons != null && i < invButtons.Length && invButtons[i] != null)
+                    invButtons[i].onClick.AddListener(() => EnvanterSlotunaBasildi(yerel));
             }
             if (prevPageButton != null) prevPageButton.onClick.AddListener(() => SayfaGit(sayfa - 1));
             if (nextPageButton != null) nextPageButton.onClick.AddListener(() => SayfaGit(sayfa + 1));
@@ -132,7 +154,7 @@ namespace Olympos.UI
         {
             cokluSatis = acik;
             if (multipleSellingCheck != null) multipleSellingCheck.enabled = acik;
-            if (!acik) secili.Clear();
+            if (!acik) { secili.Clear(); seciliEnvanter.Clear(); }
             SecimleriYenile();
         }
 
@@ -160,34 +182,97 @@ namespace Olympos.UI
             else if (tooltip != null)
             {
                 var rt = slotButtons[yerel].transform as RectTransform;
-                tooltip.Show(urun, rt != null ? rt.anchoredPosition : Vector2.zero);
+                tooltip.Show(urun, oyuncuParasi, rt != null ? rt.anchoredPosition : Vector2.zero);
             }
             onItemClicked.Invoke(genel);
         }
 
-        /// <summary>Satın alma onay diyaloğunu açar (oyun mantığı çağırır).</summary>
+        /// <summary>
+        /// Satın alma akışı: yığılabilir üründe önce "Buy Item Count:", sonra "Need Money"
+        /// onayı; tek parçalık üründe doğrudan onay.
+        /// </summary>
         public void ShowBuyConfirm(int genelIndeks)
         {
             if (dialog == null || genelIndeks < 0 || genelIndeks >= items.Count) return;
-            bekleyen = genelIndeks;
+            bekleyen = genelIndeks; bekleyenEnvanter = false;
             var u = items[genelIndeks];
-            dialog.ShowBuy(u.name, oyuncuParasi - u.buyPrice);
+            if (u.stackSize > 1) dialog.ShowBuyCount(u.name, u.stackSize);
+            else                 dialog.ShowBuyConfirm(u.name, u.buyPrice);
         }
 
-        /// <summary>Satış adedi diyaloğunu açar.</summary>
-        public void ShowSellCount(int genelIndeks, int enCokAdet)
+        /// <summary>Satış onayı: "Earn Money : N".</summary>
+        public void ShowSellConfirm(int envanterIndeksi)
         {
-            if (dialog == null || genelIndeks < 0 || genelIndeks >= items.Count) return;
-            bekleyen = genelIndeks;
-            dialog.ShowSellCount(items[genelIndeks].name, enCokAdet);
+            if (dialog == null || envanterIndeksi < 0 || envanterIndeksi >= inventory.Count) return;
+            bekleyen = envanterIndeksi; bekleyenEnvanter = true;
+            var u = inventory[envanterIndeksi];
+            dialog.ShowSellConfirm(u.name, u.SatisFiyati);
         }
 
         int bekleyen = -1;
+        bool bekleyenEnvanter;
+
         void DiyalogOnaylandi(int adet)
         {
             if (bekleyen < 0) return;
-            onBuyConfirmed.Invoke(bekleyen, adet);
-            bekleyen = -1;
+            if (bekleyenEnvanter) { onSellConfirmed.Invoke(bekleyen, adet); bekleyen = -1; return; }
+
+            // "Buy Item Count:" onaylandiysa ikinci adim: "Need Money" onayi
+            if (dialog != null && dialog.Mod == OlymposDiyalogModu.AdetSor)
+            {
+                var u = items[bekleyen];
+                bekleyenAdet = adet;
+                dialog.ShowBuyConfirm(u.name, u.buyPrice * adet);
+                return;
+            }
+            onBuyConfirmed.Invoke(bekleyen, bekleyenAdet > 0 ? bekleyenAdet : adet);
+            bekleyen = -1; bekleyenAdet = 0;
+        }
+        int bekleyenAdet;
+
+        void EnvanterSlotunaBasildi(int i)
+        {
+            if (i < 0 || i >= inventory.Count) return;
+            var u = inventory[i];
+            if (u.Bos) return;
+            if (cokluSatis)
+            {
+                if (!seciliEnvanter.Remove(i)) seciliEnvanter.Add(i);
+                SecimleriYenile();
+            }
+            else if (tooltip != null)
+            {
+                var rt = invButtons[i].transform as RectTransform;
+                tooltip.Show(u, oyuncuParasi, rt != null ? rt.anchoredPosition : Vector2.zero);
+            }
+            onInventoryClicked.Invoke(i);
+        }
+
+        /// <summary>Envanteri doldurur.</summary>
+        public void SetInventory(IEnumerable<OlymposShopItem> urunler)
+        {
+            inventory.Clear();
+            if (urunler != null) inventory.AddRange(urunler);
+            EnvanteriYenile();
+        }
+
+        void EnvanteriYenile()
+        {
+            for (int i = 0; i < EnvanterSlot; i++)
+            {
+                var u = (i < inventory.Count) ? inventory[i] : new OlymposShopItem();
+                if (invIcons != null && i < invIcons.Length && invIcons[i] != null)
+                {
+                    invIcons[i].sprite = u.icon;
+                    invIcons[i].enabled = u.icon != null;
+                }
+                if (invCounts != null && i < invCounts.Length && invCounts[i] != null)
+                {
+                    bool goster = !u.Bos && u.stackSize > 1;
+                    invCounts[i].gameObject.SetActive(goster);
+                    if (goster) invCounts[i].text = u.stackSize.ToString();
+                }
+            }
         }
 
         // ------------------------------------------------------------------
@@ -205,6 +290,7 @@ namespace Olympos.UI
                     slotIcons[i].enabled = u.icon != null;
                 }
             }
+            EnvanteriYenile();
             SecimleriYenile();
             if (tooltip != null) tooltip.Hide();
         }
@@ -217,7 +303,15 @@ namespace Olympos.UI
                 int genel = sayfa * SayfaBasiSlot + i;
                 slotSelection[i].enabled = cokluSatis && secili.Contains(genel);
             }
+            for (int i = 0; i < EnvanterSlot; i++)
+            {
+                if (invSelection == null || i >= invSelection.Length || invSelection[i] == null) continue;
+                invSelection[i].enabled = cokluSatis && seciliEnvanter.Contains(i);
+            }
         }
+
+        /// <summary>Çoklu satışta seçili envanter slotları.</summary>
+        public IEnumerable<int> SeciliEnvanterSlotlari { get { return seciliEnvanter; } }
 
         /// <summary>1673 -> "1,673" (dükkân penceresinde sayılar virgülle ayrılır).</summary>
         public static string Num(long value)

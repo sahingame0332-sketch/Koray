@@ -69,6 +69,11 @@ namespace UnityEngine
     }
 
     public class Font : Object { }
+    public class RectOffset {
+        public int left, right, top, bottom;
+        public RectOffset() { }
+        public RectOffset(int l, int r, int t, int b) { left=l; right=r; top=t; bottom=b; }
+    }
     public class Sprite : Object { }
     public class Texture : Object { }
     public class Texture2D : Texture { }
@@ -193,6 +198,25 @@ namespace UnityEngine.UI
         public int characterLimit;
         public enum ContentType { Standard, IntegerNumber, DecimalNumber, Alphanumeric, Name, EmailAddress, Password, Pin, Custom }
         public ContentType contentType;
+    }
+    public class LayoutElement : UnityEngine.Behaviour {
+        public float minWidth, minHeight, preferredWidth, preferredHeight, flexibleWidth, flexibleHeight;
+        public bool ignoreLayout;
+    }
+    public class LayoutGroup : UnityEngine.Behaviour {
+        public UnityEngine.RectOffset padding;
+        public UnityEngine.TextAnchor childAlignment;
+    }
+    public class HorizontalOrVerticalLayoutGroup : LayoutGroup {
+        public float spacing;
+        public bool childForceExpandWidth, childForceExpandHeight;
+        public bool childControlWidth, childControlHeight;
+    }
+    public class VerticalLayoutGroup : HorizontalOrVerticalLayoutGroup { }
+    public class HorizontalLayoutGroup : HorizontalOrVerticalLayoutGroup { }
+    public class ContentSizeFitter : UnityEngine.Behaviour {
+        public enum FitMode { Unconstrained, MinSize, PreferredSize }
+        public FitMode horizontalFit, verticalFit;
     }
     public class CanvasScaler : UnityEngine.Behaviour {
         public enum ScaleMode { ConstantPixelSize, ScaleWithScreenSize, ConstantPhysicalSize }
