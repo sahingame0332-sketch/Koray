@@ -185,3 +185,27 @@ Kurucunun üreteceği yerleşim Python'da simüle edilip orijinalle karşılaşt
 (`onizlemeler/cmp_npc_dukkan.png`). Simülasyon gerçek bir hata yakaladı: slot
 zeminleri kromda opak olduğu için ikonlar kromun **üstünde** oluşturulmalı —
 kurucudaki sıra buna göre düzeltildi.
+
+
+## NPC etkileşim düğmesi ("Open")
+
+NPC'ye basınca karakterin üstünde beliren düğme. **281 × 84**, opak.
+
+Aynı düğme beş ayrı ekran görüntüsünde farklı arka planlar üzerinde duruyor; beşi
+şablon eşlemeyle hizalanıp medyanı alındı (arka plan temizlendi) ve piksel bazında
+değişim haritası çıkarıldı: **iç bölge tamamen sabit**, yalnızca en dış 1–2 piksel ve
+yazının kenarı değişiyor → düğme opak, saydamlık yok.
+
+Yazı silinirken iki aşama gerekti: önce beyaz pikselleri maskelemek yetmedi, yazının
+koyu gölgesi hayalet bıraktı. Sonra yazı + gölgeyi kapsayan dikdörtgen maskelendi,
+iç zemine 2B 3. derece yüzey uyduruldu, üstüne temiz sol şeritten **aynalanarak
+döşenen** doku artığı eklendi ve maske kenarı 8 px yumuşatıldı — böylece ne düz bir
+yama ne de döşeme dikişi kaldı.
+
+Yazı ölçümü: mürekkep kutusu **113 × 39**, renk `#F0F0F0`. Aday fontlar en iyi punto
+ile karşılaştırıldığında **Roboto Slab Bold punto 46** kazandı (IoU 0,621; genişlik
+113 px birebir tutuyor). İlk hesabım 42'ydi, yanlıştı — ölçüm düzeltti.
+
+Bileşen: `OlymposNpcOpenButton` (`Show(npcAdi)`, `onOpen`, `hideOnClick`).
+Menü: `OLYMPOS > 1298 > NPC "Open" Düğmesi Oluştur`.
+Yazı Text bileşeni olarak duruyor, başka bir fiil gerekirse değiştirilebilir.

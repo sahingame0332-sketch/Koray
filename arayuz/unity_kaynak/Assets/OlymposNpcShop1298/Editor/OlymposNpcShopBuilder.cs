@@ -28,6 +28,33 @@ namespace Olympos.UI.EditorTools
         static string Root;
         static Font Slab;
 
+        [MenuItem("OLYMPOS/1298/NPC \"Open\" Düğmesi Oluştur")]
+        public static void BuildOpenButton()
+        {
+            Root = FindRoot();
+            Tex("btn_open");
+            AssetDatabase.Refresh();
+            Slab = LoadFont("RobotoSlab-Bold.ttf") ?? LoadFont("Roboto-Bold.ttf");
+
+            const float BW = 281f, BH = 84f;     // orijinalden olculdu
+            var root = NewRoot("NpcOpenButton_1298", BW, BH);
+            var ob = root.AddComponent<OlymposNpcOpenButton>();
+
+            var img = root.AddComponent<Image>();
+            img.sprite = Spr("btn_open");
+            img.raycastTarget = true;
+
+            var b = root.AddComponent<Button>();
+            b.targetGraphic = img;
+            Renkler(b, true);
+            ob.button = b;
+
+            // Yazi: orijinalde beyaz (240,240,240), Roboto Slab Bold punto 46
+            ob.label = Txt(root, "Label", "Open", 0, 0, BW, BH, 46, Hex("#F0F0F0"), TextAnchor.MiddleCenter);
+
+            SaveAndPlace(root, "NpcOpenButton_1298");
+        }
+
         [MenuItem("OLYMPOS/1298/NPC Dükkân Penceresi Oluştur")]
         public static void Build()
         {
