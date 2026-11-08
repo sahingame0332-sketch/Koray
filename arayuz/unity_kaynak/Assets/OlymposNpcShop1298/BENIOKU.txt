@@ -1,0 +1,57 @@
+OLYMPOS-KO · 1298 NPC Dükkân Penceresi · Unity Paketi
+======================================================
+
+Tyroon[Armor] · Ruber[Healing potion] · Yasbal[Sundries] · Pallus[Arms] · Caspy[Accessory]
+Bu beş NPC ayrı pencere değil: AYNI pencere, farklı başlık ve ürün listesi.
+
+KURULUM
+1) Assets > Import Package > Custom Package... ile OlymposNpcShop1298.unitypackage
+2) OLYMPOS > 1298 > NPC Dükkân Penceresi Oluştur
+
+PENCERE
+NpcShopWindow_1298 · 362 x 352 · zemin yarı saydam siyah, alfa 0.93 (videodan ölçüldü)
+  başlık çubuğu + X · 6 x 4 = 24 slotluk ürün ızgarası · sayfa ◀ n/m ▶
+  "Multiple Selling" onay kutusu · "Sell selected items." · "Total Amount :"
+
+KODDAN KULLANIM
+    var s = GetComponent<Olympos.UI.OlymposNpcShopWindow>();
+    s.SetShop("Caspy", "Accessory", urunler);     // urunler: OlymposShopItem listesi
+    s.SetPlayerMoney(127155);
+
+    s.onItemClicked.AddListener(i => Debug.Log("Ürün " + i));      // ipucu kutusu otomatik açılır
+    s.onBuyConfirmed.AddListener((i, adet) => Debug.Log("Satın al " + i + " x" + adet));
+    s.onSellSelected.AddListener(() => { foreach (int i in s.SeciliUrunler) ... });
+    s.onPageChanged.AddListener(p => Debug.Log("Sayfa " + p));
+
+    s.ShowBuyConfirm(3);          // "ürün adı + Rest Money" onay diyaloğu
+    s.ShowSellCount(3, 50);       // "Sell Dna Count" adet diyaloğu
+
+    // Ürün tanımı, oyundaki ipucu satırlarıyla birebir:
+    new Olympos.UI.OlymposShopItem {
+        icon = ikonSprite, name = "Wood Staff(+1)", gradeLine = "Item Grade: Low Class",
+        buyPrice = 568, stackSize = 1,
+        statLines = new[] { "Attack Power : 14", "Required Magic Power : 40", "Required Intelligence : 40" },
+        description = "Basic wooden Staff."
+    };
+
+MEKANİKLER (videolardan çıkarıldı)
+- Ürüne basınca ipucu kutusu açılır: ad · kalite satırı · kırmızı Buy Price · stat satırları · açıklama.
+- Satın alma onayı: ürün adı + "Rest Money" (kalan para) + Confirm / Cancel.
+- Satışta adet diyaloğu: "Sell Dna Count" + sayı alanı + Confirm / Cancel.
+- "Multiple Selling" açıkken ürünlere basmak seçer/seçimi kaldırır; seçili slotun üzerine
+  altın çerçeve çıkar. "Sell selected items." seçilenleri satar.
+- Sayfa okları n/m göstergesiyle çalışır (Ruber 1/1, Tyroon 1/3, Pallus 1/4, Caspy 1/5, Yasbal 1/1).
+
+ÇIKARIM OLARAK İŞARETLİ
+"Total Amount" satırının oyuncunun parası olduğunu satın alma sonrası azalmasından
+çıkardım (Tyroon: 136.200 -> 135.780). Kesin değil; farklıysa SetPlayerMoney yerine
+kendi değerinizi yazın.
+
+GÖRSEL KALİTESİ
+Pencere sprite'ı oynanış videolarından çıkarıldı (1088x720, H.264). Sıkıştırma gürültüsünü
+silmek için 96 kare ortalandı, ama ortalama çözünürlük eklemez: bu sprite diğer pencerelerin
+yarı çözünürlüğünde. Tam çözünürlüklü ekran görüntüsü gelirse yalnızca sprite değişir,
+yerleşim ve kod aynı kalır.
+
+İpucu kutusu ve diyalogların zemini koddan kuruluyor (ölçülen renklerle); orijinalde de
+süssüz koyu panel. Daha iyi kaynak gelirse sprite'a çevrilebilir.

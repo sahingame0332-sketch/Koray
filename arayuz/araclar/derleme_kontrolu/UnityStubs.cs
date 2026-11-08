@@ -63,6 +63,8 @@ namespace UnityEngine
         public T AddComponent<T>() where T : Component, new() { return new T(); }
         public T GetComponent<T>() where T : Component { return null; }
         public void SetActive(bool v) { }
+        public bool activeSelf { get { return true; } }
+        public bool activeInHierarchy { get { return true; } }
         public Transform transform { get { return null; } }
     }
 
@@ -71,6 +73,16 @@ namespace UnityEngine
     public class Texture : Object { }
     public class Texture2D : Texture { }
 
+    public static class Mathf {
+        public static int Clamp(int v, int a, int b) { return v < a ? a : (v > b ? b : v); }
+        public static float Clamp(float v, float a, float b) { return v < a ? a : (v > b ? b : v); }
+        public static float Clamp01(float v) { return Clamp(v, 0f, 1f); }
+        public static int Max(int a, int b) { return a > b ? a : b; }
+        public static float Max(float a, float b) { return a > b ? a : b; }
+        public static int Min(int a, int b) { return a < b ? a : b; }
+        public static int CeilToInt(float f) { return (int)System.Math.Ceiling(f); }
+        public static int RoundToInt(float f) { return (int)System.Math.Round(f); }
+    }
     public static class Debug {
         public static void Log(object m) { }
         public static void LogWarning(object m) { }
@@ -89,6 +101,10 @@ namespace UnityEngine
     [AttributeUsage(AttributeTargets.Field)] public class HeaderAttribute : Attribute { public HeaderAttribute(string h) { } }
     [AttributeUsage(AttributeTargets.All)]  public class TooltipAttribute : Attribute { public TooltipAttribute(string t) { } }
     [AttributeUsage(AttributeTargets.Field)] public class RangeAttribute : Attribute { public RangeAttribute(float min, float max) { } }
+    [AttributeUsage(AttributeTargets.Field)] public class TextAreaAttribute : Attribute {
+        public TextAreaAttribute() { }
+        public TextAreaAttribute(int minLines, int maxLines) { }
+    }
     [AttributeUsage(AttributeTargets.Class)] public class DisallowMultipleComponentAttribute : Attribute { }
     [AttributeUsage(AttributeTargets.Class)] public class AddComponentMenuAttribute : Attribute { public AddComponentMenuAttribute(string s) { } }
 }
@@ -104,8 +120,13 @@ namespace UnityEngine.Events
         public void AddListener(UnityAction<T0> call) { }
         public void Invoke(T0 arg0) { }
     }
+    public class UnityEvent<T0,T1> : UnityEventBase {
+        public void AddListener(UnityAction<T0,T1> call) { }
+        public void Invoke(T0 a0, T1 a1) { }
+    }
     public delegate void UnityAction();
     public delegate void UnityAction<T0>(T0 arg0);
+    public delegate void UnityAction<T0,T1>(T0 a0, T1 a1);
 }
 
 namespace UnityEngine.UI
@@ -165,6 +186,14 @@ namespace UnityEngine.UI
     }
     public class Outline : Shadow { }
 
+    public class InputField : Selectable {
+        public string text;
+        public Text textComponent;
+        public Text placeholder;
+        public int characterLimit;
+        public enum ContentType { Standard, IntegerNumber, DecimalNumber, Alphanumeric, Name, EmailAddress, Password, Pin, Custom }
+        public ContentType contentType;
+    }
     public class CanvasScaler : UnityEngine.Behaviour {
         public enum ScaleMode { ConstantPixelSize, ScaleWithScreenSize, ConstantPhysicalSize }
         public ScaleMode uiScaleMode;
