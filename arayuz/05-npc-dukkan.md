@@ -209,3 +209,17 @@ ile karşılaştırıldığında **Roboto Slab Bold punto 46** kazandı (IoU 0,6
 Bileşen: `OlymposNpcOpenButton` (`Show(npcAdi)`, `onOpen`, `hideOnClick`).
 Menü: `OLYMPOS > 1298 > NPC "Open" Düğmesi Oluştur`.
 Yazı Text bileşeni olarak duruyor, başka bir fiil gerekirse değiştirilebilir.
+
+
+## Düzeltme: seçim vurgusu yok
+
+İlk sürümde çoklu satışta seçili slotun üstüne altın renkli yarı saydam bir çerçeve
+koymuştum. **Bu uydurmaydı** — orijinalde öyle bir şey yok; kullanıcı doğruladı ve
+ölçümler de destekliyor:
+
+- 34.png'de slot 1'in altın kenarı seçim değil, **Platin külçe ikonunun kendi çerçevesi**
+  (aynı slot 17.png ile piksel piksel aynı).
+- 35.png'de ürüne basıp ipucu açmak slotu değiştirmiyor (slot 2, 34.png ile aynı).
+
+Kurucu artık seçim çerçevesi **oluşturmuyor**. `slotSelection` / `invSelection` dizileri
+bileşende duruyor ama boş; kendi görsel geri bildirimini eklemek isteyen oraya bağlar.

@@ -34,12 +34,14 @@ namespace Olympos.UI
         [Header("Ürün ızgarası (6 x 4)")]
         public Image[] slotIcons = new Image[SayfaBasiSlot];
         public Button[] slotButtons = new Button[SayfaBasiSlot];
-        [Tooltip("Çoklu satışta seçili slotun üzerine çıkan çerçeve.")]
+        [Tooltip("Çoklu satışta seçili slotu işaretlemek için — OYUNDA BÖYLE BİR VURGU YOK. " +
+                 "Kurucu doldurmaz; kendi geri bildiriminizi isterseniz buraya bağlayın.")]
         public Image[] slotSelection = new Image[SayfaBasiSlot];
 
         [Header("Envanter ızgarası (7 x 4) — oyuncunun çantası, satış buradan yapılır")]
         public Image[] invIcons = new Image[EnvanterSlot];
         public Button[] invButtons = new Button[EnvanterSlot];
+        [Tooltip("Oyunda seçim vurgusu yok; kurucu doldurmaz.")]
         public Image[] invSelection = new Image[EnvanterSlot];
         public Text[] invCounts = new Text[EnvanterSlot];
 

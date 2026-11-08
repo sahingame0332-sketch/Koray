@@ -77,7 +77,10 @@ namespace Olympos.UI.EditorTools
             var krom = Img(root, "Krom", "npc_dukkan_krom", 0, 0, W, H);
             krom.raycastTarget = false;
 
-            // Ikonlar ve secim cerceveleri kromun USTUNDE olmali: slot zeminleri opak.
+            // Ikonlar kromun USTUNDE olmali: slot zeminleri opak.
+            // NOT: secim vurgusu OLUSTURULMUYOR. Oyunda coklu satista secili slotu
+            // isaretleyen gorsel bir durum yok (kullanici dogruladi). Kendi geri
+            // bildirimini eklemek isteyen slotSelection / invSelection dizilerini doldurur.
             for (int r = 0; r < OlymposNpcShopWindow.Satir; r++)
                 for (int c = 0; c < OlymposNpcShopWindow.Sutun; c++)
                 {
@@ -85,9 +88,6 @@ namespace Olympos.UI.EditorTools
                     float sx = X(SX0 + SPX * c), sy = Y(SY0 + SPY * r);
                     var ikon = Img(root, "Icon_" + i, null, sx + 4, sy + 4, SW - 8, SH - 8);
                     ikon.enabled = false; win.slotIcons[i] = ikon;
-                    var sec = Img(root, "Sel_" + i, null, sx, sy, SW, SH);
-                    sec.color = new Color(1f, 0.85f, 0.35f, 0.30f); sec.enabled = false;
-                    win.slotSelection[i] = sec;
                 }
             for (int r = 0; r < OlymposNpcShopWindow.EnvSatir; r++)
                 for (int c = 0; c < OlymposNpcShopWindow.EnvSutun; c++)
@@ -96,9 +96,6 @@ namespace Olympos.UI.EditorTools
                     float sx = X(IX0 + IPX * c), sy = Y(IY0 + IPY * r);
                     var ikon = Img(root, "InvIcon_" + i, null, sx + 4, sy + 4, IW - 8, IH - 8);
                     ikon.enabled = false; win.invIcons[i] = ikon;
-                    var sec = Img(root, "InvSel_" + i, null, sx, sy, IW, IH);
-                    sec.color = new Color(1f, 0.85f, 0.35f, 0.30f); sec.enabled = false;
-                    win.invSelection[i] = sec;
                 }
 
             // Tiklama alanlari ve yazilar kromun USTUNDE
