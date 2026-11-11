@@ -1,0 +1,37 @@
+OLYMPOS-KO · 1298 — Zemin dokuları, renk haritası ve ortam rengi
+=================================================================
+Kaynak: oyun ekran görüntüleri (hud_01..04, 2266 x 1488) ve video kareleri (2712 x 1220).
+Ölçüler ve yöntem: depoda arayuz/08-zemin.md
+
+KURULUM
+  1. Paketi içe aktarın.  2. Menü: OLYMPOS > 1298 > Zemin Malzemeleri Oluştur
+  3. Materials/ altında 7 malzeme ve sahnede "OlymposZeminDeneme" (yan yana üç zemin + ortam rengi) oluşur.
+  Karakterinizin boyu 1.8 birim değilse Editor/OlymposZeminBuilder.cs içindeki KarakterBoyu sabitini değiştirin.
+
+İÇİNDEKİLER
+  Textures/zemin_kum.png          256²  kum (Diez)            ort. renk #B48F57 · 3505 K · karo 5.6 karakter boyu
+  Textures/zemin_tas_doseme.png   256²  iri taş döşeme         #837E6A · 5133 K · 5.2
+  Textures/zemin_tas_tugla.png    128²  örgü tuğla şeridi      #716C5A · 5080 K · 2.2
+  Textures/zemin_tas_arnavut.png  128²  arnavut kaldırımı      #7D7762 · 5022 K · 3.1
+  Textures/zemin_cim.png          256²  çim (kır)              #31380E · 4484 K · 4.5
+  Textures/kontrol_moradon_yol.png      katman ağırlıkları: R döşeme | G tuğla (3.5 karakter boyu) | B arnavut
+  Textures/kontrol_kum_cim.png          R kum, G çim (ekrandaki kum-çim geçişinden)
+  Textures/renk_haritasi_kum.png        kumun büyük ölçekli açık/koyu dalgası (0.85–1.10), gri 0.5 = değişiklik yok
+  Shaders/OlymposZemin1298.shader       "Olympos/Zemin1298": 4 katman + kontrol haritası + renk haritası + genel renk, ışıksız
+  Scripts/OlymposZeminPaleti.cs         ölçülen renkler, sıcaklıklar, karo boyları; Kelvin -> RGB
+  Scripts/OlymposOrtamRengi.cs          gök rengi, uzak renk (sis), zemin sıcaklık kayması; ön ayarlar: Moradon / Kale / Kır
+
+SHADER NASIL ÇALIŞIR
+  renk = (katman0·R + katman1·G + katman2·B + katman3·A)  x  renk haritası x 2  x  _Renk
+  Dokular dünya XZ koordinatıyla döşenir (mesh UV'sine bağlı değil). _KaroBoyu: her katmanın bir karosunun dünya birimindeki kenarı.
+  _HaritaAlani: kontrol ve renk haritasının kapladığı dünya dikdörtgeni (x, z başlangıç; genişlik, derinlik).
+  Kendi haritanız için: kontrol haritasını (RGBA) ve renk haritasını boyayın, _HaritaAlani'nı harita boyutuna ayarlayın.
+
+BİLİNEN SINIRLAR
+  * Dokular ekran görüntüsünden perspektif düzeltmesiyle çıkarıldı; kamera görüş açısı 60° varsayıldı
+    (kum dokusunda doğrulandı). En-boy oranında yaklaşık ±%15 belirsizlik var.
+  * Karoların sol/üst kenarındaki 1/8'lik bant, ek yeri görünmesin diye karonun gerçek devamıyla harmanlandı.
+  * Çözünürlük kaynakla sınırlı (256² / 128²); uzak sıraları yumuşak.
+  * Renkler ekranda ölçülen değerlerdir (oyunun ışığı dâhil). "K" o rengin renk sıcaklığıdır, ışığın değil.
+  * Görüş mesafesi ekrandan ölçülemedi (varsayılan 180 birim); zeminde kademeli sis ölçülmedi.
+  * Unity'de denenmedi; shader bu ortamda derlenemedi (C# betikleri Mono ile derlendi: 0 hata). URP'de denenmedi.

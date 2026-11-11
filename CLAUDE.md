@@ -39,6 +39,7 @@ Arayüz işi ile altyapı işi aynı oyunun iki yüzü: `docs/03-icerik-uretim-r
 | (aynı paket) | OPTIONS (11 sayfa) | 854 × 1171 | dış **0.95**, içerik paneli opak |
 | `arayuz/unity_paketleri/OlymposNpcShop1298.unitypackage` | NPC dükkânı + diyalog + ipucu | 750 × 1156 | yarı saydam (bkz. `arayuz/05-npc-dukkan.md`) |
 | `arayuz/unity_paketleri/OlymposOyunIci1298.unitypackage` | Oyun içi: eşya penceresi, buff çubuğu + Remove, hızlı slotlar, Save Skill Slot, hedef + Show Drops + Drop List, hedef iptal X | 2712 × 1220 ekran (kendi Canvas'ı) | 0.92 / 0.89 / 0.93 / 0.95, slot içi 0.88 (bkz. `arayuz/06-oyun-ici.md`) |
+| `arayuz/unity_paketleri/OlymposZemin1298.unitypackage` | Zemin: 5 döşenebilir doku, kontrol + renk haritası örnekleri, `Olympos/Zemin1298` shader, ortam rengi | 256² / 128² | — (bkz. `arayuz/08-zemin.md`) |
 
 Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `OLYMPOS > 1298 > Character Penceresi Oluştur` (CHAR INFO + CLAN + FRIENDS sekmeleriyle birlikte),
@@ -46,6 +47,7 @@ Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `… > Ana Menü Paneli Oluştur`, `… > OPTIONS Penceresi Oluştur`.
 `… > NPC Dükkân Penceresi Oluştur`, `… > Oyun İçi (Scroll · Skill Slot · Drops · Hedef) Oluştur`
 (sonuncusu 2712×1220 referanslı ayrı bir Canvas kurar; diğerleri 1920×1080).
+`… > Zemin Malzemeleri Oluştur` (arayüz değil: malzemeler + deneme zemini; namespace `Olympos.Zemin`).
 Kurucular: doku import ayarları (Sprite, sıkıştırmasız, mipmap yok, 9-slice kenarlar) → hiyerarşiyi **sol-üst piksel
 koordinatlarıyla** kurar → `Prefabs/` altına prefab → sahnedeki Canvas'a ekler (yoksa 1920×1080, match=1 Canvas + EventSystem).
 UI sistemi: **uGUI + legacy `UnityEngine.UI.Text`** (TMP kullanılmadı). Namespace `Olympos.UI` / `Olympos.UI.EditorTools`.
@@ -90,14 +92,16 @@ stat adı 21, stat değeri 25, direnç adı 19, direnç değeri 23, buton 22. De
   Yeni pencere birebir yapılırken punto bunlarla seçilir, gözle değil.
 - `oyun_ici/`: `medyan.py` (video karelerinin medyanı), `cikar.py` (pencereli/penceresiz kare farkıyla krom ayırma),
   `punto.py` (font + punto), `kur.py` (kurucunun benzetimi → `onizlemeler/oyun_ici_*.png`). `hud/`: yarım HUD işinin araçları.
+- `zemin/`: `duzelt.py` (zemin düzlemini yukarıdan görünüşe çevirir), `zemin.py` (karo + renk ölçümü),
+  `haritalar.py` (kontrol/renk haritası örnekleri), `onizle.py` (aynı kamerayla yeniden çizim → `onizlemeler/zemin_onizleme.png`).
 - Char Info sprite çıkarımı (OpenCV inpaint + aynı satırdan doku örnekleme) sohbet içinde satır içi yapıldı; sonuçlar
   `arayuz/kaynak/char_info/sprites/`. HTML önizleme: `arayuz/kaynak/char_info/unity_preview.html` (sprite'larla, Moradon arka planı üzerinde).
 
 ## Sıradaki olası işler
 - **Yarım iş:** oyun içi HUD (durum plakası, sohbet, alt bar, beceri çarkı…). Ölçümler ve sprite'lar hazır,
   önizleme/paket yok — `arayuz/07-hud-taslak.md`.
-- Kullanıcının açık isteği (yanıtlanmadı): ekran görüntülerinden **zemin renk/sıcaklık** ölçümü ve Unity kodu
-  ("sadece zemin grafikleri, renk haritası ve zemin dokuları").
+- Zemin paketi teslim edildi (`arayuz/08-zemin.md`); kullanıcı Unity'de deneyince shader derleme çıktısı ve
+  karo ölçeği/en-boy rötuşu gerekebilir (görüş açısı 60° varsayıldı).
 - Kullanıcının Unity'de ilk import sonucunu almak, Console çıktısındaki hataları düzeltmek.
   (Beklenen tek uyarı: Unity 2023.1+ için eskimiş `FindObjectOfType` — hata değil.)
   Aynı denemede puntoların Unity'de de tutup tutmadığına bakılmalı (±1 rötuş gerekebilir).

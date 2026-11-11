@@ -20,6 +20,7 @@ namespace UnityEditor
         public static string CreateFolder(string parentFolder, string newFolderName) { return ""; }
         public static void Refresh() { }
         public static void SaveAssets() { }
+        public static void CreateAsset(UnityEngine.Object asset, string path) { }
     }
 
     public static class PrefabUtility {
@@ -27,6 +28,8 @@ namespace UnityEditor
         public static UnityEngine.Object InstantiatePrefab(UnityEngine.Object assetComponentOrGameObject) { return null; }
         public static UnityEngine.Object InstantiatePrefab(UnityEngine.Object assetComponentOrGameObject, Transform parent) { return null; }
     }
+
+    public static class EditorUtility { public static void SetDirty(UnityEngine.Object o) { } }
 
     public static class Undo {
         public static void RegisterCreatedObjectUndo(UnityEngine.Object objectToUndo, string name) { }
@@ -58,5 +61,7 @@ namespace UnityEditor
         public TextureImporterCompression textureCompression;
         public int maxTextureSize;
         public UnityEngine.Vector4 spriteBorder;
+        public bool sRGBTexture;
+        public int anisoLevel;
     }
 }

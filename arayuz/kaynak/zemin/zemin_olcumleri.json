@@ -1,0 +1,359 @@
+{
+ "kum": {
+  "srgb": [
+   180,
+   143,
+   87
+  ],
+  "hex": "#B48F57",
+  "xy": [
+   0.4116,
+   0.4075
+  ],
+  "cct_K": 3505,
+  "Lab": [
+   61.6,
+   6.8,
+   34.6
+  ],
+  "doygunluk": 0.513,
+  "parlaklik_Y": 0.3,
+  "karo_px": 256,
+  "karo_birim": 1.15,
+  "ppu": 222.6,
+  "ufuk_y": 232,
+  "odak_px": 1288.6,
+  "kamera_egimi_derece": 21.7,
+  "std": [
+   31.8,
+   27.4,
+   26.5
+  ],
+  "kaynak": "hud_ekranlar/hud_01.png",
+  "pencere": [
+   452,
+   236
+  ],
+  "karakter_birim": 0.206,
+  "karo_karakter_boyu": 5.58
+ },
+ "tas_doseme": {
+  "srgb": [
+   131,
+   126,
+   106
+  ],
+  "hex": "#837E6A",
+  "xy": [
+   0.3426,
+   0.3663
+  ],
+  "cct_K": 5133,
+  "Lab": [
+   52.8,
+   -1.6,
+   11.8
+  ],
+  "doygunluk": 0.195,
+  "parlaklik_Y": 0.208,
+  "karo_px": 256,
+  "karo_birim": 1.422,
+  "ppu": 180.0,
+  "ufuk_y": 470,
+  "odak_px": 1288.6,
+  "kamera_egimi_derece": 12.0,
+  "std": [
+   19.0,
+   18.7,
+   17.9
+  ],
+  "kaynak": "hud_ekranlar/hud_04.png",
+  "pencere": [
+   364,
+   160
+  ],
+  "karakter_birim": 0.271,
+  "karo_karakter_boyu": 5.25
+ },
+ "tas_tugla": {
+  "srgb": [
+   113,
+   108,
+   90
+  ],
+  "hex": "#716C5A",
+  "xy": [
+   0.3441,
+   0.367
+  ],
+  "cct_K": 5080,
+  "Lab": [
+   45.5,
+   -1.2,
+   10.9
+  ],
+  "doygunluk": 0.207,
+  "parlaklik_Y": 0.149,
+  "karo_px": 128,
+  "karo_birim": 0.593,
+  "ppu": 216.0,
+  "ufuk_y": 470,
+  "odak_px": 1288.6,
+  "kamera_egimi_derece": 12.0,
+  "std": [
+   21.0,
+   20.5,
+   19.8
+  ],
+  "kaynak": "hud_ekranlar/hud_04.png",
+  "pencere": [
+   837,
+   818
+  ],
+  "karakter_birim": 0.271,
+  "karo_karakter_boyu": 2.19
+ },
+ "tas_arnavut": {
+  "srgb": [
+   125,
+   119,
+   98
+  ],
+  "hex": "#7D7762",
+  "xy": [
+   0.3461,
+   0.3711
+  ],
+  "cct_K": 5022,
+  "Lab": [
+   50.1,
+   -1.8,
+   12.8
+  ],
+  "doygunluk": 0.219,
+  "parlaklik_Y": 0.185,
+  "karo_px": 128,
+  "karo_birim": 0.904,
+  "ppu": 141.6,
+  "ufuk_y": 480,
+  "odak_px": 1288.6,
+  "kamera_egimi_derece": 11.6,
+  "std": [
+   28.3,
+   26.7,
+   24.8
+  ],
+  "kaynak": "hud_ekranlar/hud_03.png",
+  "pencere": [
+   322,
+   324
+  ],
+  "karakter_birim": 0.294,
+  "karo_karakter_boyu": 3.07
+ },
+ "cim": {
+  "srgb": [
+   49,
+   56,
+   14
+  ],
+  "hex": "#31380E",
+  "xy": [
+   0.3819,
+   0.4868
+  ],
+  "cct_K": 4484,
+  "Lab": [
+   22.1,
+   -10.2,
+   24.4
+  ],
+  "doygunluk": 0.75,
+  "parlaklik_Y": 0.035,
+  "karo_px": 256,
+  "karo_birim": 0.867,
+  "ppu": 295.4,
+  "ufuk_y": 150,
+  "odak_px": 1056.6,
+  "kamera_egimi_derece": 23.5,
+  "std": [
+   15.5,
+   16.4,
+   10.2
+  ],
+  "kaynak": "oyun_ici/v2_hedef.jpg",
+  "pencere": [
+   411,
+   93
+  ],
+  "karakter_birim": 0.191,
+  "karo_karakter_boyu": 4.54
+ },
+ "_ortam": {
+  "moradon": {
+   "gok": "#ADC6D6",
+   "uzak": "#D0EA84",
+   "kaynak": "hud_03 (1100,330)-(1230,370) / (1090,508)-(1230,516)",
+   "gok_olcum": {
+    "srgb": [
+     173,
+     198,
+     214
+    ],
+    "hex": "#ADC6D6",
+    "xy": [
+     0.283,
+     0.309
+    ],
+    "cct_K": 8819,
+    "Lab": [
+     78.5,
+     -5.0,
+     -10.8
+    ],
+    "doygunluk": 0.192,
+    "parlaklik_Y": 0.541
+   },
+   "uzak_olcum": {
+    "srgb": [
+     208,
+     234,
+     132
+    ],
+    "hex": "#D0EA84",
+    "xy": [
+     0.358,
+     0.444
+    ],
+    "cct_K": 4868,
+    "Lab": [
+     88.9,
+     -24.1,
+     46.6
+    ],
+    "doygunluk": 0.436,
+    "parlaklik_Y": 0.739
+   }
+  },
+  "kale": {
+   "gok": "#AEC7D7",
+   "uzak": "#C0D47E",
+   "kaynak": "hud_02 (480,405)-(590,440) / (470,474)-(600,478)",
+   "gok_olcum": {
+    "srgb": [
+     174,
+     199,
+     215
+    ],
+    "hex": "#AEC7D7",
+    "xy": [
+     0.2831,
+     0.3091
+    ],
+    "cct_K": 8806,
+    "Lab": [
+     78.9,
+     -5.0,
+     -10.8
+    ],
+    "doygunluk": 0.191,
+    "parlaklik_Y": 0.548
+   },
+   "uzak_olcum": {
+    "srgb": [
+     192,
+     212,
+     126
+    ],
+    "hex": "#C0D47E",
+    "xy": [
+     0.3566,
+     0.4348
+    ],
+    "cct_K": 4880,
+    "Lab": [
+     81.7,
+     -20.2,
+     40.3
+    ],
+    "doygunluk": 0.406,
+    "parlaklik_Y": 0.598
+   }
+  },
+  "kir": {
+   "gok": "#BFCDDB",
+   "uzak": "#B2C7D4",
+   "kaynak": "v2_hedef (700,5)-(1050,40) / (700,120)-(1100,134)",
+   "gok_olcum": {
+    "srgb": [
+     191,
+     205,
+     219
+    ],
+    "hex": "#BFCDDB",
+    "xy": [
+     0.2929,
+     0.3124
+    ],
+    "cct_K": 7979,
+    "Lab": [
+     81.8,
+     -1.9,
+     -8.6
+    ],
+    "doygunluk": 0.128,
+    "parlaklik_Y": 0.599
+   },
+   "uzak_olcum": {
+    "srgb": [
+     178,
+     199,
+     212
+    ],
+    "hex": "#B2C7D4",
+    "xy": [
+     0.2879,
+     0.3129
+    ],
+    "cct_K": 8329,
+    "Lab": [
+     79.1,
+     -4.4,
+     -8.9
+    ],
+    "doygunluk": 0.16,
+    "parlaklik_Y": 0.551
+   }
+  }
+ },
+ "_haritalar": {
+  "kontrol_kum_cim": {
+   "kenar_birim": 2.52,
+   "kenar_karakter_boyu": 12.2,
+   "cim_orani": 0.16
+  },
+  "renk_haritasi_kum": {
+   "kenar_birim": 1.61,
+   "kenar_karakter_boyu": 7.8,
+   "en_koyu": 0.846,
+   "en_acik": 1.098,
+   "std": 0.054
+  },
+  "kontrol_moradon_yol": {
+   "genislik_karakter_boyu": 32,
+   "doseme": [
+    0,
+    14.25
+   ],
+   "tugla": [
+    14.25,
+    17.75
+   ],
+   "arnavut": [
+    17.75,
+    32
+   ],
+   "not_": "tugla seridi 3.5 karakter boyu olculdu; digerleri ekran disina tasiyor"
+  }
+ }
+}

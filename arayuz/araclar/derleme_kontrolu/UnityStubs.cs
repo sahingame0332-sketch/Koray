@@ -14,6 +14,27 @@ namespace UnityEngine
         public float x, y, z;
         public Vector3(float x, float y, float z) { this.x = x; this.y = y; this.z = z; }
     }
+    public class Shader : Object {
+        public static Shader Find(string name) { return null; }
+        public static int PropertyToID(string name) { return 0; }
+    }
+    public class Material : Object {
+        public Material(Shader s) { }
+        public Shader shader;
+        public bool HasProperty(int id) { return true; }
+        public void SetColor(int id, Color c) { }
+        public void SetColor(string name, Color c) { }
+        public void SetTexture(string name, Texture t) { }
+        public void SetVector(string name, Vector4 v) { }
+    }
+    public enum CameraClearFlags { Skybox = 1, SolidColor = 2, Depth = 3, Nothing = 4 }
+    public enum FogMode { Linear = 1, Exponential = 2, ExponentialSquared = 3 }
+    public enum PrimitiveType { Sphere, Capsule, Cylinder, Cube, Plane, Quad }
+    public static class RenderSettings {
+        public static bool fog; public static FogMode fogMode; public static Color fogColor;
+        public static float fogStartDistance, fogEndDistance; public static Color ambientLight;
+    }
+    [AttributeUsage(AttributeTargets.Class)] public class ExecuteAlways : Attribute { }
     public struct Rect {
         public float x, y, width, height;
         public float xMin { get { return x; } } public float xMax { get { return x + width; } }
@@ -42,6 +63,8 @@ namespace UnityEngine
         public Color(float r, float g, float b, float a) { this.r = r; this.g = g; this.b = b; this.a = a; }
         public static Color black { get { return new Color(0, 0, 0, 1); } }
         public static Color white { get { return new Color(1, 1, 1, 1); } }
+        public static Color operator *(Color a, float b) { return new Color(a.r * b, a.g * b, a.b * b, a.a * b); }
+        public static Color operator *(Color a, Color b) { return new Color(a.r * b.r, a.g * b.g, a.b * b.b, a.a * b.a); }
     }
     public struct Color32 {
         public byte r, g, b, a;
@@ -76,6 +99,7 @@ namespace UnityEngine
 
     public class Transform : Component {
         public void SetParent(Transform p, bool worldPositionStays) { }
+        public Vector3 localScale;
         public Transform parent { get { return null; } }
         public Vector3 position;
         public void SetAsLastSibling() { }
@@ -91,6 +115,7 @@ namespace UnityEngine
         public GameObject(string name, params Type[] components) { this.name = name; }
         public GameObject(string name) { this.name = name; }
         public T AddComponent<T>() where T : Component, new() { return new T(); }
+        public static GameObject CreatePrimitive(PrimitiveType t) { return null; }
         public T GetComponent<T>() where T : Component { return null; }
         public void SetActive(bool v) { }
         public bool activeSelf { get { return true; } }
@@ -116,6 +141,8 @@ namespace UnityEngine
         public static float Max(float a, float b) { return a > b ? a : b; }
         public static int Min(int a, int b) { return a < b ? a : b; }
         public static int CeilToInt(float f) { return (int)System.Math.Ceiling(f); }
+        public static float Pow(float a, float b) { return (float)System.Math.Pow(a, b); }
+        public static float Log(float a) { return (float)System.Math.Log(a); }
         public static int FloorToInt(float f) { return (int)System.Math.Floor(f); }
         public static float Min(float a, float b) { return a < b ? a : b; }
         public static int RoundToInt(float f) { return (int)System.Math.Round(f); }
@@ -127,6 +154,9 @@ namespace UnityEngine
     }
 
     public enum RenderMode { ScreenSpaceOverlay, ScreenSpaceCamera, WorldSpace }
+    public class Camera : Behaviour { public static Camera main { get { return null; } } public CameraClearFlags clearFlags; public Color backgroundColor; }
+    public class Renderer : Component { public Material sharedMaterial; }
+    public class MeshRenderer : Renderer { }
     public class Canvas : Behaviour { public RenderMode renderMode; public int sortingOrder; }
     public class CanvasRenderer : Component { }
 
