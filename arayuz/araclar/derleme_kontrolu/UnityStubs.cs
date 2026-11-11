@@ -8,8 +8,29 @@ namespace UnityEngine
         public float x, y;
         public Vector2(float x, float y) { this.x = x; this.y = y; }
         public static Vector2 zero { get { return new Vector2(0, 0); } }
+        public static Vector2 one { get { return new Vector2(1, 1); } }
     }
-    public struct Vector3 { public float x, y, z; }
+    public struct Vector3 {
+        public float x, y, z;
+        public Vector3(float x, float y, float z) { this.x = x; this.y = y; this.z = z; }
+    }
+    public struct Rect {
+        public float x, y, width, height;
+        public float xMin { get { return x; } } public float xMax { get { return x + width; } }
+        public float yMin { get { return y; } } public float yMax { get { return y + height; } }
+        public Vector2 center { get { return new Vector2(x + width / 2f, y + height / 2f); } }
+    }
+    public static class Time { public static float deltaTime { get { return 0f; } } }
+    public static class PlayerPrefs {
+        public static string GetString(string key, string defaultValue) { return defaultValue; }
+        public static void SetString(string key, string value) { }
+        public static void DeleteKey(string key) { }
+        public static void Save() { }
+    }
+    public static class JsonUtility {
+        public static string ToJson(object obj) { return ""; }
+        public static T FromJson<T>(string json) { return default(T); }
+    }
     public struct Vector4 {
         public float x, y, z, w;
         public Vector4(float x, float y, float z, float w) { this.x = x; this.y = y; this.z = z; this.w = w; }
@@ -35,7 +56,9 @@ namespace UnityEngine
     public class Object {
         public string name;
         public static void DestroyImmediate(Object o) { }
+        public static void Destroy(Object o) { }
         public static T FindObjectOfType<T>() where T : Object { return null; }
+        public static T[] FindObjectsOfType<T>() where T : Object { return new T[0]; }
         public static bool operator ==(Object a, Object b) { return ReferenceEquals(a, b); }
         public static bool operator !=(Object a, Object b) { return !ReferenceEquals(a, b); }
         public override bool Equals(object o) { return base.Equals(o); }
@@ -46,15 +69,22 @@ namespace UnityEngine
         public GameObject gameObject { get { return null; } }
         public Transform transform { get { return null; } }
         public T GetComponent<T>() where T : Component { return null; }
+        public T GetComponentInParent<T>() where T : Component { return null; }
     }
     public class Behaviour : Component { public bool enabled; }
     public class MonoBehaviour : Behaviour { }
 
     public class Transform : Component {
         public void SetParent(Transform p, bool worldPositionStays) { }
+        public Transform parent { get { return null; } }
+        public Vector3 position;
+        public void SetAsLastSibling() { }
+        public Vector3 TransformPoint(Vector3 p) { return p; }
+        public Vector3 InverseTransformPoint(Vector3 p) { return p; }
     }
     public class RectTransform : Transform {
-        public Vector2 anchorMin, anchorMax, pivot, sizeDelta, anchoredPosition;
+        public Vector2 anchorMin, anchorMax, pivot, sizeDelta, anchoredPosition, offsetMin, offsetMax;
+        public Rect rect { get { return new Rect(); } }
     }
 
     public class GameObject : Object {
@@ -86,6 +116,8 @@ namespace UnityEngine
         public static float Max(float a, float b) { return a > b ? a : b; }
         public static int Min(int a, int b) { return a < b ? a : b; }
         public static int CeilToInt(float f) { return (int)System.Math.Ceiling(f); }
+        public static int FloorToInt(float f) { return (int)System.Math.Floor(f); }
+        public static float Min(float a, float b) { return a < b ? a : b; }
         public static int RoundToInt(float f) { return (int)System.Math.Round(f); }
     }
     public static class Debug {
@@ -95,7 +127,7 @@ namespace UnityEngine
     }
 
     public enum RenderMode { ScreenSpaceOverlay, ScreenSpaceCamera, WorldSpace }
-    public class Canvas : Behaviour { public RenderMode renderMode; }
+    public class Canvas : Behaviour { public RenderMode renderMode; public int sortingOrder; }
     public class CanvasRenderer : Component { }
 
     public enum TextAnchor { UpperLeft, UpperCenter, UpperRight, MiddleLeft, MiddleCenter, MiddleRight, LowerLeft, LowerCenter, LowerRight }
@@ -110,6 +142,7 @@ namespace UnityEngine
         public TextAreaAttribute() { }
         public TextAreaAttribute(int minLines, int maxLines) { }
     }
+    [AttributeUsage(AttributeTargets.Field)] public class HideInInspector : Attribute { }
     [AttributeUsage(AttributeTargets.Class)] public class DisallowMultipleComponentAttribute : Attribute { }
     [AttributeUsage(AttributeTargets.Class)] public class AddComponentMenuAttribute : Attribute { public AddComponentMenuAttribute(string s) { } }
 }
@@ -145,9 +178,14 @@ namespace UnityEngine.UI
 
     public class Image : MaskableGraphic {
         public enum Type { Simple, Sliced, Tiled, Filled }
+        public enum FillMethod { Horizontal, Vertical, Radial90, Radial180, Radial360 }
         public UnityEngine.Sprite sprite;
         public Type type;
+        public FillMethod fillMethod;
+        public int fillOrigin;
+        public float fillAmount;
     }
+    public class Mask : UnityEngine.Behaviour { public bool showMaskGraphic; }
 
     public enum HorizontalWrapMode { Wrap, Overflow }
     public enum VerticalWrapMode { Truncate, Overflow }
@@ -161,6 +199,9 @@ namespace UnityEngine.UI
         public bool supportRichText;
         public HorizontalWrapMode horizontalOverflow;
         public VerticalWrapMode verticalOverflow;
+        public float lineSpacing;
+        public float preferredWidth { get { return 0f; } }
+        public float preferredHeight { get { return 0f; } }
     }
 
     public struct ColorBlock {
@@ -194,8 +235,10 @@ namespace UnityEngine.UI
     public class InputField : Selectable {
         public string text;
         public Text textComponent;
-        public Text placeholder;
+        public Graphic placeholder;
         public int characterLimit;
+        public class OnChangeEvent : UnityEngine.Events.UnityEvent<string> { }
+        public OnChangeEvent onValueChanged = new OnChangeEvent();
         public enum ContentType { Standard, IntegerNumber, DecimalNumber, Alphanumeric, Name, EmailAddress, Password, Pin, Custom }
         public ContentType contentType;
     }
@@ -230,6 +273,17 @@ namespace UnityEngine.UI
 namespace UnityEngine.EventSystems
 {
     public class EventSystem : UnityEngine.Behaviour { }
+    public class BaseEventData { }
+    public class PointerEventData : BaseEventData {
+        public UnityEngine.Vector2 position;
+        public UnityEngine.GameObject pointerDrag;
+    }
+    public interface IEventSystemHandler { }
+    public interface IPointerClickHandler : IEventSystemHandler { void OnPointerClick(PointerEventData eventData); }
+    public interface IBeginDragHandler : IEventSystemHandler { void OnBeginDrag(PointerEventData eventData); }
+    public interface IDragHandler : IEventSystemHandler { void OnDrag(PointerEventData eventData); }
+    public interface IEndDragHandler : IEventSystemHandler { void OnEndDrag(PointerEventData eventData); }
+    public interface IDropHandler : IEventSystemHandler { void OnDrop(PointerEventData eventData); }
     public class BaseInputModule : UnityEngine.Behaviour { }
     public class StandaloneInputModule : BaseInputModule { }
 }

@@ -1,0 +1,203 @@
+{
+ "btn_use_self": {
+  "w": 155,
+  "h": 62,
+  "pencere": "esya",
+  "x": 11,
+  "y": 248
+ },
+ "btn_use_target": {
+  "w": 155,
+  "h": 62,
+  "pencere": "esya",
+  "x": 173,
+  "y": 248
+ },
+ "btn_equip": {
+  "w": 156,
+  "h": 62,
+  "pencere": "esya",
+  "x": 334,
+  "y": 248
+ },
+ "btn_close_kirmizi": {
+  "w": 155,
+  "h": 62,
+  "pencere": "esya",
+  "x": 496,
+  "y": 248
+ },
+ "ikon_cerceve": {
+  "w": 103,
+  "h": 103,
+  "pencere": "esya",
+  "x": 2,
+  "y": 2,
+  "ic": [
+   7,
+   7,
+   89,
+   89
+  ]
+ },
+ "ikon_hp_scroll": {
+  "w": 89,
+  "h": 89
+ },
+ "ikon_hiz_iksiri": {
+  "w": 89,
+  "h": 89
+ },
+ "ikon_zirh_scroll": {
+  "w": 89,
+  "h": 89
+ },
+ "buff_cerceve": {
+  "w": 64,
+  "h": 64,
+  "ic": [
+   3,
+   3,
+   58,
+   58
+  ]
+ },
+ "menu_ok": {
+  "w": 30,
+  "h": 18,
+  "x": 2262,
+  "y": 120
+ },
+ "btn_remove": {
+  "w": 194,
+  "h": 66,
+  "x": 2180,
+  "y": 136
+ },
+ "btn_menu_close": {
+  "w": 194,
+  "h": 64,
+  "x": 2180,
+  "y": 206
+ },
+ "slot_halka": {
+  "w": 164,
+  "h": 164,
+  "merkez": [
+   2193,
+   452
+  ],
+  "cap": 164,
+  "ic_cap": 144
+ },
+ "slot_maske": {
+  "w": 144,
+  "h": 144
+ },
+ "btn_hedef_iptal": {
+  "w": 140,
+  "h": 140,
+  "x": 2503,
+  "y": 784
+ },
+ "hedef_cubuk": {
+  "w": 404,
+  "h": 41,
+  "x": 1178,
+  "y": 96
+ },
+ "btn_show_drops": {
+  "w": 152,
+  "h": 54,
+  "x": 1298,
+  "y": 134
+ },
+ "onay_isareti": {
+  "w": 76,
+  "h": 78,
+  "x": 28,
+  "y": 74
+ },
+ "drop_yer_tutucu": {
+  "w": 406,
+  "h": 36,
+  "x": 150,
+  "y": 256
+ },
+ "drop_slot_dolu": {
+  "w": 103,
+  "h": 103,
+  "ic": [
+   7,
+   7,
+   89,
+   89
+  ]
+ },
+ "drop_krom": {
+  "w": 698,
+  "h": 1116,
+  "ekran": [
+   176,
+   82
+  ]
+ },
+ "drop_grup": {
+  "w": 89,
+  "h": 89
+ },
+ "drop_ornek_0": {
+  "w": 89,
+  "h": 89
+ },
+ "drop_ornek_temiz": {
+  "w": 89,
+  "h": 89
+ },
+ "drop_ornek_1": {
+  "w": 89,
+  "h": 89
+ },
+ "drop_ornek_2": {
+  "w": 89,
+  "h": 89
+ },
+ "drop_ornek_3": {
+  "w": 89,
+  "h": 89
+ },
+ "drop_ornek_4": {
+  "w": 89,
+  "h": 89
+ },
+ "drop_ornek_5": {
+  "w": 89,
+  "h": 89
+ },
+ "drop_ornek_6": {
+  "w": 89,
+  "h": 89
+ },
+ "drop_ornek_7": {
+  "w": 89,
+  "h": 89
+ },
+ "drop_ornek_8": {
+  "w": 89,
+  "h": 89
+ },
+ "drop_ornek_9": {
+  "w": 89,
+  "h": 89
+ },
+ "saveslot_krom": {
+  "w": 526,
+  "h": 1056,
+  "ekran": [
+   1196,
+   110
+  ],
+  "satir0": 85,
+  "adim": 245
+ }
+}

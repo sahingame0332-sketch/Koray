@@ -1,0 +1,52 @@
+OLYMPOS-KO · 1298 — Oyun içi öğeler (tek paket)
+================================================
+Kaynak: 2712 x 1220 oyun kayıtları (2 video + 2 ekran görüntüsü).
+Ayrıntılı ölçüler ve yöntem: depoda arayuz/06-oyun-ici.md
+
+KURULUM
+  1. Bu paketi Unity'ye aktarın (Assets > Import Package > Custom Package).
+  2. Menü: OLYMPOS > 1298 > Oyun İçi (Scroll · Skill Slot · Drops · Hedef) Oluştur
+  3. Sahneye "OlymposOyunIciCanvas (2712x1220)" ve altına "OyunIci_1298" eklenir.
+     Prefab: Assets/OlymposOyunIci1298/Prefabs/OyunIci_1298.prefab
+  4. Play'e basın; aşağıdaki akışların hepsi deneme envanteriyle çalışır.
+
+İÇİNDEKİLER (hepsi OyunIci_1298 altında)
+  EsyaPenceresi     663 x 313   envanterde eşyaya dokununca: Use Self / Use Target / Equip / Close   (zemin alfa 0.92)
+  BuffCubugu        64 x 64     basılan scrollların ikonları + kalan süre ("59m"); ikona dokun: Remove / Close
+  HizliSlotCubugu   14 yuva     envanterden sürükle-bırak; yuvaya dokun: eşya basılır; rakam = kalan adet
+  Hedef/Cubuk       404 x 134   hedef adı, Lv, can çubuğu, "Show Drops"
+  Hedef/Btn_HedefIptal 140x140  kırmızı X: seçili hedefi bırakır (hedef yokken görünmez)
+  DropListesi       698 x 1116  DROP LIST SEARCH: 5 x 3 kutu, GROUP kutuları, oran etiketi, arama, eşya ipucu (zemin alfa 0.89)
+  SaveSkillSlot     526 x 1056  Save Skill Slot Stat: 4 kayıt, Save / Activate                     (zemin alfa 0.95)
+  DemoEnvanter      deneme      3 örnek eşya + "Save skill slot" düğmesi — kendi envanterinizle değiştirin
+
+ÇALIŞMA MANTIĞI (videodan)
+  Scroll basma (envanter): eşyaya dokun -> pencere -> Use Self -> pencere kapanır, adet 1 azalır,
+     etki ikonu sağ üste eklenir, bilgi satırına "Using - <ad>" yazılır.
+  Scroll basma (skill bar): eşyayı envanterden yuvaya sürükle (eşya envanterde kalır, yuva kısayoldur);
+     yuvaya dokun -> aynı basma işlemi. Yuvadaki rakam eşyanın kalan adedidir.
+  Basılan scrollu silme: etki ikonuna dokun -> altında Remove / Close -> Remove etkiyi siler.
+  Save Skill Slot: Save o anki skill bar dizilimini + skill puanlarını kayda yazar ("Fire:41 - Ice:23 / Lightning:0 - Master:0");
+     Activate kaydı geri yükler. Boş kayıt "- Empty -" yazar.
+  Show Drops: hedef çubuğunun altındaki düğme -> Drop List; GROUP kutusu içindekileri açar; eşyaya dokun -> "Drop Rate" ipucu.
+  Hedef iptal: X düğmesi -> hedef bırakılır, çubuk ve X gizlenir.
+
+OYUNA BAĞLAMA (OlymposOyunIciYonetici olayları)
+  onBilgi(string)                 Information paneline yazılacak satır
+  onKendineKullanildi(OlymposEsya) eşyanın etkisini (HP +500 vb.) siz uygularsınız
+  onHedefeKullanildi / onKusanildi
+  onEtkiBitti(string esyaId)      Remove ya da süre sonu: etkiyi geri alın
+  hedefCubugu.HedefSec(ad, seviye, canOrani) / CanGuncelle(oran) / HedefiBirak()
+  hedefCubugu.onHedefBirakildi    X'e basıldı: oyun tarafında seçimi kaldırın
+  dropListesi.veritabani          yaratık -> drop listesi (Inspector'dan ya da koddan doldurun)
+  saveSkillSlot.dalAdlari / dalPuanlari, onKaydedildi / onEtkinlestirildi
+  Kendi envanter yuvalarınıza OlymposEnvanterYuvasi ekleyin (esyaId + ikon) ve yonetici.envanterYuvalari'na koyun.
+
+BİLİNEN SINIRLAR
+  * Unity'de import denenmedi (ortamda Unity yok); betikler Mono ile derlendi: 0 hata.
+  * Videoda görünmeyen, varsayımla yazılan davranışlar: arama sonuçları listesi, 1 dakikanın altındaki süre yazısı ("45s"),
+    adedi biten eşyanın yuvadan kalkması, ipucunun kutuya göre tam konumu, can çubuğunun boş hâli.
+  * Drop örnek ikonlarının sağ altı oran etiketiyle kapalıydı; o köşe siyah (oyunda da etiket aynı yeri örter).
+
+FONTLAR
+  Roboto-Bold (Apache 2.0) · RobotoSlab-Bold / RobotoSlab-Regular (Apache 2.0) · DejaVuSans-Bold (Bitstream Vera/DejaVu lisansı)
