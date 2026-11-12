@@ -1,0 +1,34 @@
+OLYMPOS-KO · 1298 — Süre çubuklu satın alma onayı · tek başına paket
+====================================================================
+Merchant tezgâhından eşya alırken açılan onay penceresi (ikon, süre çubuğu, fiyat, OK / Cancel).
+Kaynak: tablet ekran görüntüsü (2266 x 1488, kayıpsız). Ölçüler: depoda arayuz/09-merchant.md (ek bölüm).
+
+KURULUM
+  1. Paketi içe aktarın.   2. Menü: OLYMPOS > 1298 > Satın Alma Onayı Penceresi Oluştur
+  3. "OlymposOyunIciCanvas (2712x1220)" altına "SatinAlmaOnayi_1298" eklenir (Canvas yoksa oluşturulur).
+  4. Play: pencere ekran görüntüsündeki örnekle (Short Bow +5, 99,999,999) açık gelir ve süre saymaya başlar.
+     Kapatmak için bileşendeki "acilistaGoster" işaretini kaldırın.
+
+ÖLÇÜLER
+  Boyut 554 x 509 (tablet görüntüsünde 577 x 530; tablet düzeni telefon düzeninin 1.0405 katı)
+  Zemin: düz siyah, MAT (ölçüm: alfa 0.99) — Inspector: backgroundAlpha
+  Süre çubuğu: turuncu dolgu #E18E0F; sayaç dolgunun ucunda, Roboto Bold 18 (tablet 19), #FFE6E6, dış hatlı
+  Fiyat yazısı: Roboto Bold 26 (tablet 27), #D9C3C3; fiyat #FFD300; ortalı, 452 px genişlikte sarar
+  "+N": #CA89E2, punto 28 (tablet 29)
+  OK kapalıyken: düğme zemini 0.56'ya kararır, yazısı aynı kalır (ekran görüntüsünde ölçüldü)
+  Çerçeve, sarı uyarı satırları (#EBE680), pembe başlık (#FF8787) ve düğme yazıları orijinal piksellerdendir.
+
+KULLANIM
+  pencere.Ac(ikon, yukseltme, fiyat);   // süre baştan başlar; yukseltme 0 ise "+N" yazılmaz
+  pencere.onOnay  -> long fiyat         // süre dolduktan sonra OK
+  pencere.onIptal                       // Cancel
+  pencere.beklemeSuresi                 // saniye
+
+VARSAYIMLAR (tek ekran görüntüsünden çıkarılamadı)
+  * Bekleme süresi 4 sn (karede çubuk %49, sayaç "2").  * Sayacın kalan saniyeyi göstermesi.
+  * OK'nin süre dolunca açılması (karede OK soluk, Cancel parlak).
+
+OlymposMerchant1298 paketiyle birlikte de içe aktarılabilir (sınıf adları çakışmaz). O pakette aynı pencere
+"<ad> Merchant" penceresine bağlı hâlde zaten vardır.
+Unity'de import denenmedi (ortamda Unity yok); betikler Mono ile derlendi: 0 hata.
+Font: Roboto Bold (Apache 2.0)

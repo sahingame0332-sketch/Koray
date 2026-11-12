@@ -113,6 +113,11 @@ Araçlar: `araclar/merchant/cikar2.py` (sprite), `kur2.py` (benzetim → `onizle
 Close Slave Merchant'ta yığın geri birleşir. Merchant penceresinde eşyaya dokun → bilgi; aynı eşyaya yeniden dokun → onay;
 çubuk dolunca OK açılır → eşya envantere geçer, para düşer.
 
+**Ayrı paketler:** kullanıcı isteğiyle iki pencere tek başına da verildi — `OlymposAdetPenceresi1298.unitypackage`
+(`OlymposAdetPenceresi`, `Ac(adet)`, `onOnay(int)`) ve `OlymposSatinAlmaOnayi1298.unitypackage` (`OlymposSatinAlmaPenceresi`,
+`Ac(ikon, yukseltme, fiyat)`, `onOnay(long)`). Sınıf adları Merchant paketindekilerden farklı; birlikte içe aktarılabilir.
+İkisi de `acilistaGoster` ile ekran görüntüsündeki örnek değerlerle açık gelir.
+
 **Bu ekteki varsayımlar:** onayın ikinci dokunuşla açılması · bekleme süresi 4 sn · sayacın kalan saniye oluşu · OK'nin süre dolunca
 açılması · yığında tutarın fiyat × adet oluşu · adet alanının yığının tamamıyla açılması · çubuğun boş kısmındaki iki küçük işaretin
 (x=316 ve 396) anlamı (piksel olarak korundu).

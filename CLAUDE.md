@@ -41,6 +41,8 @@ Arayüz işi ile altyapı işi aynı oyunun iki yüzü: `docs/03-icerik-uretim-r
 | `arayuz/unity_paketleri/OlymposOyunIci1298.unitypackage` | Oyun içi: eşya penceresi, buff çubuğu + Remove, hızlı slotlar, Save Skill Slot, hedef + Show Drops + Drop List, hedef iptal X | 2712 × 1220 ekran (kendi Canvas'ı) | 0.92 / 0.89 / 0.93 / 0.95, slot içi 0.88 (bkz. `arayuz/06-oyun-ici.md`) |
 | `arayuz/unity_paketleri/OlymposZemin1298.unitypackage` | Zemin: 5 döşenebilir doku, kontrol + renk haritası örnekleri, `Olympos/Zemin1298` shader, ortam rengi | 256² / 128² | — (bkz. `arayuz/08-zemin.md`) |
 | `arayuz/unity_paketleri/OlymposMerchant1298.unitypackage` | Komut menüsü, Create a Merchant + fiyat diyaloğu, tezgâh çubuğu, "<ad> Merchant", Slave Merchant, adet girişi (toplu eşya), süre çubuklu satın alma onayı, eşya bilgi penceresi (Equip / UnEquip / Remove / Buy Price / Purchase Price) | 2712 × 1220 ekran (OyunIci ile ortak Canvas) | 0.94 / 0.95 / 0.97 / 0.89 / 0.95 / 0.93, tezgâh yuvası 0.87 (bkz. `arayuz/09-merchant.md`) |
+| `arayuz/unity_paketleri/OlymposAdetPenceresi1298.unitypackage` | Adet girişi penceresi — tek başına (Merchant paketindekinin bağımsız kopyası; sınıf `OlymposAdetPenceresi`) | 711 × 522 | yarı saydam **0.94** |
+| `arayuz/unity_paketleri/OlymposSatinAlmaOnayi1298.unitypackage` | Süre çubuklu satın alma onayı — tek başına (sınıf `OlymposSatinAlmaPenceresi`) | 554 × 509 | mat (0.99) |
 
 Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `OLYMPOS > 1298 > Character Penceresi Oluştur` (CHAR INFO + CLAN + FRIENDS sekmeleriyle birlikte),
@@ -50,6 +52,7 @@ Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 (sonuncusu 2712×1220 referanslı ayrı bir Canvas kurar; diğerleri 1920×1080).
 `… > Zemin Malzemeleri Oluştur` (arayüz değil: malzemeler + deneme zemini; namespace `Olympos.Zemin`).
 `… > Merchant (Tezgâh · Slave · Equip · Eşya Bilgisi) Oluştur` (OyunIci'nin 2712×1220 Canvas'ını paylaşır).
+`… > Adet Penceresi Oluştur`, `… > Satın Alma Onayı Penceresi Oluştur` (tek başına paketler; aynı Canvas).
 Kurucular: doku import ayarları (Sprite, sıkıştırmasız, mipmap yok, 9-slice kenarlar) → hiyerarşiyi **sol-üst piksel
 koordinatlarıyla** kurar → `Prefabs/` altına prefab → sahnedeki Canvas'a ekler (yoksa 1920×1080, match=1 Canvas + EventSystem).
 UI sistemi: **uGUI + legacy `UnityEngine.UI.Text`** (TMP kullanılmadı). Namespace `Olympos.UI` / `Olympos.UI.EditorTools`.

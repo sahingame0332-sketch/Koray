@@ -1,0 +1,26 @@
+OLYMPOS-KO · 1298 — Adet girişi penceresi (toplu eşya koyma) · tek başına paket
+==================================================================================
+"Please enter the quantity of the item." — Merchant'a yığınlı eşya koyarken açılan pencere.
+Kaynak: tablet ekran görüntüsü (2266 x 1488, kayıpsız). Ölçüler: depoda arayuz/09-merchant.md (ek bölüm).
+
+KURULUM
+  1. Paketi içe aktarın.   2. Menü: OLYMPOS > 1298 > Adet Penceresi Oluştur
+  3. "OlymposOyunIciCanvas (2712x1220)" altına "AdetPenceresi_1298" eklenir (Canvas yoksa oluşturulur).
+  4. Play: pencere örnek değerle ("20") açık gelir. Kapatmak için bileşendeki "acilistaGoster" işaretini kaldırın.
+
+ÖLÇÜLER
+  Boyut 711 x 522 (tablet görüntüsünde 740 x 543; tablet düzeni telefon düzeninin 1.0405 katı)
+  Zemin: düz siyah, alfa 0.94 (arkadan görünen yuva kenarlarının kontrastından ölçüldü) — Inspector: backgroundAlpha
+  Sayı: Roboto Regular, eğik, punto 44 (tablet 46), #D6D6D6
+  Başlık (#FF8787), iki dildeki uyarı, alan çerçevesi ve OK / CANCEL orijinal piksellerdendir.
+
+KULLANIM
+  pencere.Ac(yigindakiAdet);            // alan yığının tamamıyla açılır (varsayım: 20'lik yığında "20" yazıyordu)
+  pencere.onOnay  -> int adet           // OK: 1 ile yığın arası
+  pencere.onIptal                       // CANCEL
+  Alan yalnız rakam kabul eder; yığından büyük sayı yazılamaz.
+
+OlymposMerchant1298 paketiyle birlikte de içe aktarılabilir (sınıf adları çakışmaz). O pakette aynı pencere
+Create a Merchant akışına bağlı hâlde zaten vardır.
+Unity'de import denenmedi (ortamda Unity yok); betikler Mono ile derlendi: 0 hata.
+Font: Roboto Regular (Apache 2.0)
