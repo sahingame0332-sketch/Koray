@@ -40,6 +40,7 @@ Arayüz işi ile altyapı işi aynı oyunun iki yüzü: `docs/03-icerik-uretim-r
 | `arayuz/unity_paketleri/OlymposNpcShop1298.unitypackage` | NPC dükkânı + diyalog + ipucu | 750 × 1156 | yarı saydam (bkz. `arayuz/05-npc-dukkan.md`) |
 | `arayuz/unity_paketleri/OlymposOyunIci1298.unitypackage` | Oyun içi: eşya penceresi, buff çubuğu + Remove, hızlı slotlar, Save Skill Slot, hedef + Show Drops + Drop List, hedef iptal X | 2712 × 1220 ekran (kendi Canvas'ı) | 0.92 / 0.89 / 0.93 / 0.95, slot içi 0.88 (bkz. `arayuz/06-oyun-ici.md`) |
 | `arayuz/unity_paketleri/OlymposZemin1298.unitypackage` | Zemin: 5 döşenebilir doku, kontrol + renk haritası örnekleri, `Olympos/Zemin1298` shader, ortam rengi | 256² / 128² | — (bkz. `arayuz/08-zemin.md`) |
+| `arayuz/unity_paketleri/OlymposMerchant1298.unitypackage` | Komut menüsü, Create a Merchant + fiyat diyaloğu, tezgâh çubuğu, "<ad> Merchant", Slave Merchant, eşya bilgi penceresi (Equip / UnEquip / Remove / Buy Price / Purchase Price) | 2712 × 1220 ekran (OyunIci ile ortak Canvas) | 0.94 / 0.95 / 0.97 / 0.89 / 0.95 / 0.93, tezgâh yuvası 0.87 (bkz. `arayuz/09-merchant.md`) |
 
 Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `OLYMPOS > 1298 > Character Penceresi Oluştur` (CHAR INFO + CLAN + FRIENDS sekmeleriyle birlikte),
@@ -48,6 +49,7 @@ Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `… > NPC Dükkân Penceresi Oluştur`, `… > Oyun İçi (Scroll · Skill Slot · Drops · Hedef) Oluştur`
 (sonuncusu 2712×1220 referanslı ayrı bir Canvas kurar; diğerleri 1920×1080).
 `… > Zemin Malzemeleri Oluştur` (arayüz değil: malzemeler + deneme zemini; namespace `Olympos.Zemin`).
+`… > Merchant (Tezgâh · Slave · Equip · Eşya Bilgisi) Oluştur` (OyunIci'nin 2712×1220 Canvas'ını paylaşır).
 Kurucular: doku import ayarları (Sprite, sıkıştırmasız, mipmap yok, 9-slice kenarlar) → hiyerarşiyi **sol-üst piksel
 koordinatlarıyla** kurar → `Prefabs/` altına prefab → sahnedeki Canvas'a ekler (yoksa 1920×1080, match=1 Canvas + EventSystem).
 UI sistemi: **uGUI + legacy `UnityEngine.UI.Text`** (TMP kullanılmadı). Namespace `Olympos.UI` / `Olympos.UI.EditorTools`.
@@ -92,6 +94,7 @@ stat adı 21, stat değeri 25, direnç adı 19, direnç değeri 23, buton 22. De
   Yeni pencere birebir yapılırken punto bunlarla seçilir, gözle değil.
 - `oyun_ici/`: `medyan.py` (video karelerinin medyanı), `cikar.py` (pencereli/penceresiz kare farkıyla krom ayırma),
   `punto.py` (font + punto), `kur.py` (kurucunun benzetimi → `onizlemeler/oyun_ici_*.png`). `hud/`: yarım HUD işinin araçları.
+- `merchant/`: `cikar.py` (krom + maske + yuva şablonu), `maske.py`, `punto.py`, `kur.py` (benzetim → `onizlemeler/merchant_*.png`).
 - `zemin/`: `duzelt.py` (zemin düzlemini yukarıdan görünüşe çevirir), `zemin.py` (karo + renk ölçümü),
   `haritalar.py` (kontrol/renk haritası örnekleri), `onizle.py` (aynı kamerayla yeniden çizim → `onizlemeler/zemin_onizleme.png`).
 - Char Info sprite çıkarımı (OpenCV inpaint + aynı satırdan doku örnekleme) sohbet içinde satır içi yapıldı; sonuçlar
@@ -100,6 +103,8 @@ stat adı 21, stat değeri 25, direnç adı 19, direnç değeri 23, buton 22. De
 ## Sıradaki olası işler
 - **Yarım iş:** oyun içi HUD (durum plakası, sohbet, alt bar, beceri çarkı…). Ölçümler ve sprite'lar hazır,
   önizleme/paket yok — `arayuz/07-hud-taslak.md`.
+- Merchant paketi teslim edildi (`arayuz/09-merchant.md`); satın alma akışı ve satılmış eşya durumu videoda yoktu —
+  kullanıcı o kayıtları gönderirse varsayımlar gerçek davranışla değiştirilmeli.
 - Zemin paketi teslim edildi (`arayuz/08-zemin.md`); kullanıcı Unity'de deneyince shader derleme çıktısı ve
   karo ölçeği/en-boy rötuşu gerekebilir (görüş açısı 60° varsayıldı).
 - Kullanıcının Unity'de ilk import sonucunu almak, Console çıktısındaki hataları düzeltmek.

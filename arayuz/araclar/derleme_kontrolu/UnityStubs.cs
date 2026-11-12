@@ -27,6 +27,7 @@ namespace UnityEngine
         public void SetTexture(string name, Texture t) { }
         public void SetVector(string name, Vector4 v) { }
     }
+    public enum TouchScreenKeyboardType { Default, ASCIICapable, NumbersAndPunctuation, URL, NumberPad, PhonePad }
     public enum CameraClearFlags { Skybox = 1, SolidColor = 2, Depth = 3, Nothing = 4 }
     public enum FogMode { Linear = 1, Exponential = 2, ExponentialSquared = 3 }
     public enum PrimitiveType { Sphere, Capsule, Cylinder, Cube, Plane, Quad }
@@ -41,7 +42,7 @@ namespace UnityEngine
         public float yMin { get { return y; } } public float yMax { get { return y + height; } }
         public Vector2 center { get { return new Vector2(x + width / 2f, y + height / 2f); } }
     }
-    public static class Time { public static float deltaTime { get { return 0f; } } }
+    public static class Time { public static float deltaTime { get { return 0f; } } public static float unscaledTime { get { return 0f; } } }
     public static class PlayerPrefs {
         public static string GetString(string key, string defaultValue) { return defaultValue; }
         public static void SetString(string key, string value) { }
@@ -93,12 +94,14 @@ namespace UnityEngine
         public Transform transform { get { return null; } }
         public T GetComponent<T>() where T : Component { return null; }
         public T GetComponentInParent<T>() where T : Component { return null; }
+        public T[] GetComponentsInChildren<T>(bool includeInactive) where T : Component { return new T[0]; }
     }
     public class Behaviour : Component { public bool enabled; }
     public class MonoBehaviour : Behaviour { }
 
     public class Transform : Component {
         public void SetParent(Transform p, bool worldPositionStays) { }
+        public Vector3 lossyScale;
         public Vector3 localScale;
         public Transform parent { get { return null; } }
         public Vector3 position;
@@ -116,6 +119,7 @@ namespace UnityEngine
         public GameObject(string name) { this.name = name; }
         public T AddComponent<T>() where T : Component, new() { return new T(); }
         public static GameObject CreatePrimitive(PrimitiveType t) { return null; }
+        public T[] GetComponentsInChildren<T>(bool includeInactive) where T : Component { return new T[0]; }
         public T GetComponent<T>() where T : Component { return null; }
         public void SetActive(bool v) { }
         public bool activeSelf { get { return true; } }
@@ -141,6 +145,8 @@ namespace UnityEngine
         public static float Max(float a, float b) { return a > b ? a : b; }
         public static int Min(int a, int b) { return a < b ? a : b; }
         public static int CeilToInt(float f) { return (int)System.Math.Ceiling(f); }
+        public static float Ceil(float f) { return (float)System.Math.Ceiling(f); }
+        public static float Round(float f) { return (float)System.Math.Round(f); }
         public static float Pow(float a, float b) { return (float)System.Math.Pow(a, b); }
         public static float Log(float a) { return (float)System.Math.Log(a); }
         public static int FloorToInt(float f) { return (int)System.Math.Floor(f); }
@@ -154,7 +160,7 @@ namespace UnityEngine
     }
 
     public enum RenderMode { ScreenSpaceOverlay, ScreenSpaceCamera, WorldSpace }
-    public class Camera : Behaviour { public static Camera main { get { return null; } } public CameraClearFlags clearFlags; public Color backgroundColor; }
+    public class Camera : Behaviour { public Vector3 WorldToScreenPoint(Vector3 p) { return p; } public static Camera main { get { return null; } } public CameraClearFlags clearFlags; public Color backgroundColor; }
     public class Renderer : Component { public Material sharedMaterial; }
     public class MeshRenderer : Renderer { }
     public class Canvas : Behaviour { public RenderMode renderMode; public int sortingOrder; }
@@ -269,6 +275,10 @@ namespace UnityEngine.UI
         public int characterLimit;
         public class OnChangeEvent : UnityEngine.Events.UnityEvent<string> { }
         public OnChangeEvent onValueChanged = new OnChangeEvent();
+        public int caretPosition;
+        public UnityEngine.TouchScreenKeyboardType keyboardType;
+        public enum LineType { SingleLine, MultiLineSubmit, MultiLineNewline }
+        public LineType lineType;
         public enum ContentType { Standard, IntegerNumber, DecimalNumber, Alphanumeric, Name, EmailAddress, Password, Pin, Custom }
         public ContentType contentType;
     }

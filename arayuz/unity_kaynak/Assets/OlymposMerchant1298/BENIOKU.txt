@@ -1,0 +1,54 @@
+OLYMPOS-KO · 1298 — Merchant, Slave Merchant, Equip / UnEquip, eşya bilgi penceresi
+====================================================================================
+Kaynak: 2712 x 1220 oyun kayıtları (Merchant ve Slave Merchant videoları + 3 ekran görüntüsü).
+Ayrıntılı ölçüler ve yöntem: depoda arayuz/09-merchant.md
+
+KURULUM
+  1. Paketi içe aktarın.  2. Menü: OLYMPOS > 1298 > Merchant (Tezgâh · Slave · Equip · Eşya Bilgisi) Oluştur
+  3. Sahnedeki "OlymposOyunIciCanvas (2712x1220)" altına "Merchant_1298" eklenir (Canvas yoksa oluşturulur).
+  4. Play: soldaki DENEME panelinden her akışı deneyebilirsiniz.
+
+İÇİNDEKİLER (Merchant_1298 altında)
+  KomutMenusu          314 x 1015  POWER-UP-STORE · OPEN MERCHANT · SLAVE MERCHANT · SEEKING PARTY · OPTIONS · FORUM · DISCORD · INSTAGRAM (zemin 0.94)
+  CreateMerchant       756 x 851   6x2 tezgâh + 7x4 envanter, OK / CANCEL                        (zemin 0.95)
+    FiyatDiyalogu      711 x 522   "Please enter the item's price." + sayı alanı + OK / CANCEL    (zemin 0.97)
+  TezgahCubugu         404 x 168   4 yuva + OPEN / WHISPER (karakterin üstünde durur)             (yuva zemini 0.87)
+  MerchantPenceresi    785 x 987   "<ad> Merchant": 6x2 tezgâh, para, 7x4 envanter, OK / Cancel   (zemin 0.89)
+  SlaveMerchant        1002 x 1027 satır başına: ikon · "adet/satılan" · durum; CLAIM COINS; Close Slave Merchant (zemin 0.95)
+  EsyaBilgiPenceresi   içeriğe göre  ad · tür · [fiyat] · statlar · sınıf · cins · derece · açıklama · düğmeler (zemin 0.93)
+  Deneme               Commands düğmesi, Equip/UnEquip örneği (Silan Boots), NPC örneği (Knife)
+
+ÇALIŞMA MANTIĞI (videolardan)
+  Merchant açma : Commands > OPEN MERCHANT > envanterde eşyaya dokun > fiyat yaz > OK > eşya ilk boş tezgâh yuvasına geçer.
+                  Tezgâhtaki eşyaya dokun > "Purchase Price : 99,999" + Remove / Close. Remove eşyayı envantere geri koyar.
+                  OK > karakterin üstünde tezgâh çubuğu belirir. CANCEL > eşyalar envantere döner.
+  Tezgâh çubuğu : yuvaya dokun > eşya bilgisi (fiyatsız, Close). OPEN > "<ad> Merchant" penceresi. WHISPER > özel mesaj olayı.
+  Slave Merchant: Commands > SLAVE MERCHANT > durum penceresi; bilgi satırına "Slave Expire Time : 07Hour:59Minute" yazılır.
+                  "Close Slave Merchant" tezgâhı kapatır, eşyalar döner, bilgi satırına "Merchant Items Received" yazılır.
+  Equip/UnEquip : envanter eşyası > Equip / Close ; kuşanılmış eşya > UnEquip / Close. Bonuslar olayla bildirilir
+                  (ölçülen: Silan Boots ile HP 419 > 434, MP 1162 > 1177).
+  NPC eşya bilgisi: "Buy Price : 3,188" (sarı) + Close.
+
+OYUNA BAĞLAMA
+  OlymposMerchantYonetici : envanter (28 yuva), para, oyuncuAdi; onBilgi(string), onWhisper(string); commandsDugmesi = alt bardaki Commands.
+  OlymposTezgahCubugu     : takipNoktasi = karakterin baş üstü noktası (çubuk onu izler).
+  OlymposSlaveMerchant    : SatisKaydet(tezgahSirasi, adet) — satış olduğunda oyun çağırır; onParaAlindi, onSlaveKapatildi.
+  OlymposMerchantPenceresi: SatinAl(tezgahSirasi, para) — arayüzü yok, oyun kendi onayından sonra çağırır.
+  OlymposEkipman          : envanterYuvalari / ekipmanYuvalari, onKusanildi, onCikarildi, onBonusDegisti(hp, mp).
+  OlymposNpcEsyaBilgisi   : NPC dükkânı yuvasına eklenir (yuva + esya + bilgi).
+  OlymposEsyaBilgiPenceresi: GosterEnvanter / GosterKusanilmis / GosterNpc / GosterTezgahKurulum / GosterTezgah / GosterFiyatsiz.
+
+VİDEODA GÖRÜNMEYEN, VARSAYIMLA YAZILANLAR
+  * Başkasının tezgâhından satın alma (video yalnız tezgâh sahibinin kendi tezgâhına bakışını gösteriyor).
+  * Satılmış eşyanın durum yazısı ("Sold."), CLAIM COINS'in parayı vermesi, 8'den fazla satırın gösterimi.
+  * Slave süresinin tezgâh açılınca başlaması ve 8 saat olması (ölçülen: açılıştan kısa süre sonra 07:59).
+  * Tezgâh yokken SLAVE MERCHANT'ın, tezgâh açıkken OPEN MERCHANT'ın bir şey yapmaması; 0 fiyatın ve boş tezgâhın kabul edilmemesi.
+  * Sınıfı uymayan eşyanın kuşanılamaması; Merchant penceresindeki OK ile Cancel'ın farkı (ikisi de kapatır).
+  * Fiyat alanındaki eğik yazının fontu (pakette Roboto Regular'ın eğik çizimi; orijinal yazı biraz daha ince).
+
+BİLİNEN SINIRLAR
+  * Unity'de import denenmedi (ortamda Unity yok); betikler Mono ile derlendi: 0 hata.
+  * Örnek envanterde adı görülmeyen eşyalar "Ornek ..." adıyla; sayaç rakamı ikona gömülü olan dört eşya alınmadı.
+  * Pencere başlıkları ve düğme yazıları orijinal piksellerdendir (dil değiştirilemez); değişen yazılar Text'tir.
+
+FONTLAR: Roboto Bold / Regular, Roboto Slab Bold / Regular (Apache 2.0)
