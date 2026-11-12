@@ -47,6 +47,8 @@ namespace Olympos.UI
         public Color derece = new Color32(0x88, 0xC2, 0x73, 0xFF);
         public Color buyPriceRengi = new Color32(0xFB, 0xD2, 0x0C, 0xFF);
         public Color purchasePriceRengi = new Color32(0xB4, 0x2A, 0x99, 0xFF);
+        [Tooltip("Para yetmiyorsa fiyat satiri bu renkle yazilir. Olculen: 174,472 para ile \"Purchase Price : 99,999,999\" -> #FF0000")]
+        public Color yetersizFiyatRengi = new Color32(0xFF, 0x00, 0x00, 0xFF);
 
         [Header("Yerlesim (olculen, px)")]
         public float enAzGenislik = 346f;
@@ -117,7 +119,12 @@ namespace Olympos.UI
         public void GosterKusanilmis(OlymposTicariEsya e, RectTransform yuva) { Goster(e, null, 0, beyaz, OlymposBilgiDugmesi.UnEquip, yuva, null); }
         public void GosterNpc(OlymposTicariEsya e, RectTransform yuva) { if (e != null) Goster(e, "Buy Price : ", e.npcFiyati, buyPriceRengi, OlymposBilgiDugmesi.Yok, yuva, null); }
         public void GosterTezgahKurulum(OlymposTicariEsya e, RectTransform yuva, Action<OlymposTicariEsya> kaldir) { if (e != null) Goster(e, "Purchase Price : ", e.tezgahFiyati, purchasePriceRengi, OlymposBilgiDugmesi.Remove, yuva, kaldir); }
-        public void GosterTezgah(OlymposTicariEsya e, RectTransform yuva) { if (e != null) Goster(e, "Purchase Price : ", e.tezgahFiyati, purchasePriceRengi, OlymposBilgiDugmesi.Yok, yuva, null); }
+        public void GosterTezgah(OlymposTicariEsya e, RectTransform yuva) { GosterTezgah(e, yuva, long.MaxValue); }
+        /// <summary>bakaninParasi fiyattan azsa fiyat satiri kirmizi yazilir (olculdu).</summary>
+        public void GosterTezgah(OlymposTicariEsya e, RectTransform yuva, long bakaninParasi)
+        {
+            if (e != null) Goster(e, "Purchase Price : ", e.tezgahFiyati, e.tezgahFiyati > bakaninParasi ? yetersizFiyatRengi : purchasePriceRengi, OlymposBilgiDugmesi.Yok, yuva, null);
+        }
         public void GosterFiyatsiz(OlymposTicariEsya e, RectTransform yuva) { Goster(e, null, 0, beyaz, OlymposBilgiDugmesi.Yok, yuva, null); }
 
         /// <summary>fiyatEtiketi null ise fiyat satiri yazilmaz. dugmeIslemi verilirse sol dugme olay yerine onu cagirir.</summary>

@@ -32,6 +32,7 @@ namespace Olympos.UI.EditorTools
                 "menu_krom", "create_krom", "fiyat_krom", "tezgah_krom", "mpencere_krom", "slave_krom", "slave_satir", "slave_ikon_cerceve",
                 "yuva_dolu_create_ust", "yuva_dolu_create_env", "yuva_dolu_mp_ust", "yuva_dolu_mp_env", "yuva_dolu_tezgah",
                 "btn_equip", "btn_unequip", "btn_remove", "btn_close", "ikon_cerceve",
+                "adet_krom", "onay_krom", "btn_onay_zemin", "yazi_ok", "yazi_cancel", "onay_ikon_cerceve", "sure_oluk", "sure_dolgu",
                 "ikon_short_bow", "ikon_silan_boots", "ikon_knife", "ikon_hp_scroll", "ikon_zirh_scroll", "ikon_hiz_iksiri",
                 "ikon_eldiven", "ikon_yuzuk", "ikon_asa", "ikon_zirh", "ikon_bilezik", "ikon_kupe", "ikon_pantolon", "ikon_sopa" };
             foreach (var d in dokular) Tex(d);
@@ -101,6 +102,7 @@ namespace Olympos.UI.EditorTools
             c.okButton = Hit(go, "Btn_OK", 219, 790, 157, 57);
             c.cancelButton = Hit(go, "Btn_Cancel", 408, 790, 160, 57);
             c.fiyatDiyalogu = BuildFiyat(go);
+            c.adetDiyalogu = BuildAdet(go);
             go.SetActive(false);
             return c;
         }
@@ -136,6 +138,109 @@ namespace Olympos.UI.EditorTools
             f.cancelButton = Hit(go, "Btn_Cancel", 362, 437, 202, 63);
             go.SetActive(false);
             return f;
+        }
+
+        // ---------------------------------------------------------------------
+        // Asagidaki iki pencere TABLET goruntulerinden (2266 x 1488) olculdu; o duzen telefon duzeninin 1.0405 kati.
+        // Olculer tablet pikseli olarak yazilir, T() telefon birimine cevirir. Sprite'lar tablet cozunurlugunde.
+        const float Tablet = 1.0405f;
+        static float T(float v) { return v / Tablet; }
+
+        // Adet girisi — tablet 740 x 543 -> 711 x 522 ; fiyat diyaloguyla ayni yerde acilir ; zemin alfa 0.94
+        static OlymposAdetDiyalogu BuildAdet(GameObject parent)
+        {
+            var go = new GameObject("AdetDiyalogu", typeof(RectTransform));
+            Place(go, parent, 32, 157, T(740), T(543));
+            var a = go.AddComponent<OlymposAdetDiyalogu>();
+            var bg = Img(go, "Background", null, T(6), T(6), T(728), T(531));
+            bg.color = new Color(0f, 0f, 0f, a.backgroundAlpha); bg.raycastTarget = true;
+            a.background = bg;
+            Img(go, "Krom", "adet_krom", 0, 0, T(740), T(543));     // baslik + iki dildeki uyari + alan cercevesi + dugmeler orijinal piksellerden
+
+            var alan = new GameObject("CountField", typeof(RectTransform));
+            Place(alan, go, T(150), T(362), T(440), T(64));
+            var ai = alan.AddComponent<Image>(); ai.color = new Color(0f, 0f, 0f, 0f); ai.raycastTarget = true;
+            var inp = alan.AddComponent<InputField>();
+            inp.targetGraphic = ai;
+            // sayi: egik, #D6D6D6, tablet punto 46 ; murek solu x=219, ust y=377
+            var t = Txt(alan, "Text", "20", T(69), 0, T(360), T(64), RobotoInce, Mathf.RoundToInt(T(46)), Hex("#D6D6D6"), TextAnchor.MiddleLeft);
+            t.fontStyle = FontStyle.Italic;
+            inp.textComponent = t;
+            inp.contentType = InputField.ContentType.IntegerNumber;
+            inp.keyboardType = TouchScreenKeyboardType.NumberPad;
+            inp.lineType = InputField.LineType.SingleLine;
+            inp.characterLimit = 5;
+            inp.text = "1";
+            a.countField = inp;
+
+            a.okButton = Hit(go, "Btn_OK", T(154), T(457), T(204), T(65));
+            a.cancelButton = Hit(go, "Btn_Cancel", T(380), T(457), T(207), T(65));
+            go.SetActive(false);
+            return a;
+        }
+
+        // Satin alma onayi — tablet 577 x 530 -> 554 x 509 ; Merchant penceresine gore (153, 179) ; zemin mat (0.99)
+        static OlymposSatinAlmaOnayi BuildOnay(GameObject parent)
+        {
+            var go = new GameObject("SatinAlmaOnayi", typeof(RectTransform));
+            Place(go, parent, 153, 179, T(577), T(530));
+            var o = go.AddComponent<OlymposSatinAlmaOnayi>();
+            var bg = Img(go, "Background", null, T(5), T(5), T(567), T(520));
+            bg.color = new Color(0f, 0f, 0f, o.backgroundAlpha); bg.raycastTarget = true;
+            o.background = bg;
+            Img(go, "Krom", "onay_krom", 0, 0, T(577), T(530));     // cerceve + sari uyari + pembe baslik orijinal piksellerden
+
+            o.iconImage = Img(go, "Icon", null, T(245), T(30), T(84), T(82));
+            Img(go, "IconFrame", "onay_ikon_cerceve", T(238), T(23), T(98), T(96));
+            o.upgradeText = Txt(go, "Upgrade", "+5", T(231), T(22), T(100), T(40), Roboto, Mathf.RoundToInt(T(29)), Etiket, TextAnchor.UpperRight);
+
+            Img(go, "TimerTrough", "sure_oluk", T(58), T(144), T(460), T(24));
+            var dol = Img(go, "TimerFill", "sure_dolgu", T(60), T(147), T(455), T(17));
+            dol.type = Image.Type.Filled; dol.fillMethod = Image.FillMethod.Horizontal; dol.fillOrigin = 0; dol.fillAmount = 0f;
+            o.fillImage = dol;
+            o.dolguGenisligi = T(455);
+            // sayac: dolgunun ucunda, beyaz-pembe #FFE6E6, dis hatli, tablet punto 19
+            var say = new GameObject("Countdown", typeof(RectTransform));
+            var srt = (RectTransform)say.transform;
+            srt.SetParent(go.transform, false);
+            srt.anchorMin = srt.anchorMax = new Vector2(0f, 1f); srt.pivot = new Vector2(0.5f, 1f);
+            srt.anchoredPosition = new Vector2(T(60), -T(143)); srt.sizeDelta = new Vector2(T(60), T(26));
+            var st = say.AddComponent<Text>();
+            st.font = Roboto; st.fontSize = Mathf.RoundToInt(T(19)); st.color = Hex("#FFE6E6"); st.alignment = TextAnchor.MiddleCenter; st.text = "4";
+            st.horizontalOverflow = HorizontalWrapMode.Overflow; st.verticalOverflow = VerticalWrapMode.Overflow; st.raycastTarget = false;
+            var so = say.AddComponent<Outline>(); so.effectColor = new Color(0f, 0f, 0f, 0.95f); so.effectDistance = new Vector2(1f, -1f);
+            o.countdownText = st;
+
+            // fiyat satirlari: ortali (merkez x=295.5), 470 genislikte sarar, satir adimi 31, tablet punto 27, #D9C3C3 ; fiyat #FFD300
+            var m = Txt(go, "Message", "", T(60.5f), T(281), T(470), T(110), Roboto, Mathf.RoundToInt(T(27)), Hex("#D9C3C3"), TextAnchor.UpperCenter);
+            m.supportRichText = true;
+            m.horizontalOverflow = HorizontalWrapMode.Wrap;
+            m.lineSpacing = 0.98f;
+            o.messageText = m;
+
+            o.okButton = OnayDugmesi(go, "Btn_OK", "yazi_ok", T(115), T(437), T(47), T(19), T(66), T(28));
+            o.cancelButton = OnayDugmesi(go, "Btn_Cancel", "yazi_cancel", T(332), T(437), T(14), T(19), T(130), T(28));
+            go.SetActive(false);
+            return o;
+        }
+
+        /// <summary>Zemin (renklenir) + yazi (renklenmez): kapaliyken yalniz zemin 0.56'ya duser — orijinaldeki soluk OK ile ayni.</summary>
+        static Button OnayDugmesi(GameObject parent, string name, string yazi, float x, float y, float yx, float yy, float yw, float yh)
+        {
+            var img = Img(parent, name, "btn_onay_zemin", x, y, T(156), T(64));
+            img.raycastTarget = true;
+            var b = img.gameObject.AddComponent<Button>();
+            b.targetGraphic = img;
+            b.transition = Selectable.Transition.ColorTint;
+            var cb = ColorBlock.defaultColorBlock;
+            cb.normalColor = Color.white; cb.highlightedColor = Color.white; cb.selectedColor = Color.white;
+            cb.pressedColor = new Color(0.72f, 0.72f, 0.72f, 1f);
+            cb.disabledColor = new Color(0.56f, 0.56f, 0.56f, 1f);
+            cb.colorMultiplier = 1f; cb.fadeDuration = 0.05f;
+            b.colors = cb;
+            var nav = b.navigation; nav.mode = Navigation.Mode.None; b.navigation = nav;
+            Img(img.gameObject, "Label", yazi, yx, yy, yw, yh);
+            return b;
         }
 
         // =====================================================================
@@ -174,6 +279,7 @@ namespace Olympos.UI.EditorTools
                     p.envanterYuvalari[r * 7 + k] = Yuva(go, "Envanter_" + (r * 7 + k), 22.8f + 103.64f * k, 475.9f + 104.4f * r, 104, 102, "yuva_dolu_mp_env");
             p.okButton = Hit(go, "Btn_OK", 210, 920, 163, 56);
             p.cancelButton = Hit(go, "Btn_Cancel", 407, 920, 157, 56);
+            p.satinAlmaOnayi = BuildOnay(go);
             go.SetActive(false);
             return p;
         }

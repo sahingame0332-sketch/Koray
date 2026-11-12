@@ -1,6 +1,8 @@
 // OLYMPOS-KO · 1298 "Create a Merchant" penceresi (756 x 851, zemin alfa 0.95)
 // Ustte 6 x 2 tezgah yuvasi, altta 7 x 4 envanter.
-//   envanter esyasina dokun -> fiyat diyalogu -> OK -> esya ilk bos tezgah yuvasina gecer
+//   envanter esyasina dokun -> [yiginliysa adet diyalogu ->] fiyat diyalogu -> OK -> esya ilk bos tezgah yuvasina gecer
+//   (toplu esya: girilen adet kadari tezgaha gecer, kalani envanterde kalir; fiyat TEK esya icindir —
+//    diyalogdaki "If there are more than one item, enter the price for each one" uyarisi)
 //   tezgahtaki esyaya dokun -> bilgi penceresi ("Purchase Price", Remove / Close); Remove esyayi envantere geri koyar
 //   OK -> tezgah acilir (en az bir esya varsa) ; CANCEL -> esyalar envantere doner, pencere kapanir
 using System.Collections.Generic;
@@ -24,6 +26,8 @@ namespace Olympos.UI
         public Button okButton;
         public Button cancelButton;
         public OlymposFiyatDiyalogu fiyatDiyalogu;
+        [Tooltip("Yiginli esyada fiyattan once acilir. Bos birakilirsa yiginin tamami konur.")]
+        public OlymposAdetDiyalogu adetDiyalogu;
         public OlymposEsyaBilgiPenceresi bilgi;
 
         [Tooltip("Tezgah acildi: satisa konan esyalar tezgahFiyati dolu olarak gelir.")]
@@ -34,6 +38,7 @@ namespace Olympos.UI
         public List<OlymposTicariEsya> envanter;
         public readonly OlymposTicariEsya[] tezgah = new OlymposTicariEsya[TezgahYuvasi];
         int bekleyen = -1;     // fiyati sorulan envanter yuvasi
+        int bekleyenAdet = 1;  // tezgaha konacak adet
 
         void Awake()
         {
@@ -47,6 +52,11 @@ namespace Olympos.UI
             {
                 fiyatDiyalogu.onOnay.AddListener(FiyatVerildi);
                 fiyatDiyalogu.onIptal.AddListener(delegate { bekleyen = -1; });
+            }
+            if (adetDiyalogu != null)
+            {
+                adetDiyalogu.onOnay.AddListener(AdetVerildi);
+                adetDiyalogu.onIptal.AddListener(delegate { bekleyen = -1; });
             }
             ZeminiUygula();
         }
@@ -87,6 +97,15 @@ namespace Olympos.UI
             if (TezgahtakiAdet >= TezgahYuvasi) return;
             if (bilgi != null) bilgi.Kapat();
             bekleyen = i;
+            bekleyenAdet = envanter[i].adet;
+            if (envanter[i].adet > 1 && adetDiyalogu != null) adetDiyalogu.Ac(envanter[i].adet);
+            else fiyatDiyalogu.Ac();
+        }
+
+        void AdetVerildi(long adet)
+        {
+            if (envanter == null || bekleyen < 0 || bekleyen >= envanter.Count || envanter[bekleyen] == null) { bekleyen = -1; return; }
+            bekleyenAdet = (int)Mathf.Clamp(adet, 1, envanter[bekleyen].adet);
             fiyatDiyalogu.Ac();
         }
 
@@ -99,8 +118,10 @@ namespace Olympos.UI
                 if (tezgah[k] == null)
                 {
                     var e = envanter[i];
+                    if (bekleyenAdet < e.adet) { var parca = e.Kopya(bekleyenAdet); e.adet -= bekleyenAdet; e = parca; }   // yigin bolunur
+                    else envanter[i] = null;
                     e.tezgahFiyati = fiyat;
-                    tezgah[k] = e; envanter[i] = null;
+                    tezgah[k] = e;
                     break;
                 }
             Ciz();
@@ -123,6 +144,10 @@ namespace Olympos.UI
         {
             if (envanter == null) return;
             e.tezgahFiyati = 0;
+            // envanterde ayni esyanin yigini varsa ona eklenir (bolunmus yigin geri birlesir)
+            if (!string.IsNullOrEmpty(e.id))
+                for (int i = 0; i < envanter.Count; i++)
+                    if (envanter[i] != null && envanter[i] != e && envanter[i].id == e.id) { envanter[i].adet += e.adet; return; }
             for (int i = 0; i < envanter.Count; i++) if (envanter[i] == null) { envanter[i] = e; return; }
             envanter.Add(e);
         }
@@ -139,6 +164,7 @@ namespace Olympos.UI
         {
             if (bilgi != null) bilgi.Kapat();
             if (fiyatDiyalogu != null) fiyatDiyalogu.gameObject.SetActive(false);
+            if (adetDiyalogu != null) adetDiyalogu.gameObject.SetActive(false);
             gameObject.SetActive(false);
         }
 

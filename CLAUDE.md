@@ -40,7 +40,7 @@ Arayüz işi ile altyapı işi aynı oyunun iki yüzü: `docs/03-icerik-uretim-r
 | `arayuz/unity_paketleri/OlymposNpcShop1298.unitypackage` | NPC dükkânı + diyalog + ipucu | 750 × 1156 | yarı saydam (bkz. `arayuz/05-npc-dukkan.md`) |
 | `arayuz/unity_paketleri/OlymposOyunIci1298.unitypackage` | Oyun içi: eşya penceresi, buff çubuğu + Remove, hızlı slotlar, Save Skill Slot, hedef + Show Drops + Drop List, hedef iptal X | 2712 × 1220 ekran (kendi Canvas'ı) | 0.92 / 0.89 / 0.93 / 0.95, slot içi 0.88 (bkz. `arayuz/06-oyun-ici.md`) |
 | `arayuz/unity_paketleri/OlymposZemin1298.unitypackage` | Zemin: 5 döşenebilir doku, kontrol + renk haritası örnekleri, `Olympos/Zemin1298` shader, ortam rengi | 256² / 128² | — (bkz. `arayuz/08-zemin.md`) |
-| `arayuz/unity_paketleri/OlymposMerchant1298.unitypackage` | Komut menüsü, Create a Merchant + fiyat diyaloğu, tezgâh çubuğu, "<ad> Merchant", Slave Merchant, eşya bilgi penceresi (Equip / UnEquip / Remove / Buy Price / Purchase Price) | 2712 × 1220 ekran (OyunIci ile ortak Canvas) | 0.94 / 0.95 / 0.97 / 0.89 / 0.95 / 0.93, tezgâh yuvası 0.87 (bkz. `arayuz/09-merchant.md`) |
+| `arayuz/unity_paketleri/OlymposMerchant1298.unitypackage` | Komut menüsü, Create a Merchant + fiyat diyaloğu, tezgâh çubuğu, "<ad> Merchant", Slave Merchant, adet girişi (toplu eşya), süre çubuklu satın alma onayı, eşya bilgi penceresi (Equip / UnEquip / Remove / Buy Price / Purchase Price) | 2712 × 1220 ekran (OyunIci ile ortak Canvas) | 0.94 / 0.95 / 0.97 / 0.89 / 0.95 / 0.93, tezgâh yuvası 0.87 (bkz. `arayuz/09-merchant.md`) |
 
 Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `OLYMPOS > 1298 > Character Penceresi Oluştur` (CHAR INFO + CLAN + FRIENDS sekmeleriyle birlikte),
@@ -95,16 +95,19 @@ stat adı 21, stat değeri 25, direnç adı 19, direnç değeri 23, buton 22. De
 - `oyun_ici/`: `medyan.py` (video karelerinin medyanı), `cikar.py` (pencereli/penceresiz kare farkıyla krom ayırma),
   `punto.py` (font + punto), `kur.py` (kurucunun benzetimi → `onizlemeler/oyun_ici_*.png`). `hud/`: yarım HUD işinin araçları.
 - `merchant/`: `cikar.py` (krom + maske + yuva şablonu), `maske.py`, `punto.py`, `kur.py` (benzetim → `onizlemeler/merchant_*.png`).
+  `cikar2.py` / `kur2.py`: tablet görüntülerinden adet ve satın alma onayı pencereleri (ölçek 1.0405).
 - `zemin/`: `duzelt.py` (zemin düzlemini yukarıdan görünüşe çevirir), `zemin.py` (karo + renk ölçümü),
   `haritalar.py` (kontrol/renk haritası örnekleri), `onizle.py` (aynı kamerayla yeniden çizim → `onizlemeler/zemin_onizleme.png`).
 - Char Info sprite çıkarımı (OpenCV inpaint + aynı satırdan doku örnekleme) sohbet içinde satır içi yapıldı; sonuçlar
   `arayuz/kaynak/char_info/sprites/`. HTML önizleme: `arayuz/kaynak/char_info/unity_preview.html` (sprite'larla, Moradon arka planı üzerinde).
 
 ## Sıradaki olası işler
-- **Yarım iş:** oyun içi HUD (durum plakası, sohbet, alt bar, beceri çarkı…). Ölçümler ve sprite'lar hazır,
-  önizleme/paket yok — `arayuz/07-hud-taslak.md`.
-- Merchant paketi teslim edildi (`arayuz/09-merchant.md`); satın alma akışı ve satılmış eşya durumu videoda yoktu —
-  kullanıcı o kayıtları gönderirse varsayımlar gerçek davranışla değiştirilmeli.
+- **Yarım iş:** oyun içi HUD (durum plakası, sohbet, alt bar, beceri çarkı…). Tablet ölçümleri `arayuz/07-hud-taslak.md` içinde;
+  karar: HUD **telefon karelerinden (2712×1220)** kurulacak ki OyunIci/Merchant ile aynı Canvas'a otursun. Başlangıç:
+  `araclar/hud_telefon/ortak.py` (çim taşması maskesi `cim_disi` — tamamı çim olan `m_once` karesinde bütün HUD öğelerini ayırıyor).
+  Önizleme/paket yok.
+- Merchant paketi teslim edildi (`arayuz/09-merchant.md`, adet + satın alma onayı eki dâhil). Hâlâ varsayım: onayın nasıl
+  açıldığı, bekleme süresi, satılmış eşyanın Slave Merchant'taki durumu — kayıt gelirse gerçek davranışla değiştirilmeli.
 - Zemin paketi teslim edildi (`arayuz/08-zemin.md`); kullanıcı Unity'de deneyince shader derleme çıktısı ve
   karo ölçeği/en-boy rötuşu gerekebilir (görüş açısı 60° varsayıldı).
 - Kullanıcının Unity'de ilk import sonucunu almak, Console çıktısındaki hataları düzeltmek.

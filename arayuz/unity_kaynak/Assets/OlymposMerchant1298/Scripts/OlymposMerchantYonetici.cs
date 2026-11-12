@@ -54,6 +54,7 @@ namespace Olympos.UI
                 olustur.onTezgahAcildi.AddListener(TezgahAcildi);
                 olustur.gameObject.SetActive(false);
                 if (olustur.fiyatDiyalogu != null) olustur.fiyatDiyalogu.gameObject.SetActive(false);
+                if (olustur.adetDiyalogu != null) olustur.adetDiyalogu.gameObject.SetActive(false);
             }
             if (tezgahCubugu != null)
             {
@@ -61,7 +62,12 @@ namespace Olympos.UI
                 tezgahCubugu.onWhisper.AddListener(delegate { onWhisper.Invoke(oyuncuAdi); });
                 tezgahCubugu.gameObject.SetActive(false);
             }
-            if (merchantPenceresi != null) merchantPenceresi.gameObject.SetActive(false);
+            if (merchantPenceresi != null)
+            {
+                merchantPenceresi.onOdendi.AddListener(delegate (long p) { para -= p; });
+                if (merchantPenceresi.satinAlmaOnayi != null) merchantPenceresi.satinAlmaOnayi.gameObject.SetActive(false);
+                merchantPenceresi.gameObject.SetActive(false);
+            }
             if (slaveMerchant != null)
             {
                 slaveMerchant.onBilgi.AddListener(delegate (string s) { onBilgi.Invoke(s); });

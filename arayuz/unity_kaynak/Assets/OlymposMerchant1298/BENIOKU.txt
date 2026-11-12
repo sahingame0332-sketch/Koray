@@ -12,8 +12,10 @@ KURULUM
   KomutMenusu          314 x 1015  POWER-UP-STORE · OPEN MERCHANT · SLAVE MERCHANT · SEEKING PARTY · OPTIONS · FORUM · DISCORD · INSTAGRAM (zemin 0.94)
   CreateMerchant       756 x 851   6x2 tezgâh + 7x4 envanter, OK / CANCEL                        (zemin 0.95)
     FiyatDiyalogu      711 x 522   "Please enter the item's price." + sayı alanı + OK / CANCEL    (zemin 0.97)
+    AdetDiyalogu       711 x 522   "Please enter the quantity of the item." — yığınlı eşyada fiyattan önce    (zemin 0.94)
   TezgahCubugu         404 x 168   4 yuva + OPEN / WHISPER (karakterin üstünde durur)             (yuva zemini 0.87)
   MerchantPenceresi    785 x 987   "<ad> Merchant": 6x2 tezgâh, para, 7x4 envanter, OK / Cancel   (zemin 0.89)
+    SatinAlmaOnayi     554 x 509   ikon + süre çubuğu + "[Price: …] Will you buy this item?" + OK / Cancel     (zemin mat)
   SlaveMerchant        1002 x 1027 satır başına: ikon · "adet/satılan" · durum; CLAIM COINS; Close Slave Merchant (zemin 0.95)
   EsyaBilgiPenceresi   içeriğe göre  ad · tür · [fiyat] · statlar · sınıf · cins · derece · açıklama · düğmeler (zemin 0.93)
   Deneme               Commands düğmesi, Equip/UnEquip örneği (Silan Boots), NPC örneği (Knife)
@@ -22,6 +24,9 @@ KURULUM
   Merchant açma : Commands > OPEN MERCHANT > envanterde eşyaya dokun > fiyat yaz > OK > eşya ilk boş tezgâh yuvasına geçer.
                   Tezgâhtaki eşyaya dokun > "Purchase Price : 99,999" + Remove / Close. Remove eşyayı envantere geri koyar.
                   OK > karakterin üstünde tezgâh çubuğu belirir. CANCEL > eşyalar envantere döner.
+  Toplu eşya    : yığınlı eşyaya (adet > 1) dokun > adet gir > fiyat gir (TEK eşyanın fiyatı) > girilen adet tezgâha geçer, kalanı envanterde kalır.
+  Satın alma    : Merchant penceresinde eşyaya dokun > bilgi (para yetmiyorsa fiyat kırmızı); aynı eşyaya yeniden dokun > onay penceresi.
+                  Süre çubuğu dolana kadar OK soluk ve basılamaz; dolunca OK > eşya envantere geçer, para düşer.
   Tezgâh çubuğu : yuvaya dokun > eşya bilgisi (fiyatsız, Close). OPEN > "<ad> Merchant" penceresi. WHISPER > özel mesaj olayı.
   Slave Merchant: Commands > SLAVE MERCHANT > durum penceresi; bilgi satırına "Slave Expire Time : 07Hour:59Minute" yazılır.
                   "Close Slave Merchant" tezgâhı kapatır, eşyalar döner, bilgi satırına "Merchant Items Received" yazılır.
@@ -39,7 +44,8 @@ OYUNA BAĞLAMA
   OlymposEsyaBilgiPenceresi: GosterEnvanter / GosterKusanilmis / GosterNpc / GosterTezgahKurulum / GosterTezgah / GosterFiyatsiz.
 
 VİDEODA GÖRÜNMEYEN, VARSAYIMLA YAZILANLAR
-  * Başkasının tezgâhından satın alma (video yalnız tezgâh sahibinin kendi tezgâhına bakışını gösteriyor).
+  * Onay penceresinin ikinci dokunuşla açılması, bekleme süresinin 4 sn olması (tek kare: çubuk %49, sayaç "2"),
+    OK'nin süre dolunca açılması, yığında toplam tutarın fiyat × adet olması, adet alanının yığının tamamıyla açılması.
   * Satılmış eşyanın durum yazısı ("Sold."), CLAIM COINS'in parayı vermesi, 8'den fazla satırın gösterimi.
   * Slave süresinin tezgâh açılınca başlaması ve 8 saat olması (ölçülen: açılıştan kısa süre sonra 07:59).
   * Tezgâh yokken SLAVE MERCHANT'ın, tezgâh açıkken OPEN MERCHANT'ın bir şey yapmaması; 0 fiyatın ve boş tezgâhın kabul edilmemesi.

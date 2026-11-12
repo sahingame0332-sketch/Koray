@@ -83,14 +83,49 @@ Sınıf satırı sınıf uyuyorsa beyaz ("(Magician Item)"), uymuyorsa kırmız�
    `Slave Expire Time : 07Hour:59Minute`. İki video arasında tezgâh kapatılmış: bilgi satırında `Merchant Items Received`.
 8. **Equip / UnEquip:** Silan Boots kuşanılınca HP 419→434, MP 1162→1177 (eşyadaki "Bonus HP : 15", "Bonus MP : 15").
 
+## Ek: toplu eşya koyma (adet) ve süre çubuklu satın alma onayı
+Kaynak: iki tablet ekran görüntüsü, **2266 × 1488, kayıpsız PNG** (`referans_gorseller/merchant/t_adet.png`, `t_satinal.png`).
+Tablet düzeni telefon düzeninin **1.0405** katı (diyalog genişliği 740 ↔ 711; pencere şablonu eşleştirmesi 1.04–1.05).
+Sprite'lar tablet çözünürlüğünde saklanır; kurucu ölçüleri `T(v) = v / 1.0405` ile telefon birimine çevirir.
+Araçlar: `araclar/merchant/cikar2.py` (sprite), `kur2.py` (benzetim → `onizlemeler/merchant_adet_satinal_onizleme.png`).
+
+**Adet penceresi** — tablet (1170,325) 740×543 → 711×522; Create a Merchant içinde fiyat diyaloğuyla **aynı yerde**.
+- Zemin alfası **0.94**: diyalogun ardındaki yuva kenarlarının kontrastı 8.4, görünen yuvalarınki 146.5 → geçirgenlik 0.057.
+- Başlık "Please enter the quantity of the item." Roboto Bold 27–28, `#FF8787`; uyarı metni (TR + EN) Roboto Slab — hepsi orijinal piksel.
+- Alan: yuvarlak uçlu, (137,358) 462×72, içi opak `#1B1917`; sayı eğik, `#D6D6D6`, punto 46, mürekkep solu x=219, üst y=377.
+- OK (154,457) 204×65 · CANCEL (380,457) 207×65.
+
+**Satın alma onayı** — tablet (864,416) 577×530 → 554×509; Merchant penceresine göre (153,179).
+- Zemin **mat**: aynı ölçümle geçirgenlik 0.003–0.008 → alfa 0.99.
+- İkon çerçevesi (238,23) 98×96, ikon (245,30) 84×82, "+N" mor `#CA89E2` punto 29.
+- Süre çubuğu: oluk (58,144) 460×24, dolgu (60,147) 455×17 turuncu `#E18E0F` (üstten alta açılan ton); sayaç dolgunun ucunda,
+  Roboto Bold 19, `#FFE6E6`, dış hatlı. Karede dolgu %49, sayaç "2".
+- Sarı iki satır (`#EBE680`, "Itemin Gradesini ve Fiyatını Kontrol Edin." / "Check the Grade and Price of the Item.") ve
+  pembe başlık (`#FF8787`, "Please enter the item's price.") orijinal piksel.
+- Fiyat yazısı Text: Roboto Bold 27, `#D9C3C3`, fiyat `#FFD300`; ortalı (merkez x=295.5), 470 genişlikte sarar, satır adımı 31,
+  ilk satırın mürekkep üstü y=288 → "[Price: 99,999,999 ] Will you buy this" / "item?" / "Please double check the price".
+- Düğmeler (115,437) ve (332,437), 156×64. **OK soluk:** zemini Cancel'ın 0.56 katı (gövde 26/32/39 ↔ 56/66/78), yazısı aynı
+  parlaklıkta → zemin + yazı ayrı sprite; kapalıyken yalnız zemin 0.56'ya iner.
+- Aynı karedeki bilgi penceresinde fiyat **kırmızı** `#FF0000` (para 174,472 < 99,999,999). Sahibinin baktığı videoda
+  (para 523,455, fiyat 99,999) mordu → kural: para yetmiyorsa kırmızı.
+
+**Akış:** yığınlı eşyaya dokun → adet → fiyat (tek eşyanın) → girilen adet tezgâha geçer, kalan envanterde kalır; Remove / CANCEL /
+Close Slave Merchant'ta yığın geri birleşir. Merchant penceresinde eşyaya dokun → bilgi; aynı eşyaya yeniden dokun → onay;
+çubuk dolunca OK açılır → eşya envantere geçer, para düşer.
+
+**Bu ekteki varsayımlar:** onayın ikinci dokunuşla açılması · bekleme süresi 4 sn · sayacın kalan saniye oluşu · OK'nin süre dolunca
+açılması · yığında tutarın fiyat × adet oluşu · adet alanının yığının tamamıyla açılması · çubuğun boş kısmındaki iki küçük işaretin
+(x=316 ve 396) anlamı (piksel olarak korundu).
+
 ## Varsayımlar (videoda yok)
-Satın alma akışı · satılmış eşyanın durum yazısı · CLAIM COINS'in etkisi · 8'den fazla satır · slave süresinin başlangıcı
+Satılmış eşyanın durum yazısı · CLAIM COINS'in etkisi · 8'den fazla satır · slave süresinin başlangıcı
 ve 8 saat oluşu · tezgâh yokken SLAVE MERCHANT, tezgâh açıkken OPEN MERCHANT · 0 fiyat ve boş tezgâh · sınıfı uymayan
 eşyanın kuşanılamaması · Merchant penceresinde OK ile Cancel farkı · fiyat alanının eğik fontu.
 Hepsi kodda "varsayım" yorumuyla işaretli.
 
 ## Doğrulama
 - Mono `mcs`: tüm paketler birlikte **0 hata, 0 uyarı**.
-- Paket ↔ `unity_kaynak`: 56 girdi, 50 dosya, GUID + SHA-256 **0 sorun**; kurucudaki 18 sprite kutusu sprite boyutlarıyla eşleşiyor.
+- Paket ↔ `unity_kaynak`: 66 girdi, 60 dosya, GUID + SHA-256 **0 sorun**; kurucudaki sprite kutuları sprite boyutlarıyla eşleşiyor
+  (tablet kaynaklı 8 sprite 1.0405 oranında küçültülerek gösterilir).
 - Equip / UnEquip / NPC panellerinde tek kare olduğu için benzetim, orijinal kutunun yeri düz siyaha boyanarak çizildi.
 - **Unity'de import denenmedi.**

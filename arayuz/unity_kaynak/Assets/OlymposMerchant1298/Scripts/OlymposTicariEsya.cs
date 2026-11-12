@@ -51,7 +51,16 @@ namespace Olympos.UI
         public int bonusHp;
         public int bonusMp;
 
-        [NonSerialized] public long tezgahFiyati;      // Create a Merchant'ta girilen fiyat
+        [NonSerialized] public long tezgahFiyati;      // Create a Merchant'ta girilen fiyat (TEK esyanin fiyati)
+
+        /// <summary>Yigindan ayrilan parca: ayni esya, verilen adetle.</summary>
+        public OlymposTicariEsya Kopya(int yeniAdet)
+        {
+            var k = (OlymposTicariEsya)MemberwiseClone();
+            k.adet = yeniAdet;
+            k.tezgahFiyati = 0;
+            return k;
+        }
     }
 
     [Serializable] public class OlymposTicariEsyaOlayi : UnityEvent<OlymposTicariEsya> { }
