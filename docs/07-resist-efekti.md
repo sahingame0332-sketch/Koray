@@ -6,6 +6,8 @@ Direnç (resist) becerisi kullanıldığında karakterin üstünde oynayan efekt
 yerde dönen rün çemberi, gövdenin etrafında yalpalayan üç halka, açılış şok
 halkası ve yükselen kıvılcımlar.
 
+![Animasyon](img/resist-efekti-animasyon.gif)
+
 ![Önizleme](img/resist-efekti-onizleme.png)
 
 *Yukarıdaki görsel Unity ekran görüntüsü değil; script'teki matematiğin Python
