@@ -85,5 +85,5 @@ Maliyet: 8 draw call, ~120 üçgen, karede sıfır bellek tahsisi.
 
 ```bash
 python3 tools/generate_resist_vfx.py          # dokular
-python3 tools/build_resist_unitypackage.py    # .unitypackage + .meta
+python3 tools/build_unitypackages.py    # .unitypackage + .meta
 ```

@@ -73,6 +73,7 @@ namespace UnityEngine
         public static float Min(float a, float b) { return Math.Min(a, b); }
         public static float Max(float a, float b) { return Math.Max(a, b); }
         public const float PI = 3.14159265f;
+        public static float Sqrt(float v) { return (float)Math.Sqrt(v); }
         public static float Sin(float v) { return (float)Math.Sin(v); }
         public static float Cos(float v) { return (float)Math.Cos(v); }
     }
@@ -82,6 +83,7 @@ namespace UnityEngine
         // Testin zamani surmesi icin yazilabilir. Gercek Unity'de salt okunur.
         public static float unscaledDeltaTime = 0.016f;
         public static float deltaTime = 0.016f;
+        public static float time = 0f;
         public static float timeScale = 1f;
     }
 

@@ -302,6 +302,12 @@ namespace UnityEditor
     public static class Selection
     {
         public static UnityEngine.Transform activeTransform { get { return null; } }
+        public static UnityEngine.GameObject activeGameObject { get; set; }
+    }
+
+    public static class Undo
+    {
+        public static void RegisterCreatedObjectUndo(UnityEngine.Object obj, string name) { }
     }
 
     public static class PrefabUtility

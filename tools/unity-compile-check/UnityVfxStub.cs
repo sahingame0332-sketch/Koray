@@ -12,6 +12,14 @@ namespace UnityEngine
     public enum HideFlags { None = 0, DontSave = 52 }
     public enum TextureWrapMode { Repeat, Clamp }
 
+    [AttributeUsage(AttributeTargets.Class)]
+    public class ExecuteAlways : Attribute { }
+
+    public static class Application
+    {
+        public static bool isPlaying { get { return true; } }
+    }
+
     public struct Vector2
     {
         public float x, y;
@@ -28,6 +36,8 @@ namespace UnityEngine
         public static Vector3 forward { get { return new Vector3(0, 0, 1); } }
         public static Vector3 operator +(Vector3 a, Vector3 b) { return new Vector3(a.x + b.x, a.y + b.y, a.z + b.z); }
         public static Vector3 operator -(Vector3 a, Vector3 b) { return new Vector3(a.x - b.x, a.y - b.y, a.z - b.z); }
+        public static Vector3 Cross(Vector3 a, Vector3 b) { return new Vector3(a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z, a.x * b.y - a.y * b.x); }
+        public static float Dot(Vector3 a, Vector3 b) { return a.x * b.x + a.y * b.y + a.z * b.z; }
         public static Vector3 operator *(Vector3 a, float s) { return new Vector3(a.x * s, a.y * s, a.z * s); }
     }
 
@@ -42,6 +52,7 @@ namespace UnityEngine
     {
         public float r, g, b, a;
         public Color(float r, float g, float b, float a) { this.r = r; this.g = g; this.b = b; this.a = a; }
+        public static Color Lerp(Color a, Color b, float t) { return a; }
         public static Color white { get { return new Color(1, 1, 1, 1); } }
     }
 
@@ -56,6 +67,7 @@ namespace UnityEngine
         public GameObject(string name) { this.name = name; }
         public Transform transform { get { return null; } }
         public void SetActive(bool value) { }
+        public T GetComponent<T>() where T : Component, new() { return new T(); }
         public T AddComponent<T>() where T : Component, new() { return new T(); }
     }
 
@@ -69,6 +81,7 @@ namespace UnityEngine
         public Vector3 right { get { return Vector3.right; } }
         public Vector3 up { get { return Vector3.up; } }
         public void SetParent(Transform parent, bool worldPositionStays) { }
+        public Transform Find(string n) { return null; }
         public Vector3 InverseTransformDirection(Vector3 direction) { return direction; }
     }
 
@@ -95,11 +108,15 @@ namespace UnityEngine
         public Material(Shader shader) { }
         public Texture mainTexture { get; set; }
         public void SetFloat(string name, float value) { }
+        public void SetFloat(int nameId, float value) { }
+        public void SetColor(int nameId, Color value) { }
     }
 
     public class MaterialPropertyBlock
     {
         public void SetColor(int nameId, Color value) { }
+        public void SetFloat(int nameId, float value) { }
+        public void Clear() { }
     }
 
     public class Mesh : Object
