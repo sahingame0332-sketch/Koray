@@ -17,6 +17,7 @@ haritasıyla başlıyor.
 | [`docs/06-skill-sistemi-unity.md`](docs/06-skill-sistemi-unity.md) | Skill sistemi: 40 beceri / 200 rank, 11 etki tipi, Unity yükleyici ve ScriptableObject importer |
 | [`unity/Assets/Scripts/`](unity/Assets/Scripts) | Unity C# kaynakları: `SkillDatabase`, `SkillData`, `SkillDefinition`, `SkillImporter`, `HoldRepeatButton`, `StatAllocationPanel` |
 | [`unity/Assets/Resources/GameData/skills.json`](unity/Assets/Resources/GameData/skills.json) | Oyunun okuduğu skill verisi (40 beceri, 200 rank) — üretilir, elle düzenlenmez |
+| [`docs/07-resist-efekti.md`](docs/07-resist-efekti.md) | Resist buff kullanım efekti: kodla kurulan özgün VFX, `unity/ResistBuffEffect.unitypackage` olarak paketli |
 | [`docs/05-ilerleme-simulasyonu.md`](docs/05-ilerleme-simulasyonu.md) | İçeriği baştan sona simüle edip gerçek değer üretme: seviye 1→100 süresi, tempo, ekonomi, loot beklentisi — ve bulunan seviye eğrisi hatası |
 | [`tools/simulate_progression.py`](tools/simulate_progression.py) | İlerleme simülatörü ve seviye eğrisi kalibrasyonu (`--calibrate`) |
 | [`tools/analyze_hold_repeat.py`](tools/analyze_hold_repeat.py) | Tekrarlama eğrisi simülatörü ve hedef denetimi |

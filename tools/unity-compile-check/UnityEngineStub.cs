@@ -20,10 +20,17 @@ namespace UnityEngine
     public class Object
     {
         public string name { get; set; }
+        public HideFlags hideFlags { get; set; }
+        public static void Destroy(Object obj) { }
+        public static void DestroyImmediate(Object obj) { }
         public override string ToString() { return name ?? base.ToString(); }
     }
 
-    public class Component : Object { }
+    public class Component : Object
+    {
+        public Transform transform { get { return null; } }
+        public GameObject gameObject { get { return null; } }
+    }
 
     public class Behaviour : Component
     {
@@ -65,6 +72,9 @@ namespace UnityEngine
         public static int   Max(int a, int b) { return Math.Max(a, b); }
         public static float Min(float a, float b) { return Math.Min(a, b); }
         public static float Max(float a, float b) { return Math.Max(a, b); }
+        public const float PI = 3.14159265f;
+        public static float Sin(float v) { return (float)Math.Sin(v); }
+        public static float Cos(float v) { return (float)Math.Cos(v); }
     }
 
     public static class Time
@@ -86,6 +96,7 @@ namespace UnityEngine
     public static class Random
     {
         public static float value { get { return 0.5f; } }
+        public static float Range(float min, float max) { return (min + max) * 0.5f; }
     }
 
     // --- Attribute'lar ---

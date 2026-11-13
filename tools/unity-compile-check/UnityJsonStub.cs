@@ -30,7 +30,6 @@ namespace UnityEngine
     }
 
     public class Sprite : Object { }
-    public class GameObject : Object { }
     public class AudioClip : Object { }
 
     public static class Resources
@@ -293,6 +292,21 @@ namespace UnityEditor
         public static void Refresh() { }
         public static void StartAssetEditing() { }
         public static void StopAssetEditing() { }
+    }
+
+    public static class EditorApplication
+    {
+        public static bool isPlaying { get { return false; } }
+    }
+
+    public static class Selection
+    {
+        public static UnityEngine.Transform activeTransform { get { return null; } }
+    }
+
+    public static class PrefabUtility
+    {
+        public static UnityEngine.GameObject SaveAsPrefabAsset(UnityEngine.GameObject go, string path) { return go; }
     }
 
     public static class EditorUtility

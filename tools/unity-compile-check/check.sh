@@ -34,6 +34,7 @@ mcs -target:library \
     -nowarn:0169,0414,0649 \
     "$ROOT/tools/unity-compile-check/UnityEngineStub.cs" \
         "$ROOT/tools/unity-compile-check/UnityJsonStub.cs" \
+        "$ROOT/tools/unity-compile-check/UnityVfxStub.cs" \
     $(find "$ROOT/unity/Assets/Scripts" -name '*.cs')
 
 echo "DERLEME BASARILI -- sozdizimi ve tip hatasi yok"
@@ -47,6 +48,7 @@ if [ "$1" = "--run" ]; then
         -nowarn:0169,0414,0649 \
         "$ROOT/tools/unity-compile-check/UnityEngineStub.cs" \
         "$ROOT/tools/unity-compile-check/UnityJsonStub.cs" \
+        "$ROOT/tools/unity-compile-check/UnityVfxStub.cs" \
         "$ROOT/tools/unity-compile-check/HoldRepeatHarness.cs" \
         "$ROOT/tools/unity-compile-check/SkillHarness.cs" \
         $(find "$ROOT/unity/Assets/Scripts" -name '*.cs')
