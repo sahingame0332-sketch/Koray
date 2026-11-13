@@ -279,5 +279,29 @@
    416
   ],
   "olcek": 1.0405
+ },
+ "yuva_mor_tezgah": {
+  "w": 86,
+  "h": 88
+ },
+ "yuva_mor_mp_ust": {
+  "w": 117,
+  "h": 114
+ },
+ "ikon_yay": {
+  "w": 93,
+  "h": 90
+ },
+ "ikon_balta": {
+  "w": 93,
+  "h": 90
+ },
+ "ikon_parsomen_sureli": {
+  "w": 88,
+  "h": 86
+ },
+ "ikon_parsomen_sureli_3": {
+  "w": 88,
+  "h": 86
  }
 }

@@ -122,6 +122,25 @@ Close Slave Merchant'ta yığın geri birleşir. Merchant penceresinde eşyaya d
 açılması · yığında tutarın fiyat × adet oluşu · adet alanının yığının tamamıyla açılması · çubuğun boş kısmındaki iki küçük işaretin
 (x=316 ve 396) anlamı (piksel olarak korundu).
 
+## Ek: alıcı görünümü — başka oyuncunun tezgâhı
+Kaynak: iki telefon ekran görüntüsü, 2712 × 1220 (`referans_gorseller/merchant/a_cubuk.jpg`, `a_pencere.jpg`).
+Paket: **`unity_paketleri/OlymposMerchantAlici1298.unitypackage`** (tek başına; kullanıcı ayrı paket istedi).
+Araçlar: `araclar/merchant/cikar3.py`, `kur3.py` → `onizlemeler/merchant_alici_onizleme.png`.
+
+- Tezgâh çubuğu ve pencere, sahibinin gördüğüyle **aynı sprite ve ölçülerde** (çubuk altı alt-şablonla eşleştirildi: (955,241);
+  pencere (945,113) — önceki konumla aynı).
+- **Satıcı adı** çubuğun üstünde: DejaVu Sans Bold 30 (IoU 0.56; Roboto 0.37), beyaz, siyah dış hat; mürekkep üstü çubuğun
+  35 px yukarısında, merkez çubuk merkezinin 4.5 px solunda.
+- **Mor çerçeve:** gümüş çerçevenin dışında ~3 px mor kenar (`#AF66A5` dolayı). Mor çerçeveli yuvada ikon alanı küçülüyor:
+  çubukta (16,12) 62×66 (gümüşte (8,8) 70×72), pencerede (12,12) 93×90 (gümüşte (8,8) 101×98).
+  Bu karelerde +1 silahlar mor; önceki videodaki +5 yay gümüştü → **kural bilinmiyor**, eşya başına işaretlenir.
+- **"+N" etiketi** (`#CA89E2`): çubukta mürekkep x 43..77, y 13..34 → Roboto Bold 31; pencere üst yuvalarında x 77..109, y 11..28 →
+  Roboto Bold **25**. Gümüş çerçeveli +5 ile aynı yerde. Orijinal biraz daha kalın → aynı renkte ince dış hat.
+  (Merchant paketinin kurucusu üst yuvalarda 0.33 × yükseklik = 38 kullanıyor; doğrusu 25 — o pakette düzeltilmedi.)
+- Para "9,322" Roboto Bold 36, sağ kenar x=1618–1620: sağa yaslı (önceki ölçümle aynı).
+- Alıcının envanterindeki süreli parşömenin adet rakamı ikonun pikselinde kaldı (temizlenemedi).
+- Tezgâh sancağı (çubuğun yanındaki kırmızı-mavi bayrak) oyun dünyasındaki 3B nesne; arayüz değil.
+
 ## Varsayımlar (videoda yok)
 Satılmış eşyanın durum yazısı · CLAIM COINS'in etkisi · 8'den fazla satır · slave süresinin başlangıcı
 ve 8 saat oluşu · tezgâh yokken SLAVE MERCHANT, tezgâh açıkken OPEN MERCHANT · 0 fiyat ve boş tezgâh · sınıfı uymayan

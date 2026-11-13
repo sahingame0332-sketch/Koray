@@ -43,6 +43,7 @@ Arayüz işi ile altyapı işi aynı oyunun iki yüzü: `docs/03-icerik-uretim-r
 | `arayuz/unity_paketleri/OlymposMerchant1298.unitypackage` | Komut menüsü, Create a Merchant + fiyat diyaloğu, tezgâh çubuğu, "<ad> Merchant", Slave Merchant, adet girişi (toplu eşya), süre çubuklu satın alma onayı, eşya bilgi penceresi (Equip / UnEquip / Remove / Buy Price / Purchase Price) | 2712 × 1220 ekran (OyunIci ile ortak Canvas) | 0.94 / 0.95 / 0.97 / 0.89 / 0.95 / 0.93, tezgâh yuvası 0.87 (bkz. `arayuz/09-merchant.md`) |
 | `arayuz/unity_paketleri/OlymposAdetPenceresi1298.unitypackage` | Adet girişi penceresi — tek başına (Merchant paketindekinin bağımsız kopyası; sınıf `OlymposAdetPenceresi`) | 711 × 522 | yarı saydam **0.94** |
 | `arayuz/unity_paketleri/OlymposSatinAlmaOnayi1298.unitypackage` | Süre çubuklu satın alma onayı — tek başına (sınıf `OlymposSatinAlmaPenceresi`) | 554 × 509 | mat (0.99) |
+| `arayuz/unity_paketleri/OlymposMerchantAlici1298.unitypackage` | Merchant alıcı görünümü — tek başına: satıcı adlı tezgâh çubuğu (mor çerçeveli yuvalar) + "<ad> Merchant" penceresi (sınıflar `OlymposSatici*`) | 404 × 168 / 785 × 987 | yuva 0.87 / **0.89** |
 
 Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `OLYMPOS > 1298 > Character Penceresi Oluştur` (CHAR INFO + CLAN + FRIENDS sekmeleriyle birlikte),
@@ -52,7 +53,7 @@ Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 (sonuncusu 2712×1220 referanslı ayrı bir Canvas kurar; diğerleri 1920×1080).
 `… > Zemin Malzemeleri Oluştur` (arayüz değil: malzemeler + deneme zemini; namespace `Olympos.Zemin`).
 `… > Merchant (Tezgâh · Slave · Equip · Eşya Bilgisi) Oluştur` (OyunIci'nin 2712×1220 Canvas'ını paylaşır).
-`… > Adet Penceresi Oluştur`, `… > Satın Alma Onayı Penceresi Oluştur` (tek başına paketler; aynı Canvas).
+`… > Adet Penceresi Oluştur`, `… > Satın Alma Onayı Penceresi Oluştur`, `… > Merchant Alıcı Görünümü Oluştur` (tek başına paketler; aynı Canvas).
 Kurucular: doku import ayarları (Sprite, sıkıştırmasız, mipmap yok, 9-slice kenarlar) → hiyerarşiyi **sol-üst piksel
 koordinatlarıyla** kurar → `Prefabs/` altına prefab → sahnedeki Canvas'a ekler (yoksa 1920×1080, match=1 Canvas + EventSystem).
 UI sistemi: **uGUI + legacy `UnityEngine.UI.Text`** (TMP kullanılmadı). Namespace `Olympos.UI` / `Olympos.UI.EditorTools`.
@@ -99,6 +100,7 @@ stat adı 21, stat değeri 25, direnç adı 19, direnç değeri 23, buton 22. De
   `punto.py` (font + punto), `kur.py` (kurucunun benzetimi → `onizlemeler/oyun_ici_*.png`). `hud/`: yarım HUD işinin araçları.
 - `merchant/`: `cikar.py` (krom + maske + yuva şablonu), `maske.py`, `punto.py`, `kur.py` (benzetim → `onizlemeler/merchant_*.png`).
   `cikar2.py` / `kur2.py`: tablet görüntülerinden adet ve satın alma onayı pencereleri (ölçek 1.0405).
+  `cikar3.py` / `kur3.py`: alıcı görünümü (mor çerçeveler, satıcı adı).
 - `zemin/`: `duzelt.py` (zemin düzlemini yukarıdan görünüşe çevirir), `zemin.py` (karo + renk ölçümü),
   `haritalar.py` (kontrol/renk haritası örnekleri), `onizle.py` (aynı kamerayla yeniden çizim → `onizlemeler/zemin_onizleme.png`).
 - Char Info sprite çıkarımı (OpenCV inpaint + aynı satırdan doku örnekleme) sohbet içinde satır içi yapıldı; sonuçlar
@@ -109,6 +111,8 @@ stat adı 21, stat değeri 25, direnç adı 19, direnç değeri 23, buton 22. De
   karar: HUD **telefon karelerinden (2712×1220)** kurulacak ki OyunIci/Merchant ile aynı Canvas'a otursun. Başlangıç:
   `araclar/hud_telefon/ortak.py` (çim taşması maskesi `cim_disi` — tamamı çim olan `m_once` karesinde bütün HUD öğelerini ayırıyor).
   Önizleme/paket yok.
+- Kullanıcı son isteklerde her görseli **ayrı paket** olarak istedi ("ayrı paket olarak hazırla"): yeni pencereler tek başına,
+  çakışmayan sınıf adlarıyla paketlenmeli. Merchant paketindeki "+N" puntosu üst yuvalarda 38; ölçülen 25 (bkz. 09 eki) — düzeltilebilir.
 - Merchant paketi teslim edildi (`arayuz/09-merchant.md`, adet + satın alma onayı eki dâhil). Hâlâ varsayım: onayın nasıl
   açıldığı, bekleme süresi, satılmış eşyanın Slave Merchant'taki durumu — kayıt gelirse gerçek davranışla değiştirilmeli.
 - Zemin paketi teslim edildi (`arayuz/08-zemin.md`); kullanıcı Unity'de deneyince shader derleme çıktısı ve

@@ -1,0 +1,41 @@
+OLYMPOS-KO · 1298 — Merchant · alıcı görünümü · tek başına paket
+================================================================
+Başka bir oyuncunun tezgâhına alıcı gözüyle bakış: karakterin üstündeki tezgâh çubuğu (satıcı adı, 4 yuva,
+OPEN / WHISPER) ve OPEN ile açılan "<ad> Merchant" penceresi (6x2 tezgâh, para, 7x4 envanter, OK / Cancel).
+Kaynak: iki telefon ekran görüntüsü (2712 x 1220). Ölçüler: depoda arayuz/09-merchant.md ("Alıcı görünümü" eki).
+
+KURULUM
+  1. Paketi içe aktarın.   2. Menü: OLYMPOS > 1298 > Merchant Alıcı Görünümü Oluştur
+  3. "OlymposOyunIciCanvas (2712x1220)" altına "MerchantAlici_1298" eklenir (Canvas yoksa oluşturulur).
+  4. Play: tezgâh çubuğu ekran görüntüsündeki örnekle (Itccc, dört +1 yay) görünür; OPEN pencereyi açar.
+
+ÖLÇÜLER
+  Tezgâh çubuğu      404 x 168   yuva 86 x 88, adım 86; boş yuva zemini siyah alfa 0.87
+    Satıcı adı       DejaVu Sans Bold 30, beyaz, 2 px siyah dış hat; çubuğun üstünde ortalı
+  Merchant penceresi 785 x 987   zemin siyah alfa 0.89 (Inspector: backgroundAlpha)
+    Başlık           Roboto Slab Regular 33, #DDA96A      Para: Roboto Bold 36, beyaz, sağa yaslı
+    Tezgâh yuvası    117 x 114 (6 x 2)                    Envanter yuvası: 104 x 102 (7 x 4)
+  "+N" etiketi       Roboto Bold, #CA89E2; çubukta punto 31, pencerede punto 25
+  Mor çerçeve        gümüş çerçevenin dışında ~3 px mor kenar; mor çerçeveli yuvada ikon alanı daha küçük
+                     (çubukta 62 x 66, pencerede 93 x 90)
+  Çerçeveler, boş yuvalar, para ikonu ve OPEN / WHISPER / OK / Cancel orijinal piksellerdendir.
+
+KULLANIM
+  OlymposSaticiCubugu  : saticiAdi, tezgah (liste), Goster(ad, esyalar), takipNoktasi (satıcının baş üstü noktası)
+                         onOpen, onWhisper(string ad), onYuvaSecildi(int)
+  OlymposSaticiPenceresi: para, envanter (liste), Ac(ad, tezgah), Yenile(), Kapat()
+                         onTezgahEsyasi(int sira)  -> eşya bilgisi / satın alma onayını burada açın
+                         onEnvanterEsyasi(int), onKapandi
+  OlymposSaticiEsyasi  : ad, ikon, adet, yukseltme, morCerceve, fiyat
+
+BİLİNMEYENLER / VARSAYIMLAR
+  * Mor çerçevenin hangi eşyalarda çıktığı bilinmiyor (bu karelerde +1 silahlar mor; başka bir kayıtta +5 yay gümüştü).
+    Eşya başına "morCerceve" işaretiyle seçilir.
+  * Envanter ızgarasında mor çerçeve görülmedi; orada yalnız gümüş çerçeve var.
+  * Örnek ikonlar ekran görüntüsünden kesildi; adları bilinmiyor ("Ornek yay", "Ornek balta").
+    Parşömen ikonundaki adet rakamı "3" ikonun pikselinde kaldı (temizlenemedi); örnekte adet 1 girildi.
+  * Çubuğun yanındaki tezgâh sancağı oyun dünyasındaki 3B nesnedir; bu pakette yok.
+
+OlymposMerchant1298 paketiyle birlikte de içe aktarılabilir (sınıf adları çakışmaz).
+Unity'de import denenmedi (ortamda Unity yok); betikler Mono ile derlendi: 0 hata.
+Fontlar: Roboto Bold, Roboto Slab Regular (Apache 2.0) · DejaVu Sans Bold (Bitstream Vera / DejaVu lisansı)
