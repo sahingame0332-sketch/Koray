@@ -1,0 +1,40 @@
+OLYMPOS-KO · 1298 — Skill ve hasar efektleri · tek başına paket
+================================================================
+Kaynak: oyun kaydı (2266 x 1488, 60 kare/sn, 4 sn). Ölçüler ve yöntem: depoda arayuz/10-efekt.md
+
+KURULUM
+  1. Paketi içe aktarın.  2. Menü: OLYMPOS > 1298 > Efektler (Ateş Sütunu · Vuruş · Cast) Oluştur
+  3. Sahneye "OlymposEfektDeneme" (iki efekt döngüde oynar) ve Canvas'a "CastCubugu_1298" eklenir.
+
+İÇİNDEKİLER
+  Textures/AtesSutunu/  26 kare, 500 x 710   Pillar of Fire — moba düşen ateş sütunu (0.87 sn, 30 kare/sn)
+  Textures/Vurus/        9 kare, 450 x 420   karaktere vuruş ışıması (0.30 sn; kaydın sonu kesik, bkz. sınırlar)
+  Textures/Cast/         cast_oluk (205 x 12 siyah) + cast_dolgu (8 px yeşil dikey ton)
+  Shaders/OlymposEfektEklemeli.shader   "Olympos/Efekt Eklemeli": Blend One One (siyah = etkisiz), _Renk, _Parlaklik
+  Scripts/OlymposEfektOynatici.cs       kare kare oynatır, kameraya döner, pivot hedefin ayağında; Hedefte(konum)
+  Scripts/OlymposCastCubugu.cs          Baslat("Pillar Of Fire", 1.5f): ad + yeşil dolum + "0,2 sec"
+  Scripts/OlymposHasarMesajlari.cs      Information satırları ve renkleri
+
+ÖLÇÜLER
+  Saydamlık  : efektler EKLEMELİ ışıktır (kayıtta efekt pikselleri yalnız parlıyor: 148 971 artan, 4 606 kararan piksel).
+               Kareler "orijinal − zemin" olarak çıkarıldı; aynı zemine eklenince orijinalle ortalama fark 3.7 / 255
+               (ateş sütunu) ve 4.2 / 255 (vuruş).
+  Renk/ton   : ateş sütunu turuncu-sarı → kırmızı çekirdek; vuruş sarı ışıma + kırmızı-turuncu halka. Değiştirmek için _Renk.
+  Boyut      : karakter ekranda ~110 px. Ateş sütunu genişliği 4.5, vuruş 4.1 karakter boyu (KarakterBoyu = 1.8 birim varsayılan).
+  Zamanlama  : ateş sütunu cast çubuğu bitince başlar (kayıtta t = 1.83 sn), 0.87 sn sürer; ilk 0.1 sn'de dışa saçılan
+               kıvılcım çizgileri, 0.2–0.4 sn'de en geniş alev, sonra incelen dikey sütun.
+  Cast çubuğu: siyah 205 x 12, yeşil dolum (dikey ton #4E7731 → #5CB938), skill adı Roboto Bold 15 #FDE1E2,
+               kalan süre Roboto Bold 17 #E3DF73 ("0,2 sec").
+  Hasar      : bu oyunda ekranda UÇAN HASAR SAYISI YOK. Hasar Information paneline yazılır (Roboto Slab Bold 31):
+               "<hedef> is inflicted with N HP damage." / "N SP Used" kırmızı #F80001,
+               "<hedef> received N damage" beyaz, "Using - <skill>" sarı #FCE600.
+
+BİLİNEN SINIRLAR
+  * Efektler ekran görüntüsünden düz kare dizisidir (parçacık sistemi değil); orijinal kamera açısında birebir görünür,
+    çok farklı açıdan bakıldığında perspektif tutmaz.
+  * Ad etiketleri ve karakter efektin önünde olduğundan o bölgeler komşu piksellerden dolduruldu (vuruşta karakterin
+    kapladığı ~48 x 120 px'lik şerit tahmindir).
+  * Vuruş efektinin sonu kayıtta yok: 0.30 sn'de kayıt ekranı (Kontrol Merkezi) açılıyor. Kalan sönüş bilinmiyor.
+  * Kaydın başında ve sonunda yer alan diğer skill'ler (ateş topu vb.) kayıtta oynamadığı için yok.
+  * Unity'de denenmedi; shader bu ortamda derlenemedi (C# betikleri Mono ile derlendi: 0 hata).
+Fontlar: Roboto Bold, Roboto Slab Bold (Apache 2.0)

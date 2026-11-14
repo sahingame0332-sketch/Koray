@@ -36,6 +36,7 @@ namespace UnityEngine
         public static float fogStartDistance, fogEndDistance; public static Color ambientLight;
     }
     [AttributeUsage(AttributeTargets.Class)] public class ExecuteAlways : Attribute { }
+    public struct Quaternion { public float x, y, z, w; }
     public struct Rect {
         public float x, y, width, height;
         public float xMin { get { return x; } } public float xMax { get { return x + width; } }
@@ -75,6 +76,7 @@ namespace UnityEngine
     }
     public static class ColorUtility {
         public static bool TryParseHtmlString(string s, out Color c) { c = Color.black; return true; }
+        public static string ToHtmlStringRGB(Color c) { return ""; }
     }
 
     public class Object {
@@ -103,6 +105,7 @@ namespace UnityEngine
         public void SetParent(Transform p, bool worldPositionStays) { }
         public Vector3 lossyScale;
         public Vector3 localScale;
+        public Quaternion rotation;
         public Transform parent { get { return null; } }
         public Vector3 position;
         public void SetAsLastSibling() { }
@@ -160,9 +163,14 @@ namespace UnityEngine
     }
 
     public enum RenderMode { ScreenSpaceOverlay, ScreenSpaceCamera, WorldSpace }
-    public class Camera : Behaviour { public Vector3 WorldToScreenPoint(Vector3 p) { return p; } public static Camera main { get { return null; } } public CameraClearFlags clearFlags; public Color backgroundColor; }
-    public class Renderer : Component { public Material sharedMaterial; }
+    public class Camera : Behaviour { public new Transform transform { get { return null; } } public Vector3 WorldToScreenPoint(Vector3 p) { return p; } public static Camera main { get { return null; } } public CameraClearFlags clearFlags; public Color backgroundColor; }
+    public class Renderer : Component { public Material sharedMaterial; public bool enabled; public bool receiveShadows; public UnityEngine.Rendering.ShadowCastingMode shadowCastingMode; public void GetPropertyBlock(MaterialPropertyBlock b) { } public void SetPropertyBlock(MaterialPropertyBlock b) { } }
     public class MeshRenderer : Renderer { }
+    public class MeshFilter : Component { public Mesh sharedMesh; }
+    public class Mesh : Object { public Vector3[] vertices; public Vector2[] uv; public int[] triangles; public void RecalculateBounds() { } }
+    public class MaterialPropertyBlock { public void SetTexture(int id, Texture t) { } public void SetColor(int id, Color c) { } public void SetFloat(int id, float f) { } }
+    public static class Application { public static bool isPlaying { get { return false; } } }
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)] public class RequireComponent : Attribute { public RequireComponent(Type a) { } public RequireComponent(Type a, Type b) { } }
     public class Canvas : Behaviour { public RenderMode renderMode; public int sortingOrder; }
     public class CanvasRenderer : Component { }
 
@@ -327,3 +335,5 @@ namespace UnityEngine.EventSystems
     public class BaseInputModule : UnityEngine.Behaviour { }
     public class StandaloneInputModule : BaseInputModule { }
 }
+
+namespace UnityEngine.Rendering { public enum ShadowCastingMode { Off, On, TwoSided, ShadowsOnly } }
