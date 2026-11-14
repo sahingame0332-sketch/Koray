@@ -1,0 +1,20 @@
+OLYMPOS-KO · 1298 — Alevli run halkası (tek başına paket)
+========================================================
+Menü: OLYMPOS > 1298 > Alevli Run Halkası Oluştur  -> sahneye "AlevliRunHalkasi" (+ Prefabs/AlevliRunHalkasi.prefab).
+
+ÖZGÜN TASARIM: gönderilen stok görsel (dreamstime, filigranlı, lisanssız) kopyalanmadı; aynı türde kendi çizimimiz:
+dış çift halka + ince rün yazısı, cetvel bandı, kalın rün bandı (uydurma rün alfabesi), heksagram, 6 sembol dairesi
+(güneş / hilal / alev damlası), iç rün halkası, 8 kollu yıldız. Kaynak: arayuz/araclar/rune/ciz.py (yeniden üretilebilir).
+
+Parçalar
+  Textures/rune_cizgi.png   1024²  R dış çizgi, G iç çizgi, B dış ışıltı, A iç ışıltı (lineer, sRGB kapalı)
+  Textures/rune_gurultu.png 256²   döşenebilir fbm gürültü (alev titremesi ve dilleri)
+  Shaders: "Olympos/Rune Ates Halkasi" (yer dairesi), "Olympos/Rune Alev Duvari" (kenardan yükselen alev) — ikisi de eklemeli (Blend One One)
+  Scripts/OlymposRuneEfekti.cs  (namespace Olympos.RuneEfekt)
+
+Davranış: dış katman saat yönünde, iç katman ters yönde döner; çizgiler alevle titrer; açılışta 0.25 sn'de büyüyerek
+belirir, 'sure' kadar yanar, 0.5 sn'de söner. Kullanım:  efekt.Oyna(karakter.transform, 2f);  (karakteri izler)
+Boyut: çap = karakterBoyu x 2.0 (önizlemede karakter ~165 px, daire 330 px); alev duvarı yüksekliği = çap x 0.55.
+Renk: çekirdek #FFC761, alev #FF5C0A, kor #CC1400 (malzemeden değiştirilebilir).
+Referans/sahne_referans.jpg: gönderilen oyun karesi (önizlemede efekt bunun üzerine bindirildi).
+Built-in boru hattı; URP'de denenmedi.

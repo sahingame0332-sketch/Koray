@@ -116,6 +116,7 @@ namespace UnityEngine
         public void SetParent(Transform p, bool worldPositionStays) { }
         public Vector3 lossyScale;
         public Vector3 localScale;
+        public Vector3 localPosition;
         public Quaternion rotation;
         public Transform parent { get { return null; } }
         public Vector3 position;
@@ -155,6 +156,10 @@ namespace UnityEngine
     public class Texture2D : Texture { }
 
     public static class Mathf {
+        public const float PI = 3.14159265f;
+        public static float Cos(float f) { return (float)System.Math.Cos(f); }
+        public static float Sin(float f) { return (float)System.Math.Sin(f); }
+        public static float Lerp(float a, float b, float t) { return a + (b - a) * t; }
         public static int Clamp(int v, int a, int b) { return v < a ? a : (v > b ? b : v); }
         public static float Clamp(float v, float a, float b) { return v < a ? a : (v > b ? b : v); }
         public static float Clamp01(float v) { return Clamp(v, 0f, 1f); }
