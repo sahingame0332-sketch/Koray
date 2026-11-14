@@ -1,0 +1,13 @@
+OLYMPOS-KO · 1298 — Yerdeki Merchant tezgâhı (tek başına paket)
+==============================================================
+Menü: OLYMPOS > 1298 > Merchant Tezgahı (Yer) Oluştur -> sahneye "MerchantTezgahi" + Prefabs/MerchantTezgahi.prefab
+Referans/tezgah_referans.jpg: kullanıcının ekran görüntüsü (2712 x 1220).
+
+Grafik: mavi örtülü alçak sandık, üstünde kırmızı sancak (turuncu kenar, mavi göz arması), parşömenler, kılıç/hançer, 3 yüzük.
+  Ekran görüntüsünden kesildi: Textures/tezgah.png 251 x 330 px; renk/ışık/sıcaklık değiştirilmedi.
+Arka fon / saydamlık: tezgâh opak; dışı tamamen saydam (çim temizlendi), kenar 1.2 px yumuşak. Shader "Olympos/Tezgah Sprite" (alfa, ışıksız).
+Boyut: kayıtta karakter 427 px -> tezgâh yüksekliği 0.773, genişliği 0.588 karakter boyu (karakterBoyu 1.8 -> 1.39 x 1.06 birim).
+Pivot: yere değdiği alt orta (0.54, 0). Kameraya dönük (billboard); kamera açısı orijinale yakınken birebir görünür.
+Konum: kayıtta tezgâh, bakan karakterin ~1.2 karakter boyu sağındaydı; tezgâh çubuğu (OPEN / WHISPER) üstünde
+  (çubuk Merchant / MerchantAlici paketlerinde). Kullanım: tezgah.Kur(konum); tezgah.Kaldir();
+Not: 3B model değil; tek açıdan alınmış görüntü. Kamera çok döndürülürse yan yüzler değişmez.

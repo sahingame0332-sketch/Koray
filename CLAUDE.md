@@ -54,6 +54,7 @@ Arayüz işi ile altyapı işi aynı oyunun iki yüzü: `docs/03-icerik-uretim-r
 | `arayuz/unity_paketleri/OlymposAtesHavuzu1298.unitypackage` | Karakter altı ateş havuzu — tek başına: kayıttan 39 kare (30 kare/sn, 1.3 sn), eklemeli (sınıf `OlymposAtesHavuzuOynatici`, shader `Olympos/Ates Havuzu Eklemeli`) | 560 × 420, 3.73 × karakter boyu | eklemeli (bkz. `arayuz/10-efekt.md` ek 3) |
 | `arayuz/unity_paketleri/OlymposAlimSatim1298.unitypackage` | NPC alım-satım penceresi — tek başına: Buy/Sell Item Count (sayı kutusu) → Need/Earn Money → Confirm/Cancel; harf aralıklı yazı efekti `OlymposAlimSatimHarfAraligi`; 4 referans `.jpg` pakette | 616 × 252 | yarı saydam **0.97** (bkz. `arayuz/15-npc-alimsatim.md`) |
 | `arayuz/unity_paketleri/OlymposManesOfFire1298.unitypackage` | Manes Of Fire (moba uygulanan skill) — tek başına: gökten ışın + kırmızı prizma + ateş + yerde sarı rün halkaları, kayıttan 49 kare (30 kare/sn); sınıf `OlymposManesOfFireOynatici`, shader `Olympos/Manes Of Fire Eklemeli` | 520 × 940, 3.71 × boy | eklemeli (bkz. `arayuz/10-efekt.md` ek 4) |
+| `arayuz/unity_paketleri/OlymposTezgah1298.unitypackage` | Yerdeki Merchant tezgâhı (3B nesnenin görüntüsü) — tek başına: kesilmiş sprite, kameraya dönük dörtgen, sınıf `OlymposTezgah`, shader `Olympos/Tezgah Sprite`; referans `.jpg` pakette | 251 × 330, 0.773 × karakter boyu | opak, dışı saydam (bkz. `arayuz/16-tezgah.md`) |
 
 Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `OLYMPOS > 1298 > Character Penceresi Oluştur` (CHAR INFO + CLAN + FRIENDS sekmeleriyle birlikte),
@@ -67,7 +68,7 @@ Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `… > Efektler (Ateş Sütunu · Vuruş · Cast) Oluştur` (namespace `Olympos.Efekt`; efektler dünya uzayında).
 `… > Skill Efektleri (Fire Burst · Fire Blade · Vuruş) Oluştur` (namespace `Olympos.SkillEfekt`).
 `… > Genie (Panel · Auto Attack Settings · Rozet) Oluştur` (aynı 2712×1220 Canvas).
-`… > Görev NPC (QuestList · Görev Detayı · ? Rozeti) Oluştur` (aynı Canvas). `… > Respawn Penceresi Oluştur` (aynı Canvas). `… > Alevli Run Halkası Oluştur`, `… > Neon Run Halkası Oluştur`, `… > Ateş Havuzu (Karakter Altı) Oluştur` (dünya uzayı). `… > NPC Alım-Satım Penceresi Oluştur` (2712×1220 Canvas). `… > Manes Of Fire (Moba) Oluştur` (dünya uzayı).
+`… > Görev NPC (QuestList · Görev Detayı · ? Rozeti) Oluştur` (aynı Canvas). `… > Respawn Penceresi Oluştur` (aynı Canvas). `… > Alevli Run Halkası Oluştur`, `… > Neon Run Halkası Oluştur`, `… > Ateş Havuzu (Karakter Altı) Oluştur` (dünya uzayı). `… > NPC Alım-Satım Penceresi Oluştur` (2712×1220 Canvas). `… > Manes Of Fire (Moba) Oluştur`, `… > Merchant Tezgahı (Yer) Oluştur` (dünya uzayı).
 Kurucular: doku import ayarları (Sprite, sıkıştırmasız, mipmap yok, 9-slice kenarlar) → hiyerarşiyi **sol-üst piksel
 koordinatlarıyla** kurar → `Prefabs/` altına prefab → sahnedeki Canvas'a ekler (yoksa 1920×1080, match=1 Canvas + EventSystem).
 UI sistemi: **uGUI + legacy `UnityEngine.UI.Text`** (TMP kullanılmadı). Namespace `Olympos.UI` / `Olympos.UI.EditorTools`.
@@ -127,6 +128,7 @@ stat adı 21, stat değeri 25, direnç adı 19, direnç değeri 23, buton 22. De
 - `respawn/`: `cikar.py` (pencereSIZ kare yok: alfa iç/dış çim oranından; krom yerel karanlık tabana göre), `punto.py`, `kur.py`.
 - `rune/`: `ciz.py` / `ciz2.py` (özgün rün daireleri: alevli / neon + gürültü), `kur.py` / `kur2.py` (shader benzetimi), `kur_video.py` (kayıttaki karaktere bindirme).
 - `npc_alimsatim/`: `cikar.py` (krom + alfa: dışarı taşan dükkân öğelerinden), `punto.py`, `aralik.py` (punto + harf aralığı birlikte IoU), `kur.py`.
+- `tezgah/`: `cikar.py` (çim dışı maske → dış bükey zarf → yumuşak kenar), `kur.py`.
 - `zemin/`: `duzelt.py` (zemin düzlemini yukarıdan görünüşe çevirir), `zemin.py` (karo + renk ölçümü),
   `haritalar.py` (kontrol/renk haritası örnekleri), `onizle.py` (aynı kamerayla yeniden çizim → `onizlemeler/zemin_onizleme.png`).
 - Char Info sprite çıkarımı (OpenCV inpaint + aynı satırdan doku örnekleme) sohbet içinde satır içi yapıldı; sonuçlar
