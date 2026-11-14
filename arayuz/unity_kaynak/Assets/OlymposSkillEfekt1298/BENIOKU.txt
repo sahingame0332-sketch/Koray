@@ -1,0 +1,24 @@
+OLYMPOS-KO · 1298 — Skill efektleri (tek başına paket)
+=====================================================
+İçerik (telefon kaydından, 2712 x 1220, ~72 kare/sn; 2 karede bir alındı -> 36 kare/sn):
+  Textures/FireBurst  36 kare 900 x 760  — mobun üstünde patlayan alev (ışınlar + uçuşan kıvılcımlar), 1.0 sn
+  Textures/FireBlade  19 kare 560 x 820  — gökten inen turuncu ışın + yerde kırmızımsı halka, 0.53 sn
+  Textures/VurusTam   18 kare 470 x 430  — karaktere isabet ışıması (sarı çekirdek + turuncu kenar halka), 0.5 sn
+  Shaders/OlymposSkillEfektEklemeli.shader  "Olympos/Skill Efekt Eklemeli"  (Blend One One)
+  Scripts/OlymposSkillEfektOynatici.cs      kare kare oynatıcı (namespace Olympos.SkillEfekt)
+  Editor/OlymposSkillEfektBuilder.cs        menü: OLYMPOS > 1298 > Skill Efektleri (Fire Burst · Fire Blade · Vuruş) Oluştur
+
+Arka fon / saydamlık: karelerin zemini SİYAH = saydam. Efekt orijinal oyunda ışık olarak EKLENİR
+(kareler "orijinal − efektten önceki zemin" olarak çıkarıldı). Alfa kanalı yoktur; shader eklemeli
+olduğundan siyah görünmez. Renk/sıcaklık değiştirilmedi; _Renk = beyaz, _Parlaklik = 1 orijinaldir.
+
+Boyut: kayıttaki karakter boyu ~180 px. OlymposSkillEfektOynatici.karakterBoyu'na kendi karakterinizin
+dünya boyunu (varsayılan 1.8) yazın; genislikKarakter / enBoy / pivot ölçüldü, değiştirmeyin.
+  Fire Burst  genişlik 5.00 karakter boyu, pivot (0.478, 0.243) = mobun ayağı
+  Fire Blade  genişlik 3.11 karakter boyu, pivot (0.286, 0.165) = ışının yere değdiği halka
+  Vuruş       genişlik 2.61 karakter boyu, pivot (0.50, 0.221)  = karakterin ayağı
+
+Kullanım: prefabı hedefe koyun, oynatici.Hedefte(hedef.position). Denemede döngü açık; oyunda kapatın.
+Not: Fire Burst'ün sonunda oyuncuya gelen vuruş ışıması aynı anda başlıyordu; o kısım burst karelerinden
+ayıklandı (vuruş ayrı efekt: VurusTam). Kayıtta yüzen hasar sayısı yok; hasar Information panelinde yazar.
+Karakter/yaratık/ad etiketinin önünde kaldığı yerler komşu ışıktan doldurularak tamamlandı.

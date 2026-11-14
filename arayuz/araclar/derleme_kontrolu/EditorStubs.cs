@@ -23,8 +23,11 @@ namespace UnityEditor
         public static void CreateAsset(UnityEngine.Object asset, string path) { }
     }
 
+    public enum InteractionMode { AutomatedAction, UserAction }
+
     public static class PrefabUtility {
         public static GameObject SaveAsPrefabAsset(GameObject root, string assetPath) { return null; }
+        public static GameObject SaveAsPrefabAssetAndConnect(GameObject root, string assetPath, InteractionMode mode) { return null; }
         public static UnityEngine.Object InstantiatePrefab(UnityEngine.Object assetComponentOrGameObject) { return null; }
         public static UnityEngine.Object InstantiatePrefab(UnityEngine.Object assetComponentOrGameObject, Transform parent) { return null; }
     }

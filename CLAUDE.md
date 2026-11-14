@@ -45,6 +45,7 @@ Arayüz işi ile altyapı işi aynı oyunun iki yüzü: `docs/03-icerik-uretim-r
 | `arayuz/unity_paketleri/OlymposSatinAlmaOnayi1298.unitypackage` | Süre çubuklu satın alma onayı — tek başına (sınıf `OlymposSatinAlmaPenceresi`) | 554 × 509 | mat (0.99) |
 | `arayuz/unity_paketleri/OlymposMerchantAlici1298.unitypackage` | Merchant alıcı görünümü — tek başına: satıcı adlı tezgâh çubuğu (mor çerçeveli yuvalar) + "<ad> Merchant" penceresi (sınıflar `OlymposSatici*`) | 404 × 168 / 785 × 987 | yuva 0.87 / **0.89** |
 | `arayuz/unity_paketleri/OlymposEfekt1298.unitypackage` | Skill/hasar efektleri — tek başına: Pillar of Fire ateş sütunu, karaktere vuruş ışıması (kare dizisi, eklemeli shader), cast çubuğu, hasar mesajı renkleri | 500 × 710 / 450 × 420 | eklemeli (Blend One One) (bkz. `arayuz/10-efekt.md`) |
+| `arayuz/unity_paketleri/OlymposSkillEfekt1298.unitypackage` | Skill efektleri — tek başına: Fire Burst (moba), Fire Blade (moba), karaktere vuruş (tam); sınıf `OlymposSkillEfektOynatici`, shader `Olympos/Skill Efekt Eklemeli` | 900 × 760 / 560 × 820 / 470 × 430 | eklemeli, 36 kare/sn (bkz. `arayuz/10-efekt.md` ek 2) |
 
 Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `OLYMPOS > 1298 > Character Penceresi Oluştur` (CHAR INFO + CLAN + FRIENDS sekmeleriyle birlikte),
@@ -56,6 +57,7 @@ Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `… > Merchant (Tezgâh · Slave · Equip · Eşya Bilgisi) Oluştur` (OyunIci'nin 2712×1220 Canvas'ını paylaşır).
 `… > Adet Penceresi Oluştur`, `… > Satın Alma Onayı Penceresi Oluştur`, `… > Merchant Alıcı Görünümü Oluştur` (tek başına paketler; aynı Canvas).
 `… > Efektler (Ateş Sütunu · Vuruş · Cast) Oluştur` (namespace `Olympos.Efekt`; efektler dünya uzayında).
+`… > Skill Efektleri (Fire Burst · Fire Blade · Vuruş) Oluştur` (namespace `Olympos.SkillEfekt`).
 Kurucular: doku import ayarları (Sprite, sıkıştırmasız, mipmap yok, 9-slice kenarlar) → hiyerarşiyi **sol-üst piksel
 koordinatlarıyla** kurar → `Prefabs/` altına prefab → sahnedeki Canvas'a ekler (yoksa 1920×1080, match=1 Canvas + EventSystem).
 UI sistemi: **uGUI + legacy `UnityEngine.UI.Text`** (TMP kullanılmadı). Namespace `Olympos.UI` / `Olympos.UI.EditorTools`.
@@ -104,6 +106,7 @@ stat adı 21, stat değeri 25, direnç adı 19, direnç değeri 23, buton 22. De
   `cikar2.py` / `kur2.py`: tablet görüntülerinden adet ve satın alma onayı pencereleri (ölçek 1.0405).
   `cikar3.py` / `kur3.py`: alıcı görünümü (mor çerçeveler, satıcı adı).
 - `efekt/`: `cikar.py VIDEO` (eklemeli efekt kareleri: orijinal − zemin), `kur.py VIDEO` (zemin + efekt ↔ orijinal).
+  `cikar2.py A B` / `kur2.py A B`: telefon kayıtlarından Fire Burst, Fire Blade, tam vuruş (etiket bandı dikey dolgu, kararan piksel dolgusu).
   Kullanıcı kayıtlarında yüz kamerası olabilir: tam kareleri depoya koyma.
 - `zemin/`: `duzelt.py` (zemin düzlemini yukarıdan görünüşe çevirir), `zemin.py` (karo + renk ölçümü),
   `haritalar.py` (kontrol/renk haritası örnekleri), `onizle.py` (aynı kamerayla yeniden çizim → `onizlemeler/zemin_onizleme.png`).
