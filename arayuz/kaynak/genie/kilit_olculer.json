@@ -1,0 +1,52 @@
+{
+ "merkezler": [
+  [
+   2342,
+   635
+  ],
+  [
+   2011,
+   748
+  ],
+  [
+   2123,
+   723
+  ],
+  [
+   2242,
+   723
+  ],
+  [
+   2368,
+   747
+  ],
+  [
+   2488,
+   749
+  ],
+  [
+   1941,
+   848
+  ],
+  [
+   2052,
+   848
+  ]
+ ],
+ "boyut": 96,
+ "ikon_capi": 118,
+ "rozet": {
+  "merkez": [
+   1355,
+   375
+  ],
+  "boyut": 300,
+  "yazi": [
+   1270,
+   375,
+   165,
+   40
+  ],
+  "not_": "normal alfa karisimi; karakter basinin ustu, ad etiketinin hemen ustu"
+ }
+}

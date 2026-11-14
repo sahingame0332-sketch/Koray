@@ -9,10 +9,16 @@ namespace UnityEngine
         public Vector2(float x, float y) { this.x = x; this.y = y; }
         public static Vector2 zero { get { return new Vector2(0, 0); } }
         public static Vector2 one { get { return new Vector2(1, 1); } }
+        public static Vector2 operator +(Vector2 a, Vector2 b) { return new Vector2(a.x + b.x, a.y + b.y); }
+        public static implicit operator Vector3(Vector2 v) { return new Vector3(v.x, v.y, 0); }
     }
     public struct Vector3 {
         public float x, y, z;
         public Vector3(float x, float y, float z) { this.x = x; this.y = y; this.z = z; }
+        public static Vector3 up { get { return new Vector3(0, 1, 0); } }
+        public static Vector3 operator +(Vector3 a, Vector3 b) { return new Vector3(a.x + b.x, a.y + b.y, a.z + b.z); }
+        public static Vector3 operator *(Vector3 a, float d) { return new Vector3(a.x * d, a.y * d, a.z * d); }
+        public static implicit operator Vector2(Vector3 v) { return new Vector2(v.x, v.y); }
     }
     public class Shader : Object {
         public static Shader Find(string name) { return null; }
@@ -48,6 +54,9 @@ namespace UnityEngine
         public static string GetString(string key, string defaultValue) { return defaultValue; }
         public static void SetString(string key, string value) { }
         public static void DeleteKey(string key) { }
+        public static int GetInt(string key) { return 0; }
+        public static void SetInt(string key, int value) { }
+        public static bool HasKey(string key) { return false; }
         public static void Save() { }
     }
     public static class JsonUtility {
@@ -112,6 +121,9 @@ namespace UnityEngine
         public Vector3 TransformPoint(Vector3 p) { return p; }
         public Vector3 InverseTransformPoint(Vector3 p) { return p; }
     }
+    public static class RectTransformUtility {
+        public static bool ScreenPointToLocalPointInRectangle(RectTransform rect, Vector2 screenPoint, Camera cam, out Vector2 localPoint) { localPoint = Vector2.zero; return true; }
+    }
     public class RectTransform : Transform {
         public Vector2 anchorMin, anchorMax, pivot, sizeDelta, anchoredPosition, offsetMin, offsetMax;
         public Rect rect { get { return new Rect(); } }
@@ -171,7 +183,7 @@ namespace UnityEngine
     public class MaterialPropertyBlock { public void SetTexture(int id, Texture t) { } public void SetColor(int id, Color c) { } public void SetFloat(int id, float f) { } }
     public static class Application { public static bool isPlaying { get { return false; } } }
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)] public class RequireComponent : Attribute { public RequireComponent(Type a) { } public RequireComponent(Type a, Type b) { } }
-    public class Canvas : Behaviour { public RenderMode renderMode; public int sortingOrder; }
+    public class Canvas : Behaviour { public Camera worldCamera; public RenderMode renderMode; public int sortingOrder; }
     public class CanvasRenderer : Component { }
 
     public enum TextAnchor { UpperLeft, UpperCenter, UpperRight, MiddleLeft, MiddleCenter, MiddleRight, LowerLeft, LowerCenter, LowerRight }
@@ -224,6 +236,7 @@ namespace UnityEngine.UI
         public enum Type { Simple, Sliced, Tiled, Filled }
         public enum FillMethod { Horizontal, Vertical, Radial90, Radial180, Radial360 }
         public UnityEngine.Sprite sprite;
+        public bool preserveAspect;
         public Type type;
         public FillMethod fillMethod;
         public int fillOrigin;
@@ -325,11 +338,13 @@ namespace UnityEngine.EventSystems
     public class PointerEventData : BaseEventData {
         public UnityEngine.Vector2 position;
         public UnityEngine.GameObject pointerDrag;
+        public UnityEngine.Camera pressEventCamera;
     }
     public interface IEventSystemHandler { }
     public interface IPointerClickHandler : IEventSystemHandler { void OnPointerClick(PointerEventData eventData); }
     public interface IBeginDragHandler : IEventSystemHandler { void OnBeginDrag(PointerEventData eventData); }
     public interface IDragHandler : IEventSystemHandler { void OnDrag(PointerEventData eventData); }
+    public interface IPointerDownHandler : IEventSystemHandler { void OnPointerDown(PointerEventData eventData); }
     public interface IEndDragHandler : IEventSystemHandler { void OnEndDrag(PointerEventData eventData); }
     public interface IDropHandler : IEventSystemHandler { void OnDrop(PointerEventData eventData); }
     public class BaseInputModule : UnityEngine.Behaviour { }

@@ -1,0 +1,27 @@
+OLYMPOS-KO · 1298 — Knight Genie (tek başına paket)
+==================================================
+Menü: OLYMPOS > 1298 > Genie (Panel · Auto Attack Settings · Rozet) Oluştur
+Prefab: Prefabs/Genie_1298 -> OyunIci/Merchant paketleriyle ortak Canvas "OlymposOyunIciCanvas (2712x1220)".
+Bütün ölçüler telefon ekran görüntüsünden (2712 x 1220), sol-üst piksel.
+
+1) Knight Genie paneli (2308,50) 356 x 246 — opak
+   Başlat (>) · Durdur (kare) · Ayarlar (aşağı ok) + "Knight Genie" logosu, Time Left çubuğu, sunucu, CR, kanal.
+   Yazılar: Time Left  Roboto Slab Regular 18 #FFFCEA + koyu dış hat · "Ares - 1" Roboto Slab Bold 21 #AFEB9F (ortalı)
+            "CR : 01:18:08" Roboto Slab Bold 23 #DCF19E · "Channel 2" Roboto Slab Bold 23 #EEF4EF (x=2393 sola yaslı)
+   Davranış: Başlat -> Time Left her dakika 1 azalır, GENIE rozeti görünür, kilitHedefleri'ndeki skill ikonlarına kilit biner.
+             Durdur -> hepsi kalkar. Ayarlar -> AUTO ATTACK SETTINGS aç/kapat. CR saniye saniye geri sayar.
+
+2) AUTO ATTACK SETTINGS (262,30) 636 x 1162 — zemin düz siyah, alfa 0.93 (ölçüldü), çerçeve/kutular opak
+   ATTACK & DEBUFF 12 slot · HEAL & BUFFS (HP-AC) 12 slot · POTION HP / MP slotu
+   Kaydırıcılar: ATTACK RANGE 40 (0..45) · USE SKILL RECOVERY AT %70 · AT % CONSUME HP POTION %80 · AT % CONSUME MP POTION %50
+   Değer yazıları Roboto Slab Bold 24 #D2A776, merkez x=818. Onay kutuları: [R] Basic Attack, Use Genie Sprit (işaretli),
+   Follow Party Leader, Skill Use in Order. Ayarlar PlayerPrefs'e kaydedilir (kapatınca).
+   Slot ikonu: pencere.SlotAyarla(grup, sıra, sprite); dokunma olayı onSlotTiklandi(grup, sıra).
+
+3) Genie aktif
+   GENIE rozeti 300 x 300 (pembe ışık halkası + sarı GENIE, normal alfa) -> OlymposGenieRozeti.hedef = karakter.
+   Skill kilidi: genie_kilit 96 x 96 yarı saydam gri asma kilit (8 ikondan en küçük karelerle çözüldü),
+   OlymposGeniePaneli.kilitHedefleri listesine hızlı slot RectTransform'larını ekleyin.
+
+Fontlar: Roboto Slab Bold / Regular (Apache 2.0).
+Varsayım: ATTACK RANGE üst sınırı 45 (topuz konumundan); MP topuzu ölçümde 8 px solda (değer 48-49 olabilir).
