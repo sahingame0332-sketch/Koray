@@ -14,7 +14,7 @@ Parçalar
 
 Davranış: dış katman saat yönünde, iç katman ters yönde döner; çizgiler alevle titrer; açılışta 0.25 sn'de büyüyerek
 belirir, 'sure' kadar yanar, 0.5 sn'de söner. Kullanım:  efekt.Oyna(karakter.transform, 2f);  (karakteri izler)
-Boyut: çap = karakterBoyu x 2.0 (önizlemede karakter ~165 px, daire 330 px); alev duvarı yüksekliği = çap x 0.55.
+Boyut: çap = karakterBoyu x 1.6 (karakterBoyu 1.8 -> 2.88 birim); alev duvarı yüksekliği = çap x 0.12 (alevler yere yakın).
 Renk: çekirdek #FFC761, alev #FF5C0A, kor #CC1400 (malzemeden değiştirilebilir).
 Referans/sahne_referans.jpg: gönderilen oyun karesi (önizlemede efekt bunun üzerine bindirildi).
 Built-in boru hattı; URP'de denenmedi.

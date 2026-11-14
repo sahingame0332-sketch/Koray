@@ -1,6 +1,6 @@
 // OLYMPOS-KO · 1298 alevli run halkasi — skill kullanirken karakterin altinda yanar (OZGUN tasarim; stok gorsel kopyalanmadi).
 // Iki parca: yerde run dairesi ("Olympos/Rune Ates Halkasi") + kenarindan yukselen alev duvari ("Olympos/Rune Alev Duvari").
-// Boyut karakter boyuna gore: cap = karakterBoyu * capKarakter (onizlemede 2.0), alev duvari yuksekligi = cap * 0.55.
+// Boyut karakter boyuna gore: cap = karakterBoyu * capKarakter (1.6), alev duvari yuksekligi = cap * 0.12 (alevler yere yakin).
 // Zarf: acilis (buyuyerek belirir) -> yanma -> sonus. Kullanim:  efekt.Oyna(karakter.transform, 2f);
 using UnityEngine;
 using UnityEngine.Events;
@@ -17,9 +17,9 @@ namespace Olympos.RuneEfekt
         [Header("Boyut")]
         public float karakterBoyu = 1.8f;
         [Tooltip("Daire capi, karakter boyu cinsinden.")]
-        public float capKarakter = 2.0f;
+        public float capKarakter = 1.6f;
         [Tooltip("Alev duvari yuksekligi / cap. 0 = duvar yok.")]
-        public float duvarOrani = 0.55f;
+        public float duvarOrani = 0.12f;
         [Tooltip("Yerden yukseklik (z-fighting olmasin).")]
         public float yerdenYukseklik = 0.02f;
 

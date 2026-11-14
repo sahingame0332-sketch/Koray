@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Alevli run halkasini kullanicinin kaydindaki karakterin (xDarKPasT) altina yerlestirir.
 Kare: 56_skill_alinan_hasar.mp4, 0.5 sn (2266x1488 tablet). Karakter ~110 px (y 740-850), ayak (1130,848).
-Perspektif basiklik: ayni karedeki mob secim halkasindan (245 x 120) -> 0.47. Cap = 2.0 x karakter boyu = 220 px.
+Perspektif basiklik: ayni karedeki mob secim halkasindan (245 x 120) -> 0.47. Cap = 1.6 x karakter boyu = 176 px; alevler yere yakin (duvar 0.12 x cap).
 Yuz kamerasi bolgesi (sol ust) kirpilir; tam kare depoya konmaz. Kullanim: kur_video.py KARE.png"""
 import sys, os, numpy as np
 from PIL import Image, ImageDraw, ImageFont
@@ -9,7 +9,7 @@ from scipy import ndimage
 kod=open(os.path.join(os.path.dirname(os.path.abspath(__file__)),"kur.py")).read().split("S=np.asarray")[0]
 exec(kod)
 S=np.asarray(Image.open(sys.argv[1]).convert("RGB")).astype(float)
-MERKEZ=(1130,846); CAP=220; BASIK=0.47
+MERKEZ=(1130,846); CAP=176; BASIK=0.47      # cap 1.6 x karakter boyu (110 px)
 yy,xx=np.mgrid[0:S.shape[0],0:S.shape[1]]
 kutu=(xx>=1078)&(xx<=1182)&(yy>=735)&(yy<=858)
 lum=S.mean(2); cim=(lum<85)&(np.abs(S[...,0]-S[...,1])<35)

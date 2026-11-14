@@ -54,7 +54,7 @@ Shader "Olympos/Rune Ates Halkasi"
                 float tit = 0.75 + 0.5 * gur(float2(a / TAU * 3.0 + t * 0.3, t * 0.7));
                 float dil = gur(float2(a / TAU * 14.0, r * 2.2 - t * _AlevHiz * 1.3));
                 float halka = exp(-pow((r - 0.93) / 0.05, 2)) + 0.6 * exp(-pow((r - 0.62) / 0.05, 2));
-                float alev = saturate((dil - 0.45) * 3.0) * halka * tit;
+                float alev = saturate((dil - 0.40) * 3.4) * halka * tit * 1.3;
                 float3 c = cizgi * _Cekirdek.rgb * 0.95
                          + isil * _Alev.rgb * 0.55 * tit
                          + alev * (_Alev.rgb * 0.9 + _Kor.rgb * 0.4)
