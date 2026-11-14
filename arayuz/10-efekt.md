@@ -79,3 +79,14 @@ Kaynak: kayıt 19-30-28 (2712 × 1220, ~67 kare/sn, depoya konmadı) → 30 kare
 - Doyma: merkezde orijinal 255; `O − B` sarı zeminde mavimsi kalıyordu → parlaklığa göre (215–250) ışığın kendi rengiyle harmanlandı.
 - Karakter ~150 px, ayak (1360,712) → pivot (0.464, 0.40), genişlik 3.73 karakter boyu, en/boy 0.75. Havuz ~440 × 220 px.
 - Ad etiketi ve karakter silueti dolduruldu; siluet içi %35 zayıf (yumuşak elips). Doğrulama: zemin + efekt ↔ orijinal ort. fark **8.0** / 255.
+
+---
+
+## Ek 4 — Manes Of Fire (moba uygulanan skill, ayrı paket)
+Paket `unity_paketleri/OlymposManesOfFire1298.unitypackage` (namespace `Olympos.ManesOfFire`, sınıf `OlymposManesOfFireOynatici`,
+shader `Olympos/Manes Of Fire Eklemeli`, menü `OLYMPOS > 1298 > Manes Of Fire (Moba) Oluştur`).
+Kaynak: tablet kaydı 21-40-04 (2266 × 1488, 60 kare/sn; depoya konmadı). Araçlar `araclar/efekt/cikar4.py`, `kur4.py`; önizleme `onizlemeler/efekt4_onizleme.png`.
+- Kamera 100–235 arası sabit; zemin = 100–118 medyanı (mob + seçim halkası yerinde). Kareler 118–214, 2'de bir → 49 kare, 30 kare/sn.
+- Kutu (1215,0) 520 × 940 (ışın ekranın tepesine kadar). Mob ~140 px, ayak (1405,822) → pivot (0.365, 0.126), genişlik 3.71 boy, en/boy 1.808.
+- Maskeler: "Open" düğmesi (1215,686)–(1364,774), mob adı, karakter (sol kenar). Doğrulama: zemin + efekt ↔ orijinal ort. fark **5.8** / 255.
+- Sınır: mob 1.0 sn'den sonra yürüyor; zemin mobu eski yerinde tutuyor (efekt karelerine etkisi yok, önizlemede görünür).
