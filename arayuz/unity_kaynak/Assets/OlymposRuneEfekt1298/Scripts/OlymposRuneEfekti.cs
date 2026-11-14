@@ -23,6 +23,10 @@ namespace Olympos.RuneEfekt
         [Tooltip("Yerden yukseklik (z-fighting olmasin).")]
         public float yerdenYukseklik = 0.02f;
 
+        [Header("Gorunum")]
+        [Tooltip("Genel yogunluk (eklemeli efekt: dusuk = daha saydam). 0.5: karakterin onune gecmez.")]
+        [Range(0f, 2f)] public float yogunluk = 0.5f;
+
         [Header("Zaman")]
         public float acilis = 0.25f;
         public float sure = 2.0f;
@@ -137,7 +141,7 @@ namespace Olympos.RuneEfekt
         void Yaz(MeshRenderer r, float guc)
         {
             if (r == null) return;
-            r.GetPropertyBlock(mpb); mpb.SetFloat(ZamanId, t); mpb.SetFloat(GucId, guc); r.SetPropertyBlock(mpb);
+            r.GetPropertyBlock(mpb); mpb.SetFloat(ZamanId, t); mpb.SetFloat(GucId, guc * yogunluk); r.SetPropertyBlock(mpb);
         }
     }
 }

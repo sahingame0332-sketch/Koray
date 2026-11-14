@@ -16,7 +16,9 @@ lum=S.mean(2); cim=(lum<85)&(np.abs(S[...,0]-S[...,1])<35)
 kar=kutu&~cim
 kar=ndimage.binary_opening(kar,np.ones((2,2))); kar=ndimage.binary_fill_holes(ndimage.binary_closing(kar,np.ones((5,5))))
 kar=ndimage.gaussian_filter(kar.astype(float),0.8)[...,None]
+YOGUNLUK=0.5      # genel parlaklik (eklemeli: dusuk = daha saydam); karakterin onune gecmesin
 def bindir(t,g):
+    g=g*YOGUNLUK
     h=int(CAP*BASIK); e=Image.fromarray((np.clip(kare(t,512,g),0,1)*255).astype(np.uint8)).resize((CAP,h),Image.LANCZOS)
     e=np.asarray(e).astype(float); O=S.copy(); x0=int(MERKEZ[0]-CAP/2); y0=int(MERKEZ[1]-h/2)
     O[y0:y0+h,x0:x0+CAP]+=e

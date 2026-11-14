@@ -20,3 +20,4 @@ Not: kullanıcının sahne karesinde (yeşil çim) efektin kendisi görünmüyor
 Unity'de denenmedi.
 
 Revizyon (kullanıcı isteği): alevler yere yatırıldı (duvar 0.55 → 0.12), çap 2.0 → 1.6 karakter boyu. Önizleme `onizlemeler/rune_karakter*.png` (kayıttaki xDarKPasT).
+Revizyon 2: daha saydam — genel yoğunluk `yogunluk = 0.5` (eklemeli ışık yarıya indi; karakter ön planda kalır).
