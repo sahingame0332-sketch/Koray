@@ -1,0 +1,11 @@
+OLYMPOS-KO · 1298 — NPC alım-satım penceresi (tek başına paket)
+==============================================================
+Menü: OLYMPOS > 1298 > NPC Alım-Satım Penceresi Oluştur -> Prefabs/NpcAlimSatim_1298, ortak Canvas "OlymposOyunIciCanvas (2712x1220)".
+Referans/: kullanıcının 4 ekran görüntüsü (Buy Item Count / Need Money / Sell Item Count / Earn Money).
+
+Pencere: dış kutu 616 x 252 (ekranda (1665,542)), koyu dış çizgi + tan çerçeve; Confirm (1765,693) 186x50, Cancel (1971,693) 188x50.
+Zemin: düz siyah, alfa 0.97 (ölçüldü: arkadaki dükkân yazısı 255 -> 19, düğme zemini 68 -> 1.7). Çerçeve ve düğmeler opak, orijinal piksel.
+Yazılar: Roboto Slab Bold 25, harf aralığı +2 px (OlymposAlimSatimHarfAraligi), renk #EBEBEB, ortalı.
+  Eşya adı merkez y 574, ikinci satır merkez y 607.5. Sayı kutusu (1752,637) 404x42, sayı Roboto Slab Bold 26 #F0DCDC.
+Akış: pencere.Ac(alim, "Holy water", birimFiyat, enCokAdet) -> adet -> Confirm -> "Need/Earn Money : N" -> Confirm -> onOnay(alim, adet, para).
+  Alımda adet 1, satışta eldeki adet hazır gelir (kayıttaki gibi). Tekli eşya: pencere.UcretleAc(alim, ad, para). Cancel: kapatır.

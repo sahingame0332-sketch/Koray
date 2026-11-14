@@ -1,0 +1,66 @@
+{
+ "sprite": [
+  1662,
+  539,
+  622,
+  258
+ ],
+ "dis_kutu": [
+  1665,
+  542,
+  616,
+  252
+ ],
+ "ic": [
+  1669,
+  546,
+  607,
+  244
+ ],
+ "confirm": [
+  1765,
+  693,
+  186,
+  50
+ ],
+ "cancel": [
+  1971,
+  693,
+  188,
+  50
+ ],
+ "giris": [
+  1752,
+  637,
+  404,
+  42
+ ],
+ "yazi": {
+  "font": "RobotoSlab-Bold",
+  "punto": 25,
+  "harf_araligi": 2.0,
+  "renk": "#EBEBEB",
+  "baslik_merkez": [
+   1982,
+   574
+  ],
+  "satir2_merkez": [
+   1985,
+   607.5
+  ],
+  "sayi": {
+   "font": "RobotoSlab-Bold",
+   "punto": 26,
+   "renk": "#F0DCDC",
+   "sol": 1768,
+   "merkez_y": 656.5
+  }
+ },
+ "saydamlik": {
+  "ust_sizinti": 19.0,
+  "dugme_sizinti": 1.7,
+  "dugme_dis": 68.2,
+  "us": 1.84,
+  "alfa": 0.971
+ }
+}

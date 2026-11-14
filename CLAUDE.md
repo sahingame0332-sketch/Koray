@@ -52,6 +52,7 @@ Arayüz işi ile altyapı işi aynı oyunun iki yüzü: `docs/03-icerik-uretim-r
 | `arayuz/unity_paketleri/OlymposRuneEfekt1298.unitypackage` | Alevli run halkası — tek başına: karakterin altında dönen rün dairesi + kenardan yükselen alev duvarı (shader'lar `Olympos/Rune Ates Halkasi`, `Olympos/Rune Alev Duvari`; namespace `Olympos.RuneEfekt`). **Özgün tasarım** — kullanıcının gönderdiği stok görsel (dreamstime, lisanssız) kopyalanmadı | 1024² doku, çap 1.6 × karakter boyu, alev 0.12 × çap | eklemeli (bkz. `arayuz/14-rune-efekt.md`) |
 | `arayuz/unity_paketleri/OlymposRuneNeon1298.unitypackage` | Neon run halkası — tek başına: aynı efekt, mor/mavi/yeşil neon, Futhark rünleri (namespace `Olympos.RuneNeon`, shader'lar `Olympos/Rune Neon Halkasi` / `Duvari`). **Özgün tasarım** (stok görsel kopyalanmadı) | çap 1.6 × karakter boyu, alev 0.12 × çap, yoğunluk 0.5 | eklemeli (bkz. `arayuz/14-rune-efekt.md` ek) |
 | `arayuz/unity_paketleri/OlymposAtesHavuzu1298.unitypackage` | Karakter altı ateş havuzu — tek başına: kayıttan 39 kare (30 kare/sn, 1.3 sn), eklemeli (sınıf `OlymposAtesHavuzuOynatici`, shader `Olympos/Ates Havuzu Eklemeli`) | 560 × 420, 3.73 × karakter boyu | eklemeli (bkz. `arayuz/10-efekt.md` ek 3) |
+| `arayuz/unity_paketleri/OlymposAlimSatim1298.unitypackage` | NPC alım-satım penceresi — tek başına: Buy/Sell Item Count (sayı kutusu) → Need/Earn Money → Confirm/Cancel; harf aralıklı yazı efekti `OlymposAlimSatimHarfAraligi`; 4 referans `.jpg` pakette | 616 × 252 | yarı saydam **0.97** (bkz. `arayuz/15-npc-alimsatim.md`) |
 
 Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `OLYMPOS > 1298 > Character Penceresi Oluştur` (CHAR INFO + CLAN + FRIENDS sekmeleriyle birlikte),
@@ -65,7 +66,7 @@ Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `… > Efektler (Ateş Sütunu · Vuruş · Cast) Oluştur` (namespace `Olympos.Efekt`; efektler dünya uzayında).
 `… > Skill Efektleri (Fire Burst · Fire Blade · Vuruş) Oluştur` (namespace `Olympos.SkillEfekt`).
 `… > Genie (Panel · Auto Attack Settings · Rozet) Oluştur` (aynı 2712×1220 Canvas).
-`… > Görev NPC (QuestList · Görev Detayı · ? Rozeti) Oluştur` (aynı Canvas). `… > Respawn Penceresi Oluştur` (aynı Canvas). `… > Alevli Run Halkası Oluştur`, `… > Neon Run Halkası Oluştur`, `… > Ateş Havuzu (Karakter Altı) Oluştur` (dünya uzayı).
+`… > Görev NPC (QuestList · Görev Detayı · ? Rozeti) Oluştur` (aynı Canvas). `… > Respawn Penceresi Oluştur` (aynı Canvas). `… > Alevli Run Halkası Oluştur`, `… > Neon Run Halkası Oluştur`, `… > Ateş Havuzu (Karakter Altı) Oluştur` (dünya uzayı). `… > NPC Alım-Satım Penceresi Oluştur` (2712×1220 Canvas).
 Kurucular: doku import ayarları (Sprite, sıkıştırmasız, mipmap yok, 9-slice kenarlar) → hiyerarşiyi **sol-üst piksel
 koordinatlarıyla** kurar → `Prefabs/` altına prefab → sahnedeki Canvas'a ekler (yoksa 1920×1080, match=1 Canvas + EventSystem).
 UI sistemi: **uGUI + legacy `UnityEngine.UI.Text`** (TMP kullanılmadı). Namespace `Olympos.UI` / `Olympos.UI.EditorTools`.
@@ -123,6 +124,7 @@ stat adı 21, stat değeri 25, direnç adı 19, direnç değeri 23, buton 22. De
   `cikar_pencere.py` (taban + tekrar eden parçalar), `punto.py` (Liberation Sans adayları), `kur.py` → `onizlemeler/gorev_onizleme.png`.
 - `respawn/`: `cikar.py` (pencereSIZ kare yok: alfa iç/dış çim oranından; krom yerel karanlık tabana göre), `punto.py`, `kur.py`.
 - `rune/`: `ciz.py` / `ciz2.py` (özgün rün daireleri: alevli / neon + gürültü), `kur.py` / `kur2.py` (shader benzetimi), `kur_video.py` (kayıttaki karaktere bindirme).
+- `npc_alimsatim/`: `cikar.py` (krom + alfa: dışarı taşan dükkân öğelerinden), `punto.py`, `aralik.py` (punto + harf aralığı birlikte IoU), `kur.py`.
 - `zemin/`: `duzelt.py` (zemin düzlemini yukarıdan görünüşe çevirir), `zemin.py` (karo + renk ölçümü),
   `haritalar.py` (kontrol/renk haritası örnekleri), `onizle.py` (aynı kamerayla yeniden çizim → `onizlemeler/zemin_onizleme.png`).
 - Char Info sprite çıkarımı (OpenCV inpaint + aynı satırdan doku örnekleme) sohbet içinde satır içi yapıldı; sonuçlar
@@ -134,6 +136,7 @@ stat adı 21, stat değeri 25, direnç adı 19, direnç değeri 23, buton 22. De
   `araclar/hud_telefon/ortak.py` (çim taşması maskesi `cim_disi` — tamamı çim olan `m_once` karesinde bütün HUD öğelerini ayırıyor).
   Önizleme/paket yok.
 - Lisanssız stok görsel (filigranlı) gelirse kopyalanmaz; aynı türde özgün tasarım yapılır ve kullanıcıya söylenir.
+- Harf aralıklı yazılar (Roboto Slab Bold, +2 px) değişken metinse `OlymposAlimSatimHarfAraligi` deseni kullanılabilir.
 - Kullanıcı referans görseli pakete `.jpg` olarak koymayı istedi (Respawn): yeni paketlerde `Referans/` klasörü.
 - Kullanıcı son isteklerde her görseli **ayrı paket** olarak istedi ("ayrı paket olarak hazırla"): yeni pencereler tek başına,
   çakışmayan sınıf adlarıyla paketlenmeli. Merchant paketindeki "+N" puntosu üst yuvalarda 38; ölçülen 25 (bkz. 09 eki) — düzeltilebilir.

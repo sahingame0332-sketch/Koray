@@ -225,6 +225,11 @@ namespace UnityEngine.Events
         public void AddListener(UnityAction<T0,T1> call) { }
         public void Invoke(T0 a0, T1 a1) { }
     }
+    public class UnityEvent<T0,T1,T2> : UnityEventBase {
+        public void AddListener(UnityAction<T0,T1,T2> call) { }
+        public void Invoke(T0 a0, T1 a1, T2 a2) { }
+    }
+    public delegate void UnityAction<T0,T1,T2>(T0 a0, T1 a1, T2 a2);
     public delegate void UnityAction();
     public delegate void UnityAction<T0>(T0 arg0);
     public delegate void UnityAction<T0,T1>(T0 a0, T1 a1);
@@ -237,6 +242,7 @@ namespace UnityEngine.UI
         public bool raycastTarget;
         public UnityEngine.RectTransform rectTransform { get { return null; } }
         public UnityEngine.Material material;
+        public void SetVerticesDirty() { }
     }
     public class MaskableGraphic : Graphic { }
 
@@ -290,7 +296,17 @@ namespace UnityEngine.UI
     public class ButtonClickedEvent : UnityEngine.Events.UnityEvent { }
     public class Button : Selectable { public ButtonClickedEvent onClick = new ButtonClickedEvent(); }
 
-    public class BaseMeshEffect : UnityEngine.Behaviour { }
+    public struct UIVertex { public UnityEngine.Vector3 position; public UnityEngine.Color32 color; }
+    public class VertexHelper {
+        public int currentVertCount { get { return 0; } }
+        public void PopulateUIVertex(ref UIVertex v, int i) { }
+        public void SetUIVertex(UIVertex v, int i) { }
+    }
+    public class BaseMeshEffect : UnityEngine.Behaviour {
+        public virtual void ModifyMesh(VertexHelper vh) { }
+        public bool IsActive() { return true; }
+        protected Graphic graphic { get { return null; } }
+    }
     public class Shadow : BaseMeshEffect {
         public UnityEngine.Color effectColor;
         public UnityEngine.Vector2 effectDistance;
