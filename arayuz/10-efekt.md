@@ -90,3 +90,6 @@ Kaynak: tablet kaydı 21-40-04 (2266 × 1488, 60 kare/sn; depoya konmadı). Ara�
 - Kutu (1215,0) 520 × 940 (ışın ekranın tepesine kadar). Mob ~140 px, ayak (1405,822) → pivot (0.365, 0.126), genişlik 3.71 boy, en/boy 1.808.
 - Maskeler: "Open" düğmesi (1215,686)–(1364,774), mob adı, karakter (sol kenar). Doğrulama: zemin + efekt ↔ orijinal ort. fark **5.8** / 255.
 - Sınır: mob 1.0 sn'den sonra yürüyor; zemin mobu eski yerinde tutuyor (efekt karelerine etkisi yok, önizlemede görünür).
+- İkinci açı (kayıt 21-48-55, alçak kamera, 2.4 sn, ~1.7 sn'de kontrol merkezi açılıyor): prizma ve ışın aynı biçimde → kameraya dönük (billboard)
+  varsayımı doğrulandı. Kare çıkarılmadı (efekt küçük, adlar/HP çubukları önünde, sonu kesik). Yerdeki halkalar bu açıda görünmüyor;
+  halkalar ilk kaydın perspektifinde kareye gömülü — çok farklı kamera açısında ayrı yer dekalı gerekebilir.
