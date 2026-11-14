@@ -21,3 +21,10 @@ Unity'de denenmedi.
 
 Revizyon (kullanıcı isteği): alevler yere yatırıldı (duvar 0.55 → 0.12), çap 2.0 → 1.6 karakter boyu. Önizleme `onizlemeler/rune_karakter*.png` (kayıttaki xDarKPasT).
 Revizyon 2: daha saydam — genel yoğunluk `yogunluk = 0.5` (eklemeli ışık yarıya indi; karakter ön planda kalır).
+
+## Ek — Neon run halkası (ayrı paket)
+İstek: aynı efekt ikinci bir rün görseliyle (yine dreamstime stok, filigranlı → **kopyalanmadı**). Özgün tasarım `araclar/rune/ciz2.py`:
+kalın rün bandı + 6 madalyon, iç rün çemberi, heksagram, pusula yıldızı, 6 elipsli rozet; rünler gerçek eski Futhark.
+Renk açıya göre mor `#9E38FF` → mavi `#3873FF` → yeşil `#40FF73` (0.05 tur/sn döner). Çap 1.6 × karakter boyu, alev 0.12 × çap, yoğunluk 0.5.
+Paket `unity_paketleri/OlymposRuneNeon1298.unitypackage` (namespace `Olympos.RuneNeon`, shader'lar `Olympos/Rune Neon Halkasi` / `Olympos/Rune Neon Duvari`).
+Önizleme `onizlemeler/rune2_karakter*.png`, `rune2_onizleme_tek.png` (benzetim `araclar/rune/kur2.py`).

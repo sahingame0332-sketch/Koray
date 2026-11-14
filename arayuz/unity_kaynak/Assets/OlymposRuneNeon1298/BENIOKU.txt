@@ -1,0 +1,15 @@
+OLYMPOS-KO · 1298 — Neon run halkası (tek başına paket)
+======================================================
+Menü: OLYMPOS > 1298 > Neon Run Halkası Oluştur  -> sahneye "NeonRunHalkasi" (+ Prefabs/NeonRunHalkasi.prefab).
+Alevli run halkası paketiyle aynı mantık, ayrı adlar (namespace Olympos.RuneNeon, sınıf OlymposRuneNeonEfekti) — ikisi aynı projede durabilir.
+
+ÖZGÜN TASARIM: gönderilen stok görsel (dreamstime, filigranlı, lisanssız) kopyalanmadı. Kendi çizimimiz:
+kalın rün bandı + 6 madalyon (büyük rün + ince rün halkası), iç rün çemberi, heksagram, 4 kollu pusula yıldızı,
+6 elipsli rozet, merkez halka. Rünler gerçek eski Futhark alfabesi (kamu malı). Kaynak: arayuz/araclar/rune/ciz2.py.
+
+Renk: açıya göre mor (#9E38FF) -> mavi (#3873FF) -> yeşil (#40FF73), yavaşça döner (_TonHiz 0.05 tur/sn); çekirdek beyaz-mavi.
+Eklemeli (Blend One One): siyah görünmez.
+Boyut: çap = karakterBoyu x 1.6 (karakterBoyu 1.8 -> 2.88 birim); yere yakın ışık alevleri = çap x 0.12.
+Saydamlık: 'yogunluk' 0.5 (karakter ön planda kalır; 1 = tam parlak).
+Kullanım: efekt.Oyna(karakter.transform, 2f);  açılış 0.25 sn, yanma 2 sn, sönüş 0.5 sn.
+Referans/sahne_referans.jpg: önizlemede kullanılan oyun karesi. Built-in boru hattı; URP'de denenmedi.
