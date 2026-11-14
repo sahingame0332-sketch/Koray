@@ -16,6 +16,11 @@ namespace UnityEngine
         public float x, y, z;
         public Vector3(float x, float y, float z) { this.x = x; this.y = y; this.z = z; }
         public static Vector3 up { get { return new Vector3(0, 1, 0); } }
+        public static Vector3 back { get { return new Vector3(0, 0, -1); } }
+        public float sqrMagnitude { get { return x * x + y * y + z * z; } }
+        public Vector3 normalized { get { return this; } }
+        public static Vector3 operator -(Vector3 a) { return new Vector3(-a.x, -a.y, -a.z); }
+        public static float SignedAngle(Vector3 a, Vector3 b, Vector3 axis) { return 0f; }
         public static Vector3 operator +(Vector3 a, Vector3 b) { return new Vector3(a.x + b.x, a.y + b.y, a.z + b.z); }
         public static Vector3 operator *(Vector3 a, float d) { return new Vector3(a.x * d, a.y * d, a.z * d); }
         public static implicit operator Vector2(Vector3 v) { return new Vector2(v.x, v.y); }
@@ -117,6 +122,7 @@ namespace UnityEngine
         public Vector3 lossyScale;
         public Vector3 localScale;
         public Vector3 localPosition;
+        public Vector3 forward { get { return new Vector3(0,0,1); } }
         public Quaternion rotation;
         public Transform parent { get { return null; } }
         public Vector3 position;
@@ -160,6 +166,7 @@ namespace UnityEngine
         public static float Cos(float f) { return (float)System.Math.Cos(f); }
         public static float Sin(float f) { return (float)System.Math.Sin(f); }
         public static float Lerp(float a, float b, float t) { return a + (b - a) * t; }
+        public static float Abs(float f) { return f < 0 ? -f : f; }
         public static int Clamp(int v, int a, int b) { return v < a ? a : (v > b ? b : v); }
         public static float Clamp(float v, float a, float b) { return v < a ? a : (v > b ? b : v); }
         public static float Clamp01(float v) { return Clamp(v, 0f, 1f); }

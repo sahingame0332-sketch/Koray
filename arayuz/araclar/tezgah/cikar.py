@@ -7,16 +7,22 @@ import os, json, numpy as np
 from PIL import Image, ImageDraw
 from scipy import ndimage
 B_=os.path.dirname(os.path.abspath(__file__))
-O=np.asarray(Image.open(os.path.join(B_,"..","..","referans_gorseller","tezgah","tezgah.jpg")).convert("RGB")).astype(float)
+import sys
 OUT=os.path.join(B_,"..","..","kaynak","tezgah"); os.makedirs(OUT,exist_ok=True)
-X0,Y0,X1,Y1=1490,680,1795,1050
+# (ad, kaynak, kutu, haric kutular (ekran), karakter boyu px, karakter ayagi)
+GORUNUM={"on":("tezgah.jpg",(1490,680,1795,1050),[],427,[1365,1045]),
+         "yan":("tezgah_yan.jpg",(1060,440,1292,712),[(1250,455,1300,500),(1270,660,1300,712)],332,[1360,956])}
+ad=sys.argv[1] if len(sys.argv)>1 else "on"
+dosya,(X0,Y0,X1,Y1),HARIC,KB,AYAK=GORUNUM[ad]
+O=np.asarray(Image.open(os.path.join(B_,"..","..","referans_gorseller","tezgah",dosya)).convert("RGB")).astype(float)
 P=O[Y0:Y1,X0:X1]; R,G,B=P[...,0],P[...,1],P[...,2]
 mx=P.max(2); mn=P.min(2)
 cim=(G>=R-4)&(G>B+8)&(mx<175)                                  # olive-yesil cim
 cim|=(mx<60)&(G>=R-2)&(G>=B)                                     # koyu cim golgesi
 m=~cim
+for (a,b,c,d) in HARIC: m[b-Y0:d-Y0,a-X0:c-X0]=False
 m=ndimage.binary_opening(m,np.ones((5,5))); l,n=ndimage.label(m); s=ndimage.sum(m,l,range(1,n+1)); m=l==(s.argmax()+1)
-m=ndimage.binary_closing(m,np.ones((9,9))); m=ndimage.binary_fill_holes(m)
+m=ndimage.binary_closing(m,np.ones((7,7))); m=ndimage.binary_fill_holes(m)
 # dis bukey zarf
 ys,xs=np.nonzero(m); pts=np.c_[xs,ys]
 def zarf(p):
@@ -33,10 +39,16 @@ def zarf(p):
 Z=zarf(pts)
 S=4; im=Image.new("L",((X1-X0)*S,(Y1-Y0)*S),0); ImageDraw.Draw(im).polygon([(x*S+S/2,y*S+S/2) for x,y in Z],fill=255)
 a=np.asarray(im.resize((X1-X0,Y1-Y0),Image.LANCZOS)).astype(float)/255
+# zarf, siluetin ice donuk kosesindeki cimi de alir (yan gorunus: sancak sandiktan tasiyor) -> maskeyle kesistir
+mk=ndimage.gaussian_filter(ndimage.binary_dilation(m,np.ones((3,3))).astype(float),1.0)
+if ad=="yan": a=np.minimum(a,np.clip(mk*1.6,0,1))      # on gorunus dis bukey: zarf yeterli (koyu kenarlar cim sanilmasin)
 ys,xs=np.nonzero(a>0.02); x0,x1,y0,y1=xs.min(),xs.max()+1,ys.min(),ys.max()+1
 spr=np.dstack([P,a*255])[y0:y1,x0:x1]
-Image.fromarray(spr.astype(np.uint8),"RGBA").save(os.path.join(OUT,"tezgah.png"))
+Image.fromarray(spr.astype(np.uint8),"RGBA").save(os.path.join(OUT,"tezgah.png" if ad=="on" else "tezgah_%s.png"%ad))
 # kose noktalari (sadelestirilmis): zarfin en uc 4-6 noktasi
-json.dump(dict(ekran_kutu=[int(X0+x0),int(Y0+y0),int(x1-x0),int(y1-y0)],zarf=[[int(X0+x),int(Y0+y)] for x,y in Z],
-               karakter_boyu_px=427,karakter_ayak=[1365,1045]),open(os.path.join(OUT,"olculer.json"),"w"),indent=0)
+p=os.path.join(OUT,"olculer.json"); J=json.load(open(p)) if os.path.exists(p) else {}
+if "ekran_kutu" in J: J={"on":J}
+J[ad]=dict(ekran_kutu=[int(X0+x0),int(Y0+y0),int(x1-x0),int(y1-y0)],zarf=[[int(X0+x),int(Y0+y)] for x,y in Z],
+           karakter_boyu_px=KB,karakter_ayak=AYAK,yukseklik_karakter=round((y1-y0)/KB,3),en_boy=round((x1-x0)/(y1-y0),3))
+json.dump(J,open(p,"w"),indent=0)
 print("tezgah",spr.shape,"ekran",X0+x0,Y0+y0, "zarf nokta",len(Z))
