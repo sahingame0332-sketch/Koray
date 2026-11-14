@@ -1,0 +1,12 @@
+OLYMPOS-KO · 1298 — Respawn penceresi (tek başına paket)
+=======================================================
+Menü: OLYMPOS > 1298 > Respawn Penceresi Oluştur
+Prefab: Prefabs/Respawn_1298 -> ortak Canvas "OlymposOyunIciCanvas (2712x1220)".
+Referans: Referans/respawn_referans.jpg (kullanıcının ekran görüntüsü, 2712 x 1220).
+
+Pencere: dış kutu 700 x 386 (ekranda (1985,645)), koyu dış çizgi + tan çerçeve, Confirm düğmesi (2255,951) 164 x 58.
+Zemin: düz siyah, alfa 0.92 (ölçüldü: pencere içi / dışı çim parlaklık oranı 0.067-0.091). Çerçeve ve düğme opak.
+Yazılar orijinal piksellerden (sprite'ta): "Respawn" sarı #EDF522, mesaj beyaz, "Confirm" #FAEFEF.
+  Ölçülen font: Roboto Slab Bold — büyük harf yüksekliği 20 px (~28 punto), harf aralığı +1.8 px; Confirm ~24 punto.
+  Yazı değiştirilecekse: Krom sprite'ını respawn_bos.png yapın, Fonts/RobotoSlab-Bold.ttf ile Text ekleyin.
+Davranış: açıkken arkadaki HUD'a dokunma engellenir; Confirm -> pencere kapanır, onOnay olayı (ışınlama) çağrılır.

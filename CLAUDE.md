@@ -48,6 +48,7 @@ Arayüz işi ile altyapı işi aynı oyunun iki yüzü: `docs/03-icerik-uretim-r
 | `arayuz/unity_paketleri/OlymposSkillEfekt1298.unitypackage` | Skill efektleri — tek başına: Fire Burst (moba), Fire Blade (moba), karaktere vuruş (tam); sınıf `OlymposSkillEfektOynatici`, shader `Olympos/Skill Efekt Eklemeli` | 900 × 760 / 560 × 820 / 470 × 430 | eklemeli, 36 kare/sn (bkz. `arayuz/10-efekt.md` ek 2) |
 | `arayuz/unity_paketleri/OlymposGenie1298.unitypackage` | Knight Genie — tek başına: panel (Başlat/Durdur/Ayarlar, Time Left, sunucu, CR, kanal), AUTO ATTACK SETTINGS (24 slot + iksir, 4 kaydırıcı, 4 onay), aktif durum (GENIE rozeti, skill kilidi); sınıflar `OlymposGenie*` | 356 × 246 / 636 × 1162 / 300² | panel opak, pencere **0.93** (bkz. `arayuz/11-genie.md`) |
 | `arayuz/unity_paketleri/OlymposGorevNpc1298.unitypackage` | Görev NPC'si — tek başına: "?" rozeti (ön-çarpımlı, shader `Olympos/UI On Carpimli`), QuestList, görev detayı (Objectives, 8 ödül, Accepted/Close); sınıflar `OlymposGorev*`, font Liberation Sans Bold | 350² / 642 × 470 / 596 × 840 | liste **0.91**, detay **0.93** (bkz. `arayuz/12-gorev-npc.md`) |
+| `arayuz/unity_paketleri/OlymposRespawn1298.unitypackage` | Respawn penceresi (karakter ölünce) — tek başına; yazılar sprite'ta (orijinal piksel), Confirm → `onOnay`; referans `.jpg` pakette (`Referans/`) | 700 × 386 | yarı saydam **0.92** (bkz. `arayuz/13-respawn.md`) |
 
 Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `OLYMPOS > 1298 > Character Penceresi Oluştur` (CHAR INFO + CLAN + FRIENDS sekmeleriyle birlikte),
@@ -61,7 +62,7 @@ Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `… > Efektler (Ateş Sütunu · Vuruş · Cast) Oluştur` (namespace `Olympos.Efekt`; efektler dünya uzayında).
 `… > Skill Efektleri (Fire Burst · Fire Blade · Vuruş) Oluştur` (namespace `Olympos.SkillEfekt`).
 `… > Genie (Panel · Auto Attack Settings · Rozet) Oluştur` (aynı 2712×1220 Canvas).
-`… > Görev NPC (QuestList · Görev Detayı · ? Rozeti) Oluştur` (aynı Canvas).
+`… > Görev NPC (QuestList · Görev Detayı · ? Rozeti) Oluştur` (aynı Canvas). `… > Respawn Penceresi Oluştur` (aynı Canvas).
 Kurucular: doku import ayarları (Sprite, sıkıştırmasız, mipmap yok, 9-slice kenarlar) → hiyerarşiyi **sol-üst piksel
 koordinatlarıyla** kurar → `Prefabs/` altına prefab → sahnedeki Canvas'a ekler (yoksa 1920×1080, match=1 Canvas + EventSystem).
 UI sistemi: **uGUI + legacy `UnityEngine.UI.Text`** (TMP kullanılmadı). Namespace `Olympos.UI` / `Olympos.UI.EditorTools`.
@@ -116,6 +117,7 @@ stat adı 21, stat değeri 25, direnç adı 19, direnç değeri 23, buton 22. De
   `cikar_aktif.py` (skill kilidi: 8 ikondan en küçük kareler; GENIE rozeti), `punto.py`, `kur.py` → `onizlemeler/genie_onizleme.png`.
 - `gorev/`: `cikar_rozet.py` ("?" rozeti: basamak şeridi kontrastından geçirgenlik → ön-çarpımlı), `cikar_krom.py`,
   `cikar_pencere.py` (taban + tekrar eden parçalar), `punto.py` (Liberation Sans adayları), `kur.py` → `onizlemeler/gorev_onizleme.png`.
+- `respawn/`: `cikar.py` (pencereSIZ kare yok: alfa iç/dış çim oranından; krom yerel karanlık tabana göre), `punto.py`, `kur.py`.
 - `zemin/`: `duzelt.py` (zemin düzlemini yukarıdan görünüşe çevirir), `zemin.py` (karo + renk ölçümü),
   `haritalar.py` (kontrol/renk haritası örnekleri), `onizle.py` (aynı kamerayla yeniden çizim → `onizlemeler/zemin_onizleme.png`).
 - Char Info sprite çıkarımı (OpenCV inpaint + aynı satırdan doku örnekleme) sohbet içinde satır içi yapıldı; sonuçlar
@@ -126,6 +128,7 @@ stat adı 21, stat değeri 25, direnç adı 19, direnç değeri 23, buton 22. De
   karar: HUD **telefon karelerinden (2712×1220)** kurulacak ki OyunIci/Merchant ile aynı Canvas'a otursun. Başlangıç:
   `araclar/hud_telefon/ortak.py` (çim taşması maskesi `cim_disi` — tamamı çim olan `m_once` karesinde bütün HUD öğelerini ayırıyor).
   Önizleme/paket yok.
+- Kullanıcı referans görseli pakete `.jpg` olarak koymayı istedi (Respawn): yeni paketlerde `Referans/` klasörü.
 - Kullanıcı son isteklerde her görseli **ayrı paket** olarak istedi ("ayrı paket olarak hazırla"): yeni pencereler tek başına,
   çakışmayan sınıf adlarıyla paketlenmeli. Merchant paketindeki "+N" puntosu üst yuvalarda 38; ölçülen 25 (bkz. 09 eki) — düzeltilebilir.
 - Merchant paketi teslim edildi (`arayuz/09-merchant.md`, adet + satın alma onayı eki dâhil). Hâlâ varsayım: onayın nasıl
