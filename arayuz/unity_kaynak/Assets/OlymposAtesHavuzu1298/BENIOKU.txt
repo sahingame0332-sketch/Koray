@@ -1,0 +1,16 @@
+OLYMPOS-KO · 1298 — Karakter altı ateş havuzu (tek başına paket)
+================================================================
+Menü: OLYMPOS > 1298 > Ateş Havuzu (Karakter Altı) Oluştur  -> sahneye örnek + Prefabs/AtesHavuzu.prefab
+Kaynak: kullanıcının kaydı (2712 x 1220, ~67 kare/sn) -> 30 kare/sn: 39 kare, 1.3 sn, her kare 560 x 420 px.
+
+Grafik / renk / sıcaklık: kareler orijinalden "orijinal − efekt sonrası zemin" olarak çıkarıldı (eklemeli ışık).
+  Çekirdek beyaz-sarı (doyuyor), dışa doğru turuncu, kenarda koyu turuncu — renk değiştirilmedi.
+  Doyan merkezde (orijinal 255'e dayanıyor) ışığın kendi rengi kullanıldı.
+Arka fon / saydamlık: siyah = saydam; shader "Olympos/Ates Havuzu Eklemeli" (Blend One One).
+Boyut: kayıtta karakter ~150 px -> kare genişliği 3.73 karakter boyu (karakterBoyu 1.8 -> 6.7 birim), en/boy 0.75.
+  Yerdeki havuz ~440 x 220 px = 2.9 karakter boyu çapında elips; alev üstte karakterin göğsüne kadar yükselir.
+Pivot: karakterin ayağı (0.464, 0.40). Kameraya dönük dörtgen (billboard).
+Zaman: 0.15 sn açılış (kayıtta kamera kaydığı için ilk ~0.2 sn alınamadı), ~1.0 sn yanma, ~0.25 sn sönüş.
+Kullanım: oynatici.Hedefte(karakter.transform.position); döngü denemede açık, oyunda kapatın.
+Not: karakterin önünde kalan bölge komşu ışıktan dolduruldu ve %35 zayıflatıldı (karakter ışığın içinden görünsün).
+Built-in boru hattı; URP'de denenmedi.

@@ -51,6 +51,7 @@ Arayüz işi ile altyapı işi aynı oyunun iki yüzü: `docs/03-icerik-uretim-r
 | `arayuz/unity_paketleri/OlymposRespawn1298.unitypackage` | Respawn penceresi (karakter ölünce) — tek başına; yazılar sprite'ta (orijinal piksel), Confirm → `onOnay`; referans `.jpg` pakette (`Referans/`) | 700 × 386 | yarı saydam **0.92** (bkz. `arayuz/13-respawn.md`) |
 | `arayuz/unity_paketleri/OlymposRuneEfekt1298.unitypackage` | Alevli run halkası — tek başına: karakterin altında dönen rün dairesi + kenardan yükselen alev duvarı (shader'lar `Olympos/Rune Ates Halkasi`, `Olympos/Rune Alev Duvari`; namespace `Olympos.RuneEfekt`). **Özgün tasarım** — kullanıcının gönderdiği stok görsel (dreamstime, lisanssız) kopyalanmadı | 1024² doku, çap 1.6 × karakter boyu, alev 0.12 × çap | eklemeli (bkz. `arayuz/14-rune-efekt.md`) |
 | `arayuz/unity_paketleri/OlymposRuneNeon1298.unitypackage` | Neon run halkası — tek başına: aynı efekt, mor/mavi/yeşil neon, Futhark rünleri (namespace `Olympos.RuneNeon`, shader'lar `Olympos/Rune Neon Halkasi` / `Duvari`). **Özgün tasarım** (stok görsel kopyalanmadı) | çap 1.6 × karakter boyu, alev 0.12 × çap, yoğunluk 0.5 | eklemeli (bkz. `arayuz/14-rune-efekt.md` ek) |
+| `arayuz/unity_paketleri/OlymposAtesHavuzu1298.unitypackage` | Karakter altı ateş havuzu — tek başına: kayıttan 39 kare (30 kare/sn, 1.3 sn), eklemeli (sınıf `OlymposAtesHavuzuOynatici`, shader `Olympos/Ates Havuzu Eklemeli`) | 560 × 420, 3.73 × karakter boyu | eklemeli (bkz. `arayuz/10-efekt.md` ek 3) |
 
 Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `OLYMPOS > 1298 > Character Penceresi Oluştur` (CHAR INFO + CLAN + FRIENDS sekmeleriyle birlikte),
@@ -64,7 +65,7 @@ Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `… > Efektler (Ateş Sütunu · Vuruş · Cast) Oluştur` (namespace `Olympos.Efekt`; efektler dünya uzayında).
 `… > Skill Efektleri (Fire Burst · Fire Blade · Vuruş) Oluştur` (namespace `Olympos.SkillEfekt`).
 `… > Genie (Panel · Auto Attack Settings · Rozet) Oluştur` (aynı 2712×1220 Canvas).
-`… > Görev NPC (QuestList · Görev Detayı · ? Rozeti) Oluştur` (aynı Canvas). `… > Respawn Penceresi Oluştur` (aynı Canvas). `… > Alevli Run Halkası Oluştur`, `… > Neon Run Halkası Oluştur` (dünya uzayı).
+`… > Görev NPC (QuestList · Görev Detayı · ? Rozeti) Oluştur` (aynı Canvas). `… > Respawn Penceresi Oluştur` (aynı Canvas). `… > Alevli Run Halkası Oluştur`, `… > Neon Run Halkası Oluştur`, `… > Ateş Havuzu (Karakter Altı) Oluştur` (dünya uzayı).
 Kurucular: doku import ayarları (Sprite, sıkıştırmasız, mipmap yok, 9-slice kenarlar) → hiyerarşiyi **sol-üst piksel
 koordinatlarıyla** kurar → `Prefabs/` altına prefab → sahnedeki Canvas'a ekler (yoksa 1920×1080, match=1 Canvas + EventSystem).
 UI sistemi: **uGUI + legacy `UnityEngine.UI.Text`** (TMP kullanılmadı). Namespace `Olympos.UI` / `Olympos.UI.EditorTools`.
@@ -113,6 +114,7 @@ stat adı 21, stat değeri 25, direnç adı 19, direnç değeri 23, buton 22. De
   `cikar2.py` / `kur2.py`: tablet görüntülerinden adet ve satın alma onayı pencereleri (ölçek 1.0405).
   `cikar3.py` / `kur3.py`: alıcı görünümü (mor çerçeveler, satıcı adı).
 - `efekt/`: `cikar.py VIDEO` (eklemeli efekt kareleri: orijinal − zemin), `kur.py VIDEO` (zemin + efekt ↔ orijinal).
+  `cikar3.py VIDEO` / `kur3.py VIDEO`: karakter altı ateş havuzu (doyan merkezde ışığın kendi rengi).
   `cikar2.py A B` / `kur2.py A B`: telefon kayıtlarından Fire Burst, Fire Blade, tam vuruş (etiket bandı dikey dolgu, kararan piksel dolgusu).
   Kullanıcı kayıtlarında yüz kamerası olabilir: tam kareleri depoya koyma.
 - `genie/`: `cikar_pencere.py` (doğrusal olmayan zemin modeliyle krom), `cikar_panel.py` (3 sahnede değişmeyen piksel = opak),

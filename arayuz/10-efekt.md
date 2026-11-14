@@ -65,3 +65,17 @@ Araçlar: `araclar/efekt/cikar2.py VIDEO_A VIDEO_B`, `kur2.py VIDEO_A VIDEO_B` �
   komşu ışıktan dolduruldu; ışık içinde kalan karanlık delikler kapatıldı; G ≤ R (çim artığı kalmasın).
 - Sınır: karakterin tam arkasında kalan ışık tahmini (komşudan dolgu); Fire Burst'ün yer düzlemi (alt düz kenar)
   kameraya dönük dörtgende perspektifiyle taşınır. Unity'de denenmedi.
+
+---
+
+## Ek 3 — Karakter altı ateş havuzu (ayrı paket)
+Paket `unity_paketleri/OlymposAtesHavuzu1298.unitypackage` (namespace `Olympos.AtesHavuzu`, sınıf `OlymposAtesHavuzuOynatici`,
+shader `Olympos/Ates Havuzu Eklemeli`, menü `OLYMPOS > 1298 > Ateş Havuzu (Karakter Altı) Oluştur`).
+Kaynak: kayıt 19-30-28 (2712 × 1220, ~67 kare/sn, depoya konmadı) → 30 kare/sn. Araçlar `araclar/efekt/cikar3.py`, `kur3.py`;
+önizleme `onizlemeler/efekt3_onizleme.png`.
+
+- Kamera 30fps karesi 67'de durur; efekt ~0.2 sn önce başlamış → ilk anı alınamadı, oynatıcıda 0.15 sn açılış.
+- Zemin = efekt sonrası 116–131 karelerinin medyanı (aynı kamera). 39 kare (67–105), 560 × 420 px, kutu (1100,460).
+- Doyma: merkezde orijinal 255; `O − B` sarı zeminde mavimsi kalıyordu → parlaklığa göre (215–250) ışığın kendi rengiyle harmanlandı.
+- Karakter ~150 px, ayak (1360,712) → pivot (0.464, 0.40), genişlik 3.73 karakter boyu, en/boy 0.75. Havuz ~440 × 220 px.
+- Ad etiketi ve karakter silueti dolduruldu; siluet içi %35 zayıf (yumuşak elips). Doğrulama: zemin + efekt ↔ orijinal ort. fark **8.0** / 255.
