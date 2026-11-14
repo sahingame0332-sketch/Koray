@@ -1,0 +1,16 @@
+OLYMPOS-KO · 1298 — Görev NPC'si (tek başına paket)
+==================================================
+Menü: OLYMPOS > 1298 > Görev NPC (QuestList · Görev Detayı · ? Rozeti) Oluştur
+Prefab: Prefabs/GorevNpc_1298 -> ortak Canvas "OlymposOyunIciCanvas (2712x1220)". Ölçüler telefon ekranından (sol-üst piksel).
+
+1) "?" rozeti 350 x 350 — NPC başının üstü. Karışım ölçüldü: merkezde ışık EKLENİYOR, kenarda örtüyor ->
+   ön-çarpımlı sprite + malzeme "Olympos/UI On Carpimli" (Blend One OneMinusSrcAlpha). OlymposGorevRozeti.npc = NPC.
+   (Orijinalde rozet dünyada ve duvarın arkasında kalabiliyor; bu sürüm ekran katmanında, örtme yok.)
+2) QuestList (1040,372) 642 x 470 — siyah zemin 0.91 (ölçüldü). Portre, "Test NPC Description." (Liberation Sans Bold 16 #DD9344),
+   görev satırı (beyaz çerçeve 468 x 82, ad Bold 22 #F6E1E1). Satıra dokununca detay açılır.
+3) Görev detayı (1052,172) 596 x 840 — siyah zemin 0.93 (ölçüldü). Başlık Bold 19 #EEDADA, açıklama Bold 16 #E09869,
+   Objectives satırı (ikon + "25" + 2 satır), Rewards 8 hücre (2 x 4), Accepted / Close.
+   Accepted -> onKabul(gorev); kabul edilen görevde düğme pasif.
+
+Kullanım: liste.Ac(npcPortresi, "açıklama", gorevListesi);  veriler OlymposGorev / OlymposGorevHedefi / OlymposGorevOdulu.
+Font: Liberation Sans Bold (SIL OFL; Arial ile aynı ölçüler — orijinal istemci Arial kullanıyor).

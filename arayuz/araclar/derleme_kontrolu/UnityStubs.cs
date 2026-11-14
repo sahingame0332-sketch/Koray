@@ -92,6 +92,7 @@ namespace UnityEngine
         public string name;
         public static void DestroyImmediate(Object o) { }
         public static void Destroy(Object o) { }
+        public static T Instantiate<T>(T original, Transform parent) where T : Object { return original; }
         public static T FindObjectOfType<T>() where T : Object { return null; }
         public static T[] FindObjectsOfType<T>() where T : Object { return new T[0]; }
         public static bool operator ==(Object a, Object b) { return ReferenceEquals(a, b); }
@@ -105,6 +106,7 @@ namespace UnityEngine
         public Transform transform { get { return null; } }
         public T GetComponent<T>() where T : Component { return null; }
         public T GetComponentInParent<T>() where T : Component { return null; }
+        public T GetComponentInChildren<T>() where T : Component { return null; }
         public T[] GetComponentsInChildren<T>(bool includeInactive) where T : Component { return new T[0]; }
     }
     public class Behaviour : Component { public bool enabled; }
@@ -205,7 +207,7 @@ namespace UnityEngine
 
 namespace UnityEngine.Events
 {
-    public class UnityEventBase { }
+    public class UnityEventBase { public void RemoveAllListeners() { } }
     public class UnityEvent : UnityEventBase {
         public void AddListener(UnityAction call) { }
         public void Invoke() { }
@@ -229,6 +231,7 @@ namespace UnityEngine.UI
         public UnityEngine.Color color;
         public bool raycastTarget;
         public UnityEngine.RectTransform rectTransform { get { return null; } }
+        public UnityEngine.Material material;
     }
     public class MaskableGraphic : Graphic { }
 
