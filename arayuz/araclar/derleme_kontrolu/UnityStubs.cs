@@ -17,6 +17,10 @@ namespace UnityEngine
         public Vector3(float x, float y, float z) { this.x = x; this.y = y; this.z = z; }
         public static Vector3 up { get { return new Vector3(0, 1, 0); } }
         public static Vector3 back { get { return new Vector3(0, 0, -1); } }
+        public static float Distance(Vector3 a, Vector3 b) { return 0f; }
+        public static Vector3 Lerp(Vector3 a, Vector3 b, float t) { return a; }
+        public static Vector3 Cross(Vector3 a, Vector3 b) { return a; }
+        public static Vector3 operator -(Vector3 a, Vector3 b) { return new Vector3(a.x - b.x, a.y - b.y, a.z - b.z); }
         public float sqrMagnitude { get { return x * x + y * y + z * z; } }
         public Vector3 normalized { get { return this; } }
         public static Vector3 operator -(Vector3 a) { return new Vector3(-a.x, -a.y, -a.z); }
@@ -47,7 +51,7 @@ namespace UnityEngine
         public static float fogStartDistance, fogEndDistance; public static Color ambientLight;
     }
     [AttributeUsage(AttributeTargets.Class)] public class ExecuteAlways : Attribute { }
-    public struct Quaternion { public float x, y, z, w; public static Quaternion LookRotation(Vector3 f, Vector3 up) { return new Quaternion(); } }
+    public struct Quaternion { public float x, y, z, w; public static Quaternion LookRotation(Vector3 f, Vector3 up) { return new Quaternion(); } public static Quaternion identity { get { return new Quaternion(); } } }
     public struct Rect {
         public float x, y, width, height;
         public float xMin { get { return x; } } public float xMax { get { return x + width; } }
@@ -99,6 +103,7 @@ namespace UnityEngine
         public static void Destroy(Object o) { }
         public static T Instantiate<T>(T original, Transform parent) where T : Object { return original; }
         public static T Instantiate<T>(T original) where T : Object { return original; }
+        public static T Instantiate<T>(T original, Vector3 pos, Quaternion rot) where T : Object { return original; }
         public static T FindObjectOfType<T>() where T : Object { return null; }
         public static T[] FindObjectsOfType<T>() where T : Object { return new T[0]; }
         public static bool operator ==(Object a, Object b) { return ReferenceEquals(a, b); }

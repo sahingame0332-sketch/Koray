@@ -1,0 +1,45 @@
+{
+ "kutu": [
+  0,
+  262,
+  520,
+  260
+ ],
+ "kaynak_kareler": [
+  122,
+  168,
+  2
+ ],
+ "fps": 30,
+ "kare_sayisi": 23,
+ "vurus_merkezi_ekran": [
+  250,
+  350
+ ],
+ "karisim": "on-carpimli: rgb = a*beyaz + isik, alfa = beyaz patlamanin ortuculugu",
+ "ortalama_parlaklik": [
+  0.58,
+  12.88,
+  12.02,
+  9.7,
+  1.79,
+  4.05,
+  5.55,
+  5.54,
+  8.26,
+  8.56,
+  8.81,
+  8.47,
+  8.49,
+  7.9,
+  6.82,
+  5.38,
+  3.5,
+  1.79,
+  0.66,
+  0.4,
+  0.4,
+  0.41,
+  0.42
+ ]
+}

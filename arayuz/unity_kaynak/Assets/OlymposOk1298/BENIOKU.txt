@@ -1,0 +1,21 @@
+OLYMPOS-KO · 1298 — Shadow Hunter oku (tek başına paket)
+=======================================================
+Menü: OLYMPOS > 1298 > Ok (Shadow Hunter) Oluştur -> sahneye "OlymposOk_ShadowHunter" + Prefabs/OlymposOk_ShadowHunter.prefab
+Kullanım: GetComponent<OlymposOkAtisi>().At(okcu.transform, hedef.transform);
+Kaynak: kullanıcının telefon kaydı (2712 x 1220, 60 kare/sn). Referans/: uçuş ve vuruş anından birer kare.
+
+OK GÖRSELİ (Textures/ok.png, 160 x 19, uç sağda):
+  opak krem üçgen uç (gölgeli, zeytin-gri taban) + arkasında incelerek biten krem-sarı ışık izi (yarı saydam).
+  Kayıttan çıkarıldı (kare 97, okun yaydan çıkarken en net hâli); renk değiştirilmedi. Shader "Olympos/Ok" (alfa).
+GİDİŞ ŞEKLİ (ölçüldü, uç noktası kare kare izlendi):
+  - Yaydan çıkış: okçunun ayağından 0.77 karakter boyu yukarı (yay eli).
+  - Hedefe DÜZ çizgi: ölçülen yay sapması kirişin %0.16'sı (1.7 px / 1069 px) -> yaysız. Ok her an uçuş yönüne hizalı.
+  - Süre: 0.483 sn (29 kare) sabit-süre modu (varsayılan); istenirse sabit hız modu (hiz).
+  - Hedef hareket ederse ok onu izler (varış = hedefin güncel konumu + hedefYuksekligi).
+  - Uzunluk: 0.533 karakter boyu (karakterBoyu 1.8 -> 0.96 birim), kalınlık 0.119 x uzunluk.
+VURUŞ (Textures/Vurus, 23 kare, 30 kare/sn, 520 x 260, shader "Olympos/Ok Vurus" — ön-çarpımlı):
+  0-0.2 sn beyaz çizgi-roman patlaması (örtücü) -> 0.2-1.2 sn gökten inen turuncu ışın + pembe duman (ışık) -> söner.
+  Kayıtta sol üstteki karakter paneli ışının üst kısmını örttüğü için ışın karenin üst kenarında başlıyor.
+  Boyut: genişlik 3.47 karakter boyu — TAHMİNİ (hedefin uzaklığındaki ölçek ufuk çizgisine göre); Inspector'dan düzeltilebilir.
+  Pivot: hedefin ayağı (seçim halkası merkezi). Seçim halkası ve Worm efektten ayıklandı.
+Built-in boru hattı; URP'de denenmedi.

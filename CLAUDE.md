@@ -56,6 +56,7 @@ Arayüz işi ile altyapı işi aynı oyunun iki yüzü: `docs/03-icerik-uretim-r
 | `arayuz/unity_paketleri/OlymposManesOfFire1298.unitypackage` | Manes Of Fire (moba uygulanan skill) — tek başına: gökten ışın + kırmızı prizma + ateş + yerde sarı rün halkaları, kayıttan 49 kare (30 kare/sn); sınıf `OlymposManesOfFireOynatici`, shader `Olympos/Manes Of Fire Eklemeli` | 520 × 940, 3.71 × boy | eklemeli (bkz. `arayuz/10-efekt.md` ek 4) |
 | `arayuz/unity_paketleri/OlymposTezgah1298.unitypackage` | Yerdeki Merchant tezgâhı — tek başına: **3B mesh** `OlymposTezgah3B` (sandık + öne eğik tahta, fotoğraflardan düzeltilmiş dokular, shader `Olympos/Tezgah 3B`) + eski 2B sprite sürümü (`OlymposTezgah`); referans `.jpg` pakette | 0.78 × 0.42 × 0.59/0.99 m (karakter 1.8) | opak, dışı saydam (bkz. `arayuz/16-tezgah.md`) |
 | `arayuz/unity_paketleri/OlymposKendiSkill1298.unitypackage` | Kendi skill efektleri — tek başına, 12 efekt: döküm yıldızları, Hide, Light Feet, Cat's/Lupine Eyes, Evade, Safety, Cure Disease/Curse, Magic Shield, Sprint, Swift, Strength Of Wolf, Minor Healing; kayıtlardan 30 kare/sn; `OlymposKendiSkillEfekti` + `OlymposKendiSkillKutuphanesi` (skill adına göre), shader `Olympos/Kendi Skill Eklemeli`; referans `.jpg`'ler pakette | 720 × 860, 2.717 × karakter boyu | eklemeli (bkz. `arayuz/10-efekt.md` ek 5) |
+| `arayuz/unity_paketleri/OlymposOk1298.unitypackage` | Shadow Hunter oku — tek başına: ok görseli (opak üç + ışık izi), düz çizgide sabit süreli uçuş (0.483 sn, hedefi izler, eksenel billboard), vuruş (beyaz patlama + turuncu ışın, ön-çarpımlı 23 kare); `OlymposOkAtisi.At(okcu, hedef)` | ok 160 × 19 (0.533 × karakter boyu), vuruş 520 × 260 | alfa / ön-çarpımlı (bkz. `arayuz/17-ok.md`) |
 
 Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `OLYMPOS > 1298 > Character Penceresi Oluştur` (CHAR INFO + CLAN + FRIENDS sekmeleriyle birlikte),
@@ -69,7 +70,7 @@ Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `… > Efektler (Ateş Sütunu · Vuruş · Cast) Oluştur` (namespace `Olympos.Efekt`; efektler dünya uzayında).
 `… > Skill Efektleri (Fire Burst · Fire Blade · Vuruş) Oluştur` (namespace `Olympos.SkillEfekt`).
 `… > Genie (Panel · Auto Attack Settings · Rozet) Oluştur` (aynı 2712×1220 Canvas).
-`… > Görev NPC (QuestList · Görev Detayı · ? Rozeti) Oluştur` (aynı Canvas). `… > Respawn Penceresi Oluştur` (aynı Canvas). `… > Alevli Run Halkası Oluştur`, `… > Neon Run Halkası Oluştur`, `… > Ateş Havuzu (Karakter Altı) Oluştur` (dünya uzayı). `… > NPC Alım-Satım Penceresi Oluştur` (2712×1220 Canvas). `… > Manes Of Fire (Moba) Oluştur`, `… > Merchant Tezgahı (Yer) Oluştur`, `… > Merchant Tezgahı 3B Oluştur`, `… > Kendi Skill Efektleri (…) Oluştur` (dünya uzayı).
+`… > Görev NPC (QuestList · Görev Detayı · ? Rozeti) Oluştur` (aynı Canvas). `… > Respawn Penceresi Oluştur` (aynı Canvas). `… > Alevli Run Halkası Oluştur`, `… > Neon Run Halkası Oluştur`, `… > Ateş Havuzu (Karakter Altı) Oluştur` (dünya uzayı). `… > NPC Alım-Satım Penceresi Oluştur` (2712×1220 Canvas). `… > Manes Of Fire (Moba) Oluştur`, `… > Merchant Tezgahı (Yer) Oluştur`, `… > Merchant Tezgahı 3B Oluştur`, `… > Kendi Skill Efektleri (…) Oluştur`, `… > Ok (Shadow Hunter) Oluştur` (dünya uzayı).
 Kurucular: doku import ayarları (Sprite, sıkıştırmasız, mipmap yok, 9-slice kenarlar) → hiyerarşiyi **sol-üst piksel
 koordinatlarıyla** kurar → `Prefabs/` altına prefab → sahnedeki Canvas'a ekler (yoksa 1920×1080, match=1 Canvas + EventSystem).
 UI sistemi: **uGUI + legacy `UnityEngine.UI.Text`** (TMP kullanılmadı). Namespace `Olympos.UI` / `Olympos.UI.EditorTools`.
@@ -131,6 +132,7 @@ stat adı 21, stat değeri 25, direnç adı 19, direnç değeri 23, buton 22. De
 - `rune/`: `ciz.py` / `ciz2.py` (özgün rün daireleri: alevli / neon + gürültü), `kur.py` / `kur2.py` (shader benzetimi), `kur_video.py` (kayıttaki karaktere bindirme).
 - `npc_alimsatim/`: `cikar.py` (krom + alfa: dışarı taşan dükkân öğelerinden), `punto.py`, `aralik.py` (punto + harf aralığı birlikte IoU), `kur.py`.
 - `tezgah/`: `cikar.py` (çim dışı maske → dış bükey zarf → yumuşak kenar), `kur.py`; `cikar3b.py` (yüzleri homografiyle dokuya açar), `kur3b.py` (3B mesh'in yazılım çizimi).
+- `ok/`: `izle.py` (ok ucu kare kare), `cikar.py` (ok görseli + uçuş ölçüsü), `cikar_vurus.py` (iki zeminli ayıklama, ön-çarpımlı), `kur.py`.
 - `zemin/`: `duzelt.py` (zemin düzlemini yukarıdan görünüşe çevirir), `zemin.py` (karo + renk ölçümü),
   `haritalar.py` (kontrol/renk haritası örnekleri), `onizle.py` (aynı kamerayla yeniden çizim → `onizlemeler/zemin_onizleme.png`).
 - Char Info sprite çıkarımı (OpenCV inpaint + aynı satırdan doku örnekleme) sohbet içinde satır içi yapıldı; sonuçlar
