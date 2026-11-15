@@ -36,7 +36,9 @@ namespace Olympos.Tezgah
                 new[] { new Vector3(w, hb, -d), new Vector3(-w, hb, -d), new Vector3(-w, 0, -d), new Vector3(w, 0, -d) } }; // arka
             for (int f = 0; f < 5; f++)
             {
-                int b = v.Count; v.AddRange(Y[f]);
+                int b = v.Count;
+                // Unity sol-elli: yuzler sag-elli olculdu -> x aynalanir (yoksa dokular ters ve yuzler ice donuk, Cull Back ile gorunmez)
+                for (int q = 0; q < 4; q++) v.Add(new Vector3(-Y[f][q].x, Y[f][q].y, Y[f][q].z));
                 bool ayna = f == 3;
                 uv.Add(new Vector2(ayna ? 1 : 0, 1)); uv.Add(new Vector2(ayna ? 0 : 1, 1)); uv.Add(new Vector2(ayna ? 0 : 1, 0)); uv.Add(new Vector2(ayna ? 1 : 0, 0));
                 alt[f] = new[] { b, b + 1, b + 2, b, b + 2, b + 3 };

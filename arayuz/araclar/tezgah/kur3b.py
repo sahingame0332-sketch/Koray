@@ -26,7 +26,7 @@ def ciz(boyut,merkez,s,yaw,pitch):
         x,y,z=p; xr=x*cy+z*sy; zr=-x*sy+z*cy
         return (merkez[0]+xr*s, merkez[1]-(y*cp-zr*sp)*s, zr*cp+y*sp)
     vd=(-sy*cp*0+0,0,0)
-    kam=np.array([sy*cp, sp, cy*cp])                    # kameraya dogru birim vektor (dunya)
+    kam=np.array([-sy*cp, sp, cy*cp])                   # kameraya dogru birim vektor (dunya): zr = -x*sin(yaw) + z*cos(yaw)
     out=Image.new("RGBA",boyut,(0,0,0,0)); sira=[]
     for ad,P,n,ayna in YUZLER:
         if np.dot(n,kam)<=0.02: continue
