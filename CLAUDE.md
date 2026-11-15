@@ -58,6 +58,7 @@ Arayüz işi ile altyapı işi aynı oyunun iki yüzü: `docs/03-icerik-uretim-r
 | `arayuz/unity_paketleri/OlymposKendiSkill1298.unitypackage` | Kendi skill efektleri — tek başına, 12 efekt: döküm yıldızları, Hide, Light Feet, Cat's/Lupine Eyes, Evade, Safety, Cure Disease/Curse, Magic Shield, Sprint, Swift, Strength Of Wolf, Minor Healing; kayıtlardan 30 kare/sn; `OlymposKendiSkillEfekti` + `OlymposKendiSkillKutuphanesi` (skill adına göre), shader `Olympos/Kendi Skill Eklemeli`; referans `.jpg`'ler pakette | 720 × 860, 2.717 × karakter boyu | eklemeli (bkz. `arayuz/10-efekt.md` ek 5) |
 | `arayuz/unity_paketleri/OlymposOk1298.unitypackage` | Shadow Hunter oku — tek başına: ok görseli (opak üç + ışık izi), düz çizgide sabit süreli uçuş (0.483 sn, hedefi izler, eksenel billboard), vuruş (beyaz patlama + turuncu ışın, ön-çarpımlı 23 kare); `OlymposOkAtisi.At(okcu, hedef)` | ok 160 × 19 (0.533 × karakter boyu), vuruş 520 × 260 | alfa / ön-çarpımlı (bkz. `arayuz/17-ok.md`) |
 
+| `arayuz/unity_paketleri/OlymposYakinSkill1298.unitypackage` | Yakın dövüş skill efektleri — tek başına: Stroke, Stab, Stab2; her skill **karakter** (kesik yayları, kıvılcımlar) + **hedef** (gökten ışın, vuruş patlaması) katmanı; `OlymposYakinSkillEfekti.Oyna(karakter, hedef)`, kütüphane skill adına göre, shader `Olympos/Yakin Skill Eklemeli`; referans `.jpg`'ler pakette | karakter 243 px ölçeğinde (bkz. `yakin_skill_olculer.json`) | eklemeli (bkz. `arayuz/10-efekt.md` ek 6) |
 Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `OLYMPOS > 1298 > Character Penceresi Oluştur` (CHAR INFO + CLAN + FRIENDS sekmeleriyle birlikte),
 `… > Save Stat Preset Penceresi Oluştur`, `… > Stat Butonları Penceresi Oluştur`,
@@ -70,7 +71,7 @@ Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `… > Efektler (Ateş Sütunu · Vuruş · Cast) Oluştur` (namespace `Olympos.Efekt`; efektler dünya uzayında).
 `… > Skill Efektleri (Fire Burst · Fire Blade · Vuruş) Oluştur` (namespace `Olympos.SkillEfekt`).
 `… > Genie (Panel · Auto Attack Settings · Rozet) Oluştur` (aynı 2712×1220 Canvas).
-`… > Görev NPC (QuestList · Görev Detayı · ? Rozeti) Oluştur` (aynı Canvas). `… > Respawn Penceresi Oluştur` (aynı Canvas). `… > Alevli Run Halkası Oluştur`, `… > Neon Run Halkası Oluştur`, `… > Ateş Havuzu (Karakter Altı) Oluştur` (dünya uzayı). `… > NPC Alım-Satım Penceresi Oluştur` (2712×1220 Canvas). `… > Manes Of Fire (Moba) Oluştur`, `… > Merchant Tezgahı (Yer) Oluştur`, `… > Merchant Tezgahı 3B Oluştur`, `… > Kendi Skill Efektleri (…) Oluştur`, `… > Ok (Shadow Hunter) Oluştur` (dünya uzayı).
+`… > Görev NPC (QuestList · Görev Detayı · ? Rozeti) Oluştur` (aynı Canvas). `… > Respawn Penceresi Oluştur` (aynı Canvas). `… > Alevli Run Halkası Oluştur`, `… > Neon Run Halkası Oluştur`, `… > Ateş Havuzu (Karakter Altı) Oluştur` (dünya uzayı). `… > NPC Alım-Satım Penceresi Oluştur` (2712×1220 Canvas). `… > Manes Of Fire (Moba) Oluştur`, `… > Merchant Tezgahı (Yer) Oluştur`, `… > Merchant Tezgahı 3B Oluştur`, `… > Kendi Skill Efektleri (…) Oluştur`, `… > Ok (Shadow Hunter) Oluştur`, `… > Yakın Skill Efektleri (Stroke · Stab · Stab2) Oluştur` (dünya uzayı).
 Kurucular: doku import ayarları (Sprite, sıkıştırmasız, mipmap yok, 9-slice kenarlar) → hiyerarşiyi **sol-üst piksel
 koordinatlarıyla** kurar → `Prefabs/` altına prefab → sahnedeki Canvas'a ekler (yoksa 1920×1080, match=1 Canvas + EventSystem).
 UI sistemi: **uGUI + legacy `UnityEngine.UI.Text`** (TMP kullanılmadı). Namespace `Olympos.UI` / `Olympos.UI.EditorTools`.
@@ -119,6 +120,7 @@ stat adı 21, stat değeri 25, direnç adı 19, direnç değeri 23, buton 22. De
   `cikar2.py` / `kur2.py`: tablet görüntülerinden adet ve satın alma onayı pencereleri (ölçek 1.0405).
   `cikar3.py` / `kur3.py`: alıcı görünümü (mor çerçeveler, satıcı adı).
 - `efekt/`: `cikar.py VIDEO` (eklemeli efekt kareleri: orijinal − zemin), `kur.py VIDEO` (zemin + efekt ↔ orijinal).
+  `cikar6.py VIDEO` / `kur6.py VIDEO` / `paket6.py VIDEO`: Stroke/Stab/Stab2 (karakter + hedef katmanı, iki zeminli min, seçim halkası maskesi, ışın için ayrışık I(y)·P(u) modeli).
   `cikar5.py KLASOR` / `kur5.py KLASOR`: 9 kayıttan kendi skill efektleri (renk imzası kapısı + gövde elipsi + etiket bandı dikey dolgu; geçici kareleri siler).
   `cikar4.py VIDEO` / `kur4.py VIDEO`: Manes Of Fire (moba; tablet 60 kare/sn).
   `cikar3.py VIDEO` / `kur3.py VIDEO`: karakter altı ateş havuzu (doyan merkezde ışığın kendi rengi).

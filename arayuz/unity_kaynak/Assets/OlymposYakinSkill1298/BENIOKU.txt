@@ -1,0 +1,40 @@
+OLYMPOS-KO · 1298 — Yakın dövüş skill efektleri: Stroke · Stab · Stab2 (tek başına paket)
+==========================================================================================
+Menü: OLYMPOS > 1298 > Yakın Skill Efektleri (Stroke · Stab · Stab2) Oluştur
+ -> sahneye 3 efektli örnek + Prefabs/OlymposYakinSkillEfektleri.prefab (OlymposYakinSkillKutuphanesi).
+Kaynak: kullanıcının telefon kaydı 14-31-04 (2712 x 1220) -> 30 kare/sn. Skill adları Information panelinden ("Using - Stroke" vb.).
+Referans/: her skill'in en dolu anı (kayıttan kesit, .jpg).
+
+Her skill iki katmandan oluşur ve ikisi aynı anda başlar:
+  KARAKTER katmanı — kesik yayları + altın kıvılcımlar; karakterin ayağına bağlı.
+  HEDEF katmanı    — gökten inen turuncu-pembe ışın + hedefteki pembe-beyaz vuruş patlaması + sarı yıldız parlaması; hedefin zeminine bağlı.
+
+| Skill  | Kare | Süre   | Karakter katmanı                       | Hedef katmanı |
+| Stroke | 33   | 1.10 s | iki altın kesik yayı, geniş kıvılcım yelpazesi | dik ışın (ekran tepesine), pembe-beyaz patlama, sonda sarı yıldız |
+| Stab   | 27   | 0.90 s | limon sarısı dikey kesik, kıvılcımlar  | eğik ışın, patlama, sonda sarı yıldız |
+| Stab2  | 16   | 0.53 s | ayak hizasında altın hilal kesik + kıvılcımlar | — (kayıtta hedefte efekt yok) |
+
+Renk / sıcaklık: değiştirilmedi (kare = orijinal − efekt öncesi zemin). Arka fon: siyah = saydam.
+Shader "Olympos/Yakin Skill Eklemeli" (Blend One One). Işın kayıtta ekranın üstünde kesiliyordu: hedef katmanında
+_UstSonum = 0.08 (dörtgenin üst %8'inde yumuşak sönüm, Materials/YakinSkill_Isin.mat).
+
+Boyut (ölçüldü): karakter kayıtta 243 px, ayak (1360, 828). Hedef katmanı hedefin derinliğinde ölçüldü: zemin ufku y = 261
+(seçim halkalarının boyutundan) -> Stroke hedefi 1.273, Stab hedefi 1.513 kat yakın. Değerler yakin_skill_olculer.json içinde.
+| Katman          | Kare px     | Genişlik (karakter boyu) | En/boy | Pivot (x, y alttan) |
+| stroke_karakter | 1593 x 1079 | 6.556 | 0.677 | 0.502, 0.289 |
+| stroke_hedef    |  645 x 1140 | 2.085 | 1.767 | 0.530, 0.138 |
+| stab_karakter   | 1120 x 1140 | 4.609 | 1.018 | 0.709, 0.274 |
+| stab_hedef      |  750 x 1140 | 2.040 | 1.520 | 0.607, 0.018 |
+| stab2_karakter  | 1194 x  896 | 4.914 | 0.750 | 0.670, 0.348 |
+
+Kullanım: kutuphane.Uygula("Stab", karakter.transform, hedef.transform);
+          (ya da efekt.Oyna(karakter, hedef); hedef null ise hedef katmanı karakterin ayağında oynar)
+
+Temizlik notları (kayıttan gelen ve efekt OLMAYAN her şey çıkarıldı):
+- Hedefin sarı-beyaz seçim halkası (hedef seçilince çıkan UI işareti) ve yeşil hedef oku -> komşu ışıktan dolduruldu.
+- "Worm" / "Earth worm" / "JustForFARM" etiketleri, üstteki hedef çubuğu, skill düğmeleri -> dolduruldu.
+- Hareket eden solucan ve karakter: iki zemin (efekt öncesi + sonrası) ile ayıklandı; solucanın gövdesi renginden maskelendi.
+- Işın: ağaç gövdesi / çim / gök izleri ışına karışmasın diye ışın boyunca ayrışık model (yükseklik × kesit profili);
+  modelin üstünde kalan güçlü ışık (kıvılcım, kesik) korundu.
+Sınırlar: Stab'da hedef ekranın alt çubuğuna yakındı; patlamanın alt çubuk altında kalan kısmı kayıtta yok.
+Işının eğimi kayıttaki ekran konumuna aittir (kameraya dönük dörtgen). Built-in boru hattı; URP'de denenmedi.

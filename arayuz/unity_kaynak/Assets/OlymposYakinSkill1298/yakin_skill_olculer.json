@@ -1,0 +1,117 @@
+{
+ "kaynak": "telefon kaydi 2712x1220, 30 kare/sn",
+ "karakter_ayak_ekran": [
+  1360,
+  828
+ ],
+ "karakter_boyu_px": 243.0,
+ "zemin_ufku_y": 261.0,
+ "aciklama": "genislik_karakter: kare genisligi / (karakter boyu * derinlik olcegi). Hedef katmani hedefin derinliginde olculdu.",
+ "katmanlar": {
+  "stroke_karakter": {
+   "kutu_ekran": [
+    560,
+    61,
+    1593,
+    1079
+   ],
+   "capa_ekran": [
+    1360,
+    828
+   ],
+   "derinlik_olcegi": 1.0,
+   "genislik_karakter": 6.5556,
+   "en_boy": 0.6773,
+   "pivot": [
+    0.5022,
+    0.2892
+   ],
+   "ust_sonum": 0.0,
+   "kare": 33
+  },
+  "stroke_hedef": {
+   "kutu_ekran": [
+    965,
+    0,
+    645,
+    1140
+   ],
+   "capa_ekran": [
+    1307,
+    983
+   ],
+   "derinlik_olcegi": 1.2734,
+   "genislik_karakter": 2.0845,
+   "en_boy": 1.7674,
+   "pivot": [
+    0.5302,
+    0.1377
+   ],
+   "ust_sonum": 0.08,
+   "kare": 33
+  },
+  "stab_karakter": {
+   "kutu_ekran": [
+    566,
+    0,
+    1120,
+    1140
+   ],
+   "capa_ekran": [
+    1360,
+    828
+   ],
+   "derinlik_olcegi": 1.0,
+   "genislik_karakter": 4.6091,
+   "en_boy": 1.0179,
+   "pivot": [
+    0.7089,
+    0.2737
+   ],
+   "ust_sonum": 0.0,
+   "kare": 27
+  },
+  "stab_hedef": {
+   "kutu_ekran": [
+    720,
+    0,
+    750,
+    1140
+   ],
+   "capa_ekran": [
+    1175,
+    1119
+   ],
+   "derinlik_olcegi": 1.5132,
+   "genislik_karakter": 2.0396,
+   "en_boy": 1.52,
+   "pivot": [
+    0.6067,
+    0.0184
+   ],
+   "ust_sonum": 0.08,
+   "kare": 27
+  },
+  "stab2_karakter": {
+   "kutu_ekran": [
+    560,
+    244,
+    1194,
+    896
+   ],
+   "capa_ekran": [
+    1360,
+    828
+   ],
+   "derinlik_olcegi": 1.0,
+   "genislik_karakter": 4.9136,
+   "en_boy": 0.7504,
+   "pivot": [
+    0.67,
+    0.3482
+   ],
+   "ust_sonum": 0.0,
+   "kare": 16
+  }
+ }
+}

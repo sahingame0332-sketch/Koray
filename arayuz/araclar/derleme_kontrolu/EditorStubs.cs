@@ -53,6 +53,7 @@ namespace UnityEditor
         public void SaveAndReimport() { }
     }
 
+    public enum TextureImporterNPOTScale { None, ToNearest, ToLarger, ToSmaller }
     public class TextureImporter : AssetImporter {
         public TextureImporterType textureType;
         public SpriteImportMode spriteImportMode;
@@ -63,6 +64,7 @@ namespace UnityEditor
         public UnityEngine.TextureWrapMode wrapMode;
         public TextureImporterCompression textureCompression;
         public int maxTextureSize;
+        public TextureImporterNPOTScale npotScale;
         public UnityEngine.Vector4 spriteBorder;
         public bool sRGBTexture;
         public int anisoLevel;

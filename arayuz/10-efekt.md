@@ -113,3 +113,27 @@ Paket `unity_paketleri/OlymposKendiSkill1298.unitypackage` (namespace `Olympos.K
 - Ek kayıt seti (4 kayıt): Sprint, Swift, Strength Of Wolf, Minor Healing — aynı pakete eklendi (toplam 12 efekt). Renk imzaları: mor
   (Sprint), altın-turuncu (Swift, Strength Of Wolf), mavi (Minor Healing). Fark: sprint 2.9, swift 3.2, strength_of_wolf 2.9, minor_healing 3.6.
   Swift ve Strength Of Wolf'ta cast (döküm yıldızları) önce oynar; kütüphanede dokumlu: true ile kullanılır.
+
+---
+
+## Ek 6 — Yakın dövüş skill'leri: Stroke · Stab · Stab2 (ayrı paket)
+Paket `unity_paketleri/OlymposYakinSkill1298.unitypackage` (namespace `Olympos.YakinSkill`, sınıflar `OlymposYakinSkillKatmani`,
+`OlymposYakinSkillEfekti`, `OlymposYakinSkillKutuphanesi`, shader `Olympos/Yakin Skill Eklemeli`,
+menü `OLYMPOS > 1298 > Yakın Skill Efektleri (Stroke · Stab · Stab2) Oluştur`).
+Kaynak: telefon kaydı 14-31-04 (2712 × 1220, 8.5 sn; depoya konmadı). Araçlar `araclar/efekt/cikar6.py VIDEO [skill ...]`,
+`kur6.py VIDEO` (önizleme `onizlemeler/efekt6_onizleme.png`, `efekt6_animasyon.mp4/.gif`), `paket6.py VIDEO` (Unity klasörü + kurucu,
+şablon `paket6_kurucu.cs.tmpl`).
+- Skill'ler (Information paneli): Stroke kare 45–77 (33 kare), Stab 109–135 (27), Stab2 202–217 (16); 30 kare/sn. Kamera sabit.
+- İki katman: **karakter** (kesik yayları, kıvılcımlar; ayak (1360,828), karakter 243 px) ve **hedef** (gökten ışın, vuruş patlaması,
+  sarı yıldız; hedef zemini = seçim halkasının merkezi: Stroke (1307,983), Stab (1175,1119)). Katmanlar ışın çizgisi (±300 px) + hedef
+  diski (r≈300) ağırlığıyla ayrıldı; toplamları orijinal efekttir.
+- Derinlik: seçim halkası yarıçapları (138 / 164 px) zemin ufkunu y=261 verir → hedef katmanı 1.273 (Stroke) / 1.513 (Stab) kat ölçekte
+  ölçüldü (Unity'de karakter boyuyla aynı birim).
+- Temizlik: iki zemin (öncesi + sonrası) min(O−B) ile hareketli solucan / karakter; seçim halkası (halkalı-efektsiz karelerden maske, +6 px)
+  ve kırmızı etiketler, yeşil hedef oku, UI (hedef çubuğu, skill düğmeleri) komşu ışıktan dolduruldu. Renk kapısı: kırmızı baskın ya da
+  limon sarısı (R ≥ 0.8 G), mavi R'yi geçmez; gövdede yalnız sıcak artış.
+- Işın: E(x,y) ≈ I(y)·P(x − çizgi(y)) ayrışık modeli (ağaç gövdesi, çim dokusu, doyan gök ışına karışmasın); modelin üstündeki güçlü
+  ışık korunur; patlamaya son 180 satırda orijinale geçiş. Işının olmadığı karelerde model kurulmaz.
+- Doğrulama (zemin + iki katman ↔ orijinal, ort. mutlak fark /255): stroke **6.5**, stab **6.4**, stab2 **4.5**.
+- Sınırlar: Stab'da patlamanın alt çubuk (y ≥ 1140) altındaki kısmı kayıtta yok; ışının eğimi kayıttaki ekran konumuna ait
+  (kameraya dönük dörtgen); ışın ekran tepesinde kesildiği için hedef katmanında `_UstSonum` 0.08.

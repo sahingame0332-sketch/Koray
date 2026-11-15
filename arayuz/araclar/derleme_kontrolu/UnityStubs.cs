@@ -34,7 +34,7 @@ namespace UnityEngine
         public static int PropertyToID(string name) { return 0; }
     }
     public class Material : Object {
-        public Material(Shader s) { }
+        public Material(Shader s) { } public void SetFloat(string n, float f) { }
         public Shader shader;
         public bool HasProperty(int id) { return true; }
         public void SetColor(int id, Color c) { }
@@ -58,7 +58,7 @@ namespace UnityEngine
         public float yMin { get { return y; } } public float yMax { get { return y + height; } }
         public Vector2 center { get { return new Vector2(x + width / 2f, y + height / 2f); } }
     }
-    public static class Time { public static float deltaTime { get { return 0f; } } public static float unscaledTime { get { return 0f; } } public static float unscaledDeltaTime { get { return 0f; } } }
+    public static class Time { public static float time { get { return 0f; } } public static float deltaTime { get { return 0f; } } public static float unscaledTime { get { return 0f; } } public static float unscaledDeltaTime { get { return 0f; } } }
     public static class PlayerPrefs {
         public static string GetString(string key, string defaultValue) { return defaultValue; }
         public static void SetString(string key, string value) { }
