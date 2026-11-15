@@ -47,7 +47,7 @@ namespace UnityEngine
         public static float fogStartDistance, fogEndDistance; public static Color ambientLight;
     }
     [AttributeUsage(AttributeTargets.Class)] public class ExecuteAlways : Attribute { }
-    public struct Quaternion { public float x, y, z, w; }
+    public struct Quaternion { public float x, y, z, w; public static Quaternion LookRotation(Vector3 f, Vector3 up) { return new Quaternion(); } }
     public struct Rect {
         public float x, y, width, height;
         public float xMin { get { return x; } } public float xMax { get { return x + width; } }
@@ -98,6 +98,7 @@ namespace UnityEngine
         public static void DestroyImmediate(Object o) { }
         public static void Destroy(Object o) { }
         public static T Instantiate<T>(T original, Transform parent) where T : Object { return original; }
+        public static T Instantiate<T>(T original) where T : Object { return original; }
         public static T FindObjectOfType<T>() where T : Object { return null; }
         public static T[] FindObjectsOfType<T>() where T : Object { return new T[0]; }
         public static bool operator ==(Object a, Object b) { return ReferenceEquals(a, b); }
@@ -190,10 +191,10 @@ namespace UnityEngine
 
     public enum RenderMode { ScreenSpaceOverlay, ScreenSpaceCamera, WorldSpace }
     public class Camera : Behaviour { public new Transform transform { get { return null; } } public Vector3 WorldToScreenPoint(Vector3 p) { return p; } public static Camera main { get { return null; } } public CameraClearFlags clearFlags; public Color backgroundColor; }
-    public class Renderer : Component { public Material sharedMaterial; public bool enabled; public bool receiveShadows; public UnityEngine.Rendering.ShadowCastingMode shadowCastingMode; public void GetPropertyBlock(MaterialPropertyBlock b) { } public void SetPropertyBlock(MaterialPropertyBlock b) { } }
+    public class Renderer : Component { public Material sharedMaterial; public Material[] sharedMaterials; public bool enabled; public bool receiveShadows; public UnityEngine.Rendering.ShadowCastingMode shadowCastingMode; public void GetPropertyBlock(MaterialPropertyBlock b) { } public void SetPropertyBlock(MaterialPropertyBlock b) { } }
     public class MeshRenderer : Renderer { }
     public class MeshFilter : Component { public Mesh sharedMesh; }
-    public class Mesh : Object { public Vector3[] vertices; public Vector2[] uv; public int[] triangles; public void RecalculateBounds() { } }
+    public class Mesh : Object { public Vector3[] vertices; public Vector2[] uv; public int[] triangles; public int subMeshCount; public void RecalculateBounds() { } public void RecalculateNormals() { } public void SetVertices(System.Collections.Generic.List<Vector3> v) { } public void SetUVs(int ch, System.Collections.Generic.List<Vector2> u) { } public void SetTriangles(int[] t, int sub) { } }
     public class MaterialPropertyBlock { public void SetTexture(int id, Texture t) { } public void SetColor(int id, Color c) { } public void SetFloat(int id, float f) { } }
     public static class Application { public static bool isPlaying { get { return false; } } }
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)] public class RequireComponent : Attribute { public RequireComponent(Type a) { } public RequireComponent(Type a, Type b) { } }

@@ -1,6 +1,15 @@
 OLYMPOS-KO · 1298 — Yerdeki Merchant tezgâhı (tek başına paket)
 ==============================================================
-Menü: OLYMPOS > 1298 > Merchant Tezgahı (Yer) Oluştur -> sahneye "MerchantTezgahi" + Prefabs/MerchantTezgahi.prefab
+Menü: OLYMPOS > 1298 > Merchant Tezgahı 3B Oluştur  -> GERÇEK 3B tezgâh (önerilen): Prefabs/MerchantTezgahi3B.prefab
+      OLYMPOS > 1298 > Merchant Tezgahı (Yer) Oluştur -> eski 2B (kameraya dönük görüntü) sürüm
+
+3B tezgâh (OlymposTezgah3B, shader "Olympos/Tezgah 3B" — opak, ışıksız):
+  Biçim: alçak sandık + üstte öne eğik teşhir tahtası. Ölçüler (karakter 1.8 birim için): genişlik 0.78, derinlik 0.42,
+  ön yükseklik 0.59, arka yükseklik 0.99 (tahta ~44° eğik). karakterBoyu ile ölçeklenir. Pivot taban merkezi, forward = ön yüz.
+  Dokular (Textures/3B, fotoğraflardan perspektif düzeltilerek): ust.png 512x374 (sancak + eşyalar), on.png 512x387 (asılı sancak),
+  yan.png 330x512 (kırmızı perde; sağ yan = ayna; ARKA fotoğrafı yok -> yan doku).
+  Kullanım: tezgah.Kur(konum, onYonu); tezgah.Kaldir();
+
 Referans/tezgah_referans.jpg (önden) ve tezgah_yan_referans.jpg (yandan): kullanıcının ekran görüntüleri (2712 x 1220).
 
 Grafik: mavi örtülü alçak sandık, üstünde kırmızı sancak (turuncu kenar, mavi göz arması), parşömenler, kılıç/hançer, 3 yüzük.
