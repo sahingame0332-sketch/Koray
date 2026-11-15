@@ -1,5 +1,6 @@
 // OLYMPOS-KO · 1298 kendi skill efektleri — kurucu (sadece Editor)
 // Menu: OLYMPOS > 1298 > Kendi Skill Efektleri (Hide · Light Feet · Eyes · Evade · Safety · Cure · Magic Shield) Oluştur
+// (+ Sprint, Swift, Strength Of Wolf, Minor Healing — ikinci kayit seti)
 // Olculer: arayuz/10-efekt.md (ek 5).
 using System.IO;
 using System.Linq;
@@ -21,7 +22,11 @@ namespace Olympos.KendiSkill.EditorTools
             new[] { "evade", "Evade", "Evade" },
             new[] { "safety", "Safety", "Safety" },
             new[] { "cure", "Cure Disease / Curse", "Cure Disease|Cure Curse" },
-            new[] { "magic_shield", "Magic Shield", "Magic Shield" } };
+            new[] { "magic_shield", "Magic Shield", "Magic Shield" },
+            new[] { "sprint", "Sprint", "Sprint" },
+            new[] { "swift", "Swift", "Swift" },
+            new[] { "strength_of_wolf", "Strength Of Wolf", "Strength Of Wolf" },
+            new[] { "minor_healing", "Minor Healing", "Minor Healing" } };
 
         [MenuItem("OLYMPOS/1298/Kendi Skill Efektleri (Hide · Light Feet · Eyes · Evade · Safety · Cure · Magic Shield) Oluştur")]
         public static void Build()
@@ -55,7 +60,7 @@ namespace Olympos.KendiSkill.EditorTools
             Undo.RegisterCreatedObjectUndo(kok, "Kendi skill efektleri");
             Selection.activeGameObject = kok;
             AssetDatabase.SaveAssets();
-            Debug.Log("[OLYMPOS] Kendi skill efektleri oluşturuldu (8 efekt).");
+            Debug.Log("[OLYMPOS] Kendi skill efektleri oluşturuldu (" + EFEKTLER.Length + " efekt).");
         }
 
         static Texture2D[] Kareler(string dir)

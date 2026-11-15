@@ -1,9 +1,9 @@
 OLYMPOS-KO · 1298 — Kendi skill efektleri (tek başına paket)
 ==========================================================
 Menü: OLYMPOS > 1298 > Kendi Skill Efektleri (Hide · Light Feet · Eyes · Evade · Safety · Cure · Magic Shield) Oluştur
- -> sahneye 8 efektli örnek + Prefabs/OlymposKendiSkillEfektleri.prefab (OlymposKendiSkillKutuphanesi).
+ -> sahneye 12 efektli örnek + Prefabs/OlymposKendiSkillEfektleri.prefab (OlymposKendiSkillKutuphanesi).
 
-Kaynak: kullanıcının 9 telefon kaydı (2712 x 1220) -> 30 kare/sn. Skill adları kayıttaki Information panelinden.
+Kaynak: kullanıcının 13 telefon kaydı (2712 x 1220) -> 30 kare/sn. Skill adları kayıttaki Information panelinden.
 Referans/: her efektin en dolu anı (kayıttan, karakter çevresi 720 x 860).
 
 | Efekt (klasör)        | Skill                      | Kare | Süre  | Görünüm |
@@ -15,6 +15,10 @@ Referans/: her efektin en dolu anı (kayıttan, karakter çevresi 720 x 860).
 | safety                | Safety                     | 92   | 3.1 s | yerde iki turuncu rün dairesi -> karakterin yanlarında turuncu alevler |
 | cure                  | Cure Disease / Cure Curse  | 50   | 1.7 s | gökten beyaz-altın ışın + yerde ışık + baş üstünde yıldızlı madalyon |
 | magic_shield          | Magic Shield               | 80   | 2.7 s | ayakta pembe girdap -> karakteri saran pembe aura |
+| sprint                | Sprint                     | 47   | 1.6 s | ayakta mor-pembe sis patlaması, geriye doğru dağılır |
+| swift                 | Swift                      | 66   | 2.2 s | ince altın ışık sütunları + ayakta altın kıvılcımlar (cast'li) |
+| strength_of_wolf      | Strength Of Wolf           | 73   | 2.4 s | Swift'e benzer altın sütunlar ve kıvılcımlar (cast'li) |
+| minor_healing         | Minor Healing              | 86   | 2.9 s | karakteri saran mavi ışık parçacıkları |
 
 Renk / sıcaklık: değiştirilmedi (kare = orijinal − efekt öncesi zemin). Arka fon: siyah = saydam; shader "Olympos/Kendi Skill Eklemeli" (Blend One One).
 Boyut: her kare 720 x 860 px; kayıtta karakter ~265 px -> genişlik 2.717 karakter boyu (karakterBoyu 1.8 -> 4.89 birim), en/boy 1.194.

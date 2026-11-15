@@ -1,7 +1,8 @@
 // OLYMPOS-KO · 1298 karakterin kendine uyguladigi skill efektleri — kare kare oynatici (dunya uzayi, kameraya donuk dortgen).
-// Kaynak: kullanicinin 9 telefon kaydi (2712x1220), 30 kare/sn. Her efektin karesi 720 x 860 px (ayni kesim kutusu);
+// Kaynak: kullanicinin 13 telefon kaydi (2712x1220), 30 kare/sn. Her efektin karesi 720 x 860 px (ayni kesim kutusu);
 // karakter kayitta ~265 px boyunda, ayagi kare icinde (370, 685) -> pivot (0.514, 0.203), genislik 2.717 karakter boyu.
-// Efektler: Dokum yildizlari (cast sirasinda), Hide, Light Feet, Cat's/Lupine Eyes, Evade, Safety, Cure Disease/Curse, Magic Shield.
+// Efektler: Dokum yildizlari (cast sirasinda), Hide, Light Feet, Cat's/Lupine Eyes, Evade, Safety, Cure Disease/Curse, Magic Shield,
+//           Sprint, Swift, Strength Of Wolf, Minor Healing.
 // Kullanim: efekt.Oyna(karakter.transform);  (dongu kapali, bitince gizlenir)
 using UnityEngine;
 using UnityEngine.Events;

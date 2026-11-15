@@ -110,3 +110,6 @@ Paket `unity_paketleri/OlymposKendiSkill1298.unitypackage` (namespace `Olympos.K
   (3) kararan / yeşil artan pikseller ve cast çubuğu komşu ışıktan doldurulur; (4) isim etiketi bandı dikey doldurulur; (5) uzak yaratık etiketleri silinir.
 - Doğrulama (zemin + efekt ↔ orijinal, ort. mutlak fark /255): dokum_yildizlari 6.2, hide 5.9, light_feet 3.2, kedi_gozu 3.6, evade 5.1, safety 4.3, cure 3.6, magic_shield 3.8.
 - Sınır: karakterin tam arkasında kalan ışık tahmini; döküm yıldızları ve Hide'da gövde üstündeki ışıma kısmen zayıflatıldı.
+- Ek kayıt seti (4 kayıt): Sprint, Swift, Strength Of Wolf, Minor Healing — aynı pakete eklendi (toplam 12 efekt). Renk imzaları: mor
+  (Sprint), altın-turuncu (Swift, Strength Of Wolf), mavi (Minor Healing). Fark: sprint 2.9, swift 3.2, strength_of_wolf 2.9, minor_healing 3.6.
+  Swift ve Strength Of Wolf'ta cast (döküm yıldızları) önce oynar; kütüphanede dokumlu: true ile kullanılır.

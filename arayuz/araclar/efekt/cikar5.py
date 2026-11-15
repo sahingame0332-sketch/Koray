@@ -2,7 +2,7 @@
 """Besinci set: karakterin kendine uyguladigi skill efektleri (9 telefon kaydi, 2712x1220, 30 kare/sn'ye orneklenir).
 Her efekt: O - B eklemeli; B = efekt oncesi karelerin medyani (kamera sabit).
 Temizlik: cast cubugu ("<skill> 1,5 sec") kutusu ve karakterin hareketi (kararan / yesil artan pikseller) komsu isiktan doldurulur.
-Kullanim: cikar5.py KLASOR   (KLASOR: v1.mp4 .. v9.mp4; kayitlar depoya konmaz)"""
+Kullanim: cikar5.py KLASOR [ad ...]   (KLASOR: v1..v9.mp4, w1..w4.mp4; kayitlar depoya konmaz; ad verilirse yalniz onlar)"""
 import os, sys, json, glob, subprocess, tempfile
 import numpy as np
 from PIL import Image
@@ -15,11 +15,12 @@ ETIKET=(1205,452,1500,553)                    # "JustForFARM" / "xDarkPast" + ca
 # renk imzalari (O-B artisinin yonu; olculdu): altin, turuncu, kirmizi, pembe; beyaz cekirdek ayrica
 ALTIN=[(1,1,.33),(1,.67,.33),(1,1,0)]; TURUNCU=[(1,.5,0),(1,.25,0),(1,.67,.33)]; KIRMIZI=[(1,0,0),(1,.25,.25),(1,.45,.45)]          # (1,.6,.6) gri zirhi da kabul ediyordu (cos .97)
 PEMBE=[(.67,.33,1),(1,.33,1),(.8,.5,1),(.67,0,1)]; MAVI_BEYAZ=[(.67,.67,1),(1,1,1)]   # pembe: (.67,.67,1) gri ile cos .98 -> cikarildi
-RENK={"dokum_yildizlari":ALTIN+TURUNCU,"hide":ALTIN+TURUNCU,"light_feet":ALTIN,"kedi_gozu":KIRMIZI,"evade":ALTIN,
+MOR=[(.67,.33,1),(.33,0,1),(.67,0,1),(0,0,1),(.55,.4,1)]; MAVI=[(0,0,1),(0,.25,1),(0,.5,1),(0,.75,.75)]
+RENK={"sprint":MOR,"swift":ALTIN+TURUNCU,"strength_of_wolf":ALTIN+TURUNCU,"minor_healing":MAVI,"dokum_yildizlari":ALTIN+TURUNCU,"hide":ALTIN+TURUNCU,"light_feet":ALTIN,"kedi_gozu":KIRMIZI,"evade":ALTIN,
       "safety":TURUNCU+ALTIN[1:2],"cure":ALTIN+MAVI_BEYAZ+[(1,.67,.67)],"magic_shield":PEMBE}
-BEYAZ_ESIK={"cure":45,"kedi_gozu":40,"light_feet":60}                         # beyaz isik: tum kanallar en az bu kadar artmali (cure isini, goz efektinin acik cizgileri, light feet cekirdegi)
+BEYAZ_ESIK={"swift":60,"strength_of_wolf":60,"cure":45,"kedi_gozu":40,"light_feet":60}                         # beyaz isik: tum kanallar en az bu kadar artmali (cure isini, goz efektinin acik cizgileri, light feet cekirdegi)
 GOVDE=(1370,700,92,150)                        # karakter govdesi elipsi (merkez x,y, yaricap x,y): doku hareketi burada
-GOVDE_ZAYIF={"dokum_yildizlari":0.8,"hide":0.6,"evade":0.75,"safety":0.75,"cure":0.3,"light_feet":0.3,"kedi_gozu":1.0,"magic_shield":0.3}
+GOVDE_ZAYIF={"sprint":0.5,"swift":0.3,"strength_of_wolf":0.3,"minor_healing":0.3,"dokum_yildizlari":0.8,"hide":0.6,"evade":0.75,"safety":0.75,"cure":0.3,"light_feet":0.3,"kedi_gozu":1.0,"magic_shield":0.3}
 #        ad,             video, once (bg),   aralik (efekt)
 EFEKT=[("dokum_yildizlari","v4",range(0,40), range(44,86)),
        ("hide",           "v1",range(0,24), range(26,90)),
@@ -28,7 +29,11 @@ EFEKT=[("dokum_yildizlari","v4",range(0,40), range(44,86)),
        ("evade",          "v5",range(0,30), range(32,104)),
        ("safety",         "v6",range(0,48), range(50,142)),
        ("cure",           "v8",range(0,36), range(82,132)),
-       ("magic_shield",   "v9",range(0,48), range(50,130))]
+       ("magic_shield",   "v9",range(0,48), range(50,130)),
+       ("sprint",         "w1",range(0,14), range(15,62)),
+       ("swift",          "w2",range(0,36), range(90,157)),
+       ("strength_of_wolf","w3",range(0,20), range(66,139)),
+       ("minor_healing",  "w4",range(0,14), range(15,101))]
 import atexit, shutil
 _GECICI=[]
 atexit.register(lambda: [shutil.rmtree(d,ignore_errors=True) for d in _GECICI])
@@ -51,9 +56,12 @@ def cikar(klasor):
     etk=np.zeros((h,w),bool); etk[ETIKET[1]-y:ETIKET[3]-y,ETIKET[0]-x:ETIKET[2]-x]=True
     yy,xx=np.mgrid[0:h,0:w]; gx,gy,rx,ry=GOVDE
     gov=np.clip(1.15-np.hypot((xx+x-gx)/rx,(yy+y-gy)/ry),0,1); gov=ndimage.gaussian_filter(gov,6)
+    sec=set(sys.argv[2:])
     for ad,v,once,aralik in EFEKT:
+        if sec and ad not in sec: continue
         if v not in cache: cache[v]=kareler(os.path.join(klasor,v+".mp4"))
         fs=cache[v][1]
+        aralik=[i for i in aralik if i<len(fs)]                     # kayit sonu: var olan karelerle sinirla
         B=np.median(np.stack([Y(fs[i]) for i in once]),0)
         od=os.path.join(OUT,ad); os.makedirs(od,exist_ok=True)
         for f in glob.glob(od+"/*.png"): os.remove(f)
