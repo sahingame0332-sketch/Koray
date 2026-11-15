@@ -93,3 +93,20 @@ Kaynak: tablet kaydı 21-40-04 (2266 × 1488, 60 kare/sn; depoya konmadı). Ara�
 - İkinci açı (kayıt 21-48-55, alçak kamera, 2.4 sn, ~1.7 sn'de kontrol merkezi açılıyor): prizma ve ışın aynı biçimde → kameraya dönük (billboard)
   varsayımı doğrulandı. Kare çıkarılmadı (efekt küçük, adlar/HP çubukları önünde, sonu kesik). Yerdeki halkalar bu açıda görünmüyor;
   halkalar ilk kaydın perspektifinde kareye gömülü — çok farklı kamera açısında ayrı yer dekalı gerekebilir.
+
+
+---
+
+## Ek 5 — Kendi skill efektleri (9 kayıt, ayrı paket)
+Paket `unity_paketleri/OlymposKendiSkill1298.unitypackage` (namespace `Olympos.KendiSkill`, sınıflar `OlymposKendiSkillEfekti`,
+`OlymposKendiSkillKutuphanesi`, shader `Olympos/Kendi Skill Eklemeli`). Araçlar `araclar/efekt/cikar5.py KLASOR`, `kur5.py KLASOR`;
+önizleme `onizlemeler/efekt5_onizleme.png` (+ efekt başına `efekt5_<ad>.png`). Kayıtlar depoya konmadı.
+- Skill adları Information panelinden: Hide, Light Feet, Cat's Eyes, Lupine Eyes, Evade, Safety, Scaled Skin, Cure Disease, Cure Curse, Magic Shield.
+  Cast süresi olan skill'lerde (Eyes, Cure) önce ortak "döküm yıldızları" oynuyor (cast çubuğu "Lupine Eyes 1,5 sec").
+  Cat's Eyes ve Lupine Eyes aynı görsel; Cure Disease ve Cure Curse aynı görsel. Scaled Skin'in efekti kayıtların başından önce kalmış.
+- Kesim kutusu (1000,150) 720 × 860 (30 kare/sn), karakter ~265 px, ayak (1370,835) → pivot (0.514, 0.203), genişlik 2.717 boy.
+- Temizlik: (1) renk imzası kapısı — O−B artışının yönü efektin ölçülen rengine (altın / turuncu / kırmızı / pembe; Cure'da beyaz) yakın
+  değilse atılır (karakterin gri zırhı, sarı-yeşil teni); (2) gövde elipsi (1370,700, 92×150) içinde cast hareketi zayıflatılır;
+  (3) kararan / yeşil artan pikseller ve cast çubuğu komşu ışıktan doldurulur; (4) isim etiketi bandı dikey doldurulur; (5) uzak yaratık etiketleri silinir.
+- Doğrulama (zemin + efekt ↔ orijinal, ort. mutlak fark /255): dokum_yildizlari 6.2, hide 5.9, light_feet 3.2, kedi_gozu 3.6, evade 5.1, safety 4.3, cure 3.6, magic_shield 3.8.
+- Sınır: karakterin tam arkasında kalan ışık tahmini; döküm yıldızları ve Hide'da gövde üstündeki ışıma kısmen zayıflatıldı.

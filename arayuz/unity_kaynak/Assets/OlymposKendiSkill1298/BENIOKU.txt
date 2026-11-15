@@ -1,0 +1,24 @@
+OLYMPOS-KO · 1298 — Kendi skill efektleri (tek başına paket)
+==========================================================
+Menü: OLYMPOS > 1298 > Kendi Skill Efektleri (Hide · Light Feet · Eyes · Evade · Safety · Cure · Magic Shield) Oluştur
+ -> sahneye 8 efektli örnek + Prefabs/OlymposKendiSkillEfektleri.prefab (OlymposKendiSkillKutuphanesi).
+
+Kaynak: kullanıcının 9 telefon kaydı (2712 x 1220) -> 30 kare/sn. Skill adları kayıttaki Information panelinden.
+Referans/: her efektin en dolu anı (kayıttan, karakter çevresi 720 x 860).
+
+| Efekt (klasör)        | Skill                      | Kare | Süre  | Görünüm |
+| dokum_yildizlari      | cast süresince (Eyes, Cure)| 42   | 1.4 s | altın-turuncu yıldızlar ve kıvılcımlar karakterin çevresinde |
+| hide                  | Hide                       | 64   | 2.1 s | yerde altın-turuncu yıldızlı halka, karakter üstünde altın ışıma |
+| light_feet            | Light Feet                 | 90   | 3.0 s | karakteri saran ince altın ışık sütunları |
+| kedi_gozu             | Cat's Eyes / Lupine Eyes   | 70   | 2.3 s | baş üstünde kırmızı parıltı -> kırmızı yıldız ve açık ışık çizgileri |
+| evade                 | Evade                      | 72   | 2.4 s | yerde altın rün halkası + yükselen ince ışınlar |
+| safety                | Safety                     | 92   | 3.1 s | yerde iki turuncu rün dairesi -> karakterin yanlarında turuncu alevler |
+| cure                  | Cure Disease / Cure Curse  | 50   | 1.7 s | gökten beyaz-altın ışın + yerde ışık + baş üstünde yıldızlı madalyon |
+| magic_shield          | Magic Shield               | 80   | 2.7 s | ayakta pembe girdap -> karakteri saran pembe aura |
+
+Renk / sıcaklık: değiştirilmedi (kare = orijinal − efekt öncesi zemin). Arka fon: siyah = saydam; shader "Olympos/Kendi Skill Eklemeli" (Blend One One).
+Boyut: her kare 720 x 860 px; kayıtta karakter ~265 px -> genişlik 2.717 karakter boyu (karakterBoyu 1.8 -> 4.89 birim), en/boy 1.194.
+Pivot: karakterin ayağı (0.514, 0.203). Kameraya dönük dörtgen, karakteri izler.
+Kullanım: kutuphane.Uygula("Cure Disease", karakter.transform, dokumlu: true);  // önce döküm yıldızları, sonra skill
+Not: karakterin önünde kaldığı bölgelerde efekt komşu ışıktan dolduruldu / zayıflatıldı; isim etiketinin arkasındaki ışın
+dikey olarak tamamlandı. Built-in boru hattı; URP'de denenmedi.

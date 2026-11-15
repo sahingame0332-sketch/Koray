@@ -55,6 +55,7 @@ Arayüz işi ile altyapı işi aynı oyunun iki yüzü: `docs/03-icerik-uretim-r
 | `arayuz/unity_paketleri/OlymposAlimSatim1298.unitypackage` | NPC alım-satım penceresi — tek başına: Buy/Sell Item Count (sayı kutusu) → Need/Earn Money → Confirm/Cancel; harf aralıklı yazı efekti `OlymposAlimSatimHarfAraligi`; 4 referans `.jpg` pakette | 616 × 252 | yarı saydam **0.97** (bkz. `arayuz/15-npc-alimsatim.md`) |
 | `arayuz/unity_paketleri/OlymposManesOfFire1298.unitypackage` | Manes Of Fire (moba uygulanan skill) — tek başına: gökten ışın + kırmızı prizma + ateş + yerde sarı rün halkaları, kayıttan 49 kare (30 kare/sn); sınıf `OlymposManesOfFireOynatici`, shader `Olympos/Manes Of Fire Eklemeli` | 520 × 940, 3.71 × boy | eklemeli (bkz. `arayuz/10-efekt.md` ek 4) |
 | `arayuz/unity_paketleri/OlymposTezgah1298.unitypackage` | Yerdeki Merchant tezgâhı — tek başına: **3B mesh** `OlymposTezgah3B` (sandık + öne eğik tahta, fotoğraflardan düzeltilmiş dokular, shader `Olympos/Tezgah 3B`) + eski 2B sprite sürümü (`OlymposTezgah`); referans `.jpg` pakette | 0.78 × 0.42 × 0.59/0.99 m (karakter 1.8) | opak, dışı saydam (bkz. `arayuz/16-tezgah.md`) |
+| `arayuz/unity_paketleri/OlymposKendiSkill1298.unitypackage` | Kendi skill efektleri — tek başına, 8 efekt: döküm yıldızları, Hide, Light Feet, Cat's/Lupine Eyes, Evade, Safety, Cure Disease/Curse, Magic Shield; kayıtlardan 30 kare/sn; `OlymposKendiSkillEfekti` + `OlymposKendiSkillKutuphanesi` (skill adına göre), shader `Olympos/Kendi Skill Eklemeli`; referans `.jpg`'ler pakette | 720 × 860, 2.717 × karakter boyu | eklemeli (bkz. `arayuz/10-efekt.md` ek 5) |
 
 Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `OLYMPOS > 1298 > Character Penceresi Oluştur` (CHAR INFO + CLAN + FRIENDS sekmeleriyle birlikte),
@@ -68,7 +69,7 @@ Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `… > Efektler (Ateş Sütunu · Vuruş · Cast) Oluştur` (namespace `Olympos.Efekt`; efektler dünya uzayında).
 `… > Skill Efektleri (Fire Burst · Fire Blade · Vuruş) Oluştur` (namespace `Olympos.SkillEfekt`).
 `… > Genie (Panel · Auto Attack Settings · Rozet) Oluştur` (aynı 2712×1220 Canvas).
-`… > Görev NPC (QuestList · Görev Detayı · ? Rozeti) Oluştur` (aynı Canvas). `… > Respawn Penceresi Oluştur` (aynı Canvas). `… > Alevli Run Halkası Oluştur`, `… > Neon Run Halkası Oluştur`, `… > Ateş Havuzu (Karakter Altı) Oluştur` (dünya uzayı). `… > NPC Alım-Satım Penceresi Oluştur` (2712×1220 Canvas). `… > Manes Of Fire (Moba) Oluştur`, `… > Merchant Tezgahı (Yer) Oluştur`, `… > Merchant Tezgahı 3B Oluştur` (dünya uzayı).
+`… > Görev NPC (QuestList · Görev Detayı · ? Rozeti) Oluştur` (aynı Canvas). `… > Respawn Penceresi Oluştur` (aynı Canvas). `… > Alevli Run Halkası Oluştur`, `… > Neon Run Halkası Oluştur`, `… > Ateş Havuzu (Karakter Altı) Oluştur` (dünya uzayı). `… > NPC Alım-Satım Penceresi Oluştur` (2712×1220 Canvas). `… > Manes Of Fire (Moba) Oluştur`, `… > Merchant Tezgahı (Yer) Oluştur`, `… > Merchant Tezgahı 3B Oluştur`, `… > Kendi Skill Efektleri (…) Oluştur` (dünya uzayı).
 Kurucular: doku import ayarları (Sprite, sıkıştırmasız, mipmap yok, 9-slice kenarlar) → hiyerarşiyi **sol-üst piksel
 koordinatlarıyla** kurar → `Prefabs/` altına prefab → sahnedeki Canvas'a ekler (yoksa 1920×1080, match=1 Canvas + EventSystem).
 UI sistemi: **uGUI + legacy `UnityEngine.UI.Text`** (TMP kullanılmadı). Namespace `Olympos.UI` / `Olympos.UI.EditorTools`.
@@ -117,6 +118,7 @@ stat adı 21, stat değeri 25, direnç adı 19, direnç değeri 23, buton 22. De
   `cikar2.py` / `kur2.py`: tablet görüntülerinden adet ve satın alma onayı pencereleri (ölçek 1.0405).
   `cikar3.py` / `kur3.py`: alıcı görünümü (mor çerçeveler, satıcı adı).
 - `efekt/`: `cikar.py VIDEO` (eklemeli efekt kareleri: orijinal − zemin), `kur.py VIDEO` (zemin + efekt ↔ orijinal).
+  `cikar5.py KLASOR` / `kur5.py KLASOR`: 9 kayıttan kendi skill efektleri (renk imzası kapısı + gövde elipsi + etiket bandı dikey dolgu; geçici kareleri siler).
   `cikar4.py VIDEO` / `kur4.py VIDEO`: Manes Of Fire (moba; tablet 60 kare/sn).
   `cikar3.py VIDEO` / `kur3.py VIDEO`: karakter altı ateş havuzu (doyan merkezde ışığın kendi rengi).
   `cikar2.py A B` / `kur2.py A B`: telefon kayıtlarından Fire Burst, Fire Blade, tam vuruş (etiket bandı dikey dolgu, kararan piksel dolgusu).
