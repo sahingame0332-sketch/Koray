@@ -168,3 +168,14 @@ shader `Olympos/Efekt8 Eklemeli`, menü `OLYMPOS > 1298 > Efekt 8 (Skill Efekti)
 - Doğrulama: zemin + skill + mob kırmızısı ↔ orijinal ort. fark **2.95**/255 (`onizlemeler/efekt8_onizleme.png`, `efekt8_animasyon.mp4`).
 - Katmanlar (`katman8.py`): ön = mob silueti içi, arka = dışı (siluet içi komşudan). Boyut: mob 422 px; 3.18 × mob boyu, pivot (0.602, 0.191).
 - Pürüzsüz aura (`puruzsuz.py`): pembe aura bölgesinde kapanış 17 → medyan 7 → gauss 3; keskin sarı parçalar korunur. Ham kareler `kaynak/efekt8/skill_*_ham/`.
+
+---
+
+## Ek 9 — Efekt 9 (kayıt 20-27-52, tablet, gerçek hız): üç ayrı paket
+`OlymposEfekt9Vurus1298` (mobda: pembe patlama, gökten ışın, yerde pembe halka, yatay parlama, yıldız, altın yapraklar; mob zeminine bağlı),
+`OlymposEfekt9Kesik1298` (karakterin kılıç kesiği; karaktere bağlı, hedef sağdaysa ayna), `OlymposEfekt9Altin1298` (karakterde altın patlama).
+- Kareler: skill 66–91 (26), altın 19–28 (10); 60 → 30 kare/sn. Kamera iki bölümde de sabit. Zemin: önce/sonra medyanı, min(O−B).
+- Temizlik (`cikar9.py`): renksiz (gri/lavanta) artış = hareket eden mob/oyuncu gövdesi, ad etiketleri, kararan pikseller → komşu ışıktan dolgu;
+  mob kırmızısı ayrı paket (OlymposMobHasar1298). Ayırma (`ayir9.py`): oyuncu çevresindeki büyük sarı parça = kesik; oyuncu bölgesi vuruştan silinir.
+- Ölçü: karakter 270 px (kayıt); mob zemini (522,812), oyuncu ayağı (1130,1027). Doğrulama ort. fark skill 3.5, altın 2.7 /255.
+- Önizlemeler: `efekt9_onizleme.*`, `efekt9_animasyon.mp4`, paketler `efekt9_paketler.*`.

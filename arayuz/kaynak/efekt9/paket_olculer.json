@@ -1,0 +1,71 @@
+{
+ "karakter_boyu_px": 270.0,
+ "mob_zemini": [
+  522,
+  812
+ ],
+ "oyuncu_ayagi": [
+  1130,
+  1027
+ ],
+ "vurus": {
+  "kare": 26,
+  "fps": 30.0,
+  "kutu_ekran": [
+   0,
+   140,
+   1111,
+   809
+  ],
+  "capa_ekran": [
+   522,
+   812
+  ],
+  "genislik_karakter": 4.1148,
+  "en_boy": 0.7282,
+  "pivot": [
+   0.4698,
+   0.1693
+  ]
+ },
+ "kesik": {
+  "kare": 10,
+  "fps": 30.0,
+  "kutu_ekran": [
+   837,
+   527,
+   710,
+   433
+  ],
+  "capa_ekran": [
+   1130,
+   1027
+  ],
+  "genislik_karakter": 2.6296,
+  "en_boy": 0.6099,
+  "pivot": [
+   0.4127,
+   -0.1547
+  ]
+ },
+ "altin": {
+  "kare": 10,
+  "fps": 30.0,
+  "kutu_ekran": [
+   835,
+   596,
+   573,
+   465
+  ],
+  "capa_ekran": [
+   1130,
+   1027
+  ],
+  "genislik_karakter": 2.1222,
+  "en_boy": 0.8115,
+  "pivot": [
+   0.5148,
+   0.0731
+  ]
+ }
+}

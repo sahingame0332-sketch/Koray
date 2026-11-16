@@ -1,0 +1,12 @@
+OLYMPOS-KO · 1298 — Efekt 9 / vurus (tek başına paket)
+Menü: OLYMPOS > 1298 > Efekt 9 Vuruş (Mobda: Patlama · Işın · Halka · Yıldız) Oluştur  -> örnek + Prefabs/OlymposEfekt9Vurus.prefab
+Kullanım: efekt.Oyna(mob.transform);
+İçerik: mobdaki skill vurusu: havada pembe-beyaz patlama, gokten turuncu-kirmizi isin, yerde pembe halka + yatay sari parlama, sonda sari yildiz; havaya sacilan altin yapraklar.
+Kaynak: kayıt 20-27-52 (tablet 2266 × 1488, 60 kare/sn, gerçek hız) -> 30 kare/sn, 26 kare (0.87 sn).
+Renk / sıcaklık / saydamlık değiştirilmedi (kare = orijinal − efektsiz zemin); eklemeli (Blend One One), siyah = saydam.
+Bağlantı noktası: mobun zemin noktasi (secim halkasi merkezi). Boyut karakter boyuna göre (hedefBoyu, varsayılan 1.8; kayıtta karakter 270 px):
+  kare 1111 × 809 px -> genişlik 4.115 × boy, yük./gen. 0.728, pivot (0.470, 0.169).
+Diğer parçalar ayrı paketler: OlymposEfekt9Vurus1298 (mobda), OlymposEfekt9Kesik1298 (karakterin kılıç kesiği),
+OlymposEfekt9Altin1298 (karakterde altın patlama); mobun kırmızılaşması OlymposMobHasar1298.
+Çıkarılanlar: hareket eden mob/oyuncu, ad etiketleri, sandık, seçim halkası, yön oku, mob kırmızısı.
+Built-in boru hattı; URP'de denenmedi.
