@@ -153,3 +153,4 @@ menü `OLYMPOS > 1298 > Efekt 7 (Kesik + Aura · Yıldız Vuruşu) Oluştur`). K
 - Ek (uzak kayıtlar 16-33-29 / 16-33-43, gerçek hız; efekt 7 kareleri değiştirilmeden): `uzak2.py` özellik + DTW ile gerçek zamanlama,
   `uzak3.py` altın yapraklar katmanı (`kaynak/efekt7/yapraklar`, `gercek_zamanlama.json`), `temiz.py` arka katmanın çitsiz kopyası;
   önizleme `efekt7_uzak_a.*`. Gerçek döngü ≈ 1.2 sn (kesik+aura ≈ 0.53 sn, ardından yıldız + 0.2 sn kırmızı). Pakette henüz yok.
+- Ayrık paketler (kullanıcı isteği): `OlymposMobHasar1298` (yalnız mob hasar rengi, `Olympos.MobHasar`) ve `OlymposEfekt7Skill1298` (yalnız skill ışıkları, `Olympos.Efekt7Skill`); önizlemeler `efekt7_paket_hasar.*`, `efekt7_paket_skill.*` (`paket_onizle.py hasar|skill`). Efekt 7 paketi aynen duruyor.

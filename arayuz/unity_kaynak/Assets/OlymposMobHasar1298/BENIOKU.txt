@@ -1,0 +1,13 @@
+OLYMPOS-KO · 1298 — Mob hasar rengi (vurulan mob kısa süre kırmızı) — tek başına paket
+=====================================================================================
+Menü: OLYMPOS > 1298 > Mob Hasar Rengi (Kırmızı) Oluştur  -> sahneye örnek + Prefabs/OlymposMobHasarRengi.prefab
+Kullanım: hasar.Oyna(mob.transform, "yildiz");   hasar.Oyna(mob.transform, "kesik");   ya da kendi eğrin: hasar.Oyna(mob.transform, new float[]{...});
+Kaynak: kayıt 14-01-51 (Efekt 7 ile aynı kayıt). Işık değil: mobun kendi rengi değişir; skill ışıkları ayrı paket (OlymposEfekt7Skill1298).
+
+Ölçülen renk (4 karede): tam güçte R = 0.60 L + 162, G = 0.95 L + 5, B = 0.75 L  (L = mobun normal parlaklığı, 0-255).
+Shader "Olympos/Mob Hasar Kirmizi" bunu kanal başına uygular: sonuç = renk × (1 − s + s·c) + s·b,  c = (0.60, 0.95, 0.75), b = (162, 5, 0)/255.
+Mobun Renderer'larına süre boyunca ek malzeme olarak takılır (iki geçiş: çarpımsal + eklemeli), bitince kaldırılır. Mobun kendi shader'ına dokunmaz.
+Güç eğrileri (30 kare/sn, kayıttan kare kare):
+  "kesik" : 0.10 0.10 0.60 0.87 0.91 0.28 0.01          (~0.23 sn)
+  "yildiz": 0    0    0    0.34 0.59 0.95 0.54 0.01     (~0.27 sn; ilk 3 kare = yıldızın parlaması, kırmızı sonra gelir)
+Built-in boru hattı; URP'de denenmedi. SkinnedMeshRenderer ve MeshRenderer ile çalışır.
