@@ -1,0 +1,52 @@
+{
+ "skill": {
+  "kaynak_kareler": [
+   66,
+   92
+  ],
+  "kare": 26,
+  "fps": 30.0,
+  "kutu_ekran": [
+   0,
+   140,
+   1547,
+   909
+  ],
+  "capa": "mob_zemini",
+  "capa_ekran": [
+   522,
+   812
+  ],
+  "pivot": [
+   0.3374,
+   0.2607
+  ],
+  "en_boy": 0.5876,
+  "oyuncu_boyu_px": 290
+ },
+ "altin": {
+  "kaynak_kareler": [
+   19,
+   29
+  ],
+  "kare": 10,
+  "fps": 30.0,
+  "kutu_ekran": [
+   835,
+   596,
+   576,
+   465
+  ],
+  "capa": "oyuncu_ayagi",
+  "capa_ekran": [
+   1130,
+   1020
+  ],
+  "pivot": [
+   0.5122,
+   0.0882
+  ],
+  "en_boy": 0.8073,
+  "oyuncu_boyu_px": 290
+ }
+}
