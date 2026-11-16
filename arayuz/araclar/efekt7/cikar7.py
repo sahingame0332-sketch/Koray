@@ -54,6 +54,7 @@ def temizle(E,esik=12):
     l,n=ndimage.label(tut)
     if n: s=ndimage.sum(mx>esik,l,range(1,n+1)); tut=np.isin(l,1+np.where(s>=10)[0])
     return ndimage.gaussian_filter(np.where(tut[...,None],E,0),[0.6,0.6,0])
+TUM="--tum" in sys.argv
 def cikar():
     Z=json.load(open("zaman.json")); hm=hedef_maskesi(Z)
     hm_d=ndimage.binary_dilation(hm,np.ones((5,5)))
@@ -64,6 +65,8 @@ def cikar():
         uniq=benzersiz(list(range(E_[0]-12,E_[-1]+8)))
         tt=np.array([Z[i] for i in uniq])
         hedefler=np.arange(t0,t1,1/30.0); sec=[uniq[int(np.argmin(np.abs(tt-t)))] for t in hedefler]
+        if TUM:                                   # ek: zaman penceresindeki TUM benzersiz kareler (sure kutusu durakladiginda da)
+            sec=[i for i in uniq if t0-0.005<=Z[i]<=t1]; ad=ad+"_tum"
         for kat in ("arka","on"):
             d=os.path.join(OUT,"%s_%s"%(ad,kat)); os.makedirs(d,exist_ok=True)
             for f in os.listdir(d): os.remove(os.path.join(d,f))
@@ -83,6 +86,7 @@ def cikar():
         bilgi[ad].update(olay=olay,oyun_zamani=[t0,t1],kare=len(sec),fps=30.0,kaynak_kareler=sec,kirmizi_gucu=S,
                          hedef_zemin=list(HEDEF_ZEMIN),hedef_boyu_px=HEDEF_ZEMIN[1]-HEDEF_UST)
         print(ad,'kirmizi',S)
-    json.dump(bilgi,open(os.path.join(OUT,"bilgi.json"),"w"),indent=1)
+    p=os.path.join(OUT,"bilgi.json"); eski=json.load(open(p)) if (TUM and os.path.exists(p)) else {}
+    eski.update(bilgi); json.dump(eski,open(p,"w"),indent=1)
 if __name__=="__main__":
     os.makedirs(OUT,exist_ok=True); cikar()

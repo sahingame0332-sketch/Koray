@@ -1,0 +1,491 @@
+{
+ "kayit": "a",
+ "olcek": 0.27147766323024053,
+ "hedef_zemin": [
+  1038,
+  698
+ ],
+ "hedef_boy": 158,
+ "devirler": [
+  [
+   {
+    "kayit_kare": 24,
+    "efekt": "yok",
+    "kare": -1,
+    "kirmizi": 0.0,
+    "fark": 0.16
+   },
+   {
+    "kayit_kare": 25,
+    "efekt": "yok",
+    "kare": -1,
+    "kirmizi": 0.0,
+    "fark": 0.17
+   },
+   {
+    "kayit_kare": 26,
+    "efekt": "yok",
+    "kare": -1,
+    "kirmizi": 0.411,
+    "fark": 4.59
+   },
+   {
+    "kayit_kare": 27,
+    "efekt": "kesik_aura",
+    "kare": 11,
+    "kirmizi": 0.544,
+    "fark": 5.5
+   },
+   {
+    "kayit_kare": 28,
+    "efekt": "kesik_aura",
+    "kare": 11,
+    "kirmizi": 0.992,
+    "fark": 9.74
+   },
+   {
+    "kayit_kare": 29,
+    "efekt": "kesik_aura",
+    "kare": 11,
+    "kirmizi": 0.785,
+    "fark": 10.25
+   },
+   {
+    "kayit_kare": 30,
+    "efekt": "kesik_aura",
+    "kare": 11,
+    "kirmizi": 0.762,
+    "fark": 11.15
+   },
+   {
+    "kayit_kare": 31,
+    "efekt": "kesik_aura",
+    "kare": 11,
+    "kirmizi": 0.822,
+    "fark": 11.29
+   },
+   {
+    "kayit_kare": 32,
+    "efekt": "kesik_aura",
+    "kare": 11,
+    "kirmizi": 1.0,
+    "fark": 11.52
+   },
+   {
+    "kayit_kare": 33,
+    "efekt": "kesik_aura",
+    "kare": 11,
+    "kirmizi": 1.0,
+    "fark": 11.37
+   },
+   {
+    "kayit_kare": 34,
+    "efekt": "kesik_aura",
+    "kare": 11,
+    "kirmizi": 1.0,
+    "fark": 11.23
+   },
+   {
+    "kayit_kare": 35,
+    "efekt": "kesik_aura",
+    "kare": 11,
+    "kirmizi": 0.909,
+    "fark": 10.33
+   },
+   {
+    "kayit_kare": 36,
+    "efekt": "kesik_aura",
+    "kare": 11,
+    "kirmizi": 0.608,
+    "fark": 8.46
+   },
+   {
+    "kayit_kare": 37,
+    "efekt": "kesik_aura",
+    "kare": 11,
+    "kirmizi": 0.452,
+    "fark": 7.32
+   },
+   {
+    "kayit_kare": 38,
+    "efekt": "kesik_aura",
+    "kare": 14,
+    "kirmizi": 0.057,
+    "fark": 2.99
+   },
+   {
+    "kayit_kare": 39,
+    "efekt": "kesik_aura",
+    "kare": 14,
+    "kirmizi": 0.056,
+    "fark": 2.95
+   },
+   {
+    "kayit_kare": 40,
+    "efekt": "kesik_aura",
+    "kare": 16,
+    "kirmizi": 0.056,
+    "fark": 2.92
+   },
+   {
+    "kayit_kare": 41,
+    "efekt": "kesik_aura",
+    "kare": 16,
+    "kirmizi": 0.056,
+    "fark": 2.83
+   },
+   {
+    "kayit_kare": 42,
+    "efekt": "kesik_aura",
+    "kare": 16,
+    "kirmizi": 0.053,
+    "fark": 2.7
+   },
+   {
+    "kayit_kare": 43,
+    "efekt": "kesik_aura",
+    "kare": 16,
+    "kirmizi": 0.248,
+    "fark": 3.77
+   },
+   {
+    "kayit_kare": 44,
+    "efekt": "kesik_aura",
+    "kare": 17,
+    "kirmizi": 0.393,
+    "fark": 3.33
+   },
+   {
+    "kayit_kare": 45,
+    "efekt": "kesik_aura",
+    "kare": 18,
+    "kirmizi": 0.584,
+    "fark": 2.96
+   },
+   {
+    "kayit_kare": 46,
+    "efekt": "kesik_aura",
+    "kare": 19,
+    "kirmizi": 0.609,
+    "fark": 2.34
+   },
+   {
+    "kayit_kare": 47,
+    "efekt": "kesik_aura",
+    "kare": 19,
+    "kirmizi": 0.52,
+    "fark": 2.34
+   },
+   {
+    "kayit_kare": 48,
+    "efekt": "kesik_aura",
+    "kare": 19,
+    "kirmizi": 0.292,
+    "fark": 1.99
+   },
+   {
+    "kayit_kare": 49,
+    "efekt": "kesik_aura",
+    "kare": 19,
+    "kirmizi": 0.02,
+    "fark": 1.63
+   },
+   {
+    "kayit_kare": 50,
+    "efekt": "kesik_aura",
+    "kare": 19,
+    "kirmizi": 0.012,
+    "fark": 1.61
+   },
+   {
+    "kayit_kare": 51,
+    "efekt": "kesik_aura",
+    "kare": 19,
+    "kirmizi": 0.011,
+    "fark": 1.61
+   },
+   {
+    "kayit_kare": 52,
+    "efekt": "kesik_aura",
+    "kare": 19,
+    "kirmizi": 0.01,
+    "fark": 1.59
+   },
+   {
+    "kayit_kare": 53,
+    "efekt": "kesik_aura",
+    "kare": 19,
+    "kirmizi": 0.01,
+    "fark": 1.58
+   },
+   {
+    "kayit_kare": 54,
+    "efekt": "kesik_aura",
+    "kare": 19,
+    "kirmizi": 0.009,
+    "fark": 1.57
+   },
+   {
+    "kayit_kare": 55,
+    "efekt": "kesik_aura",
+    "kare": 19,
+    "kirmizi": 0.009,
+    "fark": 1.57
+   },
+   {
+    "kayit_kare": 56,
+    "efekt": "kesik_aura",
+    "kare": 19,
+    "kirmizi": 0.009,
+    "fark": 1.58
+   },
+   {
+    "kayit_kare": 57,
+    "efekt": "kesik_aura",
+    "kare": 19,
+    "kirmizi": 0.009,
+    "fark": 1.58
+   },
+   {
+    "kayit_kare": 58,
+    "efekt": "kesik_aura",
+    "kare": 19,
+    "kirmizi": 0.009,
+    "fark": 1.58
+   },
+   {
+    "kayit_kare": 59,
+    "efekt": "kesik_aura",
+    "kare": 19,
+    "kirmizi": 0.009,
+    "fark": 1.58
+   }
+  ],
+  [
+   {
+    "kayit_kare": 72,
+    "efekt": "yok",
+    "kare": -1,
+    "kirmizi": 0.009,
+    "fark": 1.46
+   },
+   {
+    "kayit_kare": 73,
+    "efekt": "yok",
+    "kare": -1,
+    "kirmizi": 0.007,
+    "fark": 1.31
+   },
+   {
+    "kayit_kare": 74,
+    "efekt": "kesik_aura",
+    "kare": 11,
+    "kirmizi": 0.526,
+    "fark": 6.37
+   },
+   {
+    "kayit_kare": 75,
+    "efekt": "kesik_aura",
+    "kare": 11,
+    "kirmizi": 0.717,
+    "fark": 7.34
+   },
+   {
+    "kayit_kare": 76,
+    "efekt": "kesik_aura",
+    "kare": 11,
+    "kirmizi": 0.988,
+    "fark": 10.84
+   },
+   {
+    "kayit_kare": 77,
+    "efekt": "kesik_aura",
+    "kare": 11,
+    "kirmizi": 0.779,
+    "fark": 11.47
+   },
+   {
+    "kayit_kare": 78,
+    "efekt": "kesik_aura",
+    "kare": 11,
+    "kirmizi": 0.722,
+    "fark": 11.78
+   },
+   {
+    "kayit_kare": 79,
+    "efekt": "kesik_aura",
+    "kare": 11,
+    "kirmizi": 0.825,
+    "fark": 12.13
+   },
+   {
+    "kayit_kare": 80,
+    "efekt": "kesik_aura",
+    "kare": 11,
+    "kirmizi": 0.96,
+    "fark": 11.43
+   },
+   {
+    "kayit_kare": 81,
+    "efekt": "kesik_aura",
+    "kare": 11,
+    "kirmizi": 1.0,
+    "fark": 11.38
+   },
+   {
+    "kayit_kare": 82,
+    "efekt": "kesik_aura",
+    "kare": 11,
+    "kirmizi": 1.0,
+    "fark": 11.17
+   },
+   {
+    "kayit_kare": 83,
+    "efekt": "kesik_aura",
+    "kare": 11,
+    "kirmizi": 0.761,
+    "fark": 9.35
+   },
+   {
+    "kayit_kare": 84,
+    "efekt": "kesik_aura",
+    "kare": 11,
+    "kirmizi": 0.605,
+    "fark": 8.29
+   },
+   {
+    "kayit_kare": 85,
+    "efekt": "kesik_aura",
+    "kare": 14,
+    "kirmizi": 0.177,
+    "fark": 5.22
+   },
+   {
+    "kayit_kare": 86,
+    "efekt": "kesik_aura",
+    "kare": 14,
+    "kirmizi": 0.063,
+    "fark": 3.14
+   },
+   {
+    "kayit_kare": 87,
+    "efekt": "kesik_aura",
+    "kare": 16,
+    "kirmizi": 0.06,
+    "fark": 2.98
+   },
+   {
+    "kayit_kare": 88,
+    "efekt": "kesik_aura",
+    "kare": 16,
+    "kirmizi": 0.059,
+    "fark": 2.9
+   },
+   {
+    "kayit_kare": 89,
+    "efekt": "kesik_aura",
+    "kare": 16,
+    "kirmizi": 0.058,
+    "fark": 2.82
+   },
+   {
+    "kayit_kare": 90,
+    "efekt": "kesik_aura",
+    "kare": 17,
+    "kirmizi": 0.053,
+    "fark": 2.5
+   },
+   {
+    "kayit_kare": 91,
+    "efekt": "kesik_aura",
+    "kare": 18,
+    "kirmizi": 0.042,
+    "fark": 2.17
+   },
+   {
+    "kayit_kare": 92,
+    "efekt": "kesik_aura",
+    "kare": 18,
+    "kirmizi": 0.009,
+    "fark": 1.69
+   },
+   {
+    "kayit_kare": 93,
+    "efekt": "kesik_aura",
+    "kare": 18,
+    "kirmizi": 0.186,
+    "fark": 3.72
+   },
+   {
+    "kayit_kare": 94,
+    "efekt": "kesik_aura",
+    "kare": 18,
+    "kirmizi": 0.207,
+    "fark": 3.7
+   },
+   {
+    "kayit_kare": 95,
+    "efekt": "kesik_aura",
+    "kare": 18,
+    "kirmizi": 0.394,
+    "fark": 3.34
+   },
+   {
+    "kayit_kare": 96,
+    "efekt": "kesik_aura",
+    "kare": 19,
+    "kirmizi": 0.562,
+    "fark": 2.32
+   },
+   {
+    "kayit_kare": 97,
+    "efekt": "kesik_aura",
+    "kare": 19,
+    "kirmizi": 0.566,
+    "fark": 2.3
+   },
+   {
+    "kayit_kare": 98,
+    "efekt": "kesik_aura",
+    "kare": 19,
+    "kirmizi": 0.337,
+    "fark": 1.96
+   },
+   {
+    "kayit_kare": 99,
+    "efekt": "kesik_aura",
+    "kare": 19,
+    "kirmizi": 0.021,
+    "fark": 1.62
+   },
+   {
+    "kayit_kare": 100,
+    "efekt": "kesik_aura",
+    "kare": 19,
+    "kirmizi": 0.014,
+    "fark": 1.62
+   },
+   {
+    "kayit_kare": 101,
+    "efekt": "kesik_aura",
+    "kare": 19,
+    "kirmizi": 0.011,
+    "fark": 1.62
+   },
+   {
+    "kayit_kare": 102,
+    "efekt": "kesik_aura",
+    "kare": 19,
+    "kirmizi": 0.01,
+    "fark": 1.63
+   },
+   {
+    "kayit_kare": 103,
+    "efekt": "kesik_aura",
+    "kare": 19,
+    "kirmizi": 0.01,
+    "fark": 1.63
+   }
+  ]
+ ]
+}

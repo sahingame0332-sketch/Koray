@@ -1,0 +1,242 @@
+{
+ "kayit": "a",
+ "olcek_uzak": 0.3,
+ "hedef_boy_uzak_px": 158,
+ "kutu_hedefe_gore": [
+  -1.5949367088607596,
+  -1.8987341772151898,
+  3.189873417721519,
+  2.3987341772151898
+ ],
+ "fps": 30.0,
+ "zamanlama": [
+  {
+   "kare": 0,
+   "efekt": "yok",
+   "efekt_kare": -1,
+   "kirmizi": 0.0
+  },
+  {
+   "kare": 1,
+   "efekt": "yok",
+   "efekt_kare": -1,
+   "kirmizi": 0.0
+  },
+  {
+   "kare": 2,
+   "efekt": "kesik_aura_tum",
+   "efekt_kare": 2,
+   "kirmizi": 0.157
+  },
+  {
+   "kare": 3,
+   "efekt": "kesik_aura_tum",
+   "efekt_kare": 7,
+   "kirmizi": 0.398
+  },
+  {
+   "kare": 4,
+   "efekt": "kesik_aura_tum",
+   "efekt_kare": 11,
+   "kirmizi": 1.0
+  },
+  {
+   "kare": 5,
+   "efekt": "kesik_aura_tum",
+   "efekt_kare": 17,
+   "kirmizi": 0.624
+  },
+  {
+   "kare": 6,
+   "efekt": "kesik_aura_tum",
+   "efekt_kare": 19,
+   "kirmizi": 0.164
+  },
+  {
+   "kare": 7,
+   "efekt": "kesik_aura_tum",
+   "efekt_kare": 20,
+   "kirmizi": 0.088
+  },
+  {
+   "kare": 8,
+   "efekt": "kesik_aura_tum",
+   "efekt_kare": 22,
+   "kirmizi": 0.038
+  },
+  {
+   "kare": 9,
+   "efekt": "kesik_aura_tum",
+   "efekt_kare": 22,
+   "kirmizi": 0.033
+  },
+  {
+   "kare": 10,
+   "efekt": "kesik_aura_tum",
+   "efekt_kare": 22,
+   "kirmizi": 0.032
+  },
+  {
+   "kare": 11,
+   "efekt": "kesik_aura_tum",
+   "efekt_kare": 22,
+   "kirmizi": 0.031
+  },
+  {
+   "kare": 12,
+   "efekt": "kesik_aura_tum",
+   "efekt_kare": 24,
+   "kirmizi": 0.03
+  },
+  {
+   "kare": 13,
+   "efekt": "kesik_aura_tum",
+   "efekt_kare": 28,
+   "kirmizi": 0.028
+  },
+  {
+   "kare": 14,
+   "efekt": "kesik_aura_tum",
+   "efekt_kare": 34,
+   "kirmizi": 0.0
+  },
+  {
+   "kare": 15,
+   "efekt": "kesik_aura_tum",
+   "efekt_kare": 40,
+   "kirmizi": 0.0
+  },
+  {
+   "kare": 16,
+   "efekt": "kesik_aura_tum",
+   "efekt_kare": 46,
+   "kirmizi": 0.0
+  },
+  {
+   "kare": 17,
+   "efekt": "kesik_aura_tum",
+   "efekt_kare": 49,
+   "kirmizi": 0.0
+  },
+  {
+   "kare": 18,
+   "efekt": "yildiz_tum",
+   "efekt_kare": 0,
+   "kirmizi": 0.0
+  },
+  {
+   "kare": 19,
+   "efekt": "yildiz_tum",
+   "efekt_kare": 5,
+   "kirmizi": 0.125
+  },
+  {
+   "kare": 20,
+   "efekt": "yildiz_tum",
+   "efekt_kare": 10,
+   "kirmizi": 0.371
+  },
+  {
+   "kare": 21,
+   "efekt": "yildiz_tum",
+   "efekt_kare": 10,
+   "kirmizi": 0.624
+  },
+  {
+   "kare": 22,
+   "efekt": "yildiz_tum",
+   "efekt_kare": 10,
+   "kirmizi": 0.949
+  },
+  {
+   "kare": 23,
+   "efekt": "yildiz_tum",
+   "efekt_kare": 10,
+   "kirmizi": 0.997
+  },
+  {
+   "kare": 24,
+   "efekt": "yildiz_tum",
+   "efekt_kare": 11,
+   "kirmizi": 0.568
+  },
+  {
+   "kare": 25,
+   "efekt": "yildiz_tum",
+   "efekt_kare": 11,
+   "kirmizi": 0.035
+  },
+  {
+   "kare": 26,
+   "efekt": "yildiz_tum",
+   "efekt_kare": 11,
+   "kirmizi": 0.01
+  },
+  {
+   "kare": 27,
+   "efekt": "yildiz_tum",
+   "efekt_kare": 11,
+   "kirmizi": 0.009
+  },
+  {
+   "kare": 28,
+   "efekt": "yildiz_tum",
+   "efekt_kare": 11,
+   "kirmizi": 0.008
+  },
+  {
+   "kare": 29,
+   "efekt": "yildiz_tum",
+   "efekt_kare": 11,
+   "kirmizi": 0.008
+  },
+  {
+   "kare": 30,
+   "efekt": "yildiz_tum",
+   "efekt_kare": 11,
+   "kirmizi": 0.008
+  },
+  {
+   "kare": 31,
+   "efekt": "yildiz_tum",
+   "efekt_kare": 11,
+   "kirmizi": 0.008
+  },
+  {
+   "kare": 32,
+   "efekt": "yildiz_tum",
+   "efekt_kare": 11,
+   "kirmizi": 0.008
+  },
+  {
+   "kare": 33,
+   "efekt": "yildiz_tum",
+   "efekt_kare": 11,
+   "kirmizi": 0.008
+  },
+  {
+   "kare": 34,
+   "efekt": "yildiz_tum",
+   "efekt_kare": 11,
+   "kirmizi": 0.008
+  },
+  {
+   "kare": 35,
+   "efekt": "yildiz_tum",
+   "efekt_kare": 11,
+   "kirmizi": 0.008
+  },
+  {
+   "kare": 36,
+   "efekt": "yildiz_tum",
+   "efekt_kare": 11,
+   "kirmizi": 0.008
+  },
+  {
+   "kare": 37,
+   "efekt": "yildiz_tum",
+   "efekt_kare": 11,
+   "kirmizi": 0.008
+  }
+ ]
+}
