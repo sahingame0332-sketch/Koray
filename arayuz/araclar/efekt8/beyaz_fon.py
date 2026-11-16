@@ -46,6 +46,14 @@ for n in range(N):
     yy,xx=np.mgrid[0:mx.shape[0],0:mx.shape[1]]; r=np.hypot((xx-MERKEZ[0])/1.15,yy-MERKEZ[1])
     govde=ndimage.binary_fill_holes(ndimage.binary_closing(pemb|kiv,np.ones((15,15))))
     E=yumusak_doldur(E,kiv&govde,n=14,k=15)
+    # auranin ustundeki sari kivilcimlar (buyuklugune bakmadan): cekirdegin ustu, sari ya da yesilimsi-sari
+    mx4=E.max(2); sr4=(np.minimum(E[...,0],E[...,1])-E[...,2])/np.maximum(mx4,1)
+    ust=((sr4>0.08)&(mx4>20)&(yy<MERKEZ[1]-110)&(r>120))|((n<=4)&(mx4>15)&(yy<MERKEZ[1]-90)&(np.abs(xx-MERKEZ[0])<80)&(sr4>-0.02))
+    ust=ndimage.binary_dilation(ndimage.binary_opening(ust,np.ones((3,3))),np.ones((15,15)))
+    if ust.any(): E=yumusak_doldur(E*(~ust)[...,None],ust,n=12,k=15); E=np.minimum(E,ndimage.gaussian_filter(E,[3,3,0])*1.0+np.where(ust[...,None],0,255))
+    if n<=3:                                                                       # ilk karelerde cekirdekteki kesik kanatlari: yumusak cekirdek
+        cw=ndimage.gaussian_filter(np.clip((150-r)/40,0,1),4)[...,None]
+        E=cw*ndimage.gaussian_filter(E,[7,7,0])+(1-cw)*E
     pencere=np.clip((360-r)/70,0,1)                                         # patlama dairesi disi (kesik izi) yumusak kesilir
     # kilic kesigi izi: patlama cekirdegi ve yatay cizgi disinda kalan sari-krem isik (patlama pembe-mor: B >= G)
     mx2=E.max(2); sr=(np.minimum(E[...,0],E[...,1])-E[...,2])/np.maximum(mx2,1)
@@ -55,6 +63,53 @@ for n in range(N):
     xm=np.clip(2*MERKEZ[0]-xx,0,mx.shape[1]-1); Ea=E[yy,xm]
     kw=ndimage.gaussian_filter(kesik.astype(np.float32),5)[...,None]
     E=kw*Ea+(1-kw)*E
+    # kalan skill izi: aura yatay simetrik — sol yari (cekirdek disi) sag yarinin aynasi; cekirdekte (ilk kareler) ayna ile minimum
+    xm2=np.clip(2*MERKEZ[0]-xx,0,mx.shape[1]-1); Eb=E[yy,xm2]
+    sol=np.clip(((MERKEZ[0]-xx)-10)/30,0,1)*np.clip((r-100)/40,0,1)
+    cizgi=(np.abs(yy-MERKEZ[1])<=6)&(n>=4)                                            # yatay patlama cizgisi (0.13 sn'den sonra) kendi kalsin
+    sol=np.where(cizgi,0,sol); sol=ndimage.gaussian_filter(sol,3)[...,None]
+    E=sol*Eb+(1-sol)*E
+    if n<=5:
+        cek=(np.clip((140-r)/40,0,1)*(~cizgi))
+        cek=ndimage.gaussian_filter(cek,3)[...,None]
+        E=cek*ndimage.gaussian_filter(np.minimum(E,Eb),[2,2,0])+(1-cek)*E
+    # patlama disi kucuk sari/beyaz kivilcimlar (tum kareler)
+    mx3=E.max(2); sr3=(np.minimum(E[...,0],E[...,1])-E[...,2])/np.maximum(mx3,1)
+    yerel3=ndimage.gaussian_filter(mx3,12)
+    kv=((sr3>0.10)|((mx3-yerel3)>25))&(mx3>25)&(r>140)&~cizgi
+    lb,nl=ndimage.label(kv)
+    if nl:
+        sz=ndimage.sum(np.ones_like(mx3),lb,range(1,nl+1)); kv=np.isin(lb,1+np.where(sz<3000)[0])
+        kd=ndimage.binary_dilation(kv,np.ones((11,11)))
+        E=yumusak_doldur(E*(~kd)[...,None],kd,n=10,k=11)
+    # auranin ustundeki sari kivilcimlar (buyuklugune bakmadan): cekirdegin ustu, sari ya da yesilimsi-sari
+    mx4=E.max(2); sr4=(np.minimum(E[...,0],E[...,1])-E[...,2])/np.maximum(mx4,1)
+    ust=((sr4>0.08)&(mx4>20)&(yy<MERKEZ[1]-110)&(r>120))|((n<=4)&(mx4>15)&(yy<MERKEZ[1]-90)&(np.abs(xx-MERKEZ[0])<80)&(sr4>-0.02))
+    ust=ndimage.binary_dilation(ndimage.binary_opening(ust,np.ones((3,3))),np.ones((15,15)))
+    if ust.any(): E=yumusak_doldur(E*(~ust)[...,None],ust,n=12,k=15); E=np.minimum(E,ndimage.gaussian_filter(E,[3,3,0])*1.0+np.where(ust[...,None],0,255))
+    pencere=np.clip((360-r)/70,0,1)                                         # patlama dairesi disi (kesik izi) yumusak kesilir
+    # kilic kesigi izi: patlama cekirdegi ve yatay cizgi disinda kalan sari-krem isik (patlama pembe-mor: B >= G)
+    mx2=E.max(2); sr=(np.minimum(E[...,0],E[...,1])-E[...,2])/np.maximum(mx2,1)
+    kesik=(sr>0.10)&(mx2>15)&(r>150)&(np.abs(yy-MERKEZ[1])>12)&(xx<MERKEZ[0]-140)&(n<=9)   # kesik yalniz solda, halka sonrasi yok
+    kesik=ndimage.binary_dilation(ndimage.binary_opening(kesik,np.ones((3,3))),np.ones((25,25)))   # kesik + halesi
+    # kesigin yeri: aura yatay simetrik -> merkezden aynalanan (sag yarinin) temiz aura ile doldurulur; gecis yumusak
+    xm=np.clip(2*MERKEZ[0]-xx,0,mx.shape[1]-1); Ea=E[yy,xm]
+    kw=ndimage.gaussian_filter(kesik.astype(np.float32),5)[...,None]
+    E=kw*Ea+(1-kw)*E
+    # kalan skill izi (ilk kareler: kesik cekirdegin icinden geciyor, ust/yanlarda kivilcimlar)
+    if n<=7:
+        mx3=E.max(2); ince=(mx3-ndimage.gaussian_filter(mx3,10))>20                       # keskin, ince parlak cizgi
+        ince&=(xx<MERKEZ[0]+30)&(np.abs(yy-MERKEZ[1])>10)                                 # sol taraf (kesik), yatay patlama cizgisi haric
+        iz=ndimage.binary_dilation(ince,np.ones((15,15)))
+        xm2=np.clip(2*MERKEZ[0]-xx,0,mx.shape[1]-1); Eb=E[yy,xm2]
+        iw=ndimage.gaussian_filter(iz.astype(np.float32),4)[...,None]
+        E=iw*np.minimum(Eb,ndimage.gaussian_filter(E,[8,8,0]))+(1-iw)*E
+        # patlama govdesi disindaki kucuk sari kivilcimlar
+        mx3=E.max(2); sr3=(np.minimum(E[...,0],E[...,1])-E[...,2])/np.maximum(mx3,1)
+        lb,nl=ndimage.label((sr3>0.12)&(mx3>25)&(r>170))
+        if nl:
+            sz=ndimage.sum(np.ones_like(mx3),lb,range(1,nl+1)); kv=np.isin(lb,1+np.where(sz<2500)[0])
+            E=E*(1-ndimage.gaussian_filter(ndimage.binary_dilation(kv,np.ones((9,9))).astype(np.float32),3))[...,None]
     m=ndimage.gaussian_filter((govde|kesik).astype(np.float32),3)*pencere
     E=E*m[...,None]
     a=np.clip(E.max(2)/255.0,0,1); C=E/np.maximum(a[...,None],1e-3)
