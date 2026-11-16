@@ -1,0 +1,13 @@
+OLYMPOS-KO · 1298 — Efekt 7 KARAKTER efekti: kılıcın sarı kesik yayı (tek başına paket)
+======================================================================================
+Menü: OLYMPOS > 1298 > Efekt 7 Karakter (Kılıç Kesiği) Oluştur -> örnek + Prefabs/OlymposEfekt7Karakter.prefab
+Kullanım: kesik.Oyna(karakter.transform, hedef.transform);
+Diğer parçalar ayrı paketler: mobdaki vuruş efekti OlymposEfekt7Hasar1298, mobun kırmızılaşması OlymposMobHasar1298.
+Üçünü aynı anda çağırınca kayıttaki görüntü çıkar.
+
+Kayıttan (14-01-51): 12 kare, 30 kare/sn (0.40 sn), eklemeli (Blend One One), renk/sıcaklık değiştirilmedi; siyah = saydam.
+Kesik, efekt 7 skill ışıklarından ayrıldı: oyuncunun önündeki (kayıtta x ≥ 950) dikey uzun sarı yay.
+Boyut karakter boyuna göre: genişlik 1.166 × boy, yük./gen. 1.026, pivot = karakterin ayağı (0.502, −0.272).
+DİKKAT: kayıtta oyuncunun ayağı alt çubuğun altında kalıyordu — oyuncu boyu (620 px) ve ayak yeri TAHMİN; Inspector'dan rötuş.
+Yön: kayıtta hedef oyuncunun solunda; hedef ekranda sağa düşünce doku otomatik aynalanır (otomatikAyna).
+Sınır: kesiğin üst kısmı kayıtta galeri şeridi altında kaldı; ipucu kutusunun altı komşu ışıktan dolduruldu (yer yer köşeli dolgu).

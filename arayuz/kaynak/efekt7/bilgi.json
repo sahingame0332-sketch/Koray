@@ -79,6 +79,14 @@
     1410,
     834
    ]
+  },
+  "arka_hasar": {
+   "kutu_ekran": [
+    250,
+    226,
+    1410,
+    834
+   ]
   }
  },
  "yildiz": {
@@ -366,5 +374,27 @@
     775
    ]
   }
+ },
+ "karakter_kesik": {
+  "kutu_ekran": [
+   937,
+   226,
+   723,
+   742
+  ],
+  "kare": 12,
+  "fps": 30.0,
+  "oyuncu_ayak": [
+   1300,
+   1170
+  ],
+  "oyuncu_boyu_px": 620,
+  "genislik_oyuncu_boyu": 1.1661,
+  "en_boy": 1.0263,
+  "pivot": [
+   0.5021,
+   -0.2722
+  ],
+  "not_": "oyuncu boyu ve ayagi tahmin (ayak alt cubuk altinda kaliyor); kayitta hedef oyuncunun SOLUNDA"
  }
 }
