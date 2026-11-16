@@ -41,7 +41,21 @@ for n in range(N):
         tut=[i+1 for i in range(nn) if sz[i]>=1500 and uz[l==i+1].min()<260]    # yalniz merkezdeki patlama govdesi (oyuncu kirintisi degil)
         pemb&=np.isin(l,tut)
     pemb=ndimage.binary_fill_holes(pemb)
-    m=ndimage.gaussian_filter((pemb&~ndimage.binary_dilation(kivilcim,np.ones((5,5)))).astype(np.float32),2)
+    # ayiklanan keskin sari parcalarin yeri bos kalmasin: patlama icinde komsu isiktan doldur
+    kiv=ndimage.binary_dilation(kivilcim,np.ones((5,5)))
+    yy,xx=np.mgrid[0:mx.shape[0],0:mx.shape[1]]; r=np.hypot((xx-MERKEZ[0])/1.15,yy-MERKEZ[1])
+    govde=ndimage.binary_fill_holes(ndimage.binary_closing(pemb|kiv,np.ones((15,15))))
+    E=yumusak_doldur(E,kiv&govde,n=14,k=15)
+    pencere=np.clip((360-r)/70,0,1)                                         # patlama dairesi disi (kesik izi) yumusak kesilir
+    # kilic kesigi izi: patlama cekirdegi ve yatay cizgi disinda kalan sari-krem isik (patlama pembe-mor: B >= G)
+    mx2=E.max(2); sr=(np.minimum(E[...,0],E[...,1])-E[...,2])/np.maximum(mx2,1)
+    kesik=(sr>0.10)&(mx2>15)&(r>150)&(np.abs(yy-MERKEZ[1])>12)&(xx<MERKEZ[0]-140)&(n<=9)   # kesik yalniz solda, halka sonrasi yok
+    kesik=ndimage.binary_dilation(ndimage.binary_opening(kesik,np.ones((3,3))),np.ones((25,25)))   # kesik + halesi
+    # kesigin yeri: aura yatay simetrik -> merkezden aynalanan (sag yarinin) temiz aura ile doldurulur; gecis yumusak
+    xm=np.clip(2*MERKEZ[0]-xx,0,mx.shape[1]-1); Ea=E[yy,xm]
+    kw=ndimage.gaussian_filter(kesik.astype(np.float32),5)[...,None]
+    E=kw*Ea+(1-kw)*E
+    m=ndimage.gaussian_filter((govde|kesik).astype(np.float32),3)*pencere
     E=E*m[...,None]
     a=np.clip(E.max(2)/255.0,0,1); C=E/np.maximum(a[...,None],1e-3)
     rgba=np.dstack([np.clip(C,0,255),a*255]).round().astype(np.uint8)
