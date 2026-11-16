@@ -1,0 +1,30 @@
+OLYMPOS-KO · 1298 — Seçim efektleri: hedef seçim halkası + yön oku (tek başına paket)
+====================================================================================
+Menü: OLYMPOS > 1298 > Seçim Halkası + Yön Oku Oluştur
+ -> sahneye örnek + Prefabs/OlymposSecim.prefab (OlymposSecimYoneticisi).
+Kullanım: secim.Sec(karakter.transform, mob.transform);   secim.Birak();
+Kaynak: telefon kaydı 14-31-04 (2712 x 1220) + kullanıcının ekran görüntüsü (Referans/). Kayıtta halka ve ok hedef seçilince
+birlikte çıkıyor, hedef bırakılınca aynı karede birlikte kayboluyor; halka dönmüyor ve atmıyor.
+
+1) Seçim halkası (Textures/secim_halkasi.png, 512 x 512, ön-çarpımlı RGBA)
+   - Mobun altında, yere yapışık (zemin decalı; solucan halkanın önünde görünür).
+   - Dıştan içe: sarı ışıma -> açık sarı çekirdek (alfa 0.95, renk ~245/243/221) -> yumuşak sıcak dolgu (alfa ~0.3)
+     -> beyaz-mor ince çizgi (yarıçapın 0.82'si, alfa 0.94) -> içte çok hafif gri tül (alfa ~0.1–0.25). İç taraf boş.
+   - 3 sarı içi boş üçgen işaret (iç çizgi üzerinde, 120° arayla, uçları merkeze), beyaz parıltılı. İşaret kayıttaki
+     sağ-üst örnekten alındı, diğer ikisi aynı işaretin döndürülmüşü (sol ve alt örnekler solucan/alt çubuk altındaydı).
+   - Boyut: halka yarıçapı (dış sarı çekirdek) = 0.399 x karakter boyu (Worm için; karakter 1.8 -> 0.72 m).
+     Doku kenarı = 1.35 x yarıçap. Büyük moblarda yaricapKarakter büyütülür.
+2) Yön oku (Textures/yon_oku.png, 156 x 232, ön-çarpımlı RGBA)
+   - Karakterin ayağında, yere yapışık, seçili hedefe döner. Krem kenar (alfa 0.85, renk ~202/190/102, kalınlık 13.5 px),
+     yeşil dolgu (alfa 0.47; uçta sarı-yeşil 248/244/85 -> kuyrukta koyu yeşil 55/97/16).
+   - Boyut: genişlik 0.328, uzunluk 0.488 x karakter boyu; karakter noktası dokuda (0.497, 0.262), ok ucu 0.355 x boy ileride.
+
+Renk / sıcaklık / saydamlık: kayıttan ölçüldü (zemin = aynı kamerada efektsiz kareler; alfa ve renk iki farklı çim zemininden).
+Yukarıdan görünüş: iki halkadan kamera-zemin modeli (ufuk y = -353, ölçek 1621) ile düzeltildi.
+Shader "Olympos/Secim Zemin": Blend One OneMinusSrcAlpha, ZWrite Off, Offset -1 -1 (zemine yapışır).
+Zemine uydurma: dortgen aşağı ışın atıp zeminin normaline yatar (zemin Collider'ı gerekir; yoksa düz Y=0 düzlemi).
+
+Sınırlar: okun kuyruk ucu her örnekte karakterin bacağı altındaydı (kenar düz devam ettirildi), uç kısmı "Worm" yazısının
+altındaydı (5 örnek + ayna ile tamamlandı); ok şekli ölçülen kenar doğrularından (simetrik) kuruldu.
+Karakter boyuna oranlar eğik bakışa göre düzeltildi (kamera ~47°); Unity'de kendi kameranızda gözle ±%10 rötuş gerekebilir.
+Built-in boru hattı; URP'de denenmedi.

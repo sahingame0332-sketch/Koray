@@ -16,6 +16,9 @@ namespace UnityEngine
         public float x, y, z;
         public Vector3(float x, float y, float z) { this.x = x; this.y = y; this.z = z; }
         public static Vector3 up { get { return new Vector3(0, 1, 0); } }
+        public static Vector3 down { get { return new Vector3(0, -1, 0); } }
+        public static Vector3 forward { get { return new Vector3(0, 0, 1); } }
+        public static Vector3 ProjectOnPlane(Vector3 v, Vector3 n) { return v; }
         public static Vector3 back { get { return new Vector3(0, 0, -1); } }
         public static float Distance(Vector3 a, Vector3 b) { return 0f; }
         public static Vector3 Lerp(Vector3 a, Vector3 b, float t) { return a; }
@@ -34,7 +37,7 @@ namespace UnityEngine
         public static int PropertyToID(string name) { return 0; }
     }
     public class Material : Object {
-        public Material(Shader s) { } public void SetFloat(string n, float f) { }
+        public Material(Shader s) { } public void SetFloat(string n, float f) { } public Texture mainTexture;
         public Shader shader;
         public bool HasProperty(int id) { return true; }
         public void SetColor(int id, Color c) { }
@@ -51,7 +54,7 @@ namespace UnityEngine
         public static float fogStartDistance, fogEndDistance; public static Color ambientLight;
     }
     [AttributeUsage(AttributeTargets.Class)] public class ExecuteAlways : Attribute { }
-    public struct Quaternion { public float x, y, z, w; public static Quaternion LookRotation(Vector3 f, Vector3 up) { return new Quaternion(); } public static Quaternion identity { get { return new Quaternion(); } } }
+    public struct Quaternion { public float x, y, z, w; public static Quaternion LookRotation(Vector3 f, Vector3 up) { return new Quaternion(); } public static Quaternion identity { get { return new Quaternion(); } } public static Quaternion Euler(float x, float y, float z) { return new Quaternion(); } public static Vector3 operator *(Quaternion q, Vector3 v) { return v; } }
     public struct Rect {
         public float x, y, width, height;
         public float xMin { get { return x; } } public float xMax { get { return x + width; } }
@@ -133,6 +136,7 @@ namespace UnityEngine
         public Transform parent { get { return null; } }
         public Vector3 position;
         public void SetAsLastSibling() { }
+        public void SetPositionAndRotation(Vector3 p, Quaternion r) { }
         public Vector3 TransformPoint(Vector3 p) { return p; }
         public Vector3 InverseTransformPoint(Vector3 p) { return p; }
     }
@@ -167,7 +171,7 @@ namespace UnityEngine
     public class Texture : Object { }
     public class Texture2D : Texture { }
 
-    public static class Mathf {
+    public static class Mathf { public static bool Approximately(float a, float b) { return a == b; }
         public const float PI = 3.14159265f;
         public static float Cos(float f) { return (float)System.Math.Cos(f); }
         public static float Sin(float f) { return (float)System.Math.Sin(f); }
@@ -201,6 +205,10 @@ namespace UnityEngine
     public class MeshFilter : Component { public Mesh sharedMesh; }
     public class Mesh : Object { public Vector3[] vertices; public Vector2[] uv; public int[] triangles; public int subMeshCount; public void RecalculateBounds() { } public void RecalculateNormals() { } public void SetVertices(System.Collections.Generic.List<Vector3> v) { } public void SetUVs(int ch, System.Collections.Generic.List<Vector2> u) { } public void SetTriangles(int[] t, int sub) { } }
     public class MaterialPropertyBlock { public void SetTexture(int id, Texture t) { } public void SetColor(int id, Color c) { } public void SetFloat(int id, float f) { } }
+    public struct LayerMask { public int value; public static implicit operator int(LayerMask m) { return m.value; } public static implicit operator LayerMask(int v) { return new LayerMask { value = v }; } }
+    public enum QueryTriggerInteraction { UseGlobal, Ignore, Collide }
+    public struct RaycastHit { public Vector3 point; public Vector3 normal; }
+    public static class Physics { public static bool Raycast(Vector3 o, Vector3 d, out RaycastHit h, float m, int mask, QueryTriggerInteraction q) { h = new RaycastHit(); return false; } }
     public static class Application { public static bool isPlaying { get { return false; } } }
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)] public class RequireComponent : Attribute { public RequireComponent(Type a) { } public RequireComponent(Type a, Type b) { } }
     public class Canvas : Behaviour { public Camera worldCamera; public RenderMode renderMode; public int sortingOrder; }

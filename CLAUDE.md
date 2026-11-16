@@ -59,6 +59,7 @@ Arayüz işi ile altyapı işi aynı oyunun iki yüzü: `docs/03-icerik-uretim-r
 | `arayuz/unity_paketleri/OlymposOk1298.unitypackage` | Shadow Hunter oku — tek başına: ok görseli (opak üç + ışık izi), düz çizgide sabit süreli uçuş (0.483 sn, hedefi izler, eksenel billboard), vuruş (beyaz patlama + turuncu ışın, ön-çarpımlı 23 kare); `OlymposOkAtisi.At(okcu, hedef)` | ok 160 × 19 (0.533 × karakter boyu), vuruş 520 × 260 | alfa / ön-çarpımlı (bkz. `arayuz/17-ok.md`) |
 
 | `arayuz/unity_paketleri/OlymposYakinSkill1298.unitypackage` | Yakın dövüş skill efektleri — tek başına: Stroke, Stab, Stab2; her skill **karakter** (kesik yayları, kıvılcımlar) + **hedef** (gökten ışın, vuruş patlaması) katmanı; `OlymposYakinSkillEfekti.Oyna(karakter, hedef)`, kütüphane skill adına göre, shader `Olympos/Yakin Skill Eklemeli`; referans `.jpg`'ler pakette | karakter 243 px ölçeğinde (bkz. `yakin_skill_olculer.json`) | eklemeli (bkz. `arayuz/10-efekt.md` ek 6) |
+| `arayuz/unity_paketleri/OlymposSecim1298.unitypackage` | Seçim efektleri — tek başına: mobun altında **seçim halkası** (sarı halka + beyaz-mor iç çizgi + 3 üçgen işaret) ve karakterin ayağında hedefe dönen **yeşil yön oku**; yer decalı, ön-çarpımlı (shader `Olympos/Secim Zemin`), `OlymposSecimYoneticisi.Sec(karakter, hedef)` | halka 512², yarıçap 0.399 × boy; ok 156 × 232, 0.328 × 0.488 boy | kenar 0.85 / dolgu 0.47, halka çekirdek 0.95 (bkz. `arayuz/18-secim.md`) |
 Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `OLYMPOS > 1298 > Character Penceresi Oluştur` (CHAR INFO + CLAN + FRIENDS sekmeleriyle birlikte),
 `… > Save Stat Preset Penceresi Oluştur`, `… > Stat Butonları Penceresi Oluştur`,
@@ -71,7 +72,7 @@ Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `… > Efektler (Ateş Sütunu · Vuruş · Cast) Oluştur` (namespace `Olympos.Efekt`; efektler dünya uzayında).
 `… > Skill Efektleri (Fire Burst · Fire Blade · Vuruş) Oluştur` (namespace `Olympos.SkillEfekt`).
 `… > Genie (Panel · Auto Attack Settings · Rozet) Oluştur` (aynı 2712×1220 Canvas).
-`… > Görev NPC (QuestList · Görev Detayı · ? Rozeti) Oluştur` (aynı Canvas). `… > Respawn Penceresi Oluştur` (aynı Canvas). `… > Alevli Run Halkası Oluştur`, `… > Neon Run Halkası Oluştur`, `… > Ateş Havuzu (Karakter Altı) Oluştur` (dünya uzayı). `… > NPC Alım-Satım Penceresi Oluştur` (2712×1220 Canvas). `… > Manes Of Fire (Moba) Oluştur`, `… > Merchant Tezgahı (Yer) Oluştur`, `… > Merchant Tezgahı 3B Oluştur`, `… > Kendi Skill Efektleri (…) Oluştur`, `… > Ok (Shadow Hunter) Oluştur`, `… > Yakın Skill Efektleri (Stroke · Stab · Stab2) Oluştur` (dünya uzayı).
+`… > Görev NPC (QuestList · Görev Detayı · ? Rozeti) Oluştur` (aynı Canvas). `… > Respawn Penceresi Oluştur` (aynı Canvas). `… > Alevli Run Halkası Oluştur`, `… > Neon Run Halkası Oluştur`, `… > Ateş Havuzu (Karakter Altı) Oluştur` (dünya uzayı). `… > NPC Alım-Satım Penceresi Oluştur` (2712×1220 Canvas). `… > Manes Of Fire (Moba) Oluştur`, `… > Merchant Tezgahı (Yer) Oluştur`, `… > Merchant Tezgahı 3B Oluştur`, `… > Kendi Skill Efektleri (…) Oluştur`, `… > Ok (Shadow Hunter) Oluştur`, `… > Yakın Skill Efektleri (Stroke · Stab · Stab2) Oluştur`, `… > Seçim Halkası + Yön Oku Oluştur` (dünya uzayı).
 Kurucular: doku import ayarları (Sprite, sıkıştırmasız, mipmap yok, 9-slice kenarlar) → hiyerarşiyi **sol-üst piksel
 koordinatlarıyla** kurar → `Prefabs/` altına prefab → sahnedeki Canvas'a ekler (yoksa 1920×1080, match=1 Canvas + EventSystem).
 UI sistemi: **uGUI + legacy `UnityEngine.UI.Text`** (TMP kullanılmadı). Namespace `Olympos.UI` / `Olympos.UI.EditorTools`.
@@ -135,6 +136,8 @@ stat adı 21, stat değeri 25, direnç adı 19, direnç değeri 23, buton 22. De
 - `npc_alimsatim/`: `cikar.py` (krom + alfa: dışarı taşan dükkân öğelerinden), `punto.py`, `aralik.py` (punto + harf aralığı birlikte IoU), `kur.py`.
 - `tezgah/`: `cikar.py` (çim dışı maske → dış bükey zarf → yumuşak kenar), `kur.py`; `cikar3b.py` (yüzleri homografiyle dokuya açar), `kur3b.py` (3B mesh'in yazılım çizimi).
 - `ok/`: `izle.py` (ok ucu kare kare), `cikar.py` (ok görseli + uçuş ölçüsü), `cikar_vurus.py` (iki zeminli ayıklama, ön-çarpımlı), `kur.py`.
+- `secim/`: kamera-zemin modeli (`rectfit2.py`, `zemin.py`, `kamera_zemin.npy`: yh −353, s 1621), halka (`acik.py`, `model2.py`, `halka_doku.py`: radyal a/P regresyonu + işaret),
+  ok (`ok4`–`ok12.py`: 5 örnek hizalama + ayna + ölçülen kenar doğruları), `yansit.py` (geri yansıtma → `onizlemeler/secim_onizleme.png`). Ara dosyalar scratch'te üretilir.
 - `zemin/`: `duzelt.py` (zemin düzlemini yukarıdan görünüşe çevirir), `zemin.py` (karo + renk ölçümü),
   `haritalar.py` (kontrol/renk haritası örnekleri), `onizle.py` (aynı kamerayla yeniden çizim → `onizlemeler/zemin_onizleme.png`).
 - Char Info sprite çıkarımı (OpenCV inpaint + aynı satırdan doku örnekleme) sohbet içinde satır içi yapıldı; sonuçlar
