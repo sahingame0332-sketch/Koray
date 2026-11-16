@@ -12,5 +12,8 @@ Eklemeli (Blend One One), siyah = saydam, shader "Olympos/Efekt8 Eklemeli".
 Katmanlar: ARKA (mobun arkası, kamera yönünde +0.6 m; mob örter) + ÖN (mob silueti üstündeki ışık, −0.6 m). Kameraya dönük.
 Boyut mob boyuna göre (hedefBoyu, varsayılan 1.8; kayıtta mob 422 px): kare 1343 × 948 px -> genişlik 3.18 × mob boyu,
 yük./gen. 0.706, pivot (mobun zemini) (0.602, 0.191).
+Pürüzsüz aura (kullanıcı isteği): pembe-mor aurada kayıttan gelen kare kare küçük delikler (çit çubuğu izleri, çim dokusu,
+sıkıştırma gürültüsü) dolduruldu: gri kapanış 17×17 → medyan 7 → gauss σ3; renk komşu gerçek renklerden (yeni renk uydurulmadı).
+Sarı kıvılcımlar, kesikler, yatay parlama çizgisi ve yıldız keskin bırakıldı. Ham kareler depoda: kaynak/efekt8/skill_*_ham/.
 Sınırlar: oyuncunun önündeki kesikler de bu karede (oyuncuya ayrı bağlı değil; kayıttaki oyuncu-mob mesafesine göre).
 Mob gövdesinin hemen önündeki ışığın bir kısmı kırmızı boyamadan ayırırken zayıf kalmış olabilir. Built-in boru hattı; URP'de denenmedi.

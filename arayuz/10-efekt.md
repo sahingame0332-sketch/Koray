@@ -167,3 +167,4 @@ shader `Olympos/Efekt8 Eklemeli`, menü `OLYMPOS > 1298 > Efekt 8 (Skill Efekti)
   Mob içindeki saf kırmızı ve camgöbeği artıklar (kırmızı dengesi) ışık sayılmadı.
 - Doğrulama: zemin + skill + mob kırmızısı ↔ orijinal ort. fark **2.95**/255 (`onizlemeler/efekt8_onizleme.png`, `efekt8_animasyon.mp4`).
 - Katmanlar (`katman8.py`): ön = mob silueti içi, arka = dışı (siluet içi komşudan). Boyut: mob 422 px; 3.18 × mob boyu, pivot (0.602, 0.191).
+- Pürüzsüz aura (`puruzsuz.py`): pembe aura bölgesinde kapanış 17 → medyan 7 → gauss 3; keskin sarı parçalar korunur. Ham kareler `kaynak/efekt8/skill_*_ham/`.
