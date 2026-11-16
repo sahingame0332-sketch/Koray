@@ -19,11 +19,21 @@ def kare(yaw,aci_t,ton,yazi):
     o=Image.fromarray(v.astype(np.uint8)).resize((720,720),Image.LANCZOS); dr=ImageDraw.Draw(o)
     dr.rectangle((0,0,720,36),fill=(24,24,28)); dr.text((10,6),yazi,font=F,fill=(255,220,120))
     o.save(os.path.join(d,'a_%04d.png'%n)); n+=1
-for k in range(90): kare(k*4,0,0,'KAPALI — 360° dönüş')
-for k in range(15): kare(0,0,0,'KAPALI')
-for k in range(10): t=(k+1)/10; kare(0,t,t,'AÇILIYOR (0.3 sn)')
-for k in range(90): kare(k*4,1,1,'AÇIK — 360° dönüş (kapak 115.5°)')
-for k in range(15): kare(0,1,1,'AÇIK')
+K=json.load(open('uydu.json'))['kam']['2']; YAW=np.degrees(K[0]); PIT=np.degrees(K[1]); ROLL=K[2]
+def kare2(aci_t,ton,yazi):
+    global n
+    P=[np.radians(YAW),np.radians(PIT),ROLL,130,175,250]
+    if aci_t<0: r=np.zeros((360,360),bool); im=np.zeros((360,360,4))
+    else:
+        im=ciz(sandik(1.0,D,HB,HL,acik=aci_t>0,aci=ACI*aci_t),dok(ton),P,(360,360)); r=im[...,3]>0
+    v=cim.copy(); v[r]=im[r,:3]
+    o=Image.fromarray(v.astype(np.uint8)).resize((720,720),Image.LANCZOS); dr=ImageDraw.Draw(o)
+    dr.rectangle((0,0,720,36),fill=(24,24,28)); dr.text((10,6),yazi,font=F,fill=(255,220,120))
+    o.save(os.path.join(d,'a_%04d.png'%n)); n+=1
+for k in range(20): kare2(-1,0,'Mob öldü')
+for k in range(75): kare2(0,0,'Sandık düştü — yerinde SABİT, kapalı')
+for k in range(10): t=(k+1)/10; kare2(t,t,'Açılıyor (0.3 sn, varsayım)')
+for k in range(75): kare2(1,1,'Açık — SABİT (Collect All penceresi açıkken)')
 O='/home/user/Koray/arayuz/onizlemeler/'
 subprocess.run(['ffmpeg','-v','error','-y','-framerate','30','-i',d+'/a_%04d.png','-vf','format=yuv420p','-c:v','libx264','-crf','18',O+'sandik_animasyon.mp4'],check=True)
 subprocess.run(['ffmpeg','-v','error','-y','-framerate','30','-i',d+'/a_%04d.png','-vf','fps=15,scale=480:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors=160[p];[b][p]paletteuse=dither=bayer',O+'sandik_animasyon.gif'],check=True)

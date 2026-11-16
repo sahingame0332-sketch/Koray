@@ -18,6 +18,10 @@ Kaynak: kullanıcının 5 ekran görüntüsü (2712 × 1220), pakette `Referans/
    açık üst yüzey ve kapak içi (1).
 5. Açık görüntüde gölgeli yüzler (uç, kapak dışı) modelden koyu: oran (0.41, 0.40, ~0.45) → açık durum tonu.
 
+## Davranış
+- Kullanıcı: sandık mob öldükten sonra düştüğü yerde **sabit** kalır (dönmez, zıplamaz). `OlymposSandik` kendi kendine hiçbir hareket yapmaz;
+  yalnız `Dus(konum, yon)` ile yerleşir, `Ac()` ile kapak açılır. Önizleme videosu oyundaki gibi sabit kamerayla (görüntü 2'nin açısı).
+
 ## Boyut
 Uzunluk = 0.24 × karakter boyu: görüntü 2'de sandık 77.6 px/L, eğik kamera (43°) ile karakterin izdüşüm boyu ~220 px (çömelmiş,
 ayakta ~×1.1); görüntü 1'de aynı derinlikte benzer oran. Tahmin ±%15 (Inspector `uzunlukKarakter`).
