@@ -80,7 +80,7 @@ namespace UnityEngine
         public Vector4(float x, float y, float z, float w) { this.x = x; this.y = y; this.z = z; this.w = w; }
         public static Vector4 zero { get { return new Vector4(0, 0, 0, 0); } }
     }
-    public struct Color {
+    public struct Color { public static Color Lerp(Color a, Color b, float t) { return a; }
         public float r, g, b, a;
         public Color(float r, float g, float b) { this.r = r; this.g = g; this.b = b; this.a = 1f; }
         public Color(float r, float g, float b, float a) { this.r = r; this.g = g; this.b = b; this.a = a; }
@@ -137,6 +137,8 @@ namespace UnityEngine
         public Vector3 position;
         public void SetAsLastSibling() { }
         public void SetPositionAndRotation(Vector3 p, Quaternion r) { }
+        public Transform Find(string n) { return null; }
+        public Quaternion localRotation;
         public Vector3 TransformPoint(Vector3 p) { return p; }
         public Vector3 InverseTransformPoint(Vector3 p) { return p; }
     }
@@ -169,9 +171,9 @@ namespace UnityEngine
     }
     public class Sprite : Object { }
     public class Texture : Object { }
-    public class Texture2D : Texture { }
+    public class Texture2D : Texture { public int width { get { return 0; } } public int height { get { return 0; } } }
 
-    public static class Mathf { public static bool Approximately(float a, float b) { return a == b; }
+    public static class Mathf { public static bool Approximately(float a, float b) { return a == b; } public static float MoveTowards(float a, float b, float d) { return b; }
         public const float PI = 3.14159265f;
         public static float Cos(float f) { return (float)System.Math.Cos(f); }
         public static float Sin(float f) { return (float)System.Math.Sin(f); }
@@ -200,10 +202,10 @@ namespace UnityEngine
 
     public enum RenderMode { ScreenSpaceOverlay, ScreenSpaceCamera, WorldSpace }
     public class Camera : Behaviour { public new Transform transform { get { return null; } } public Vector3 WorldToScreenPoint(Vector3 p) { return p; } public static Camera main { get { return null; } } public CameraClearFlags clearFlags; public Color backgroundColor; }
-    public class Renderer : Component { public Material sharedMaterial; public Material[] sharedMaterials; public bool enabled; public bool receiveShadows; public UnityEngine.Rendering.ShadowCastingMode shadowCastingMode; public void GetPropertyBlock(MaterialPropertyBlock b) { } public void SetPropertyBlock(MaterialPropertyBlock b) { } }
+    public class Renderer : Component { public Material sharedMaterial; public Material[] sharedMaterials; public bool enabled; public bool receiveShadows; public UnityEngine.Rendering.ShadowCastingMode shadowCastingMode; public void GetPropertyBlock(MaterialPropertyBlock b) { } public void GetPropertyBlock(MaterialPropertyBlock b, int i) { } public void SetPropertyBlock(MaterialPropertyBlock b, int i) { } public void SetPropertyBlock(MaterialPropertyBlock b) { } }
     public class MeshRenderer : Renderer { }
     public class MeshFilter : Component { public Mesh sharedMesh; }
-    public class Mesh : Object { public Vector3[] vertices; public Vector2[] uv; public int[] triangles; public int subMeshCount; public void RecalculateBounds() { } public void RecalculateNormals() { } public void SetVertices(System.Collections.Generic.List<Vector3> v) { } public void SetUVs(int ch, System.Collections.Generic.List<Vector2> u) { } public void SetTriangles(int[] t, int sub) { } }
+    public class Mesh : Object { public void SetTriangles(System.Collections.Generic.List<int> t, int s) { } public Vector3[] vertices; public Vector2[] uv; public int[] triangles; public int subMeshCount; public void RecalculateBounds() { } public void RecalculateNormals() { } public void SetVertices(System.Collections.Generic.List<Vector3> v) { } public void SetUVs(int ch, System.Collections.Generic.List<Vector2> u) { } public void SetTriangles(int[] t, int sub) { } }
     public class MaterialPropertyBlock { public void SetTexture(int id, Texture t) { } public void SetColor(int id, Color c) { } public void SetFloat(int id, float f) { } }
     public struct LayerMask { public int value; public static implicit operator int(LayerMask m) { return m.value; } public static implicit operator LayerMask(int v) { return new LayerMask { value = v }; } }
     public enum QueryTriggerInteraction { UseGlobal, Ignore, Collide }

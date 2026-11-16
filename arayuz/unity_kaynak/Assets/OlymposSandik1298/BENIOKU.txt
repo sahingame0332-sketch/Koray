@@ -1,0 +1,22 @@
+OLYMPOS-KO · 1298 — Mob ölünce düşen sandık: kapalı + açık (tek başına paket)
+==============================================================================
+Menü: OLYMPOS > 1298 > Sandık (Açık · Kapalı) Oluştur
+ -> sahneye kapalı sandık, açık sandık ve 2B sürüm + Prefabs/OlymposSandik.prefab.
+Kullanım (3B):  sandik.Dus(mob.position, yon);  sandik.Ac();  sandik.Kapat();  sandik.Kaldir();
+Kaynak: kullanıcının 5 ekran görüntüsü (2712 x 1220) — Referans/ klasöründe .jpg.
+
+3B model (OlymposSandik): gövde (kutu) + yarı elips kubbe kapak + kemerli uç kapakları; kapak arka üst kenardan menteşeli.
+  Ölçüler (uzunluk = 1): derinlik 0.848, gövde yüksekliği 0.389, kapak yüksekliği 0.414 (toplam 0.803).
+  Kapalı 3 görüntüde kamera + şekil birlikte uyduruldu (siluet örtüşmesi 0.92 / 0.93 / 0.92).
+  Açık görüntüde kapak açısı 115.5° (örtüşme 0.87).
+  Uzunluk = 0.24 x karakter boyu (karakter 1.8 -> 0.43 m) — iki görüntüde karakterin izdüşümünden tahmin, ±%15; Inspector'dan.
+  Dokular (Textures/3B) ekran görüntülerinden geri izdüşümle: on (kilitli yüz), arka, uc (kemerli yan; iki uçta aynı),
+  kapak (kubbe; görünmeyen arka yamaç ön yamacın aynası), ust_acik (gri çerçeve + altınlar), kapak_ic (açık kapağın içi).
+  Renk / sıcaklık / ışık dokunun içinde (oyundaki görüntü) -> shader "Olympos/Sandik 3B" ışıksız, opak, uç kemerleri alfa kesme.
+  Açıkken gölgeli yüzler kayıtta koyu: ton (0.41, 0.40, 0.45) ölçüldü, açılırken kapalı tondan buna geçer.
+  Açılma süresi 0.3 sn VARSAYIM (görüntülerde açılış anı yok).
+2B (OlymposSandik2B): kameraya dönük sprite, ekran görüntülerinden kesik (yumuşak kenarlı alfa):
+  sandik_kapali.png 112 x 99 (görüntü 2), sandik_acik.png 172 x 176 (görüntü 1, üst kamera). Shader "Olympos/Sandik Sprite".
+
+Sınırlar: sandığın altı ve arka yamacı görüntülerde yok (alt yüz yok; arka yamaç ayna). Açık sandığın içi altınlarla
+dolu yüzey olarak alındı (derinlik yok). Built-in boru hattı; URP'de denenmedi.
