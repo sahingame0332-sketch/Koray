@@ -1,0 +1,31 @@
+OLYMPOS-KO · 1298 — Efekt 7: kesik + pembe aura · yıldız vuruşu + hasar kırmızısı (tek başına paket)
+====================================================================================================
+Menü: OLYMPOS > 1298 > Efekt 7 (Kesik + Aura · Yıldız Vuruşu) Oluştur
+ -> sahneye iki efekt (denemede sürekli tekrar) + Prefabs/OlymposEfekt7.prefab (OlymposEfekt7Kutuphanesi).
+Kullanım: kutuphane.Uygula("kesik_aura", mob.transform);  kutuphane.Uygula("yildiz", mob.transform);
+          (mob.transform = mobun zemin noktası; skill adlarını Inspector'da oyundaki adlarla değiştirin — videoda görünmüyordu)
+Kaynak: kayıt 14-01-51 (efekt7_animasyon önizlemesindeki kareler, birebir). Referans/ içinde önizleme görselleri.
+
+| Efekt       | Kare | Süre    | Görünüm |
+| kesik_aura  | 20   | 0.67 sn | mobda sarı kesikler/kıvılcımlar, mob kısa kırmızı -> mobun ARKASINDA pembe-mor aura (gökkuşağı kenar) -> yatay sarı parlama |
+| yildiz      | 10   | 0.33 sn | mobun ortasında sarı yıldız patlaması -> mob ~0.15 sn kırmızı |
+
+Katmanlar (her efekt): ARKA (mobun arkasında; mob ve öndeki çit onu örter) + ÖN (mobun önünde). Kameraya dönük dörtgen,
+30 kare/sn, shader "Olympos/Efekt7 Eklemeli" (Blend One One, ZTest açık). Renk / sıcaklık değiştirilmedi (kare = orijinal − zemin).
+Boyut mob boyuna göre (hedefBoyu, varsayılan 1.8): kayıtta mob 582 px.
+| Katman            | Genişlik (mob boyu) | Yük./gen. | Pivot (x, y alttan) = mobun zemin noktası |
+| kesik_aura arka   | 2.423 | 0.592 | 0.358, 0.297 |
+| kesik_aura ön     | 0.928 | 1.187 | 0.648, 0.086 |
+| yildiz arka       | 1.610 | 0.824 | 0.539, 0.321 |
+| yildiz ön         | 0.655 | 1.606 | 0.546, 0.043 |
+Derinlik: arka katman kamera yönünde +0.6 m (mobun arkası), ön katman −0.6 m.
+
+Hasar kırmızısı (ışık değil, mobun rengi değişir): ölçülen tam güç R = 0.60 L + 162, G = 0.95 L + 5, B = 0.75 L.
+OlymposEfekt7HasarRengi mobun Renderer'larına süre boyunca "Olympos/Efekt7 Hasar Kirmizi" malzemesini ekler (çarpımsal + eklemeli iki geçiş),
+kare başına güç eğrisi kayıttan:
+  kesik_aura: 0.10 0.10 0.60 0.87 0.91 0.28 0.01 0 …     yildiz: 0 0 0 0.34 0.59 0.95 0.54 0.01 0 0
+
+Ek (isteğe bağlı): Textures/<efekt>_arka_temiz — arka katmanın kayıttaki çit çubuğu izleri doldurulmuş kopyası. Unity'de çit
+derinlik testiyle zaten örteceği için temiz kopya daha doğru olabilir; kurucuda OlymposEfekt7Builder.CitsizArka = true.
+Sınırlar: kesiklerin en üstü kayıtta galeri şeridi altında kaldı; ipucu/süre kutusu altları komşu ışıktan dolduruldu.
+Gerçek hız ve uzak görünümdeki altın yapraklar ayrı ekte (paket dışı; araclar/efekt7/uzak*.py). Built-in boru hattı; URP'de denenmedi.

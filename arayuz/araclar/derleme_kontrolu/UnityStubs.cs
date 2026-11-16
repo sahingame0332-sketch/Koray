@@ -37,7 +37,7 @@ namespace UnityEngine
         public static int PropertyToID(string name) { return 0; }
     }
     public class Material : Object {
-        public Material(Shader s) { } public void SetFloat(string n, float f) { } public Texture mainTexture;
+        public Material(Shader s) { } public Material(Material m) { } public void SetFloat(string n, float f) { } public void SetFloat(int n, float f) { } public Texture mainTexture;
         public Shader shader;
         public bool HasProperty(int id) { return true; }
         public void SetColor(int id, Color c) { }
@@ -122,9 +122,10 @@ namespace UnityEngine
         public T GetComponentInParent<T>() where T : Component { return null; }
         public T GetComponentInChildren<T>() where T : Component { return null; }
         public T[] GetComponentsInChildren<T>(bool includeInactive) where T : Component { return new T[0]; }
+        public T[] GetComponentsInChildren<T>() where T : Component { return new T[0]; }
     }
     public class Behaviour : Component { public bool enabled; }
-    public class MonoBehaviour : Behaviour { }
+    public class MonoBehaviour : Behaviour { public void Invoke(string m, float t) { } }
 
     public class Transform : Component {
         public void SetParent(Transform p, bool worldPositionStays) { }
@@ -202,6 +203,7 @@ namespace UnityEngine
 
     public enum RenderMode { ScreenSpaceOverlay, ScreenSpaceCamera, WorldSpace }
     public class Camera : Behaviour { public new Transform transform { get { return null; } } public Vector3 WorldToScreenPoint(Vector3 p) { return p; } public static Camera main { get { return null; } } public CameraClearFlags clearFlags; public Color backgroundColor; }
+    public class ParticleSystemRenderer : Renderer { }
     public class Renderer : Component { public Material sharedMaterial; public Material[] sharedMaterials; public bool enabled; public bool receiveShadows; public UnityEngine.Rendering.ShadowCastingMode shadowCastingMode; public void GetPropertyBlock(MaterialPropertyBlock b) { } public void GetPropertyBlock(MaterialPropertyBlock b, int i) { } public void SetPropertyBlock(MaterialPropertyBlock b, int i) { } public void SetPropertyBlock(MaterialPropertyBlock b) { } }
     public class MeshRenderer : Renderer { }
     public class MeshFilter : Component { public Mesh sharedMesh; }

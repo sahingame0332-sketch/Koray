@@ -137,3 +137,19 @@ Kaynak: telefon kaydı 14-31-04 (2712 × 1220, 8.5 sn; depoya konmadı). Araçla
 - Doğrulama (zemin + iki katman ↔ orijinal, ort. mutlak fark /255): stroke **6.5**, stab **6.4**, stab2 **4.5**.
 - Sınırlar: Stab'da patlamanın alt çubuk (y ≥ 1140) altındaki kısmı kayıtta yok; ışının eğimi kayıttaki ekran konumuna ait
   (kameraya dönük dörtgen); ışın ekran tepesinde kesildiği için hedef katmanında `_UstSonum` 0.08.
+
+---
+
+## Ek 7 — Efekt 7: kesik + pembe aura · yıldız vuruşu + hasar kırmızısı (ayrı paket)
+Paket `unity_paketleri/OlymposEfekt7_1298.unitypackage` (namespace `Olympos.Efekt7`; sınıflar `OlymposEfekt7`, `OlymposEfekt7Katman`,
+`OlymposEfekt7HasarRengi`, `OlymposEfekt7Kutuphanesi`; shader'lar `Olympos/Efekt7 Eklemeli`, `Olympos/Efekt7 Hasar Kirmizi`;
+menü `OLYMPOS > 1298 > Efekt 7 (Kesik + Aura · Yıldız Vuruşu) Oluştur`). Kareler `kaynak/efekt7/`, araçlar `araclar/efekt7/`.
+- Kaynak: kayıt 14-01-51 — galeride yavaş ileri sarılan oyun videosunun ekran kaydı. Oyun zamanı ekrandaki süre kutusundan okundu
+  (`ocr.py`, rakam şablonları), benzersiz kareler (`zaman.py`); 30 kare/sn'ye en yakın kareyle örneklendi.
+- Ayıklama (`cikar7.py`): zemin = efektsiz kareler (oyun zamanı 1.9–2.3 sn) ve sonraki; hedef silueti kırmızı karelerden;
+  hedef içinde kırmızı boyanmış zemin çıkarılır, kalan ışık eklemeli; ARKA = siluet dışı (siluet içi komşudan), ÖN = siluet içi.
+- Hasar kırmızısı (4 karede, kanal başına doğrusal): R = 0.60 L + 162, G = 0.95 L + 5, B = 0.75 L (L = zemin parlaklığı).
+- Doğrulama (`kur7.py`, önizleme `efekt7_onizleme.png`, `efekt7_animasyon.mp4`, geniş açı `efekt7_genis.*`): ort. fark kesik_aura 8.4, yildiz 2.6 /255.
+- Ek (uzak kayıtlar 16-33-29 / 16-33-43, gerçek hız; efekt 7 kareleri değiştirilmeden): `uzak2.py` özellik + DTW ile gerçek zamanlama,
+  `uzak3.py` altın yapraklar katmanı (`kaynak/efekt7/yapraklar`, `gercek_zamanlama.json`), `temiz.py` arka katmanın çitsiz kopyası;
+  önizleme `efekt7_uzak_a.*`. Gerçek döngü ≈ 1.2 sn (kesik+aura ≈ 0.53 sn, ardından yıldız + 0.2 sn kırmızı). Pakette henüz yok.
