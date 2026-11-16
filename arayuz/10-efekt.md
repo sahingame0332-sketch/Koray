@@ -155,3 +155,15 @@ menü `OLYMPOS > 1298 > Efekt 7 (Kesik + Aura · Yıldız Vuruşu) Oluştur`). K
   önizleme `efekt7_uzak_a.*`. Gerçek döngü ≈ 1.2 sn (kesik+aura ≈ 0.53 sn, ardından yıldız + 0.2 sn kırmızı). Pakette henüz yok.
 - Ayrık paketler (kullanıcı isteği): `OlymposMobHasar1298` (yalnız mob hasar rengi, `Olympos.MobHasar`) ve `OlymposEfekt7Skill1298` (yalnız skill ışıkları, `Olympos.Efekt7Skill`); önizlemeler `efekt7_paket_hasar.*`, `efekt7_paket_skill.*` (`paket_onizle.py hasar|skill`). Efekt 7 paketi aynen duruyor.
 - Karakter / hasar ayrımı (`ayir.py`): kılıç kesik yayı (oyuncunun önü, x ≥ 950, dikey > 150 px sarı) → `OlymposEfekt7Karakter1298` (12 kare, oyuncu ayağına bağlı; oyuncu boyu 620 px ve ayak tahmin); kalan mob tarafı → `OlymposEfekt7Hasar1298`. Önizleme `efekt7_paket_karakter.*`, `efekt7_paket_vurus.*`. Ön katman kırmızılı mobdan çıkarıldığı için hasar efekti mob kırmızısıyla birlikte kullanılmalı.
+
+---
+
+## Ek 8 — Efekt 8: yalnız skill efekti, tablet kaydı (ayrı paket)
+Paket `unity_paketleri/OlymposEfekt8_1298.unitypackage` (namespace `Olympos.Efekt8`, sınıflar `OlymposEfekt8`, `OlymposEfekt8Katman`,
+shader `Olympos/Efekt8 Eklemeli`, menü `OLYMPOS > 1298 > Efekt 8 (Skill Efekti) Oluştur`). Araçlar `araclar/efekt8/`, kareler `kaynak/efekt8/`.
+- Kayıt 19-16-21 (tablet 2266 × 1488, 60 kare/sn, gerçek hız; depoya konmadı) → 30 kare/sn; efekt kareleri 59–84 (26 kare, 0.87 sn). Kamera sabit.
+- Zemin: önce 30–57, sonra 86–94; oyuncu hareketi min(O−Bönce, O−Bsonra). Mob silueti: mob tam kırmızıyken (79–81) kırmızıya dönen pikseller
+  (sıkı; çim/çit girmesin). Mob içinde P = zemin + s(K − zemin), s ışıksız piksellerde en küçük karelerle (en yüksek 0.94).
+  Mob içindeki saf kırmızı ve camgöbeği artıklar (kırmızı dengesi) ışık sayılmadı.
+- Doğrulama: zemin + skill + mob kırmızısı ↔ orijinal ort. fark **2.95**/255 (`onizlemeler/efekt8_onizleme.png`, `efekt8_animasyon.mp4`).
+- Katmanlar (`katman8.py`): ön = mob silueti içi, arka = dışı (siluet içi komşudan). Boyut: mob 422 px; 3.18 × mob boyu, pivot (0.602, 0.191).

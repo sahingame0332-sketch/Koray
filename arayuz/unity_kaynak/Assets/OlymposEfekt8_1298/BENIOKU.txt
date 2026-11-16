@@ -1,0 +1,16 @@
+OLYMPOS-KO · 1298 — Efekt 8: yalnız skill efekti (tablet kaydı 19-16-21) — tek başına paket
+==========================================================================================
+Menü: OLYMPOS > 1298 > Efekt 8 (Skill Efekti) Oluştur -> örnek + Prefabs/OlymposEfekt8.prefab
+Kullanım: efekt.Oyna(mob.transform);   (mob.transform = mobun zemin noktası)
+Mobun kırmızılaşması bu pakette YOK (hasar rengi): ayrı paket OlymposMobHasar1298 — kayıttaki gibi görünmesi için ikisini birlikte çağırın.
+
+Kayıt gerçek hızda (60 kare/sn -> 30 kare/sn). 26 kare, 0.87 sn:
+  oyuncunun önünde sarı kılıç kesikleri + havaya saçılan altın yaprak/kıvılcımlar -> mobun arkasında pembe-mor aura (gökkuşağı kenar)
+  -> yatay sarı parlama -> mobun üstünde sarı yıldız patlaması.
+Renk / sıcaklık / saydamlık değiştirilmedi (kare = orijinal − efektsiz zemin; mob içinde kırmızı boyanmış zemin çıkarıldı).
+Eklemeli (Blend One One), siyah = saydam, shader "Olympos/Efekt8 Eklemeli".
+Katmanlar: ARKA (mobun arkası, kamera yönünde +0.6 m; mob örter) + ÖN (mob silueti üstündeki ışık, −0.6 m). Kameraya dönük.
+Boyut mob boyuna göre (hedefBoyu, varsayılan 1.8; kayıtta mob 422 px): kare 1343 × 948 px -> genişlik 3.18 × mob boyu,
+yük./gen. 0.706, pivot (mobun zemini) (0.602, 0.191).
+Sınırlar: oyuncunun önündeki kesikler de bu karede (oyuncuya ayrı bağlı değil; kayıttaki oyuncu-mob mesafesine göre).
+Mob gövdesinin hemen önündeki ışığın bir kısmı kırmızı boyamadan ayırırken zayıf kalmış olabilir. Built-in boru hattı; URP'de denenmedi.
