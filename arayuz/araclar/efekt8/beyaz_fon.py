@@ -6,6 +6,8 @@ import os, json, subprocess, tempfile, shutil, numpy as np
 from PIL import Image, ImageDraw, ImageFont
 from scipy import ndimage
 from cikar8 import OUT
+import sys; sys.path.insert(0,os.path.join(os.path.dirname(os.path.abspath(__file__)),"..","efekt"))
+from cikar2 import yumusak_doldur
 B_=os.path.dirname(os.path.abspath(__file__)); ONZ=os.path.join(B_,"..","..","onizlemeler")
 F=ImageFont.truetype(os.path.join(B_,"..","..","kaynak","char_info","fonts","Roboto-Bold.ttf"),20)
 b=json.load(open(os.path.join(OUT,"bilgi.json"))); N=b["kare"]
@@ -16,12 +18,16 @@ MERKEZ=(805-330,600-0)                       # mobun govdesi (patlama merkezi), 
 RM=np.load(os.path.join(OUT,"mob_maskesi.npy"))[KES[1]:KES[3],KES[0]:KES[2]]      # mob_maskesi ile skill kareleri ayni kokenli (700,150)
 DIKIS=ndimage.binary_dilation(RM,np.ones((9,9)))&~ndimage.binary_erosion(RM,np.ones((9,9)))   # arka/on katman birlesim cizgisi
 DIKIS_W=ndimage.gaussian_filter(DIKIS.astype(np.float32),2)[...,None]
+KUKLA=ndimage.binary_dilation(RM,np.ones((15,15)))                                  # kukla + 7 px kenar
+KUKLA_W=ndimage.gaussian_filter(ndimage.binary_dilation(KUKLA,np.ones((9,9))).astype(np.float32),4)[...,None]
 SON=13                                                                              # patlama 0.47 sn'de bitiyor; sonrasi oyuncu kirintisi
 kareler=[]
 for n in range(N):
-    E=sum(np.asarray(Image.open(os.path.join(OUT,"skill_"+k,"skill_%s_%02d.png"%(k,n))).convert("RGB"),dtype=np.float32) for k in ("arka","on"))
+    E=np.asarray(Image.open(os.path.join(OUT,"skill_arka","skill_arka_%02d.png"%n)).convert("RGB"),dtype=np.float32)   # yalniz arka: kukla izi yok
     E=np.clip(E,0,255)[KES[1]:KES[3],KES[0]:KES[2]]
-    E=DIKIS_W*ndimage.gaussian_filter(E,[4,4,0])+(1-DIKIS_W)*E                      # dikis cizgisi yumusak
+    # kukla silueti (+ kenar) icini cevredeki isiktan yumusak doldur: once izotropik dolgu, sonra genis gauss
+    E=yumusak_doldur(E,KUKLA,n=16,k=21)
+    E=KUKLA_W*ndimage.gaussian_filter(E,[6,6,0])+(1-KUKLA_W)*E
     if n>SON: E=np.zeros_like(E)
     mx=E.max(2); sari=(np.minimum(E[...,0],E[...,1])-E[...,2])/np.maximum(mx,1)
     yerel=ndimage.gaussian_filter(mx,6)
