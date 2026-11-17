@@ -8,7 +8,7 @@ Renkler olculen degerlerden (bkz. arayuz/kaynak/efekt10/hd2). Tum parametreler a
 import os, subprocess, tempfile, shutil, numpy as np
 from PIL import Image
 B_=os.path.dirname(os.path.abspath(__file__)); K=os.path.join(B_,"..","..","kaynak","efekt10","sifirdan"); ONZ=os.path.join(B_,"..","..","onizlemeler")
-N=1024; C=N/2; FPS=60
+N=1280; C=N/2; FPS=60
 yy,xx=np.mgrid[0:N,0:N].astype(np.float32); dx=xx-C+0.5; dy=yy-C+0.5; R=np.hypot(dx,dy); A=np.arctan2(dy,dx)
 def renk(h): h=h.lstrip("#"); return np.array([int(h[i:i+2],16) for i in (0,2,4)],np.float32)/255
 def ease_out(t): return 1-(1-np.clip(t,0,1))**3
@@ -50,11 +50,11 @@ def sari_yildiz():
 # ---------------- PEMBE PATLAMA ----------------
 GOKKUSAGI=[("#FFF4A0",0.00),("#B8F080",0.18),("#F0B050",0.38),("#F06060",0.58),("#C050C0",0.80)]   # icten disa
 def pembe():
-    n=40; kareler=[]                                          # 0.67 sn
+    n=40; kareler=[]; yap=yaprak_listesi()                      # 0.67 sn
     rng=np.random.default_rng(3); cizgi_aci=rng.uniform(0,2*np.pi,90); cizgi_g=rng.uniform(0.3,1,90)
     for i in range(n):
         t=i/(n-1); L=np.zeros((N,N,3),np.float32)
-        Rh=110+300*ease_out(t/0.55)                           # halka yaricapi (ease-out)
+        Rh=85+215*ease_out(t/0.55)                            # halka yaricapi (ease-out), en buyuk 300
         pem=pencere(t,0,0.04,0.45,0.8)                        # pembe evre
         sar=pencere(t,0.35,0.55,0.7,1.0)                      # sari evre (sonda)
         # mor dis hale
@@ -70,20 +70,52 @@ def pembe():
         d=np.min(np.abs(np.angle(np.exp(1j*(A[...,None]-cizgi_aci[None,None,:]))))*R[...,None]/np.maximum(1.2+0*R[...,None],1)*1.0 + (1-cizgi_g[None,None,:])*0,axis=2)
         ekle(L,np.clip(1-d/2.0,0,1)*(R<Rh*0.95)*(R>40),renk("#F8C8D8"),0.35*pem)
         # beyaz cekirdek
-        rc=55+60*ease_out(t/0.4)
+        rc=45+40*ease_out(t/0.4)
         ekle(L,np.exp(-(R/rc)**2),renk("#FFFFFF"),2.4*pencere(t,0,0.02,0.4,0.85))
         ekle(L,np.exp(-(R/(rc*1.8))**2),renk("#FFE8F0"),0.9*pem)
         # sari evre: cekirdek ve hale sariya doner
         ekle(L,np.exp(-(R/(Rh*0.55))**2),renk("#F2F398"),1.4*sar); ekle(L,np.exp(-(R/(Rh*1.0))**2),renk("#817025"),0.5*sar)
         # yatay isik cizgisi
-        uz=380+720*ease_out(t/0.4); uz=uz*(1-0.45*np.clip((t-0.42)/0.58,0,1))
+        uz=300+560*ease_out(t/0.4); uz=uz*(1-0.45*np.clip((t-0.42)/0.58,0,1))
         gc=pencere(t,0,0.03,0.85,1.0)
         boy=np.clip(1-np.abs(dx)/(uz/2),0,1)**0.7
         cr=renk("#FDFBD4")*(1-sar)+renk("#F5F495")*sar
         ekle(L,boy*np.exp(-(dy/2.2)**2),cr,2.0*gc); ekle(L,boy*np.exp(-(dy/9)**2),renk("#E8D070"),0.6*gc)
         ekle(L,boy**2*np.exp(-(dy/28)**2),renk("#AA804A"),0.35*gc)
+        yapraklar(L,t,yap)
         kareler.append(ton(L))
     return kareler
+def yaprak_listesi(seed=11,n=14):
+    """olcum (yakin kamera kaydi + IMG_0191-0196): 12-16 yaprak, darbe aninda auranin kenarinda bir halkada dogar,
+    merkezden her yone duz cizgide ucar (yon dagilimi tam daire), uzun ekseni ucus yonunde; hiz sabite yakin (hafif yavaslar),
+    omur ~0.45 sn, sonda solar; boy ~0.35 x aura yaricapi, en ~ boy/4; dogarken kisa 4 koseli parilti."""
+    rng=np.random.default_rng(seed); a0=rng.uniform(0,2*np.pi)
+    return [dict(aci=a0+2*np.pi*k/n+rng.uniform(-0.18,0.18), hiz=rng.uniform(0.75,1.25), boy=rng.uniform(0.8,1.15),
+                 gec=rng.uniform(0,0.03), dogus=rng.uniform(0.9,1.15)) for k in range(n)]
+def yapraklar(L,t,yap):
+    for y in yap:
+        tt=t-y["gec"]
+        if tt<0: continue
+        s=y["hiz"]
+        r=y["dogus"]*105+ s*640*(tt/0.7)*(1-0.22*tt/0.7)             # 105 px'te dogar, ~3 x en buyuk yaricap yol alir
+        g=pencere(tt,0,0.02,0.5,0.72)
+        if g<=0: continue
+        ca,sa=np.cos(y["aci"]),np.sin(y["aci"]); px,py=C+r*ca,C+r*sa
+        Lb=52*y["boy"]*s**0.5; Wb=Lb*0.26
+        x0,x1=int(max(px-Lb-12,0)),int(min(px+Lb+12,N)); y0,y1=int(max(py-Lb-12,0)),int(min(py+Lb+12,N))
+        if x0>=x1 or y0>=y1: continue
+        X_=xx[y0:y1,x0:x1]-px; Y_=yy[y0:y1,x0:x1]-py
+        u=X_*ca+Y_*sa; w=-X_*sa+Y_*ca
+        prof=np.clip(1-(u/Lb)**2,0,1); en=Wb*prof
+        govde=np.clip(1-np.abs(w)/np.maximum(en,0.3),0,1)*(np.abs(u)<Lb)
+        cekirdek=govde**2.5; hale=np.exp(-(w/(Wb*1.6))**2)*np.clip(1-(u/(Lb*1.25))**2,0,1)
+        P=L[y0:y1,x0:x1]
+        P+=govde[...,None]*renk("#E6EC98")[None,None,:]*1.2*g; P+=cekirdek[...,None]*renk("#FFFFF4")[None,None,:]*1.4*g
+        P+=hale[...,None]*renk("#5E663F")[None,None,:]*0.8*g
+        f=pencere(tt,0,0.01,0.03,0.08)                                  # dogus parilitisi (4 koseli)
+        if f>0:
+            Q=np.exp(-(np.abs(X_)/2.5))*np.exp(-(np.abs(Y_)/26))+np.exp(-(np.abs(Y_)/2.5))*np.exp(-(np.abs(X_)/26))
+            P+=Q[...,None]*renk("#FFFFE8")[None,None,:]*2.0*f
 def yaz(ad,kareler):
     od=os.path.join(K,ad); os.makedirs(od,exist_ok=True)
     for f in os.listdir(od): os.remove(os.path.join(od,f))
