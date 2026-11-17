@@ -49,7 +49,7 @@ for ki,f in enumerate(sorted(glob.glob(os.path.join(K,"skill","skill_*.png")))):
         dol=ndimage.binary_closing(dol,np.ones((5,5)))
         E=yumusak_doldur(np.where(dol[...,None],0,E),dol,n=12,k=13)
     # oyuncu ve kesik cikarilan yer (auranin sol yani): aura saga-sola simetrik -> sag yanin aynasi
-    ay=np.clip(2*AURA[0]-X-xx,0,W-1).astype(int)
+    ay=np.clip(2*AURA[0]-2*X-xx,0,W-1).astype(int)
     ayna=E[yy,ay]
     w=ndimage.gaussian_filter((sil&(r<AURA_R+30)).astype(np.float32),3)[...,None]
     E=np.maximum(E,ayna*w)

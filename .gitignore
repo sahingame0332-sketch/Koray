@@ -2,3 +2,4 @@ __pycache__/
 *.pyc
 .env
 arayuz/kaynak/efekt10/zemin_kutu.npy
+arayuz/kaynak/efekt10/tam/zemin_kutu.npy
