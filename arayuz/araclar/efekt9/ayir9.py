@@ -34,7 +34,7 @@ for n in range(B["skill"]["kare"]):
     m=ndimage.gaussian_filter(ndimage.binary_dilation(m,np.ones((11,11))).astype(np.float32),2.5)[...,None]
     # vurus: oyuncu bolgesinde (yapraklarin altinda) hicbir sey kalmasin — kesigin halesi dahil
     bol=ndimage.gaussian_filter(((xx+x>840)&(yy+y>500)).astype(np.float32),8)[...,None]
-    Ck=E*np.maximum(m,bol*(E.max(2,keepdims=True)>0))
+    Ck=E*np.maximum(m,bol)                                                # oyuncu bolgesindeki tum isik kesige ait (vurus orada sifir)
     # kesik: oyuncunun govdesindeki kucuk kirinti (sari olmayan) atilir
     gov=np.zeros((h,w),bool); gov[max(0,690-y):1050-y,max(0,1040-x):1245-x]=True     # oyuncu govdesi: kesik bunun ustunden/solundan gecer
     gw=ndimage.gaussian_filter(gov.astype(np.float32),6)[...,None]

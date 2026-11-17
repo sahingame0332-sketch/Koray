@@ -32,7 +32,7 @@ namespace Olympos.Efekt9Altin.EditorTools
             mr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off; mr.receiveShadows = false;
             var k = go.AddComponent<OlymposEfekt9AltinKatman>();
             k.kareler = Kareler(root + "/Textures/altin");
-            k.genislikHedef = 2.1222f; k.enBoy = 0.8115f; k.pivot = new Vector2(0.5148f, 0.0731f); k.derinlik = -0.3f; k.MeshKur();
+            k.genislikHedef = 2.2259f; k.enBoy = 0.7837f; k.pivot = new Vector2(0.5075f, 0.0722f); k.derinlik = -0.3f; k.MeshKur();
             ef.katman = k;
             string pd = root + "/Prefabs";
             if (!AssetDatabase.IsValidFolder(pd)) AssetDatabase.CreateFolder(root, "Prefabs");

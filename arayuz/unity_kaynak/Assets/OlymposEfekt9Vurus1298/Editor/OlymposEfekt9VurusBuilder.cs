@@ -32,7 +32,7 @@ namespace Olympos.Efekt9Vurus.EditorTools
             mr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off; mr.receiveShadows = false;
             var k = go.AddComponent<OlymposEfekt9VurusKatman>();
             k.kareler = Kareler(root + "/Textures/vurus");
-            k.genislikHedef = 4.1148f; k.enBoy = 0.7282f; k.pivot = new Vector2(0.4698f, 0.1693f); k.derinlik = 0.0f; k.MeshKur();
+            k.genislikHedef = 4.5037f; k.enBoy = 0.6686f; k.pivot = new Vector2(0.4293f, 0.1734f); k.derinlik = 0.0f; k.MeshKur();
             ef.katman = k;
             string pd = root + "/Prefabs";
             if (!AssetDatabase.IsValidFolder(pd)) AssetDatabase.CreateFolder(root, "Prefabs");

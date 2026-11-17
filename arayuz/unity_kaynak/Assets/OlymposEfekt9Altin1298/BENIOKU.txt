@@ -10,3 +10,5 @@ Diğer parçalar ayrı paketler: OlymposEfekt9Vurus1298 (mobda), OlymposEfekt9Ke
 OlymposEfekt9Altin1298 (karakterde altın patlama); mobun kırmızılaşması OlymposMobHasar1298.
 Çıkarılanlar: hareket eden mob/oyuncu, ad etiketleri, sandık, seçim halkası, yön oku, mob kırmızısı.
 Built-in boru hattı; URP'de denenmedi.
+Kare kare denetim (araclar/efekt9/denetle9.py): efekt piksellerinde zemin + paket <-> orijinal ort. fark skill 7.6, altin 6.8 /255;
+ışık orijinalde görülen artıştan fazla olamaz (fizik sınırı); kalan fark ad etiketlerinin altı ve hareket eden gövdeler.

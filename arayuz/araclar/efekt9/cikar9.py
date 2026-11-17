@@ -15,10 +15,10 @@ OUT=os.path.join(os.path.dirname(os.path.abspath(__file__)),"..","..","kaynak","
 KX,KY,KX1,KY1=0,140,1700,1330
 EFEKT={"skill":dict(aralik=range(66,92),once=range(56,66),sonra=range(92,100),capa=(522,812),capa_ad="mob_zemini",boy=None),
        "altin":dict(aralik=range(19,29),once=range(14,19),sonra=range(30,37),capa=(1130,1020),capa_ad="oyuncu_ayagi",boy=290,merkez=(1135,880),yaricap=330,gri_ust=60,oyuncu_temizle=False)}
-def temizle(E,esik=12):
+def temizle(E,esik=8):
     mx=E.max(2); tut=ndimage.binary_opening(mx>esik,np.ones((2,2)))|(mx>90)
     l,n=ndimage.label(tut)
-    if n: s=ndimage.sum(mx>esik,l,range(1,n+1)); tut=np.isin(l,1+np.where(s>=10)[0])
+    if n: s=ndimage.sum(mx>esik,l,range(1,n+1)); tut=np.isin(l,1+np.where(s>=40)[0])            # kumlanma (tek tuk noktalar) atilir
     return ndimage.gaussian_filter(np.where(tut[...,None],E,0),[0.6,0.6,0])
 def calis(k,secim=None):
     fs=sorted(glob.glob(os.path.join(k,"k_*.png")))
@@ -29,26 +29,37 @@ def calis(k,secim=None):
         Bo=np.median([Y(i) for i in c["once"]],0); Bs=np.median([Y(i) for i in c["sonra"]],0)
         K=[]
         for i in c["aralik"]:
-            O=Y(i); D=np.minimum(O-Bo,O-Bs)
-            w8=(np.clip((O.max(2)-242)/13.0,0,1)*(D.max(2)>60))[...,None]
+            O=Y(i); D=np.minimum(O-Bo,O-Bs); Dx=np.maximum(O-Bo,O-Bs)
+            # guclu renkli isik: zeminlerden biri (mob/oyuncu eski yeri) isigin altinda kaliyorsa ona uyan zemin (max) kullanilir
+            dmx=Dx.max(2); renkli=((Dx.max(2)-Dx.min(2))>35)|(O.max(2)>228)
+            guclu=ndimage.binary_opening((dmx>60)&renkli&(D.max(2)>40),np.ones((3,3)))   # iki zemine gore de isik eklenmis olmali (secim halkasi gibi sabit nesne degil)
+            D=np.where(guclu[...,None],Dx,D)
+            # kayit en parlak yerde 246'da doyuyor: doyan cekirdekte isigin kendi rengi
+            w8=(np.clip((O.max(2)-240)/6.0,0,1)*(D.max(2)>60))[...,None]                  # yalniz gercek doyma (kayitta 246)
             E=np.clip(w8*O+(1-w8)*D,0,255)
             Dp=np.clip(D,0,None); yesil=(Dp[...,1]>Dp[...,0]*1.3)&(Dp[...,1]>Dp[...,2]*1.6)
-            E=E*(np.clip((Dp.max(2)-14)/18,0,1)*~yesil)[...,None]
+            E=E*(np.clip((Dp.max(2)-7)/10,0,1)*~yesil)[...,None]                               # sonuk dis hale de kalsin
             # renksiz (gri/lavanta) artis = hareket eden mob/oyuncu govdesi; saf kirmizi = mob hasar boyamasi (ayri paket)
             dmx=np.maximum(Dp.max(2),1); sat=(Dp.max(2)-Dp.min(2))/dmx
             ust_gri=c.get("gri_ust",185)                                               # altin patlamanin beyaz cekirdegi renksiz: orada yalniz sonuk gri atilir
-            gri=(sat<0.28)&(Dp.max(2)>15)&(Dp.max(2)<ust_gri)&(O.max(2)<235)
+            govde_rengi=(O[...,2]>=0.85*O[...,1])&(np.abs(O[...,0]-O[...,1])<25)               # gri/lavanta govde (isik sarimsi: B << G)
+            gri=(sat<0.28)&(Dp.max(2)>15)&(Dp.max(2)<ust_gri)&(O.max(2)<235)&govde_rengi
             kirmizi=np.zeros_like(Dp[...,0],bool) if True else (Dp[...,0]>25)&(Dp[...,0]>2.0*Dp[...,1]+12)&(Dp[...,0]>2.0*Dp[...,2]+12)&(O.max(2)<240)
             oy=np.zeros_like(gri); oy[650-KY:1080-KY,980:1340]=True                       # oyuncu govdesi bolgesi: parlak beyaz zirh da
             if c.get("oyuncu_temizle",True):
                 sari_k=(np.minimum(Dp[...,0],Dp[...,1])>1.5*Dp[...,2]+8)
                 gri|=oy&(Dp.max(2)>15)&~sari_k
             E=E*(~(gri|kirmizi))[...,None]
-            etiket=((O[...,0]>170)&(O[...,1]<110)&(O[...,2]<120))|((O[...,2]>190)&(O[...,1]>170)&(O[...,0]<140))|((Bo[...,0]>170)&(Bo[...,1]<110)&(Bo[...,2]<120))
+            lab=lambda X: ((X[...,0]>170)&(X[...,1]<110)&(X[...,2]<120))|((X[...,2]>190)&(X[...,1]>170)&(X[...,0]<140))
+            yakin_lab=ndimage.binary_dilation(lab(Bo)|lab(Bs),np.ones((41,41)))                 # etiketler zeminde de var (yazi yerinde)
+            etiket=lab(O)&yakin_lab                                                              # turuncu-kirmizi efekt halkasi etiket sayilmaz
             etiket=ndimage.binary_dilation(ndimage.binary_closing(etiket,np.ones((5,9))),np.ones((7,7)))     # ad etiketleri (kirmizi/camgobegi + siyah kenar)
             yab=(np.minimum(O-Bo,O-Bs).min(2)<-25)|ndimage.binary_dilation(gri|kirmizi,np.ones((3,3)))|etiket
             m=ndimage.binary_dilation(yab|ndimage.binary_dilation(yesil&(Dp.max(2)>20),np.ones((3,3))),np.ones((5,5)))&(w8[...,0]<0.3)
             E=yumusak_doldur(E,m,n=10,k=11)
+            # fizik siniri: isik, orijinalde gorulen artistan fazla olamaz (dolgu komsudan parlaklik tasimasin); yalniz ad etiketlerinin alti serbest
+            sinir=np.clip(D,0,255)+4
+            E=np.where(etiket[...,None],E,np.minimum(E,sinir))
             E[:245-KY,:300]=0                                                       # sol ust HUD (oyuncu bilgisi); isin bundan sagda/asagida
             if c.get("yaricap"):                                                     # efekt disi (baska yaratik) yumusak kesilir
                 yy,xx=np.mgrid[0:E.shape[0],0:E.shape[1]]; r=np.hypot(xx+KX-c["merkez"][0],(yy+KY-c["merkez"][1])*1.1)

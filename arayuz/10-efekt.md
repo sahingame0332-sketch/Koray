@@ -179,3 +179,10 @@ shader `Olympos/Efekt8 Eklemeli`, menü `OLYMPOS > 1298 > Efekt 8 (Skill Efekti)
   mob kırmızısı ayrı paket (OlymposMobHasar1298). Ayırma (`ayir9.py`): oyuncu çevresindeki büyük sarı parça = kesik; oyuncu bölgesi vuruştan silinir.
 - Ölçü: karakter 270 px (kayıt); mob zemini (522,812), oyuncu ayağı (1130,1027). Doğrulama ort. fark skill 3.5, altın 2.7 /255.
 - Önizlemeler: `efekt9_onizleme.*`, `efekt9_animasyon.mp4`, paketler `efekt9_paketler.*`.
+- Kare kare düzeltme (kullanıcı: lekeler, renk uyuşmazlığı, eksik renk): `denetle9.py` ile efekt piksellerinde ölçüldü. Bulunan hatalar:
+  (1) altın patlamanın turuncu-kırmızı dış halkası "kırmızı ad etiketi" sanılıp siliniyordu → etiket maskesi yalnız zemindeki etiketlerin yakınında;
+  (2) yıldız ışınları mobun önceki yerine düşüyordu → iki zemine göre de ışık eklenmişse uyan zemin (max);
+  (3) kılıç kesiğinin beyazımsı kısmı "gri gövde" sanılıp parlak komşuyla dolduruluyordu → gövde ayrımı pikselin kendi rengine göre (B ≥ 0.85 G);
+  (4) dolgu komşu ışığı taşıyordu → fizik sınırı: ışık ≤ orijinalde görülen artış (etiket altı hariç); (5) sönük dış hale eşikleri düşürüldü.
+  Sonuç (ort. mutlak fark, efekt pikselleri): skill 23–30 → **7.6**, altın 41 → **6.8** /255; fazla ışık %1.8 / %2.3.
+  Full HD: `onizlemeler/efekt9_fullhd.mp4` (yalnız paket), `efekt9_fullhd_karsilastirma.mp4` (orijinal | paket), gerçek hız + 1/4 hız.

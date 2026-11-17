@@ -14,58 +14,58 @@
   "kutu_ekran": [
    0,
    140,
-   1111,
-   809
+   1216,
+   813
   ],
   "capa_ekran": [
    522,
    812
   ],
-  "genislik_karakter": 4.1148,
-  "en_boy": 0.7282,
+  "genislik_karakter": 4.5037,
+  "en_boy": 0.6686,
   "pivot": [
-   0.4698,
-   0.1693
+   0.4293,
+   0.1734
   ]
  },
  "kesik": {
-  "kare": 10,
+  "kare": 11,
   "fps": 30.0,
   "kutu_ekran": [
-   837,
-   527,
-   710,
-   433
+   834,
+   516,
+   715,
+   452
   ],
   "capa_ekran": [
    1130,
    1027
   ],
-  "genislik_karakter": 2.6296,
-  "en_boy": 0.6099,
+  "genislik_karakter": 2.6481,
+  "en_boy": 0.6322,
   "pivot": [
-   0.4127,
-   -0.1547
+   0.414,
+   -0.1305
   ]
  },
  "altin": {
   "kare": 10,
   "fps": 30.0,
   "kutu_ekran": [
-   835,
-   596,
-   573,
-   465
+   825,
+   590,
+   601,
+   471
   ],
   "capa_ekran": [
    1130,
    1027
   ],
-  "genislik_karakter": 2.1222,
-  "en_boy": 0.8115,
+  "genislik_karakter": 2.2259,
+  "en_boy": 0.7837,
   "pivot": [
-   0.5148,
-   0.0731
+   0.5075,
+   0.0722
   ]
  }
 }

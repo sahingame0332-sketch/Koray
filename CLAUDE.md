@@ -67,9 +67,9 @@ Arayüz işi ile altyapı işi aynı oyunun iki yüzü: `docs/03-icerik-uretim-r
 | `arayuz/unity_paketleri/OlymposEfekt7Karakter1298.unitypackage` | Efekt 7 karakter efekti — tek başına: kılıcın sarı kesik yayı (12 kare), karaktere bağlı, hedef tarafına otomatik ayna (`Olympos.Efekt7Karakter`) | 1.166 × karakter boyu (oyuncu boyu tahmin) | eklemeli (bkz. ek 7) |
 | `arayuz/unity_paketleri/OlymposEfekt7Hasar1298.unitypackage` | Efekt 7 hasar efekti — tek başına: mobdaki vuruş (aura, kıvılcımlar, yıldız; kesik yayı çıkarıldı), arka + ön katman (`Olympos.Efekt7Hasar`); mob kırmızısıyla birlikte kullanılır | mob boyuna göre | eklemeli (bkz. ek 7) |
 | `arayuz/unity_paketleri/OlymposEfekt8_1298.unitypackage` | Efekt 8 — tek başına, YALNIZ skill efekti (tablet kaydı 19-16-21, gerçek hız): kesikler + altın yapraklar → pembe aura → yatay parlama → yıldız; 26 kare, arka + ön katman (`Olympos.Efekt8`, shader `Olympos/Efekt8 Eklemeli`); mob kırmızısı yok (ayrı paket) | 3.18 × mob boyu (kayıtta 422 px) | eklemeli (bkz. `arayuz/10-efekt.md` ek 8) |
-| `arayuz/unity_paketleri/OlymposEfekt9Vurus1298.unitypackage` | Efekt 9 vuruş — tek başına (kayıt 20-27-52): mobda pembe patlama, gökten ışın, yerde pembe halka + yatay parlama, yıldız, altın yapraklar; 26 kare (`Olympos.Efekt9Vurus`) | 4.11 × karakter boyu (270 px) | eklemeli (bkz. `arayuz/10-efekt.md` ek 9) |
-| `arayuz/unity_paketleri/OlymposEfekt9Kesik1298.unitypackage` | Efekt 9 karakter kılıç kesiği — tek başına; 10 kare, karaktere bağlı, hedef tarafına otomatik ayna (`Olympos.Efekt9Kesik`) | 2.63 × karakter boyu | eklemeli (bkz. ek 9) |
-| `arayuz/unity_paketleri/OlymposEfekt9Altin1298.unitypackage` | Efekt 9 altın patlama (karakterde) — tek başına; 10 kare (`Olympos.Efekt9Altin`) | 2.12 × karakter boyu | eklemeli (bkz. ek 9) |
+| `arayuz/unity_paketleri/OlymposEfekt9Vurus1298.unitypackage` | Efekt 9 vuruş — tek başına (kayıt 20-27-52): mobda pembe patlama, gökten ışın, yerde pembe halka + yatay parlama, yıldız, altın yapraklar; 26 kare (`Olympos.Efekt9Vurus`) | 4.50 × karakter boyu (270 px) | eklemeli (bkz. `arayuz/10-efekt.md` ek 9) |
+| `arayuz/unity_paketleri/OlymposEfekt9Kesik1298.unitypackage` | Efekt 9 karakter kılıç kesiği — tek başına; 11 kare, karaktere bağlı, hedef tarafına otomatik ayna (`Olympos.Efekt9Kesik`) | 2.65 × karakter boyu | eklemeli (bkz. ek 9) |
+| `arayuz/unity_paketleri/OlymposEfekt9Altin1298.unitypackage` | Efekt 9 altın patlama (karakterde) — tek başına; 10 kare (`Olympos.Efekt9Altin`) | 2.23 × karakter boyu | eklemeli (bkz. ek 9) |
 Kaynaklar `arayuz/unity_kaynak/Assets/...` (meta dosyalarıyla). Unity menüsü:
 `OLYMPOS > 1298 > Character Penceresi Oluştur` (CHAR INFO + CLAN + FRIENDS sekmeleriyle birlikte),
 `… > Save Stat Preset Penceresi Oluştur`, `… > Stat Butonları Penceresi Oluştur`,
@@ -139,7 +139,7 @@ stat adı 21, stat değeri 25, direnç adı 19, direnç değeri 23, buton 22. De
   Kullanıcı kayıtlarında yüz kamerası olabilir: tam kareleri depoya koyma.
 - `efekt7/`: galeride yavaş sarılan kayıt için süre kutusu OCR (`ocr.py`, `zaman.py`), `cikar7.py` (arka/ön katman + hasar kırmızısı), `kur7.py`, `genis.py`; uzak kayıt eki `uzak*.py`, `temiz.py`.
 - `efekt8/`: `cikar8.py KLASOR` (tablet kaydı, yalnız skill ışığı: mob içinde kırmızı boyanmış zemin çıkarılır, sıkı mob maskesi), `kur8.py` (önizleme), `katman8.py` (arka/ön).
-- `efekt9/`: `cikar9.py KLASOR` (iki efekt; gri/renksiz artış = hareket eden gövde, ad etiketleri dolgu), `kur9.py`, `ayir9.py` (vuruş / kesik / altın), `paket_onizle9.py`.
+- `efekt9/`: `cikar9.py KLASOR` (iki efekt; gri/renksiz artış = hareket eden gövde, ad etiketleri dolgu), `kur9.py`, `ayir9.py` (vuruş / kesik / altın), `paket_onizle9.py`, `denetle9.py` (kare kare hata), `fullhd9.py` (1920×1080 önizleme).
 - `genie/`: `cikar_pencere.py` (doğrusal olmayan zemin modeliyle krom), `cikar_panel.py` (3 sahnede değişmeyen piksel = opak),
   `cikar_aktif.py` (skill kilidi: 8 ikondan en küçük kareler; GENIE rozeti), `punto.py`, `kur.py` → `onizlemeler/genie_onizleme.png`.
 - `gorev/`: `cikar_rozet.py` ("?" rozeti: basamak şeridi kontrastından geçirgenlik → ön-çarpımlı), `cikar_krom.py`,

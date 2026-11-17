@@ -32,7 +32,7 @@ namespace Olympos.Efekt9Kesik.EditorTools
             mr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off; mr.receiveShadows = false;
             var k = go.AddComponent<OlymposEfekt9KesikKatman>();
             k.kareler = Kareler(root + "/Textures/kesik");
-            k.genislikHedef = 2.6296f; k.enBoy = 0.6099f; k.pivot = new Vector2(0.4127f, -0.1547f); k.derinlik = -0.3f; k.MeshKur();
+            k.genislikHedef = 2.6481f; k.enBoy = 0.6322f; k.pivot = new Vector2(0.414f, -0.1305f); k.derinlik = -0.3f; k.MeshKur();
             ef.katman = k;
             string pd = root + "/Prefabs";
             if (!AssetDatabase.IsValidFolder(pd)) AssetDatabase.CreateFolder(root, "Prefabs");
