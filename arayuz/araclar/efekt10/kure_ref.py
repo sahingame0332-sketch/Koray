@@ -55,6 +55,7 @@ T=E*(1-w)+dol*w
 ust=np.clip((CY+6-yy)/12,0,1)[...,None]
 T=T*(1-ust)+T[my,xx]*ust
 # turuncu gecis katmani (r 160-180, somon halka ile sari parantez arasi) kaldirildi: yumusak kenarli saydam
+T0=T.copy()
 kald=1-np.clip((R-132)/6,0,1)*np.clip((192-R)/6,0,1)          # bos bant merkeze dogru 24 px (mevcut genisligin 6/5i) genisletildi: 136-180
 T=T*kald[...,None]
 # silinen bandin hemen disindaki en yakin renk (turuncu/pembe; G < 0.85 R) da silinir — sari/yesil parantez ve ic somon halka korunur
@@ -62,6 +63,27 @@ tp=(T[...,1]<0.85*T[...,0])&(R>=178)&(R<235)
 tp=ndimage.binary_opening(tp,np.ones((3,3)))
 wt=np.clip(ndimage.gaussian_filter(tp.astype(np.float32),2.0)*1.5,0,1)
 T=T*(1-wt)[...,None]
+# parantezleri sari renkle tamamla: orijinal katmandaki sari-yesil parantezin ic kenari (aci basina) yumusatilir,
+# o kenardan disari kalan kayiplar sari ile doldurulur (sekil duzgun yay olur)
+NA=720; ab=((np.arctan2(yy-CY,xx-CX)+np.pi)/(2*np.pi)*NA).astype(int)%NA
+mx0=T0.max(2); Y=(T0[...,1]>=0.85*T0[...,0])&(T0[...,2]<0.8*T0[...,1])&(mx0>0.3)&(R>165)&(R<265)
+rin=np.full(NA,np.nan); ys_=np.full((NA,3),np.nan)
+Rf=R[Y]; af=ab[Y]
+for a_ in range(NA):
+    q=af==a_
+    if q.sum()>3:
+        rr=np.sort(Rf[q]); rin[a_]=rr[min(2,len(rr)-1)]
+ok=~np.isnan(rin)
+var=ndimage.uniform_filter1d(ok.astype(float),25,mode="wrap")>0.6          # parantezin oldugu acilar
+rr_=np.where(ok,rin,np.interp(np.arange(NA),np.where(ok)[0],rin[ok],period=NA))
+rr_=ndimage.median_filter(rr_,31,mode="wrap"); rr_=ndimage.gaussian_filter1d(rr_,6,mode="wrap")
+rmap=rr_[ab]; vmap=ndimage.gaussian_filter1d(var.astype(float),4,mode="wrap")[ab]
+sari=np.array([0xFE,0xF6,0x86],np.float32)/255                                # olculen sari (#FFF083 / #FEFF81 / #FFFF8E ortasi)
+bolge=(R>=rmap)&(R<rmap+50)
+dol=np.clip((R-rmap+1.5)/3,0,1)*np.clip((rmap+50-R)/8,0,1)*vmap*bolge
+eksik=np.clip(1-T.max(2)/0.85,0,1)
+yeni=np.maximum(T,sari[None,None,:]*(dol*eksik)[...,None]+T*(1-(dol*eksik)[...,None]))
+T=yeni
 # daire disi (isaretli bolge disi) yumusakca saydam
 T=T*np.clip((RMAX+30-R)/45,0,1)[...,None]
 os.makedirs(K,exist_ok=True)
