@@ -65,9 +65,9 @@ sn_col=np.stack([np.interp(R,[150,200,260,330],[rk(c)[k] for c in ("#E8A89C","#D
 uzerine(sn_col,sn_al)
 # parantezler: dis kenar sabit yay, ic kenar ortada iceri siskin (sari kisim parantezin icinde -> orta kalin), uclar incelip solar
 yan=np.abs(np.cos(A)); aci=np.degrees(np.arccos(np.clip(yan,0,1)))
-uc=np.clip((62-aci)/18,0,1)**1.2
-dis_r=268; kal=20+52*np.clip(np.cos(np.radians(aci*1.45)),0,1)**1.3           # orta ~72, uclar ~20
-ic_r=dis_r-kal
+uc=np.clip((56-aci)/22,0,1)**1.3                                             # ust ve alt silinmis gibi: uclar incelmez, solarak kaybolur
+orta_r=236; kal=58+10*np.cos(np.radians(aci))                                  # sabit yaricapli halka parcasi (ortasi biraz kalin)
+ic_r=orta_r-kal/2; dis_r=orta_r+kal/2
 u=(R-ic_r)/kal
 renkler=[(0.0,"#F2B860"),(0.14,"#FCE65E"),(0.5,"#FEF486"),(0.72,"#E2F8A0"),(1.0,"#A8E8B0")]   # ic genis sari -> acik yesil -> yesil (dis)
 uu=np.clip(u,0,1); col=np.stack([np.interp(uu,[q[0] for q in renkler],[rk(q[1])[c] for q in renkler]) for c in range(3)],-1)
