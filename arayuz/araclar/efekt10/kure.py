@@ -14,29 +14,41 @@ def bant(r0,w): return np.exp(-((R-r0)/w)**2)
 C=np.zeros((H,W,3),np.float32)
 def kat(m,c,a=1.0):   # "uzerine" katman (renk m alfa ile)
     global C; m=np.clip(m*a,0,1)[...,None]; C=C*(1-m)+rk(c)*m
-# radyal renk gecisi (yumusak, cizgisiz): titanyum beyaz -> seftali -> seftali kirmizisi -> saydam
-dur=[(0,"#FFFFFF",1.0),(70,"#FEFEFE",1.0),(92,"#F8DBC3",1.0),(118,"#E1A59F",0.97),(140,"#C98A80",0.9),(158,"#B07872",0.6),(178,"#6A4844",0.15),(195,"#000000",0.0)]
-rr=np.array([d[0] for d in dur],np.float32)
-for c in range(3):
-    C[...,c]=np.interp(R,rr,[rk(d[1])[c]*d[2] for d in dur])
-# parantezler: kureye esmerkezli kalin yaylar (sag-sol), uclara dogru incelir ve solar
+# katmanlar RGBA (on-carpimli "uzerine"): saydam cikti icin gercek alfa tutulur
+Ca=np.zeros((H,W),np.float32)
+def uzerine(col,al):
+    global C,Ca
+    al=np.clip(al,0,1); C=C*(1-al[...,None])+col*al[...,None]; Ca=Ca*(1-al)+al
+def interp(R_,dur):
+    rr=np.array([d[0] for d in dur],np.float32)
+    col=np.stack([np.interp(R_,rr,[rk(d[1])[c] for d in dur]) for c in range(3)],-1); al=np.interp(R_,rr,[d[2] for d in dur]); return col,al
+# seftali kirmizisi: ince bant, yari saydam (arkasi secilir)
+col,al=interp(R,[(0,"#E6A49C",0.8),(100,"#E6A49C",0.8),(112,"#DA9690",0.8),(132,"#CC8880",0.78),(148,"#B87A74",0.55),(164,"#8A5E58",0.0)])
+uzerine(col,al)
+# titanyum beyaz: buyuk, opak; kenari seftaliye yumusak gecer
+col,al=interp(R,[(0,"#FFFFFF",1.0),(92,"#FEFEFE",1.0),(104,"#F8DBC3",0.85),(114,"#EBB8A8",0.0)])
+uzerine(col,al)
+# parantezler: dis kenar sabit yay, ic kenar ortada iceri siskin (sari kisim parantezin icinde -> orta kalin), uclar incelip solar
 yan=np.abs(np.cos(A)); aci=np.degrees(np.arccos(np.clip(yan,0,1)))
 uc=np.clip((62-aci)/18,0,1)**1.2
-mrk=236; yar=34*np.clip(1-(aci/80)**2,0.45,1)
-u=(R-(mrk-yar))/(2*yar)
-renkler=[(0.0,"#F2B860"),(0.18,"#FCE870"),(0.45,"#FEFA9A"),(0.7,"#D8F6A8"),(1.0,"#A8E8B0")]   # ic: turuncu-sari -> sari -> acik yesil -> yesil (dis)
+dis_r=268; kal=20+52*np.clip(np.cos(np.radians(aci*1.45)),0,1)**1.3           # orta ~72, uclar ~20
+ic_r=dis_r-kal
+u=(R-ic_r)/kal
+renkler=[(0.0,"#F2B860"),(0.14,"#FCE65E"),(0.5,"#FEF486"),(0.72,"#E2F8A0"),(1.0,"#A8E8B0")]   # ic genis sari -> acik yesil -> yesil (dis)
 uu=np.clip(u,0,1); col=np.stack([np.interp(uu,[q[0] for q in renkler],[rk(q[1])[c] for q in renkler]) for c in range(3)],-1)
-op=np.clip(np.minimum(u,1-u)/0.12,0,1)*uc*0.92                            # yumusak kenar, hafif saydam
-C=C*(1-op[...,None])+col*op[...,None]
-dis=np.exp(-((R-(mrk+yar+8))/12)**2)*uc*0.45                              # dis zeytin-yesil hale
-C=C+(rk("#55703A")*dis[...,None])
+op=np.clip(np.minimum(u/0.1,(1-u)/0.08),0,1)*uc*0.92
+uzerine(col,op)
+uzerine(np.broadcast_to(rk("#55703A"),C.shape),np.exp(-((R-(dis_r+8))/12)**2)*uc*0.4)       # dis zeytin-yesil hale
 os.makedirs(K,exist_ok=True)
-img=(np.clip(C,0,1)*255).round().astype(np.uint8)
+img=(np.clip(C,0,1)*255).round().astype(np.uint8)                      # siyah fon uzerinde (C on-carpimli)
 Image.fromarray(img).save(os.path.join(K,"kure.png"))
-a=img.max(2); rgb=np.where(a[...,None]>0,(img.astype(np.float32)*255/np.maximum(a,1)[...,None]).clip(0,255),0).astype(np.uint8)
-Image.fromarray(np.dstack([rgb,a])).save(os.path.join(K,"kure_saydam.png"))
+rgb=(np.clip(C/np.maximum(Ca,1e-4)[...,None],0,1)*255).round().astype(np.uint8); al=(np.clip(Ca,0,1)*255).round().astype(np.uint8)
+Image.fromarray(np.dstack([rgb,al])).save(os.path.join(K,"kure_saydam.png"))
+# zemin uzerinde onizleme (arkasi secilir mi): fotograftaki toprak rengi
+zem=np.array([0x86,0x6C,0x5E],np.float32)/255; zg=(np.clip(C+zem*(1-Ca[...,None]),0,1)*255).astype(np.uint8)
 # onizleme: fotograf (kirpilmis) | yeni
 ref=Image.open(os.path.join(os.path.expanduser("~"),".claude","uploads","7667fcb8-b488-59d0-b1d8-f55ffb36b68a","0d1e98a9-image.jpg")).convert("RGB").crop((638-420,440-330,638+420,440+330)).resize((960,754))
 new=Image.fromarray(img).crop((960-672,540-528,960+672,540+528)).resize((960,754))
-o=Image.new("RGB",(1920,754)); o.paste(ref,(0,0)); o.paste(new,(960,0)); o.save(os.path.join(ONZ,"efekt10_kure.png"))
+nz=Image.fromarray(zg).crop((960-672,540-528,960+672,540+528)).resize((960,754))
+o=Image.new("RGB",(2880,754)); o.paste(ref,(0,0)); o.paste(nz,(960,0)); o.paste(new,(1920,0)); o.save(os.path.join(ONZ,"efekt10_kure.png"))
 print("tamam")
