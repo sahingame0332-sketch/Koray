@@ -63,27 +63,33 @@ tp=(T[...,1]<0.85*T[...,0])&(R>=178)&(R<235)
 tp=ndimage.binary_opening(tp,np.ones((3,3)))
 wt=np.clip(ndimage.gaussian_filter(tp.astype(np.float32),2.0)*1.5,0,1)
 T=T*(1-wt)[...,None]
-# parantezleri sari renkle tamamla: orijinal katmandaki sari-yesil parantezin ic kenari (aci basina) yumusatilir,
-# o kenardan disari kalan kayiplar sari ile doldurulur (sekil duzgun yay olur)
-NA=720; ab=((np.arctan2(yy-CY,xx-CX)+np.pi)/(2*np.pi)*NA).astype(int)%NA
-mx0=T0.max(2); Y=(T0[...,1]>=0.85*T0[...,0])&(T0[...,2]<0.8*T0[...,1])&(mx0>0.3)&(R>165)&(R<265)
-rin=np.full(NA,np.nan); ys_=np.full((NA,3),np.nan)
-Rf=R[Y]; af=ab[Y]
-for a_ in range(NA):
-    q=af==a_
-    if q.sum()>3:
-        rr=np.sort(Rf[q]); rin[a_]=rr[min(2,len(rr)-1)]
-ok=~np.isnan(rin)
-var=ndimage.uniform_filter1d(ok.astype(float),25,mode="wrap")>0.6          # parantezin oldugu acilar
-rr_=np.where(ok,rin,np.interp(np.arange(NA),np.where(ok)[0],rin[ok],period=NA))
-rr_=ndimage.median_filter(rr_,31,mode="wrap"); rr_=ndimage.gaussian_filter1d(rr_,6,mode="wrap")
-rmap=rr_[ab]; vmap=ndimage.gaussian_filter1d(var.astype(float),4,mode="wrap")[ab]
-sari=np.array([0xFE,0xF6,0x86],np.float32)/255                                # olculen sari (#FFF083 / #FEFF81 / #FFFF8E ortasi)
-bolge=(R>=rmap)&(R<rmap+50)
-dol=np.clip((R-rmap+1.5)/3,0,1)*np.clip((rmap+50-R)/8,0,1)*vmap*bolge
-eksik=np.clip(1-T.max(2)/0.85,0,1)
-yeni=np.maximum(T,sari[None,None,:]*(dol*eksik)[...,None]+T*(1-(dol*eksik)[...,None]))
-T=yeni
+# parantezler: geoit gibi tamamlanmak isteyen, uclari sivrilen sekil — ic kenar daire (r=IC), dis kenar yanlardan siskin/ustten basik elips;
+# kalinlik ust-altta sifira iner -> sivri uclar. Renk: fotografin dogru (sag) parantezinden kalinlik oranina (u) gore olculen profil, tek tip.
+IA,IB,EA,EB=182.0,260.0,252.0,232.0           # fotograftaki eski parantezin olculen kenarlari: orta 182-252, uc ~62 derece r~236
+th_=np.arctan2(yy-CY,xx-CX)
+DR=1/np.sqrt((np.cos(th_)/EA)**2+(np.sin(th_)/EB)**2)
+IR=1/np.sqrt((np.cos(th_)/IA)**2+(np.sin(th_)/IB)**2); IC=IR
+kal=np.maximum(DR-IR,0); u=(R-IR)/np.maximum(kal,1e-3)
+ic_=(u>=0)&(u<=1)&(kal>0.5)
+# renk profili: sag parantez (|aci|<18), orijinal katman T0
+sg=ic_&(np.abs(np.degrees(th_))<18)
+NB=40; ub=np.clip((u*NB).astype(int),0,NB-1)
+prof=np.zeros((NB,3),np.float32)
+for c in range(3):
+    sm=np.bincount(ub[sg],weights=T0[...,c][sg],minlength=NB); n=np.bincount(ub[sg],minlength=NB)
+    ok=n>3; prof[:,c]=np.interp(np.arange(NB),np.where(ok)[0],(sm/np.maximum(n,1))[ok])
+prof=ndimage.uniform_filter1d(prof,3,axis=0)
+renk=np.stack([np.interp(np.clip(u,0,1)*NB-0.5,np.arange(NB),prof[:,c]) for c in range(3)],-1)
+dok=np.clip(T0.mean(2)/np.maximum(ndimage.gaussian_filter(T0.mean(2),5),1e-3),0.9,1.1)[...,None]
+kenar=np.clip(np.minimum(u/0.06,(1-u)/0.12),0,1)*np.clip(kal/6,0,1)              # ic kenar net, dis kenar yumusak, uclar sivri
+kenar=ndimage.gaussian_filter(kenar*ic_,0.8)[...,None]
+# eski parantezin yeni seklin disinda kalan parcalari silinir (sari-yesil, doygun); dis krem hale korunur
+mxT=T.max(2); doyT=(mxT-T.min(2))/np.maximum(mxT,1e-3)
+eski=(~ic_)&(R>IR-60)&(R<IR+2)&(T[...,1]>=0.8*T[...,0])&(doyT>0.3)&(mxT>0.2)
+eski=ndimage.binary_dilation(eski,np.ones((3,3)))&~ndimage.binary_dilation(ic_&(kal>2),np.ones((3,3)))
+we=np.clip(ndimage.gaussian_filter(eski.astype(np.float32),2.5)*1.6,0,1)[...,None]
+T=T*(1-we)
+T=T*(1-kenar)+np.clip(renk*dok,0,1)*kenar
 # daire disi (isaretli bolge disi) yumusakca saydam
 T=T*np.clip((RMAX+30-R)/45,0,1)[...,None]
 os.makedirs(K,exist_ok=True)
