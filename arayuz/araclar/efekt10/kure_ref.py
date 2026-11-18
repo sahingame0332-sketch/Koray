@@ -17,7 +17,9 @@ def hizala(p):
         sy=y-OY
         if 0<=sy<A.shape[0]: a[y,OX:][:1454-OX]=A[sy,:1454-OX]
     return a
-foto=np.asarray(Image.open(sys.argv[1]).convert('RGB')).astype(np.float32)/255
+KARE=int(sys.argv[3]) if len(sys.argv)>3 else None                          # verilirse: klibin bu karesi islenir (animasyon)
+SADE=len(sys.argv)>4 and sys.argv[4]=="sade"                                   # sari evre: halka/bant duzeltmeleri uygulanmaz
+foto=hizala(os.path.join(sys.argv[2],"k_%02d.png"%(KARE+1))) if KARE is not None else np.asarray(Image.open(sys.argv[1]).convert('RGB')).astype(np.float32)/255
 B=np.median([hizala(os.path.join(sys.argv[2],"k_%02d.png"%i)) for i in range(1,5)],0)       # ayni anin hemen oncesi: kamera ayni
 E=np.clip(1-(1-foto)/np.maximum(1-B,0.02),0,1)
 H,W=E.shape[:2]; yy,xx=np.mgrid[0:H,0:W]; R=np.hypot(xx-CX,yy-CY)
@@ -54,36 +56,44 @@ T=E*(1-w)+dol*w
 # ust yari = alt yarinin dikey aynasi (kullanici: alt %50 dogru renkler); merkez cizgisinde 12 px yumusak gecis
 ust=np.clip((CY+6-yy)/12,0,1)[...,None]
 T=T*(1-ust)+T[my,xx]*ust
-# turuncu gecis katmani (r 160-180, somon halka ile sari parantez arasi) kaldirildi: yumusak kenarli saydam
 T0=T.copy()
-kald=1-np.clip((R-132)/6,0,1)*np.clip((192-R)/6,0,1)          # bos bant merkeze dogru 24 px (mevcut genisligin 6/5i) genisletildi: 136-180
-T=T*kald[...,None]
-# silinen bandin hemen disindaki en yakin renk (turuncu/pembe; G < 0.85 R) da silinir — sari/yesil parantez ve ic somon halka korunur
-tp=(T[...,1]<0.85*T[...,0])&(R>=178)&(R<235)
-tp=ndimage.binary_opening(tp,np.ones((3,3)))
-wt=np.clip(ndimage.gaussian_filter(tp.astype(np.float32),2.0)*1.5,0,1)
-T=T*(1-wt)[...,None]
-# eski (fotograftaki) parantez geri: silmelerde kaybolan kenarlari referansin kendi pikselleriyle doldur
-mx0=T0.max(2); doy0=(mx0-T0.min(2))/np.maximum(mx0,1e-3)
-Y=(T0[...,1]>=0.85*T0[...,0])&(doy0>0.18)&(mx0>0.2)&(R>165)&(R<275)
-Y=ndimage.binary_closing(ndimage.binary_opening(Y,np.ones((3,3))),np.ones((7,7)))
-lb_,n_=ndimage.label(Y)
-if n_:
-    sz_=ndimage.sum(Y,lb_,range(1,n_+1)); Y=np.isin(lb_,1+np.where(sz_>800)[0])   # yalniz buyuk parantez govdeleri
-wy=np.clip(ndimage.gaussian_filter(Y.astype(np.float32),1.5)*1.3,0,1)[...,None]
-T=T*(1-wy)+np.maximum(T,T0)*wy
-# kenarlar: pruzlu girintiler kapanis ile doldurulur; yeni pikseller en yakin gercek parantez pikselinin rengini alir
-yy_d,xx_d=np.mgrid[-14:15,-14:15]; disk=(yy_d**2+xx_d**2)<=14**2
-Yc=ndimage.binary_closing(np.pad(Y,15),disk)[15:-15,15:-15]
-ek=Yc&~Y
-if ek.any():
-    _,(iy,ix)=ndimage.distance_transform_edt(~Y,return_indices=True)
-    kom=ndimage.gaussian_filter(T,(2,2,0))[iy,ix]
-    we=np.clip(ndimage.gaussian_filter(ek.astype(np.float32),1.2)*1.4,0,1)[...,None]*Yc[...,None]
-    T=T*(1-we)+np.maximum(T,kom)*we
+if not SADE:
+    # turuncu gecis katmani (r 160-180, somon halka ile sari parantez arasi) kaldirildi: yumusak kenarli saydam
+    T0=T.copy()
+    kald=1-np.clip((R-132)/6,0,1)*np.clip((192-R)/6,0,1)          # bos bant merkeze dogru 24 px (mevcut genisligin 6/5i) genisletildi: 136-180
+    T=T*kald[...,None]
+    # silinen bandin hemen disindaki en yakin renk (turuncu/pembe; G < 0.85 R) da silinir — sari/yesil parantez ve ic somon halka korunur
+    tp=(T[...,1]<0.85*T[...,0])&(R>=178)&(R<235)
+    tp=ndimage.binary_opening(tp,np.ones((3,3)))
+    wt=np.clip(ndimage.gaussian_filter(tp.astype(np.float32),2.0)*1.5,0,1)
+    T=T*(1-wt)[...,None]
+    # eski (fotograftaki) parantez geri: silmelerde kaybolan kenarlari referansin kendi pikselleriyle doldur
+    mx0=T0.max(2); doy0=(mx0-T0.min(2))/np.maximum(mx0,1e-3)
+    Y=(T0[...,1]>=0.85*T0[...,0])&(doy0>0.18)&(mx0>0.2)&(R>165)&(R<275)
+    Y=ndimage.binary_closing(ndimage.binary_opening(Y,np.ones((3,3))),np.ones((7,7)))
+    lb_,n_=ndimage.label(Y)
+    if n_:
+        sz_=ndimage.sum(Y,lb_,range(1,n_+1)); Y=np.isin(lb_,1+np.where(sz_>800)[0])   # yalniz buyuk parantez govdeleri
+    wy=np.clip(ndimage.gaussian_filter(Y.astype(np.float32),1.5)*1.3,0,1)[...,None]
+    T=T*(1-wy)+np.maximum(T,T0)*wy
+    # kenarlar: pruzlu girintiler kapanis ile doldurulur; yeni pikseller en yakin gercek parantez pikselinin rengini alir
+    yy_d,xx_d=np.mgrid[-14:15,-14:15]; disk=(yy_d**2+xx_d**2)<=14**2
+    Yc=ndimage.binary_closing(np.pad(Y,15),disk)[15:-15,15:-15]
+    ek=Yc&~Y
+    if ek.any():
+        _,(iy,ix)=ndimage.distance_transform_edt(~Y,return_indices=True)
+        kom=ndimage.gaussian_filter(T,(2,2,0))[iy,ix]
+        we=np.clip(ndimage.gaussian_filter(ek.astype(np.float32),1.2)*1.4,0,1)[...,None]*Yc[...,None]
+        T=T*(1-we)+np.maximum(T,kom)*we
 # daire disi (isaretli bolge disi) yumusakca saydam
 T=T*np.clip((RMAX+30-R)/45,0,1)[...,None]
 os.makedirs(K,exist_ok=True)
+if KARE is not None:
+    x0,y0,x1,y1=CX-RMAX-40,CY-RMAX-40,CX+RMAX+40,CY+RMAX+40
+    ad=os.path.join(K,"anim"); os.makedirs(ad,exist_ok=True)
+    al=T.max(2); rgb=np.where(al[...,None]>1e-4,T/np.maximum(al,1e-4)[...,None],0)
+    Image.fromarray(np.dstack([(rgb*255).round(),(al*255).round()]).astype(np.uint8)).crop((x0,max(0,y0),x1,min(H,y1))).save(os.path.join(ad,"kure_%02d.png"%KARE))
+    print("kare",KARE,"tamam"); sys.exit(0)
 x0,y0,x1,y1=CX-RMAX-40,CY-RMAX-40,CX+RMAX+40,CY+RMAX+40
 k=lambda a: Image.fromarray((np.clip(a,0,1)*255).round().astype(np.uint8)).crop((x0,max(0,y0),x1,min(H,y1)))
 k(T).save(os.path.join(K,"kure_ref.png"))
