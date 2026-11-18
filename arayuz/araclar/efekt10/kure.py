@@ -53,13 +53,13 @@ uzerine(np.clip(col,0,1),al)
 rg3=np.random.default_rng(31); z3=ndimage.gaussian_filter1d(rg3.standard_normal(220).astype(np.float32),1.2,mode="wrap")
 i3=(th*220).astype(int)%220; tit=z3[i3]/ (z3.std()+1e-6)
 Ry=R-4*tit-3*Pn
-yog_al=np.exp(-((Ry-114)/6.5)**2)*np.clip(0.75+0.25*tit+0.08*tane,0,1)*0.9
+yog_al=np.exp(-((Ry-120)/6.0)**2)*np.clip(0.75+0.25*tit+0.08*tane,0,1)*0.9
 uzerine(np.broadcast_to(rk("#F0B49A"),C.shape)*np.clip(1+0.12*tit,0.85,1.2)[...,None],yog_al)
 # 2) atesbulutu: titanyumun hemen disinda bir tik daha kirmizi, dalgali bulut (r~84-108)
 bul=ndimage.gaussian_filter(fbm(41,[6,12,24],[0.6,1.0,0.8]),1.5)
 Rb=R-6*bul-4*Pn
-ab_col,ab_al=interp(Rb,[(0,"#D4625A",0.0),(80,"#D4625A",0.85),(92,"#C85850",0.85),(102,"#B85048",0.6),(110,"#A84A44",0.0)])
-ab_al=ab_al*np.clip(0.7+0.3*bul+0.06*tane,0,1)
+ab_col,ab_al=interp(Rb,[(0,"#D4625A",0.0),(78,"#D4625A",0.88),(96,"#C85850",0.88),(110,"#BC5249",0.86),(113,"#A84A44",0.0)])   # bir tik buyuk, dis kenari net
+ab_al=ab_al*np.clip(0.8+0.2*bul+0.05*tane,0,1)
 uzerine(np.clip(ab_col*np.clip(1+0.15*bul,0.8,1.25)[...,None],0,1),ab_al)
 # titanyum beyaz: buyuk, opak; kenari seftaliye yumusak gecer
 col,al=interp(R,[(0,"#FFFFFF",1.0),(76,"#FEFEFE",1.0),(86,"#F8DBC3",0.8),(96,"#EBB8A8",0.0)])
