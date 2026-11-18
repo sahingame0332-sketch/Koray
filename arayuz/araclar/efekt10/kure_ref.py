@@ -54,6 +54,27 @@ T=E*(1-w)+dol*w
 # ust yari = alt yarinin dikey aynasi (kullanici: alt %50 dogru renkler); merkez cizgisinde 12 px yumusak gecis
 ust=np.clip((CY+6-yy)/12,0,1)[...,None]
 T=T*(1-ust)+T[my,xx]*ust
+# parantez maskesi (sari-yesil, doygun)
+mx_=T.max(2); mn_=T.min(2); doy=(mx_-mn_)/np.maximum(mx_,1e-3)
+par=np.clip((doy-0.30)/0.15,0,1)*np.clip((T[...,1]-0.8*T[...,0])/0.1+0.5,0,1)*np.clip((R-170)/12,0,1)
+par=ndimage.gaussian_filter(par,1.5)
+# sag parantezin icindeki dogru renk: yaricapa gore profil (aci +-25 derece, parantez ve engel disi)
+aci=np.degrees(np.arctan2(yy-CY,xx-CX)); ri=np.clip(R.astype(int),0,RMAX+59); NRr=RMAX+60
+sag=(np.abs(aci)<25)&(par<0.2)&~sap
+P=np.zeros((NRr,3),np.float32)
+for c in range(3):
+    sm=np.bincount(ri[sag],weights=T[...,c][sag],minlength=NRr)[:NRr]; n=np.bincount(ri[sag],minlength=NRr)[:NRr]
+    ok=n>5; P[:,c]=np.interp(np.arange(NRr),np.where(ok)[0],(sm/np.maximum(n,1))[ok])
+P=ndimage.uniform_filter1d(P,7,axis=0); prof=P[ri]
+# renk lekeleri (mor-pembe; mob/etiket artigi): o renkle (sag profil) degistirilir
+mor=(T[...,0]>T[...,1]+0.12)&(T[...,2]>T[...,1]+0.04)&(R>100)&(par<0.3)
+lek=ndimage.binary_dilation(mor,np.ones((7,7)))
+wl=np.clip(ndimage.gaussian_filter(lek.astype(np.float32),7)*1.8,0,1)[...,None]
+dok=np.clip(T.mean(2)/np.maximum(ndimage.gaussian_filter(T.mean(2),6),1e-3),0.85,1.15)[...,None]
+T=T*(1-wl)+np.clip(prof*dok,0,1)*wl
+# sarinin icinde kalan duman fazla yogun: kirmizi halka (r<160) ile parantez arasi seyreltilir
+ara=np.clip((R-158)/14,0,1)*(1-par)
+T=T*(1-0.6*ara)[...,None]
 # daire disi (isaretli bolge disi) yumusakca saydam
 T=T*np.clip((RMAX+30-R)/45,0,1)[...,None]
 os.makedirs(K,exist_ok=True)
@@ -66,7 +87,8 @@ geri=1-(1-B)*(1-T)                                                            # 
 fark=np.abs(geri-foto).mean(2); ic=(R<RMAX)&~sap
 print("dogrulama: isaretli bolgede (engelsiz) ort. fark %.2f / 255, engelli piksel orani %.1f%%"%(fark[ic].mean()*255, sap[R<RMAX].mean()*100))
 F=ImageFont.truetype(os.path.join(B_,"..","..","kaynak","char_info","fonts","Roboto-Bold.ttf"),28)
-ims=[(k(foto),"REFERANS (fotoğraf)"),(k(geri),"YENİ — aynı zeminde"),(k(T),"YENİ — siyah fonda (ışık katmanı)")]
-w_=ims[0][0].width; out=Image.new("RGB",(3*w_+40,ims[0][0].height+56),(20,20,24)); d=ImageDraw.Draw(out)
+beyaz=T+(1-T.max(2,keepdims=True))*1.0
+ims=[(k(foto),"REFERANS (fotoğraf)"),(k(geri),"YENİ — aynı zeminde"),(k(T),"YENİ — siyah fonda"),(k(np.clip(T+(1-T.max(2,keepdims=True)),0,1)),"YENİ — saydam PNG beyaz zeminde")]
+w_=ims[0][0].width; out=Image.new("RGB",(4*w_+60,ims[0][0].height+56),(20,20,24)); d=ImageDraw.Draw(out)
 for i,(im,t) in enumerate(ims): out.paste(im,(i*(w_+20),56)); d.text((i*(w_+20)+10,12),t,font=F,fill=(255,220,120))
 out.save(os.path.join(ONZ,"efekt10_kure_ref.png"))
