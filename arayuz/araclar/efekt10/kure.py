@@ -1,115 +1,91 @@
 #!/usr/bin/env python3
-"""Efekt 10 pembe patlama — doruk ani tek kare (kullanicinin tarifi + ic goruntu fotografindan olculen renkler).
-Ortasi titanyum beyaz; kenari 1/3 seftali kirmizisi; 1/3 bosluk; sonra kureyi tutar gibi sag-sol kalin ( ) parantezler (sari + yesil).
-Olculen (foto, merkez 638,440; olcek s ile buyutulur): beyaz cekirdek r<=72 (#FEFEFE), kenar #F8DBC3; seftali-kirmizi #D0968F/#C6887D r~140;
-parantez icten disa: turuncu #F5CA7C -> sari #FEFD89 -> acik sari #FEFDB0 -> acik yesil #F5FDC0 -> yesil #CAFBBB, aci +-55 derece.
-Cikti: kaynak/efekt10/kure/kure.png (siyah fon), kure_saydam.png (alfa = parlaklik), onizlemeler/efekt10_kure.png"""
+"""Efekt 10 pembe patlama — doruk ani tek kare, TARIFE GORE (kullanicinin verdigi katman tarifi), TOPLAMALI (additive/screen) isik.
+1) Ic cekirdek: sinirlari keskin olmayan, isinsal dagilan daire. #FFFFFF -> kisa mesafede #FFF2E6 (acik sampanya) -> #FFD1BA (pastel seftali).
+2) Orta katman: (a) dairesel bulutsu duman: #F4A482 (sicak seftali) -> #8C4A38 (kizil kahve) -> #6E5C6B (dumanli gri-mor), disa dogru solar;
+   (b) merkezden disa firlayan keskin, capraz isik huzmeleri: #FFF77D (limon) cekirdek #FFFFD6 (krem).
+3) Dis katman: kure kesiti gibi, uclara dogru incelip sivrilen ic ice hilal yaylar; keskin prizma: #FFD700 (altin) -> #80FF00 (lime)
+   -> #00E5CC (turkuaz) -> en dis ince #2962FF (kobalt) cizgi.
+Karisim: toplamali — zemini kapatmaz, ustune isik ekler (zeminde onizleme: ekran karisimi).
+Cikti: kaynak/efekt10/kure/kure.png (siyah fon), kure_saydam.png (alfa = parlaklik; Unity'de Blend One One / eklemeli), onizlemeler/efekt10_kure*.png"""
 import os, numpy as np
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
+from scipy import ndimage
 B_=os.path.dirname(os.path.abspath(__file__)); K=os.path.join(B_,"..","..","kaynak","efekt10","kure"); ONZ=os.path.join(B_,"..","..","onizlemeler")
 W,H=1920,1080; s=1.6
-yy,xx=np.mgrid[0:H,0:W].astype(np.float32); dx=xx-W/2+0.5; dy=yy-H/2+0.5; R=np.hypot(dx,dy)/s; A=np.arctan2(dy,dx)
+yy,xx=np.mgrid[0:H,0:W].astype(np.float32); dx=xx-W/2+0.5; dy=yy-H/2+0.5; R=np.hypot(dx,dy)/s; A=np.arctan2(dy,dx); th=(A+np.pi)/(2*np.pi)
 def rk(h): return np.array([int(h[i:i+2],16) for i in (1,3,5)],np.float32)/255
-def bant(r0,w): return np.exp(-((R-r0)/w)**2)
-C=np.zeros((H,W,3),np.float32)
-def kat(m,c,a=1.0):   # "uzerine" katman (renk m alfa ile)
-    global C; m=np.clip(m*a,0,1)[...,None]; C=C*(1-m)+rk(c)*m
-# katmanlar RGBA (on-carpimli "uzerine"): saydam cikti icin gercek alfa tutulur
-Ca=np.zeros((H,W),np.float32)
-def uzerine(col,al):
-    global C,Ca
-    al=np.clip(al,0,1); C=C*(1-al[...,None])+col*al[...,None]; Ca=Ca*(1-al)+al
-def interp(R_,dur):
-    rr=np.array([d[0] for d in dur],np.float32)
-    col=np.stack([np.interp(R_,rr,[rk(d[1])[c] for d in dur]) for c in range(3)],-1); al=np.interp(R_,rr,[d[2] for d in dur]); return col,al
-# seftali kirmizisi = gunes cevresindeki sicaklik dalgasi (korona): kutupsal fBm gurultu ile dalgali, alevli kenar + ince taneli doku
-from scipy import ndimage
-def fbm(seed,olcekler,agir):
+L=np.zeros((H,W,3),np.float32)                                         # toplamali isik tamponu
+def ekle(m,col,g=1.0):
+    global L; L+=np.clip(m,0,None)[...,None]*(col if np.ndim(col)==3 else np.asarray(col)[None,None,:])*g
+def renk_r(Rq,dur):  # yaricapa gore renk gecisi
+    rr=[d[0] for d in dur]; return np.stack([np.interp(Rq,rr,[rk(d[1])[c] for d in dur]) for c in range(3)],-1)
+def fbm(seed,olc,agr):
     rg=np.random.default_rng(seed); n=np.zeros((H,W),np.float32)
-    for sc,w_ in zip(olcekler,agir):
-        z=rg.standard_normal((H//sc+3,W//sc+3)).astype(np.float32)
-        z=ndimage.zoom(ndimage.gaussian_filter(z,1.0),sc,order=3)[:H,:W]; n+=w_*z/ (z.std()+1e-6)
-    return n/np.sqrt(sum(w_*w_ for w_ in agir))
-# kutupsal koordinatta gurultu: aciya gore uzayan (radyal) alev dillleri
-th=(A+np.pi)/(2*np.pi); Pn=np.zeros((H,W),np.float32); rg=np.random.default_rng(5)
-for k,(na,nr,w_) in enumerate([(30,3,0.7),(64,5,0.6),(120,8,0.4)]):
-    z=rg.standard_normal((nr+4,na)).astype(np.float32)
-    zr=np.clip(R/220*nr,0,nr+2); za=th*na
-    i0=np.floor(za).astype(int)%na; i1=(i0+1)%na; fa=za-np.floor(za); j0=np.floor(zr).astype(int); fj=zr-j0
-    v=lambda j,i: z[np.clip(j,0,nr+3),i]
-    sm=lambda f: f*f*(3-2*f)
-    Pn+=w_*((v(j0,i0)*(1-sm(fa))+v(j0,i1)*sm(fa))*(1-sm(fj))+(v(j0+1,i0)*(1-sm(fa))+v(j0+1,i1)*sm(fa))*sm(fj))
-Pn/=1.15; Pn=ndimage.gaussian_filter(Pn,2.0)
-tane=ndimage.gaussian_filter(fbm(9,[2,3],[1.0,0.5]),0.8)                                                  # ince taneli doku (fotograftaki gibi)
-Rw=R-9*Pn                                                                    # dalgali yaricap: alev dilleri disari tasar
-col,al=interp(Rw,[(0,"#E6A49C",0.8),(112,"#E0A098",0.8),(124,"#D8948C",0.7),(140,"#CC8880",0.48),(154,"#B87A74",0.24),(166,"#8A5E58",0.0)])   # kenara dogru azalan sicaklik dalgasi
-al=al*np.clip(0.9+0.1*Pn+0.05*tane,0,1)*np.interp(R,[0,146,166],[1,1,0])   # olculer sabit: dis sinir 166'yi gecmez
-col=col*np.clip(1+0.04*tane+0.08*Pn,0.85,1.15)[...,None]
-# sicak parlak damarlar (korona isiltisi)
-damar=np.clip(Pn-0.4,0,1)*np.exp(-((Rw-120)/22)**2)
-col=col+ndimage.gaussian_filter(damar,3)[...,None]*rk("#F2C0A8")*0.35
-uzerine(np.clip(col,0,1),al)
-# 3) ince, yogun sicaklik dalgasi katmani (r~108-122): sik, yuksek kontrastli titresim
-rg3=np.random.default_rng(31); z3=ndimage.gaussian_filter1d(rg3.standard_normal(220).astype(np.float32),1.2,mode="wrap")
-i3=(th*220).astype(int)%220; tit=z3[i3]/ (z3.std()+1e-6)
-Ry=R-4*tit-3*Pn
-yog_al=np.exp(-((Ry-120)/6.0)**2)*np.clip(0.75+0.25*tit+0.08*tane,0,1)*0.9
-uzerine(np.broadcast_to(rk("#F0B49A"),C.shape)*np.clip(1+0.12*tit,0.85,1.2)[...,None],yog_al)
-# 2) atesbulutu: titanyumun hemen disinda bir tik daha kirmizi, dalgali bulut (r~84-108)
-bul=ndimage.gaussian_filter(fbm(41,[6,12,24],[0.6,1.0,0.8]),1.5)
-Rb=R-6*bul-4*Pn
-ab_col,ab_al=interp(Rb,[(0,"#D4625A",0.0),(78,"#D4625A",0.88),(96,"#C85850",0.88),(110,"#BC5249",0.86),(113,"#A84A44",0.0)])   # bir tik buyuk, dis kenari net
-ab_al=ab_al*np.clip(0.8+0.2*bul+0.05*tane,0,1)
-uzerine(np.clip(ab_col*np.clip(1+0.15*bul,0.8,1.25)[...,None],0,1),ab_al)
-# titanyum beyaz: buyuk, opak; kenari seftaliye yumusak gecer
-col,al=interp(R,[(0,"#FFFFFF",1.0),(76,"#FEFEFE",1.0),(86,"#F8DBC3",0.8),(96,"#EBB8A8",0.0)])
-uzerine(col,al)
-# supernova yansimasi: seftaliden disari, parantezlere kadar cok soluk sicak isik; filamanli (radyal ince lifler + dalgali bulutsu), uzaklastikca azalir
-rg2=np.random.default_rng(13); fil=np.zeros((H,W),np.float32)
-for na,w_ in [(90,1.0),(180,0.6),(360,0.35)]:
-    z=ndimage.gaussian_filter1d(rg2.standard_normal(na+1).astype(np.float32),0.8,mode="wrap"); z[-1]=z[0]
-    za=th*na; i0=np.floor(za).astype(int)%na; f=za-np.floor(za); fil+=w_*(z[i0]*(1-f)+z[(i0+1)%na]*f)
-fil=np.clip(0.5+0.35*fil,0,1)                                                 # radyal lifler (acıya gore)
-bulut=np.clip(0.6+0.4*ndimage.gaussian_filter(fbm(17,[16,32],[1.0,0.7]),4),0,1) # dalgali bulutsu
-uz=np.clip((R-150)/12,0,1)*np.exp(-np.clip(R-158,0,None)/58)                    # seftali kenarindan disari azalir
-sn_al=0.28*uz*(0.45+0.55*fil)*bulut*np.clip(1-((R-150)/210)**2,0,1)
-sn_col=np.stack([np.interp(R,[150,200,260,330],[rk(c)[k] for c in ("#E8A89C","#D49084","#B87A74","#9A6A66")]) for k in range(3)],-1)
-uzerine(sn_col,sn_al)
-# parantezler: dis kenar sabit yay, ic kenar ortada iceri siskin (sari kisim parantezin icinde -> orta kalin), uclar incelip solar
-yan=np.abs(np.cos(A)); aci=np.degrees(np.arccos(np.clip(yan,0,1)))
-# geometri: once tam halka — ic kenar yuvarlak (r=200), dis kenar yanlardan siskin ustten basik elips (yatay 282, dikey 206);
-# boylece halka yanlarda kalin, ustte-altta ince olur; sonra ince ust/alt kisim silinir -> kalin, sivri uclu sag-sol parantezler
-ic_r=200.0; ea,eb=282.0,206.0
-dis_r=1/np.sqrt((np.cos(A)/ea)**2+(np.sin(A)/eb)**2)
-kal=np.maximum(dis_r-ic_r,0)
-uc=np.clip((kal-14)/26,0,1)                                                    # ince ust/alt kisim silinir (yumusak)
-u=(R-ic_r)/np.maximum(kal,1e-3)
-renkler=[(0.0,"#FCE65E"),(0.5,"#FEF486"),(0.72,"#E2F8A0"),(1.0,"#A8E8B0")]                          # yalniz sari + yesil   # ic genis sari -> acik yesil -> yesil (dis)
-uu=np.clip(u,0,1); col=np.stack([np.interp(uu,[q[0] for q in renkler],[rk(q[1])[c] for q in renkler]) for c in range(3)],-1)
-op=np.clip(np.minimum(u/0.1,(1-u)/0.08),0,1)*uc*0.92*(kal>0.5)
-cizgi=np.clip(0.86+0.14*fil+0.04*ndimage.gaussian_filter(tane,2.5),0.6,1.1)        # ışık lifleri / pürüz
-op=ndimage.gaussian_filter(op*cizgi,3.0)*0.95                                         # yumusak, parlayan kenar
-col=np.stack([ndimage.gaussian_filter(col[...,c],3.0) for c in range(3)],-1)
-uzerine(col,op)
+    for sc,w_ in zip(olc,agr):
+        z=rg.standard_normal((H//sc+3,W//sc+3)).astype(np.float32); z=ndimage.zoom(ndimage.gaussian_filter(z,1.0),sc,order=3)[:H,:W]; n+=w_*z/(z.std()+1e-6)
+    return n/np.sqrt(sum(w_*w_ for w_ in agr))
+def acisal(seed,na,sig=1.0):
+    z=ndimage.gaussian_filter1d(np.random.default_rng(seed).standard_normal(na).astype(np.float32),sig,mode="wrap"); z/=z.std()+1e-6
+    za=th*na; i0=np.floor(za).astype(int)%na; f=za-np.floor(za); f=f*f*(3-2*f); return z[i0]*(1-f)+z[(i0+1)%na]*f
+tane=ndimage.gaussian_filter(fbm(9,[2,3],[1.0,0.5]),0.8)
+# ---------- 2a) dumanli hale (bulutsu, dairesel; disa dogru doygunlugu azalir) ----------
+duman=np.clip(0.72+0.28*ndimage.gaussian_filter(fbm(17,[10,24,48],[0.6,1.0,0.8]),2),0.35,1.2)
+dal=0.6*acisal(5,40,1.5)+0.4*acisal(6,90,1.0)
+Rd=R-10*dal
+dcol=renk_r(Rd,[(0,"#F4A482"),(105,"#F4A482"),(150,"#C07050"),(180,"#8C4A38"),(225,"#7A5050"),(260,"#6E5C6B"),(330,"#6E5C6B")])
+dyog=np.interp(Rd,[0,95,110,150,200,260,320],[0,0.0,0.95,0.6,0.28,0.12,0.0])
+ekle(dyog*duman*(0.9+0.1*tane),dcol,1.0)
+# ---------- 1) ic cekirdek: isinsal dagilan, keskin olmayan ----------
+isinsal=0.5*acisal(21,64,0.8)+0.5*acisal(22,150,0.6)                    # kenarda isinsal saçilma
+Rc=R-7*np.clip(isinsal,-1.5,2.5)*np.clip((R-55)/30,0,1)
+ccol=renk_r(Rc,[(0,"#FFFFFF"),(68,"#FFFFFF"),(80,"#FFF2E6"),(94,"#FFD1BA"),(130,"#FFD1BA")])
+cyog=np.interp(Rc,[0,70,84,98,118],[2.6,2.4,1.5,0.7,0.0])
+ekle(cyog,ccol,1.0)
+# ---------- 2b) keskin capraz isik huzmeleri ----------
+rg=np.random.default_rng(44)
+huzme=[]; 
+for k in range(12):
+    taban=np.radians([45,135,225,315][k%4])+rg.uniform(-0.38,0.38) if k<8 else rg.uniform(0,2*np.pi)   # agirlikla capraz
+    huzme.append((taban,rg.uniform(150,330),rg.uniform(2.0,4.5),rg.uniform(0.6,1.0)))
+hm=np.zeros((H,W),np.float32); hc=np.zeros((H,W),np.float32)
+for a,uz,en,g in huzme:
+    d=np.abs(np.angle(np.exp(1j*(A-a))))*R                                  # isina dik uzaklik (kure olceginde)
+    boy=np.clip(1-R/uz,0,1)*np.clip((R-60)/25,0,1)                           # cekirdekten cikar, uca dogru solar
+    w=en*(0.4+0.6*np.clip(1-R/uz,0,1))
+    hm=np.maximum(hm,g*boy*np.exp(-(d/w)**2)); hc=np.maximum(hc,g*boy**1.5*np.exp(-(d/(w*0.35))**2))
+ekle(hm,rk("#FFF77D"),1.3); ekle(hc,rk("#FFFFD6"),1.2)
+# ---------- 3) dis katman: ic ice prizmatik hilal yaylar ----------
+def hilal(ic_r,ea,eb,g,kob):
+    dis_r=1/np.sqrt((np.cos(A)/ea)**2+(np.sin(A)/eb)**2); kal=np.maximum(dis_r-ic_r,0)
+    uc=np.clip((kal-12)/24,0,1)
+    u=(R-ic_r)/np.maximum(kal,1e-3); ic=(u>=0)&(u<=1)
+    dur=[(0.0,"#FFD700"),(0.30,"#FFD700"),(0.42,"#80FF00"),(0.62,"#80FF00"),(0.74,"#00E5CC"),(0.90,"#00E5CC"),(0.93,"#2962FF"),(1.0,"#2962FF")]
+    col=np.stack([np.interp(np.clip(u,0,1),[q[0] for q in dur],[rk(q[1])[c] for q in dur]) for c in range(3)],-1)
+    kenar=np.clip(np.minimum(u/0.04,(1-u)/0.03),0,1)                         # keskin sinir
+    yog=kenar*uc*ic*(0.85+0.15*np.clip(1-np.abs(u-0.5)*2,0,1))
+    yog=yog*(1+kob*np.clip((u-0.9)/0.1,0,1))                                  # en dis kobalt cizgi belirgin
+    return yog,col
+for ic_r,ea,eb,g in [(200,282,206,0.62),(286,318,290,0.30)]:                  # ana hilal + disindaki ince ikinci yay
+    yog,col=hilal(ic_r,ea,eb,g,0.6); ekle(ndimage.gaussian_filter(yog,0.8),col,g)
+# ---------- parlama (bloom) ve tane ----------
+parlak=np.clip(L-0.7,0,None)
+bloom=sum(w_*np.stack([ndimage.gaussian_filter(parlak[...,c],sg) for c in range(3)],-1) for sg,w_ in [(6,0.5),(20,0.4),(55,0.3),(120,0.2)])
+L=L+bloom
+L=L*(1+0.04*tane[...,None]*np.clip(L.max(2),0,1)[...,None])
+img=np.clip(1-np.exp(-1.25*L),0,1)                                         # siyah fonda (toplamali isik, yumusak doyum)
 os.makedirs(K,exist_ok=True)
-# parlama tasmasi: parlak bolgeler cevreye yayilir (ekran karisimi), beyaz asiri pozlanmis gibi tasar
-lum=C.max(2); parlak=C*np.clip((np.minimum(C[...,2],lum)-0.75)/0.25,0,1)[...,None]          # yalniz beyaza yakin (cekirdek) tasar; renkli parantez beyazlasmaz
-bloom=sum(w_*np.stack([ndimage.gaussian_filter(parlak[...,c],sg) for c in range(3)],-1) for sg,w_ in [(6,0.55),(18,0.45),(48,0.35),(110,0.25)])
-yay=sum(w_*np.stack([ndimage.gaussian_filter(C[...,c],sg) for c in range(3)],-1) for sg,w_ in [(10,0.14),(35,0.12)])   # genel hafif sis
-C=1-(1-C)*(1-np.clip(bloom,0,1))*(1-np.clip(yay,0,1))
-Ca=np.maximum(Ca,np.clip(C.max(2),0,1))
-# ince tane (fotograftaki gibi), isikli yerlerde
-gr=np.random.default_rng(23).standard_normal((H,W)).astype(np.float32); gr=ndimage.gaussian_filter(gr,0.7)
-C=np.clip(C*(1+0.045*gr[...,None]*np.clip(C.max(2)*1.5,0,1)[...,None]),0,1)
-img=(np.clip(C,0,1)*255).round().astype(np.uint8)                      # siyah fon uzerinde (C on-carpimli)
-Image.fromarray(img).save(os.path.join(K,"kure.png"))
-rgb=(np.clip(C/np.maximum(Ca,1e-4)[...,None],0,1)*255).round().astype(np.uint8); al=(np.clip(Ca,0,1)*255).round().astype(np.uint8)
-Image.fromarray(np.dstack([rgb,al])).save(os.path.join(K,"kure_saydam.png"))
-# zemin uzerinde onizleme (arkasi secilir mi): fotograftaki toprak rengi
-zem=np.array([0x86,0x6C,0x5E],np.float32)/255; zg=(np.clip(C+zem*(1-Ca[...,None]),0,1)*255).astype(np.uint8)
-# onizleme: fotograf (kirpilmis) | yeni
+Image.fromarray((img*255).round().astype(np.uint8)).save(os.path.join(K,"kure.png"))
+al=img.max(2); rgb=np.where(al[...,None]>1e-4,img/np.maximum(al,1e-4)[...,None],0)
+Image.fromarray(np.dstack([(rgb*255).round(),(al*255).round()]).astype(np.uint8)).save(os.path.join(K,"kure_saydam.png"))
+zem=np.array([0x86,0x6C,0x5E],np.float32)/255; zg=1-(1-zem)*(1-img)            # zeminde ekran karisimi
 ref=Image.open(os.path.join(os.path.expanduser("~"),".claude","uploads","7667fcb8-b488-59d0-b1d8-f55ffb36b68a","0d1e98a9-image.jpg")).convert("RGB").crop((638-420,440-330,638+420,440+330)).resize((960,754))
-new=Image.fromarray(img).crop((960-672,540-528,960+672,540+528)).resize((960,754))
-nz=Image.fromarray(zg).crop((960-672,540-528,960+672,540+528)).resize((960,754))
-o=Image.new("RGB",(2880,754)); o.paste(ref,(0,0)); o.paste(nz,(960,0)); o.paste(new,(1920,0)); o.save(os.path.join(ONZ,"efekt10_kure.png"))
+kes=lambda a: Image.fromarray((a*255).round().astype(np.uint8)).crop((960-672,540-528,960+672,540+528)).resize((960,754))
+o=Image.new("RGB",(2880,754)); o.paste(ref,(0,0)); o.paste(kes(zg),(960,0)); o.paste(kes(img),(1920,0)); o.save(os.path.join(ONZ,"efekt10_kure.png"))
+F=ImageFont.truetype(os.path.join(B_,"..","..","kaynak","char_info","fonts","Roboto-Bold.ttf"),30)
+out=Image.new("RGB",(2920,814),(20,20,24)); d=ImageDraw.Draw(out)
+for i,(im,t) in enumerate([(ref,"REFERANS (fotoğraf)"),(kes(zg),"YENİ — toprak zeminde"),(kes(img),"YENİ — siyah fonda")]):
+    out.paste(im,(i*980,60)); d.text((i*980+12,14),t,font=F,fill=(255,220,120))
+out.save(os.path.join(ONZ,"efekt10_kure_referansli.png"))
+Image.fromarray((img*255).round().astype(np.uint8)).crop((960-300,540-300,960+300,540+300)).save(os.path.join(ONZ,"efekt10_kure_merkez.png"))
+Image.fromarray((img*255).round().astype(np.uint8)).crop((960-560,540-460,960+560,540+460)).resize((840,690)).save(os.path.join(ONZ,"efekt10_kure_yakin.png"))
 print("tamam")
