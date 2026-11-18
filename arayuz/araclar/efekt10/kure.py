@@ -72,9 +72,21 @@ u=(R-ic_r)/kal
 renkler=[(0.0,"#F2B860"),(0.14,"#FCE65E"),(0.5,"#FEF486"),(0.72,"#E2F8A0"),(1.0,"#A8E8B0")]   # ic genis sari -> acik yesil -> yesil (dis)
 uu=np.clip(u,0,1); col=np.stack([np.interp(uu,[q[0] for q in renkler],[rk(q[1])[c] for q in renkler]) for c in range(3)],-1)
 op=np.clip(np.minimum(u/0.1,(1-u)/0.08),0,1)*uc*0.92
+cizgi=np.clip(0.86+0.14*fil+0.04*ndimage.gaussian_filter(tane,2.5),0.6,1.1)        # ışık lifleri / pürüz
+op=ndimage.gaussian_filter(op*cizgi,3.0)*0.95                                         # yumusak, parlayan kenar
+col=np.stack([ndimage.gaussian_filter(col[...,c],3.0) for c in range(3)],-1)
 uzerine(col,op)
 uzerine(np.broadcast_to(rk("#55703A"),C.shape),np.exp(-((R-(dis_r+8))/12)**2)*uc*0.4)       # dis zeytin-yesil hale
 os.makedirs(K,exist_ok=True)
+# parlama tasmasi: parlak bolgeler cevreye yayilir (ekran karisimi), beyaz asiri pozlanmis gibi tasar
+lum=C.max(2); parlak=C*np.clip((np.minimum(C[...,2],lum)-0.75)/0.25,0,1)[...,None]          # yalniz beyaza yakin (cekirdek) tasar; renkli parantez beyazlasmaz
+bloom=sum(w_*np.stack([ndimage.gaussian_filter(parlak[...,c],sg) for c in range(3)],-1) for sg,w_ in [(6,0.55),(18,0.45),(48,0.35),(110,0.25)])
+yay=sum(w_*np.stack([ndimage.gaussian_filter(C[...,c],sg) for c in range(3)],-1) for sg,w_ in [(10,0.14),(35,0.12)])   # genel hafif sis
+C=1-(1-C)*(1-np.clip(bloom,0,1))*(1-np.clip(yay,0,1))
+Ca=np.maximum(Ca,np.clip(C.max(2),0,1))
+# ince tane (fotograftaki gibi), isikli yerlerde
+gr=np.random.default_rng(23).standard_normal((H,W)).astype(np.float32); gr=ndimage.gaussian_filter(gr,0.7)
+C=np.clip(C*(1+0.045*gr[...,None]*np.clip(C.max(2)*1.5,0,1)[...,None]),0,1)
 img=(np.clip(C,0,1)*255).round().astype(np.uint8)                      # siyah fon uzerinde (C on-carpimli)
 Image.fromarray(img).save(os.path.join(K,"kure.png"))
 rgb=(np.clip(C/np.maximum(Ca,1e-4)[...,None],0,1)*255).round().astype(np.uint8); al=(np.clip(Ca,0,1)*255).round().astype(np.uint8)
