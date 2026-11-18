@@ -55,12 +55,12 @@ T=E*(1-w)+dol*w
 ust=np.clip((CY+6-yy)/12,0,1)[...,None]
 T=T*(1-ust)+T[my,xx]*ust
 # turuncu gecis katmani (r 160-180, somon halka ile sari parantez arasi) kaldirildi: yumusak kenarli saydam
-kald=1-np.clip((R-132)/6,0,1)*np.clip((182-R)/6,0,1)          # bos bant merkeze dogru 24 px (mevcut genisligin 6/5i) genisletildi: 136-180
+kald=1-np.clip((R-132)/6,0,1)*np.clip((192-R)/6,0,1)          # bos bant merkeze dogru 24 px (mevcut genisligin 6/5i) genisletildi: 136-180
 T=T*kald[...,None]
 # silinen bandin hemen disindaki en yakin renk (turuncu/pembe; G < 0.85 R) da silinir — sari/yesil parantez ve ic somon halka korunur
 tp=(T[...,1]<0.85*T[...,0])&(R>=178)&(R<235)
 tp=ndimage.binary_opening(tp,np.ones((3,3)))
-wt=np.clip(ndimage.gaussian_filter(tp.astype(np.float32),2.0)*1.5,0,1)*np.clip((R-176)/4,0,1)
+wt=np.clip(ndimage.gaussian_filter(tp.astype(np.float32),2.0)*1.5,0,1)
 T=T*(1-wt)[...,None]
 # daire disi (isaretli bolge disi) yumusakca saydam
 T=T*np.clip((RMAX+30-R)/45,0,1)[...,None]
