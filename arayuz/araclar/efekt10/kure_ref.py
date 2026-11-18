@@ -54,16 +54,9 @@ T=E*(1-w)+dol*w
 # ust yari = alt yarinin dikey aynasi (kullanici: alt %50 dogru renkler); merkez cizgisinde 12 px yumusak gecis
 ust=np.clip((CY+6-yy)/12,0,1)[...,None]
 T=T*(1-ust)+T[my,xx]*ust
-# somon-pembe bulut halkasi (r 120-160) kaldirildi: yumusak kenarli olarak saydama iner
-ux=np.cos(np.arctan2(yy-CY,xx-CX)); uy=np.sin(np.arctan2(yy-CY,xx-CX))
-def ornek(r0):
-    px=np.clip(np.round(CX+r0*ux).astype(int),0,W-1); py=np.clip(np.round(CY+r0*uy).astype(int),0,H-1)
-    return ndimage.gaussian_filter(T,(4,4,0))[py,px]
-ic_,dis_=ornek(114),ornek(168)
-f=np.clip((R-114)/54,0,1)[...,None]; f=f*f*(3-2*f)
-gecis=ic_*(1-f)+dis_*f
-bant=np.clip((R-112)/6,0,1)*np.clip((170-R)/6,0,1)
-T=T*(1-bant[...,None])+gecis*bant[...,None]
+# turuncu gecis katmani (r 160-180, somon halka ile sari parantez arasi) kaldirildi: yumusak kenarli saydam
+kald=1-np.clip((R-156)/6,0,1)*np.clip((182-R)/6,0,1)
+T=T*kald[...,None]
 # daire disi (isaretli bolge disi) yumusakca saydam
 T=T*np.clip((RMAX+30-R)/45,0,1)[...,None]
 os.makedirs(K,exist_ok=True)
