@@ -52,6 +52,17 @@ uzerine(np.clip(col,0,1),al)
 # titanyum beyaz: buyuk, opak; kenari seftaliye yumusak gecer
 col,al=interp(R,[(0,"#FFFFFF",1.0),(92,"#FEFEFE",1.0),(104,"#F8DBC3",0.85),(116,"#EBB8A8",0.0)])
 uzerine(col,al)
+# supernova yansimasi: seftaliden disari, parantezlere kadar cok soluk sicak isik; filamanli (radyal ince lifler + dalgali bulutsu), uzaklastikca azalir
+rg2=np.random.default_rng(13); fil=np.zeros((H,W),np.float32)
+for na,w_ in [(90,1.0),(180,0.6),(360,0.35)]:
+    z=ndimage.gaussian_filter1d(rg2.standard_normal(na+1).astype(np.float32),0.8,mode="wrap"); z[-1]=z[0]
+    za=th*na; i0=np.floor(za).astype(int)%na; f=za-np.floor(za); fil+=w_*(z[i0]*(1-f)+z[(i0+1)%na]*f)
+fil=np.clip(0.5+0.35*fil,0,1)                                                 # radyal lifler (acıya gore)
+bulut=np.clip(0.6+0.4*ndimage.gaussian_filter(fbm(17,[16,32],[1.0,0.7]),4),0,1) # dalgali bulutsu
+uz=np.clip((R-150)/12,0,1)*np.exp(-np.clip(R-158,0,None)/58)                    # seftali kenarindan disari azalir
+sn_al=0.28*uz*(0.45+0.55*fil)*bulut*np.clip(1-((R-150)/210)**2,0,1)
+sn_col=np.stack([np.interp(R,[150,200,260,330],[rk(c)[k] for c in ("#E8A89C","#D49084","#B87A74","#9A6A66")]) for k in range(3)],-1)
+uzerine(sn_col,sn_al)
 # parantezler: dis kenar sabit yay, ic kenar ortada iceri siskin (sari kisim parantezin icinde -> orta kalin), uclar incelip solar
 yan=np.abs(np.cos(A)); aci=np.degrees(np.arccos(np.clip(yan,0,1)))
 uc=np.clip((62-aci)/18,0,1)**1.2
