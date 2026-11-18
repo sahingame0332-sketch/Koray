@@ -43,14 +43,14 @@ Pn/=1.15; Pn=ndimage.gaussian_filter(Pn,2.0)
 tane=ndimage.gaussian_filter(fbm(9,[2,3],[1.0,0.5]),0.8)                                                  # ince taneli doku (fotograftaki gibi)
 Rw=R-9*Pn                                                                    # dalgali yaricap: alev dilleri disari tasar
 col,al=interp(Rw,[(0,"#E6A49C",0.8),(100,"#E6A49C",0.8),(112,"#DA9690",0.8),(132,"#CC8880",0.78),(148,"#B87A74",0.55),(166,"#8A5E58",0.0)])
-al=al*np.clip(0.9+0.1*Pn+0.05*tane,0,1)
+al=al*np.clip(0.9+0.1*Pn+0.05*tane,0,1)*np.interp(R,[0,146,166],[1,1,0])   # olculer sabit: dis sinir 166'yi gecmez
 col=col*np.clip(1+0.04*tane+0.08*Pn,0.85,1.15)[...,None]
 # sicak parlak damarlar (korona isiltisi)
 damar=np.clip(Pn-0.4,0,1)*np.exp(-((Rw-120)/22)**2)
 col=col+ndimage.gaussian_filter(damar,3)[...,None]*rk("#F2C0A8")*0.35
 uzerine(np.clip(col,0,1),al)
 # titanyum beyaz: buyuk, opak; kenari seftaliye yumusak gecer
-col,al=interp(R-5*Pn,[(0,"#FFFFFF",1.0),(92,"#FEFEFE",1.0),(104,"#F8DBC3",0.85),(116,"#EBB8A8",0.0)])
+col,al=interp(R,[(0,"#FFFFFF",1.0),(92,"#FEFEFE",1.0),(104,"#F8DBC3",0.85),(116,"#EBB8A8",0.0)])
 uzerine(col,al)
 # parantezler: dis kenar sabit yay, ic kenar ortada iceri siskin (sari kisim parantezin icinde -> orta kalin), uclar incelip solar
 yan=np.abs(np.cos(A)); aci=np.degrees(np.arccos(np.clip(yan,0,1)))
