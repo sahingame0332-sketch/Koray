@@ -65,18 +65,18 @@ sn_col=np.stack([np.interp(R,[150,200,260,330],[rk(c)[k] for c in ("#E8A89C","#D
 uzerine(sn_col,sn_al)
 # parantezler: dis kenar sabit yay, ic kenar ortada iceri siskin (sari kisim parantezin icinde -> orta kalin), uclar incelip solar
 yan=np.abs(np.cos(A)); aci=np.degrees(np.arccos(np.clip(yan,0,1)))
-uc=np.clip((56-aci)/22,0,1)**1.3                                             # ust ve alt silinmis gibi: uclar incelmez, solarak kaybolur
-orta_r=236; kal=58+10*np.cos(np.radians(aci))                                  # sabit yaricapli halka parcasi (ortasi biraz kalin)
+uc=np.clip((58-aci)/8,0,1)                                                    # uclar sivri (asagida kalinlik sifira iner)
+sivri=np.clip(1-(aci/58)**2,0,1)**0.6
+orta_r=236; kal=(58+10*np.cos(np.radians(aci)))*sivri                          # sabit yaricapli halka parcasi; uclara dogru iki kenar birlesir -> sivri uc
 ic_r=orta_r-kal/2; dis_r=orta_r+kal/2
-u=(R-ic_r)/kal
-renkler=[(0.0,"#F2B860"),(0.14,"#FCE65E"),(0.5,"#FEF486"),(0.72,"#E2F8A0"),(1.0,"#A8E8B0")]   # ic genis sari -> acik yesil -> yesil (dis)
+u=(R-ic_r)/np.maximum(kal,1e-3)
+renkler=[(0.0,"#FCE65E"),(0.5,"#FEF486"),(0.72,"#E2F8A0"),(1.0,"#A8E8B0")]                          # yalniz sari + yesil   # ic genis sari -> acik yesil -> yesil (dis)
 uu=np.clip(u,0,1); col=np.stack([np.interp(uu,[q[0] for q in renkler],[rk(q[1])[c] for q in renkler]) for c in range(3)],-1)
-op=np.clip(np.minimum(u/0.1,(1-u)/0.08),0,1)*uc*0.92
+op=np.clip(np.minimum(u/0.1,(1-u)/0.08),0,1)*uc*0.92*(kal>0.5)
 cizgi=np.clip(0.86+0.14*fil+0.04*ndimage.gaussian_filter(tane,2.5),0.6,1.1)        # ışık lifleri / pürüz
 op=ndimage.gaussian_filter(op*cizgi,3.0)*0.95                                         # yumusak, parlayan kenar
 col=np.stack([ndimage.gaussian_filter(col[...,c],3.0) for c in range(3)],-1)
 uzerine(col,op)
-uzerine(np.broadcast_to(rk("#55703A"),C.shape),np.exp(-((R-(dis_r+8))/12)**2)*uc*0.4)       # dis zeytin-yesil hale
 os.makedirs(K,exist_ok=True)
 # parlama tasmasi: parlak bolgeler cevreye yayilir (ekran karisimi), beyaz asiri pozlanmis gibi tasar
 lum=C.max(2); parlak=C*np.clip((np.minimum(C[...,2],lum)-0.75)/0.25,0,1)[...,None]          # yalniz beyaza yakin (cekirdek) tasar; renkli parantez beyazlasmaz
