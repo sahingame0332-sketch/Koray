@@ -22,11 +22,35 @@ def uzerine(col,al):
 def interp(R_,dur):
     rr=np.array([d[0] for d in dur],np.float32)
     col=np.stack([np.interp(R_,rr,[rk(d[1])[c] for d in dur]) for c in range(3)],-1); al=np.interp(R_,rr,[d[2] for d in dur]); return col,al
-# seftali kirmizisi: ince bant, yari saydam (arkasi secilir)
-col,al=interp(R,[(0,"#E6A49C",0.8),(100,"#E6A49C",0.8),(112,"#DA9690",0.8),(132,"#CC8880",0.78),(148,"#B87A74",0.55),(164,"#8A5E58",0.0)])
-uzerine(col,al)
+# seftali kirmizisi = gunes cevresindeki sicaklik dalgasi (korona): kutupsal fBm gurultu ile dalgali, alevli kenar + ince taneli doku
+from scipy import ndimage
+def fbm(seed,olcekler,agir):
+    rg=np.random.default_rng(seed); n=np.zeros((H,W),np.float32)
+    for sc,w_ in zip(olcekler,agir):
+        z=rg.standard_normal((H//sc+3,W//sc+3)).astype(np.float32)
+        z=ndimage.zoom(ndimage.gaussian_filter(z,1.0),sc,order=3)[:H,:W]; n+=w_*z/ (z.std()+1e-6)
+    return n/np.sqrt(sum(w_*w_ for w_ in agir))
+# kutupsal koordinatta gurultu: aciya gore uzayan (radyal) alev dillleri
+th=(A+np.pi)/(2*np.pi); Pn=np.zeros((H,W),np.float32); rg=np.random.default_rng(5)
+for k,(na,nr,w_) in enumerate([(30,3,0.7),(64,5,0.6),(120,8,0.4)]):
+    z=rg.standard_normal((nr+4,na)).astype(np.float32)
+    zr=np.clip(R/220*nr,0,nr+2); za=th*na
+    i0=np.floor(za).astype(int)%na; i1=(i0+1)%na; fa=za-np.floor(za); j0=np.floor(zr).astype(int); fj=zr-j0
+    v=lambda j,i: z[np.clip(j,0,nr+3),i]
+    sm=lambda f: f*f*(3-2*f)
+    Pn+=w_*((v(j0,i0)*(1-sm(fa))+v(j0,i1)*sm(fa))*(1-sm(fj))+(v(j0+1,i0)*(1-sm(fa))+v(j0+1,i1)*sm(fa))*sm(fj))
+Pn/=1.15; Pn=ndimage.gaussian_filter(Pn,2.0)
+tane=ndimage.gaussian_filter(fbm(9,[2,3],[1.0,0.5]),0.8)                                                  # ince taneli doku (fotograftaki gibi)
+Rw=R-9*Pn                                                                    # dalgali yaricap: alev dilleri disari tasar
+col,al=interp(Rw,[(0,"#E6A49C",0.8),(100,"#E6A49C",0.8),(112,"#DA9690",0.8),(132,"#CC8880",0.78),(148,"#B87A74",0.55),(166,"#8A5E58",0.0)])
+al=al*np.clip(0.9+0.1*Pn+0.05*tane,0,1)
+col=col*np.clip(1+0.04*tane+0.08*Pn,0.85,1.15)[...,None]
+# sicak parlak damarlar (korona isiltisi)
+damar=np.clip(Pn-0.4,0,1)*np.exp(-((Rw-120)/22)**2)
+col=col+ndimage.gaussian_filter(damar,3)[...,None]*rk("#F2C0A8")*0.35
+uzerine(np.clip(col,0,1),al)
 # titanyum beyaz: buyuk, opak; kenari seftaliye yumusak gecer
-col,al=interp(R,[(0,"#FFFFFF",1.0),(92,"#FEFEFE",1.0),(104,"#F8DBC3",0.85),(114,"#EBB8A8",0.0)])
+col,al=interp(R-5*Pn,[(0,"#FFFFFF",1.0),(92,"#FEFEFE",1.0),(104,"#F8DBC3",0.85),(116,"#EBB8A8",0.0)])
 uzerine(col,al)
 # parantezler: dis kenar sabit yay, ic kenar ortada iceri siskin (sari kisim parantezin icinde -> orta kalin), uclar incelip solar
 yan=np.abs(np.cos(A)); aci=np.degrees(np.arccos(np.clip(yan,0,1)))
