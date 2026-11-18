@@ -42,15 +42,27 @@ for k,(na,nr,w_) in enumerate([(30,3,0.7),(64,5,0.6),(120,8,0.4)]):
 Pn/=1.15; Pn=ndimage.gaussian_filter(Pn,2.0)
 tane=ndimage.gaussian_filter(fbm(9,[2,3],[1.0,0.5]),0.8)                                                  # ince taneli doku (fotograftaki gibi)
 Rw=R-9*Pn                                                                    # dalgali yaricap: alev dilleri disari tasar
-col,al=interp(Rw,[(0,"#E6A49C",0.8),(100,"#E6A49C",0.8),(112,"#DA9690",0.8),(132,"#CC8880",0.78),(148,"#B87A74",0.55),(166,"#8A5E58",0.0)])
+col,al=interp(Rw,[(0,"#E6A49C",0.8),(112,"#E0A098",0.8),(124,"#D8948C",0.7),(140,"#CC8880",0.48),(154,"#B87A74",0.24),(166,"#8A5E58",0.0)])   # kenara dogru azalan sicaklik dalgasi
 al=al*np.clip(0.9+0.1*Pn+0.05*tane,0,1)*np.interp(R,[0,146,166],[1,1,0])   # olculer sabit: dis sinir 166'yi gecmez
 col=col*np.clip(1+0.04*tane+0.08*Pn,0.85,1.15)[...,None]
 # sicak parlak damarlar (korona isiltisi)
 damar=np.clip(Pn-0.4,0,1)*np.exp(-((Rw-120)/22)**2)
 col=col+ndimage.gaussian_filter(damar,3)[...,None]*rk("#F2C0A8")*0.35
 uzerine(np.clip(col,0,1),al)
+# 3) ince, yogun sicaklik dalgasi katmani (r~108-122): sik, yuksek kontrastli titresim
+rg3=np.random.default_rng(31); z3=ndimage.gaussian_filter1d(rg3.standard_normal(220).astype(np.float32),1.2,mode="wrap")
+i3=(th*220).astype(int)%220; tit=z3[i3]/ (z3.std()+1e-6)
+Ry=R-4*tit-3*Pn
+yog_al=np.exp(-((Ry-114)/6.5)**2)*np.clip(0.75+0.25*tit+0.08*tane,0,1)*0.9
+uzerine(np.broadcast_to(rk("#F0B49A"),C.shape)*np.clip(1+0.12*tit,0.85,1.2)[...,None],yog_al)
+# 2) atesbulutu: titanyumun hemen disinda bir tik daha kirmizi, dalgali bulut (r~84-108)
+bul=ndimage.gaussian_filter(fbm(41,[6,12,24],[0.6,1.0,0.8]),1.5)
+Rb=R-6*bul-4*Pn
+ab_col,ab_al=interp(Rb,[(0,"#D4625A",0.0),(80,"#D4625A",0.85),(92,"#C85850",0.85),(102,"#B85048",0.6),(110,"#A84A44",0.0)])
+ab_al=ab_al*np.clip(0.7+0.3*bul+0.06*tane,0,1)
+uzerine(np.clip(ab_col*np.clip(1+0.15*bul,0.8,1.25)[...,None],0,1),ab_al)
 # titanyum beyaz: buyuk, opak; kenari seftaliye yumusak gecer
-col,al=interp(R,[(0,"#FFFFFF",1.0),(92,"#FEFEFE",1.0),(104,"#F8DBC3",0.85),(116,"#EBB8A8",0.0)])
+col,al=interp(R,[(0,"#FFFFFF",1.0),(76,"#FEFEFE",1.0),(86,"#F8DBC3",0.8),(96,"#EBB8A8",0.0)])
 uzerine(col,al)
 # supernova yansimasi: seftaliden disari, parantezlere kadar cok soluk sicak isik; filamanli (radyal ince lifler + dalgali bulutsu), uzaklastikca azalir
 rg2=np.random.default_rng(13); fil=np.zeros((H,W),np.float32)
