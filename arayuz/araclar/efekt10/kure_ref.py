@@ -55,7 +55,7 @@ T=E*(1-w)+dol*w
 ust=np.clip((CY+6-yy)/12,0,1)[...,None]
 T=T*(1-ust)+T[my,xx]*ust
 # turuncu gecis katmani (r 160-180, somon halka ile sari parantez arasi) kaldirildi: yumusak kenarli saydam
-kald=1-np.clip((R-156)/6,0,1)*np.clip((182-R)/6,0,1)
+kald=1-np.clip((R-132)/6,0,1)*np.clip((182-R)/6,0,1)          # bos bant merkeze dogru 24 px (mevcut genisligin 6/5i) genisletildi: 136-180
 T=T*kald[...,None]
 # daire disi (isaretli bolge disi) yumusakca saydam
 T=T*np.clip((RMAX+30-R)/45,0,1)[...,None]
