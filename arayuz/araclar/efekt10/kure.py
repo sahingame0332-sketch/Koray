@@ -33,14 +33,20 @@ duman=np.clip(0.72+0.28*ndimage.gaussian_filter(fbm(17,[10,24,48],[0.6,1.0,0.8])
 dal=0.6*acisal(5,40,1.5)+0.4*acisal(6,90,1.0)
 Rd=R-10*dal
 dcol=renk_r(Rd,[(0,"#F4A482"),(105,"#F4A482"),(150,"#C07050"),(180,"#8C4A38"),(225,"#7A5050"),(260,"#6E5C6B"),(330,"#6E5C6B")])
-dyog=np.interp(Rd,[0,95,110,150,200,260,320],[0,0.0,0.95,0.6,0.28,0.12,0.0])
+dyog=np.interp(Rd,[0,80,100,150,200,260,320],[0,0.0,0.9,0.6,0.28,0.12,0.0])
 ekle(dyog*duman*(0.9+0.1*tane),dcol,1.0)
 # ---------- 1) ic cekirdek: isinsal dagilan, keskin olmayan ----------
 isinsal=0.5*acisal(21,64,0.8)+0.5*acisal(22,150,0.6)                    # kenarda isinsal saçilma
-Rc=R-7*np.clip(isinsal,-1.5,2.5)*np.clip((R-55)/30,0,1)
-ccol=renk_r(Rc,[(0,"#FFFFFF"),(68,"#FFFFFF"),(80,"#FFF2E6"),(94,"#FFD1BA"),(130,"#FFD1BA")])
-cyog=np.interp(Rc,[0,70,84,98,118],[2.6,2.4,1.5,0.7,0.0])
+Rc=R-2.5*np.clip(isinsal,-1.5,2.5)*np.clip((R-45)/20,0,1)
+ccol=renk_r(Rc,[(0,"#FFFFFF"),(50,"#FFFFFF"),(57,"#FFF2E6"),(64,"#FFD1BA"),(90,"#FFD1BA")])
+cyog=np.interp(Rc,[0,50,57,64,72],[2.6,2.4,1.6,0.8,0.0])          # kucuk, kenari net
 ekle(cyog,ccol,1.0)
+# ---------- 1b) titanyumun dis halkasi: yogun duman hatti ----------
+dh=np.clip(0.65+0.35*ndimage.gaussian_filter(fbm(57,[4,8,16],[0.5,1.0,0.7]),1.2),0.25,1.3)
+Rh=R-4*dal-3*np.clip(isinsal,-1.5,2.5)
+hcol=renk_r(Rh,[(60,"#F4A482"),(74,"#D08060"),(86,"#A85A42"),(96,"#8C4A38")])
+hyog=np.interp(Rh,[56,62,70,84,92,98],[0,1.2,1.7,1.5,0.6,0])
+ekle(hyog*dh*(0.92+0.08*tane),hcol,1.0)
 # ---------- 2b) keskin capraz isik huzmeleri ----------
 rg=np.random.default_rng(44)
 huzme=[]; 
@@ -53,7 +59,7 @@ for a,uz,en,g in huzme:
     boy=np.clip(1-R/uz,0,1)*np.clip((R-60)/25,0,1)                           # cekirdekten cikar, uca dogru solar
     w=en*(0.4+0.6*np.clip(1-R/uz,0,1))
     hm=np.maximum(hm,g*boy*np.exp(-(d/w)**2)); hc=np.maximum(hc,g*boy**1.5*np.exp(-(d/(w*0.35))**2))
-ekle(hm,rk("#FFF77D"),1.3); ekle(hc,rk("#FFFFD6"),1.2)
+# (isik huzmeleri kullanici istegiyle kaldirildi)
 # ---------- 3) dis katman: ic ice prizmatik hilal yaylar ----------
 def hilal(ic_r,ea,eb,g,kob):
     dis_r=1/np.sqrt((np.cos(A)/ea)**2+(np.sin(A)/eb)**2); kal=np.maximum(dis_r-ic_r,0)
