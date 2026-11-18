@@ -63,33 +63,24 @@ tp=(T[...,1]<0.85*T[...,0])&(R>=178)&(R<235)
 tp=ndimage.binary_opening(tp,np.ones((3,3)))
 wt=np.clip(ndimage.gaussian_filter(tp.astype(np.float32),2.0)*1.5,0,1)
 T=T*(1-wt)[...,None]
-# parantezler: geoit gibi tamamlanmak isteyen, uclari sivrilen sekil — ic kenar daire (r=IC), dis kenar yanlardan siskin/ustten basik elips;
-# kalinlik ust-altta sifira iner -> sivri uclar. Renk: fotografin dogru (sag) parantezinden kalinlik oranina (u) gore olculen profil, tek tip.
-IA,IB,EA,EB=182.0,260.0,252.0,232.0           # fotograftaki eski parantezin olculen kenarlari: orta 182-252, uc ~62 derece r~236
-th_=np.arctan2(yy-CY,xx-CX)
-DR=1/np.sqrt((np.cos(th_)/EA)**2+(np.sin(th_)/EB)**2)
-IR=1/np.sqrt((np.cos(th_)/IA)**2+(np.sin(th_)/IB)**2); IC=IR
-kal=np.maximum(DR-IR,0); u=(R-IR)/np.maximum(kal,1e-3)
-ic_=(u>=0)&(u<=1)&(kal>0.5)
-# renk profili: sag parantez (|aci|<18), orijinal katman T0
-sg=ic_&(np.abs(np.degrees(th_))<18)
-NB=40; ub=np.clip((u*NB).astype(int),0,NB-1)
-prof=np.zeros((NB,3),np.float32)
-for c in range(3):
-    sm=np.bincount(ub[sg],weights=T0[...,c][sg],minlength=NB); n=np.bincount(ub[sg],minlength=NB)
-    ok=n>3; prof[:,c]=np.interp(np.arange(NB),np.where(ok)[0],(sm/np.maximum(n,1))[ok])
-prof=ndimage.uniform_filter1d(prof,3,axis=0)
-renk=np.stack([np.interp(np.clip(u,0,1)*NB-0.5,np.arange(NB),prof[:,c]) for c in range(3)],-1)
-dok=np.clip(T0.mean(2)/np.maximum(ndimage.gaussian_filter(T0.mean(2),5),1e-3),0.9,1.1)[...,None]
-kenar=np.clip(np.minimum(u/0.06,(1-u)/0.12),0,1)*np.clip(kal/6,0,1)              # ic kenar net, dis kenar yumusak, uclar sivri
-kenar=ndimage.gaussian_filter(kenar*ic_,0.8)[...,None]
-# eski parantezin yeni seklin disinda kalan parcalari silinir (sari-yesil, doygun); dis krem hale korunur
-mxT=T.max(2); doyT=(mxT-T.min(2))/np.maximum(mxT,1e-3)
-eski=(~ic_)&(R>IR-60)&(R<IR+2)&(T[...,1]>=0.8*T[...,0])&(doyT>0.3)&(mxT>0.2)
-eski=ndimage.binary_dilation(eski,np.ones((3,3)))&~ndimage.binary_dilation(ic_&(kal>2),np.ones((3,3)))
-we=np.clip(ndimage.gaussian_filter(eski.astype(np.float32),2.5)*1.6,0,1)[...,None]
-T=T*(1-we)
-T=T*(1-kenar)+np.clip(renk*dok,0,1)*kenar
+# eski (fotograftaki) parantez geri: silmelerde kaybolan kenarlari referansin kendi pikselleriyle doldur
+mx0=T0.max(2); doy0=(mx0-T0.min(2))/np.maximum(mx0,1e-3)
+Y=(T0[...,1]>=0.85*T0[...,0])&(doy0>0.18)&(mx0>0.2)&(R>165)&(R<275)
+Y=ndimage.binary_closing(ndimage.binary_opening(Y,np.ones((3,3))),np.ones((7,7)))
+lb_,n_=ndimage.label(Y)
+if n_:
+    sz_=ndimage.sum(Y,lb_,range(1,n_+1)); Y=np.isin(lb_,1+np.where(sz_>800)[0])   # yalniz buyuk parantez govdeleri
+wy=np.clip(ndimage.gaussian_filter(Y.astype(np.float32),1.5)*1.3,0,1)[...,None]
+T=T*(1-wy)+np.maximum(T,T0)*wy
+# kenarlar: pruzlu girintiler kapanis ile doldurulur; yeni pikseller en yakin gercek parantez pikselinin rengini alir
+yy_d,xx_d=np.mgrid[-14:15,-14:15]; disk=(yy_d**2+xx_d**2)<=14**2
+Yc=ndimage.binary_closing(np.pad(Y,15),disk)[15:-15,15:-15]
+ek=Yc&~Y
+if ek.any():
+    _,(iy,ix)=ndimage.distance_transform_edt(~Y,return_indices=True)
+    kom=ndimage.gaussian_filter(T,(2,2,0))[iy,ix]
+    we=np.clip(ndimage.gaussian_filter(ek.astype(np.float32),1.2)*1.4,0,1)[...,None]*Yc[...,None]
+    T=T*(1-we)+np.maximum(T,kom)*we
 # daire disi (isaretli bolge disi) yumusakca saydam
 T=T*np.clip((RMAX+30-R)/45,0,1)[...,None]
 os.makedirs(K,exist_ok=True)
