@@ -51,6 +51,9 @@ ay=E[yy,mx]; mor=(ay[...,0]>ay[...,1]+0.18)&(ay[...,2]>ay[...,1]+0.08)
 oyd=np.where(mor[...,None],dol,0.5*ay+0.5*dol)
 dol=np.where(oy[...,None],oyd,dol)
 T=E*(1-w)+dol*w
+# ust yari = alt yarinin dikey aynasi (kullanici: alt %50 dogru renkler); merkez cizgisinde 12 px yumusak gecis
+ust=np.clip((CY+6-yy)/12,0,1)[...,None]
+T=T*(1-ust)+T[my,xx]*ust
 # daire disi (isaretli bolge disi) yumusakca saydam
 T=T*np.clip((RMAX+30-R)/45,0,1)[...,None]
 os.makedirs(K,exist_ok=True)
