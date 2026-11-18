@@ -65,10 +65,12 @@ sn_col=np.stack([np.interp(R,[150,200,260,330],[rk(c)[k] for c in ("#E8A89C","#D
 uzerine(sn_col,sn_al)
 # parantezler: dis kenar sabit yay, ic kenar ortada iceri siskin (sari kisim parantezin icinde -> orta kalin), uclar incelip solar
 yan=np.abs(np.cos(A)); aci=np.degrees(np.arccos(np.clip(yan,0,1)))
-uc=np.clip((58-aci)/8,0,1)                                                    # uclar sivri (asagida kalinlik sifira iner)
-sivri=np.clip(1-(aci/58)**2,0,1)**0.6
-orta_r=236; kal=(58+10*np.cos(np.radians(aci)))*sivri                          # sabit yaricapli halka parcasi; uclara dogru iki kenar birlesir -> sivri uc
-ic_r=orta_r-kal/2; dis_r=orta_r+kal/2
+# geometri: once tam halka — ic kenar yuvarlak (r=200), dis kenar yanlardan siskin ustten basik elips (yatay 282, dikey 206);
+# boylece halka yanlarda kalin, ustte-altta ince olur; sonra ince ust/alt kisim silinir -> kalin, sivri uclu sag-sol parantezler
+ic_r=200.0; ea,eb=282.0,206.0
+dis_r=1/np.sqrt((np.cos(A)/ea)**2+(np.sin(A)/eb)**2)
+kal=np.maximum(dis_r-ic_r,0)
+uc=np.clip((kal-14)/26,0,1)                                                    # ince ust/alt kisim silinir (yumusak)
 u=(R-ic_r)/np.maximum(kal,1e-3)
 renkler=[(0.0,"#FCE65E"),(0.5,"#FEF486"),(0.72,"#E2F8A0"),(1.0,"#A8E8B0")]                          # yalniz sari + yesil   # ic genis sari -> acik yesil -> yesil (dis)
 uu=np.clip(u,0,1); col=np.stack([np.interp(uu,[q[0] for q in renkler],[rk(q[1])[c] for q in renkler]) for c in range(3)],-1)
