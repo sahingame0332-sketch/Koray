@@ -85,6 +85,41 @@ if not SADE:
         kom=ndimage.gaussian_filter(T,(2,2,0))[iy,ix]
         we=np.clip(ndimage.gaussian_filter(ek.astype(np.float32),1.2)*1.4,0,1)[...,None]*Yc[...,None]
         T=T*(1-we)+np.maximum(T,kom)*we
+    # kenar duzeltme (kutupsal): her parantez kendi merkez acisina gore (sag 0°, sol 180°) ±90° araliginda incelenir.
+    # Aci basina ic/dis kenar olculur; ic kenar alt zarf, dis kenar ust zarfla duzgun yaya cekilir (girintiler dolar, cikintilar tiraslanir).
+    # Uclar: parantezin aci araligi aynen kalir, son %10'da ic ve dis kenar birlesir -> uclar kalin ve sivri.
+    Yk=Y|Yc; NB=720
+    for merkez in (0.0,np.pi):
+        phi=np.angle(np.exp(1j*(np.arctan2(yy-CY,xx-CX)-merkez)))
+        yan=np.abs(phi)<np.pi/2
+        sec=Yk&yan&(R>150)
+        if sec.sum()<200: continue
+        bi=np.clip(((phi+np.pi/2)/np.pi*NB).astype(int),0,NB-1)
+        a_=bi[sec]; r_=R[sec]
+        rin=np.full(NB,np.nan); rout=np.full(NB,np.nan)
+        for k in np.unique(a_):
+            rr=r_[a_==k]
+            if len(rr)>=2: rin[k]=np.percentile(rr,2); rout[k]=np.percentile(rr,98)
+        ok=~np.isnan(rin)
+        if ok.sum()<20: continue
+        lo,hi=np.where(ok)[0][[0,-1]]                                      # parantezin aci araligi (uctan uca)
+        idx=np.where(ok)[0]
+        ri=np.interp(np.arange(NB),idx,rin[idx]); ro=np.interp(np.arange(NB),idx,rout[idx])
+        ri=ndimage.gaussian_filter1d(ndimage.minimum_filter1d(ri,31,mode="nearest"),8,mode="nearest")
+        ro=ndimage.gaussian_filter1d(ndimage.maximum_filter1d(ro,31,mode="nearest"),8,mode="nearest")
+        pos=np.clip((np.arange(NB)-lo)/max(hi-lo,1),0,1)
+        uc=np.clip(np.minimum(pos,1-pos)/0.10,0,1)**0.7
+        mid=(ri+ro)/2; ri2=mid-(mid-ri)*uc; ro2=mid+(ro-mid)*uc
+        aralik=(bi>=lo)&(bi<=hi)&yan
+        inside=aralik&(R>=ri2[bi])&(R<=ro2[bi])
+        yeni=inside&~Yk
+        if yeni.any():
+            _,(iy2,ix2)=ndimage.distance_transform_edt(~Yk,return_indices=True)
+            kom2=ndimage.gaussian_filter(T,(2,2,0))[iy2,ix2]
+            w2=np.clip(ndimage.gaussian_filter(yeni.astype(np.float32),1.0)*1.5,0,1)[...,None]*inside[...,None]
+            T=T*(1-w2)+np.maximum(T,kom2)*w2
+        tasan=Yk&aralik&(R<ri2[bi]-1.5)&(R>ri2[bi]-40)&(uc[bi]>0.5)           # ic kenardan iceri tasan cikintilar; dis hale ve uclar korunur
+        T=T*(1-np.clip(ndimage.gaussian_filter(tasan.astype(np.float32),1.0),0,1))[...,None]
 # daire disi (isaretli bolge disi) yumusakca saydam
 T=T*np.clip((RMAX+30-R)/45,0,1)[...,None]
 os.makedirs(K,exist_ok=True)
