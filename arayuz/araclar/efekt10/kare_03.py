@@ -92,14 +92,14 @@ T=T*(1-mk)[...,None]
 mxs=np.clip(np.round(2*cx-xx).astype(int),0,W-1); yyi=yy.astype(int)
 ws=np.clip((R-212)/14,0,1)*np.clip((-dx-20)/30,0,1)
 T=T*(1-ws[...,None])+T[yyi,mxs]*ws[...,None]
-# 7) buhar (kullanici): merkezin sekli bozulmadan, bos kalan yerlere kare 1-2'deki gibi seftali-somon buhar
-th3=np.arctan2(dy,dx); rb=np.clip(100+np.clip(R-100,0,72)*0.9,100,172)            # kare_01 halkasinin (r 100-172) dokusu
-Bv=np.stack([ndimage.map_coordinates(L0[...,c],[cy+rb*np.sin(th3),cx+rb*np.cos(th3)],order=1) for c in range(3)],-1)
-bulut=np.clip(0.72+0.22*ndimage.gaussian_filter(gur(26,61),3.0)+0.08*gur(8,62),0,1)        # kare 1-2 gibi yumusak, sureklı buhar
-bos_yer=np.clip(1-T.max(2)/0.55,0,1)                                              # yalniz bos (beyaz zeminde beyaz gorunen) yerler
-bv=bulut*bos_yer*np.clip((182-R)/16,0,1)*(1-sariyesil)*0.70
-bv=ndimage.gaussian_filter(bv,4.0)
-T=np.maximum(T,Bv*bv[...,None])
+# 7) bos kalan yerler (kullanici): kare 1-2'deki seftali-somon katman AYNI PIKSELLERIYLE (renk + doku birebir kare_01'den),
+#    yalniz eski beyaz cekirdek yeri (r<100) ayni katmanin rengiyle iceri dogru tamamlanir; merkezin sekli bozulmaz (yalniz bos yerler)
+th3=np.arctan2(dy,dx); rs3=np.where(R<100,100+(100-R)*0.25,R)
+Lic3=np.stack([ndimage.gaussian_filter(ndimage.map_coordinates(L0[...,c],[cy+rs3*np.sin(th3),cx+rs3*np.cos(th3)],order=1),5) for c in range(3)],-1)
+w3=np.clip((104-R)/8,0,1)[...,None]; Lk=L0*(1-w3)+Lic3*w3                         # kare_01 katmani (beyaz cekirdeksiz)
+bos_yer=np.clip((Lk.max(2)*0.95-T.max(2))/0.12,0,1); bos_yer=ndimage.gaussian_filter(bos_yer,2.0)   # T, kare_01 katmanindan sonukse (bos/yari bos) doldur
+bv=bos_yer*(1-sariyesil)*np.clip((186-R)/8,0,1)
+T=np.maximum(T,Lk*bv[...,None])
 al=T.max(2); rgb=np.where(al[...,None]>1e-4,T/np.maximum(al,1e-4)[...,None],0)
 Image.fromarray(np.dstack([(rgb*255).round(),(al*255).round()]).astype(np.uint8)).save(os.path.join(K,"kare_03.png"))
 im=Image.open(os.path.join(K,"kare_03.png"))
