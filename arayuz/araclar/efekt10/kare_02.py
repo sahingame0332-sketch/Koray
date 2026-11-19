@@ -18,18 +18,32 @@ yy,xx=np.mgrid[0:H,0:W].astype(np.float32); dx,dy=xx-cx,yy-cy
 #    s=1 kenar; renk kare_01'in kendi radyal gecisinden (beyaz -> sampanya -> seftali) ayni aci yonunde orneklenir.
 EA,EB,BK,BU=135.0,88.0,15.0,215.0
 el=np.hypot(dx/EA,dy/EB)
-incel=np.clip(1-np.abs(dx)/BU,0.05,1)**0.6                         # bant uca dogru incelir
-bt=np.maximum(np.abs(dy)/(BK*incel),np.abs(dx)/BU)
+# bant: ortada ince, parantezle birlestigi yerde (|dx| ~ 175-215) kalinlasir, sonra yumusakca biter
+ax=np.abs(dx)
+kalin=1+1.6*np.exp(-((ax-195)/28)**2)
+bt=np.maximum(np.abs(dy)/(BK*kalin),ax/(BU+12))+np.clip((ax-205)/25,0,None)   # parantez otesine tasmaz
 k=0.12; s_=-k*np.log(np.exp(-el/k)+np.exp(-bt/k))                 # yumusak min (birlesim)
+# duzensizlik: kenara organik dalga + ince puruz (acisal + 2B gurultu)
+rg=np.random.default_rng(12)
+def gur(sc,seed):
+    z=np.random.default_rng(seed).standard_normal((H//sc+3,W//sc+3)).astype(np.float32)
+    z=ndimage.zoom(ndimage.gaussian_filter(z,1.0),sc,order=3)[:H,:W]; return z/(z.std()+1e-6)
+th0=np.arctan2(dy,dx); na=48
+za=ndimage.gaussian_filter1d(rg.standard_normal(na).astype(np.float32),1.2,mode="wrap"); za/=za.std()
+ia=((th0+np.pi)/(2*np.pi)*na); i0=np.floor(ia).astype(int)%na; fa=ia-np.floor(ia)
+dalga=za[i0]*(1-fa)+za[(i0+1)%na]*fa
+s_=s_*(1+0.045*dalga+0.03*gur(14,3)+0.012*gur(5,4))
 th=np.arctan2(dy,dx); R0=80.0
 sx=cx+np.cos(th)*R0*s_; sy=cy+np.sin(th)*R0*s_
 G=np.stack([ndimage.map_coordinates(L[...,c],[sy,sx],order=1) for c in range(3)],-1)
-w=np.clip((1.32-s_)/0.30,0,1); w=(w*w*(3-2*w))[...,None]                 # yumusak kenar
-T=np.maximum(L,G*w)
+w=np.clip((1.45-s_)/0.75,0,1); w=w*w*(3-2*w); w=ndimage.gaussian_filter(w,6.0)[...,None]      # genis, yumusak kenar
+G=np.stack([ndimage.gaussian_filter(G[...,c],2.0) for c in range(3)],-1)
+T=L*(1-w)+np.maximum(L,G)*w
 # 2) yatay sari cizgi, %50 opaklik
 uz=W*0.47
 boy=np.clip(1-np.abs(dx)/uz,0,1)**0.8
-cizgi=(np.exp(-(dy/1.6)**2)+0.35*np.exp(-(dy/5.0)**2))*boy*CIZGI_OPAK
+beyaz=np.clip((T.min(2)-0.80)/0.15,0,1); beyaz=ndimage.gaussian_filter(beyaz,2.0)   # titanyum beyaz bolge
+cizgi=(np.exp(-(dy/1.6)**2)+0.35*np.exp(-(dy/5.0)**2))*boy*CIZGI_OPAK*(1-beyaz)        # beyazin icinde gorunmez
 T=T*(1-cizgi[...,None])+SARI*cizgi[...,None]+T*cizgi[...,None]*0  # cizgi alttakinin uzerine %50 opak
 T=np.maximum(T,np.clip(SARI*cizgi[...,None],0,1))
 al=T.max(2); rgb=np.where(al[...,None]>1e-4,T/np.maximum(al,1e-4)[...,None],0)
