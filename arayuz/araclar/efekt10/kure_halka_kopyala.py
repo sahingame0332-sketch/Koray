@@ -20,6 +20,10 @@ K_=np.stack([ndimage.map_coordinates(L[...,c],[sy,sx],order=1) for c in range(3)
 w=np.clip((R-(R0-8))/8,0,1)*np.clip(((R1+8)-R)/8,0,1)
 w=w[...,None]
 T=L*(1-w)+K_*w
+# sag yari iz birakiyordu (kullanici isaretledi): halkanin SOL yarisi saga yatay ayna olarak yansitilir; ust-alt ortada 14 px yumusak gecis
+mxr=np.clip(np.round(2*cx-xx).astype(int),0,W-1)
+sag=np.clip((xx-cx+7)/14,0,1)[...,None]*w
+T=T*(1-sag)+T[yy,mxr]*sag
 al=T.max(2); rgb=np.where(al[...,None]>1e-4,T/np.maximum(al,1e-4)[...,None],0)
 out=os.path.join(K,"kure_ref_saydam_pembeli_halka.png")
 Image.fromarray(np.dstack([(rgb*255).round(),(al*255).round()]).astype(np.uint8)).save(out)
