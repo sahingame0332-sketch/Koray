@@ -1,0 +1,9 @@
+OLYMPOS-KO · 1298 — Efekt 10 / pembe patlama (tek başına paket)
+Menü: OLYMPOS > 1298 > Efekt 10 Pembe Patlama (Çekirdek · Yıldız) Oluştur  -> sahnede örnek + Prefabs/OlymposEfekt10Patlama.prefab
+Kullanım: efekt.Oyna(mob.transform);   (deneme için örnek nesne kendini 0.6 sn arayla tekrar oynatır)
+İçerik: pembe küre + titanyum beyaz çekirdek + sarı-yeşil parantezler -> çekirdek sıkışır ve yanlara genişler -> parantezler dışarı açılıp
+şeftali-somon olarak soyutlaşır, titanyum sarıya döner, sarı yıldız ışınları parlar ve söner.
+Süre: 39 kare, 60 kare/sn = 0.65 sn. Kareler: Textures/patlama/patlama_00..38.png (1000 × 560, siyah zemin = saydam, eklemeli).
+Boyut: hedefBoyu (varsayılan 1.8) × genislikHedef (7.0) genişlik, en/boy 0.56, pivot ortada -> mobun merkezine (göğüs hizası) bağlayın.
+Büyük/küçük gelirse Katman bileşeninde genislikHedef'i, parlak/sönük gelirse parlaklik'ı ayarlayın; derinlik -0.3 efekti mobun önüne alır.
+Built-in boru hattı (URP'de denenmedi). Kaynak: araclar/efekt10 (kare_02..05.py, kareler_olcek.py, efekt10_gif.py).
