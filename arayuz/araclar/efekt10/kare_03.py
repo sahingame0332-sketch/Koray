@@ -83,8 +83,8 @@ T=1-(1-T)*(1-np.clip((IC2*(1-u2)+UC2*u2)*alev2[...,None]*0.75,0,1))
 # 5) kullanicinin ust temizligi ve onun alt aynasi: maske bolgesi saydam
 mk=np.asarray(Image.open(os.path.join(K,"kare_03_temizlik_maskesi.png")))>127
 mk|=(np.abs(dy)>200)&(ax<175)                                           # ekran disina tasan kisim: ust/alt kapak disari dogru tamamen temiz
-mk|=(R>148)&(R<182)&(sariyesil<0.3)&(np.abs(dy)>45)                     # bosluktaki ince halka cizgisi
-mk=ndimage.binary_closing(mk,np.ones((9,9)))&(R>150)
+# (kullanici: halka ile parantez arasi silinmez) ince halka cizgisi temizligi kaldirildi
+mk=ndimage.binary_closing(mk,np.ones((9,9)))&(R>196)          # yalniz parantezlerin disi temizlenir; halka-parantez arasi korunur
 yy_,xx_=np.mgrid[-6:7,-6:7]; mk=ndimage.binary_opening(mk,(yy_**2+xx_**2)<=36)    # tirtikli kenarlar yuvarlanir
 mk=np.maximum(ndimage.gaussian_filter(mk.astype(np.float32),3.0),ndimage.gaussian_filter(mk.astype(np.float32),14.0)*(R>200))   # dis sisle kesik kenar yumusak
 T=T*(1-mk)[...,None]
