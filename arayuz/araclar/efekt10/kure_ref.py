@@ -154,8 +154,11 @@ if not SADE:
             rin=ri1*(1-t)+ri2_*t; rout=ro1*(1-t)+ro2_*t
             u=(R-rin)/np.maximum(rout-rin,1)
             bant=g&(u>=0)&(u<=1)
-            sol=np.clip(np.minimum(u/0.08,(1-u)/0.15),0,1)                        # ic kenar net, dis kenar yumusak
-            sondur=np.clip(1-np.minimum(t,1-t)*2,0,1)**1.6                           # uctan uzaklastikca saydamlasir (ortada ~0)
+            sol=np.clip(np.minimum(u*np.maximum(rout-rin,1)/1.5,(1-u)*np.maximum(rout-rin,1)/1.5),0,1)   # kenarlar net
+            # katman katman: uctan ortaya dogru 5 basamak (1.0, 0.8, 0.6, 0.4, 0.2), basamak sinirlari net (1-2 px yumusatma)
+            NK=5; d=np.clip(np.minimum(t,1-t)*2,0,0.9999)*NK                              # 0 (uc) .. 5 (orta)
+            kat=np.floor(d); sinir=np.clip((d-kat)*span*np.maximum(R,1)/(NK*0.5)/1.5,0,1)   # basamak icinde ~1.5 px gecis
+            sondur=1-kat/NK-(1/NK)*np.clip(sinir-(1-1.5/np.maximum(span*R/(2*NK),1)),0,1)*0
             ui=np.clip((u*20).astype(int),0,19)
             renk=P1[ui]*(1-t)[...,None]+P2[ui]*t[...,None]
             w=(bant*sol*sondur*giris)[...,None]
