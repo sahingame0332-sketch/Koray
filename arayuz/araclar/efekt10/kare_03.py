@@ -7,7 +7,7 @@ import os, numpy as np
 from PIL import Image
 from scipy import ndimage
 B_=os.path.dirname(os.path.abspath(__file__)); K=os.path.join(B_,"..","..","kaynak","efekt10","kareler"); ONZ=os.path.join(B_,"..","..","onizlemeler")
-GOVDE_X,GOVDE_Y,BANT_Y,BANT_X=105.0,54.0,9.0,150.0
+GOVDE_X,GOVDE_Y,BANT_Y,BANT_X=105.0,54.0,36.0,170.0      # yanlar kalin (kare 2 gibi)
 IKINCI_KAT=0.50; CIZGI_OPAK=0.50; SARI=np.array([0xF7,0xE6,0x45],np.float32)/255
 a=np.asarray(Image.open(os.path.join(K,"kare_01.png")).convert("RGBA")).astype(np.float32)/255
 L=a[...,:3]*a[...,3:4]; H,W=L.shape[:2]; cy,cx=(H-1)/2,(W-1)/2
@@ -18,7 +18,7 @@ bos=np.clip((184-R)/30,0,1)*(1-sariyesil)
 L=L*(1-bos)[...,None]
 # 2) mercek bicimli titanyum beyaz: yari yukseklik profili h(x) -> govde (elips) + uca dogru incelen bant
 govde=GOVDE_Y*np.sqrt(np.clip(1-(ax/GOVDE_X)**2,0,1))
-bant=BANT_Y*np.clip(1-np.clip((ax-GOVDE_X*0.6)/(BANT_X-GOVDE_X*0.6),0,1),0,1)**0.7*(ax<BANT_X)
+bant=BANT_Y*(1-0.6*np.clip((ax-GOVDE_X*0.5)/(BANT_X-GOVDE_X*0.5),0,1)**0.8)*np.clip((BANT_X+10-ax)/20,0,1)   # kureden kalin cikar, paranteze dogru incelir
 h=np.maximum(govde,np.maximum(bant,0.01))
 h=ndimage.gaussian_filter1d(h,6,axis=1)                         # govde-bant gecisi yumusak (goz bicimi)
 rg=np.random.default_rng(31)
@@ -40,7 +40,12 @@ th1=np.arctan2(dy,dx)
 Hk=np.stack([ndimage.map_coordinates(L0[...,c],[cy+req*np.sin(th1),cx+req*np.cos(th1)],order=1) for c in range(3)],-1)
 wk=np.clip((KAL+10-d)/26,0,1)*np.clip((d+6)/6,0,1)*(1-sariyesil)*np.clip((186-R)/10,0,1)
 L=np.maximum(L,Hk*(wk*IKINCI_KAT)[...,None])
-T=L*(1-w)+np.maximum(L,G)*w
+# renk (kare 2 gibi): yalniz merkez titanyum beyaz; etrafi kademeli olarak parantez sarisina (#FCFD8A, en fazla) doner
+ALTIN=np.array([0xFC,0xFD,0x8A],np.float32)/255; ACIK=np.array([0xFE,0xFE,0xD2],np.float32)/255
+q=np.hypot(dx/48.0,dy/34.0)
+ys=np.clip((q-0.7)/2.2,0,1); ys=np.maximum(ys,np.clip((ax-GOVDE_X*0.4)/(BANT_X-GOVDE_X*0.4),0,1)); ys=ys*ys*(3-2*ys)
+G=np.where(ys[...,None]<0.5, np.ones(3,np.float32)*(1-2*ys[...,None])+ACIK*2*ys[...,None], ACIK*(2-2*ys[...,None])+ALTIN*(2*ys[...,None]-1))
+T=L*(1-w)+G*w
 # 3) sari cizgi %50 (beyazin icinde gorunmez)
 beyaz=ndimage.gaussian_filter(np.clip((T.min(2)-0.80)/0.15,0,1),2.0)
 boy=np.clip(1-ax/(W*0.47),0,1)**0.8
