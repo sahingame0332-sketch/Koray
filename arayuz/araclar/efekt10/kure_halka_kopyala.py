@@ -24,6 +24,12 @@ T=L*(1-w)+K_*w
 mxr=np.clip(np.round(2*cx-xx).astype(int),0,W-1)
 sag=np.clip((xx-cx+7)/14,0,1)[...,None]*w
 T=T*(1-sag)+T[yy,mxr]*sag
+# ust ve alt (tepe/dip) da iz birakiyordu: oralara sol parcanin 90° DONDURULMUS hali konur (ayna yok -> iz yok), yanlara yumusak gecis
+dn=np.where(np.sin(th)<0,-np.pi/2,np.pi/2)                       # ust: -90° dondur, alt: +90° dondur -> kaynak sol (180°)
+kx=cx+(xx-cx)*np.cos(-dn)-(yy-cy)*np.sin(-dn); ky=cy+(xx-cx)*np.sin(-dn)+(yy-cy)*np.cos(-dn)
+D=np.stack([ndimage.map_coordinates(T[...,c],[ky,kx],order=1) for c in range(3)],-1)
+q=np.clip((np.abs(np.sin(th))-0.62)/0.22,0,1); q=(q*q*(3-2*q))[...,None]*w
+T=T*(1-q)+D*q
 al=T.max(2); rgb=np.where(al[...,None]>1e-4,T/np.maximum(al,1e-4)[...,None],0)
 out=os.path.join(K,"kure_ref_saydam_pembeli_halka.png")
 Image.fromarray(np.dstack([(rgb*255).round(),(al*255).round()]).astype(np.uint8)).save(out)
