@@ -43,22 +43,24 @@ def uret(t):
     # 3) titanyum sariya: parlak beyaz/krem pikseller (dusuk doygunluk, yuksek parlaklik) sariya kayar, en merkez (r<16) beyaz kalir
     mxT=np.maximum(T.max(2),1e-3); beyazlik=np.clip((T.min(2)/mxT-0.70)/0.2,0,1)*np.clip((mxT-0.7)/0.2,0,1)*np.clip((R-16)/22,0,1)*(R<200)
     T=T*(1-(beyazlik*t)[...,None])+(SARI*mxT[...,None])*(beyazlik*t)[...,None]
-    # 4) dikenli genis yatay sari isin (fotograftaki gibi)
-    X=560.0
-    ust=105*np.clip(1-ax/X,0,1)**0.9; alt=ust*0.8                                   # fotograftaki gibi kalin govde
-    rg=np.random.default_rng(5)
-    for xi,wi,hi in [(-150,40,130),(-70,26,110),(15,46,80),(95,30,170),(170,36,70),(-270,50,50),(300,60,55)]:   # yukari sivri dikenler
-        ust=ust+hi*np.clip(1-np.abs(dx-xi)/wi,0,1)**1.7*np.clip(1-ax/X,0,1)**0.3
-    for xi,wi,hi in [(10,26,190),(-120,36,50)]:                                                                  # asagi sivri
-        alt=alt+hi*np.clip(1-np.abs(dx-xi)/wi,0,1)**1.8
-    kenar=ust*(1+0.08*gur(8,3)); kenar2=alt*(1+0.08*gur(8,4))
-    yuk=np.where(dy<0,kenar,kenar2)
-    sb=np.clip(1-np.abs(dy)/np.maximum(yuk,1e-3),0,1)                                  # 1 merkez cizgisi, 0 kenar
-    govde=np.clip(sb*1.6,0,1)**0.8*(ax<X)
-    cek=np.exp(-(dy/(10+18*np.clip(1-ax/X,0,1)))**2)*np.clip(1-ax/X,0,1)**0.5           # parlak cekirdek cizgisi
-    hale=ndimage.gaussian_filter(govde,22)*0.8
-    renk=SARI*(1-sb[...,None])+KREM*sb[...,None]                                     # isin kenari parantez sarisi (#FCFD8A)
-    isin=np.clip(renk*govde[...,None]*0.75+KREM*cek[...,None]*0.55+SARI*hale[...,None]*0.6,0,1)*t
+    # 4) yildiz (kullanici: yangin gibi degil, yildiz isini gibi): merkezden cikan keskin, duz, uca dogru sivrilen isinlar.
+    #    Baskin uzun yatay isin cifti + kisa capraz ve dikey isinlar; kenarlar net (gurultu yok), cevresinde yumusak parilti.
+    def isin_kol(aci,boy,gen):                                                  # tek isin: kok genisligi gen, uca dogru 0
+        ca,sa=np.cos(aci),np.sin(aci); u=dx*ca+dy*sa; v=np.abs(-dx*sa+dy*ca)
+        w=gen*np.clip(1-u/boy,0,1)**1.15
+        return np.clip(1-v/np.maximum(w,0.35),0,1)**1.6*(u>0)*(u<boy)
+    kollar=[(0,560,30),(np.pi,560,30),                                          # uzun yatay
+            (np.pi/2,190,16),(-np.pi/2,230,18),                                 # dikey (asagisi biraz uzun, fotograftaki gibi)
+            (np.radians(-28),260,13),(np.radians(208),260,13),(np.radians(28),220,11),(np.radians(152),220,11),
+            (np.radians(-62),150,9),(np.radians(242),150,9),(np.radians(62),130,8),(np.radians(118),130,8),
+            (np.radians(-12),360,9),(np.radians(192),360,9),(np.radians(12),330,8),(np.radians(168),330,8)]
+    yil=np.zeros_like(R)
+    for ac,b_,g_ in kollar: yil=np.maximum(yil,isin_kol(ac,b_,g_))
+    yil=np.maximum(yil,np.clip(1-R/70,0,1)**1.3)                               # merkez gobek
+    cek=np.zeros_like(R)
+    for ac,b_,g_ in kollar[:2]: cek=np.maximum(cek,isin_kol(ac,b_*0.9,g_*0.3))  # yatay isinin ince parlak omurgasi
+    hale=ndimage.gaussian_filter(yil,18)*0.9+np.exp(-(R/120)**2)*0.35
+    isin=np.clip(SARI*yil[...,None]*0.95+KREM*cek[...,None]*0.5+SARI*hale[...,None]*0.55,0,1)*t
     T=1-(1-T)*(1-isin)
     # en merkez beyaz
     T=np.maximum(T,np.ones(3,np.float32)*np.exp(-(R/14)**2)[...,None])
