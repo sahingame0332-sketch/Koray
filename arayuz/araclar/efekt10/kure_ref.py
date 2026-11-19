@@ -88,7 +88,7 @@ if not SADE:
     # kenar duzeltme (kutupsal): her parantez kendi merkez acisina gore (sag 0°, sol 180°) ±90° araliginda incelenir.
     # Aci basina ic/dis kenar olculur; ic kenar alt zarf, dis kenar ust zarfla duzgun yaya cekilir (girintiler dolar, cikintilar tiraslanir).
     # Uclar: parantezin aci araligi aynen kalir, son %10'da ic ve dis kenar birlesir -> uclar kalin ve sivri.
-    Yk=Y|Yc; NB=720
+    Yk=Y|Yc; NB=720; KENAR=[]
     for merkez in (0.0,np.pi):
         phi=np.angle(np.exp(1j*(np.arctan2(yy-CY,xx-CX)-merkez)))
         yan=np.abs(phi)<np.pi/2
@@ -108,9 +108,10 @@ if not SADE:
         ri=ndimage.gaussian_filter1d(ndimage.minimum_filter1d(ri,31,mode="nearest"),8,mode="nearest")
         ro=ndimage.gaussian_filter1d(ndimage.maximum_filter1d(ro,31,mode="nearest"),8,mode="nearest")
         pos=np.clip((np.arange(NB)-lo)/max(hi-lo,1),0,1)
-        uc=np.clip(np.minimum(pos,1-pos)/0.10,0,1)**0.7
+        uc=np.ones(NB)                                                    # incelme yok: uclar disari birlestirilir
         mid=(ri+ro)/2; ri2=mid-(mid-ri)*uc; ro2=mid+(ro-mid)*uc
         aralik=(bi>=lo)&(bi<=hi)&yan
+        KENAR.append((merkez,lo,hi,ri.copy(),ro.copy()))
         inside=aralik&(R>=ri2[bi])&(R<=ro2[bi])
         yeni=inside&~Yk
         if yeni.any():
@@ -120,6 +121,45 @@ if not SADE:
             T=T*(1-w2)+np.maximum(T,kom2)*w2
         tasan=Yk&aralik&(R<ri2[bi]-1.5)&(R>ri2[bi]-40)&(uc[bi]>0.5)           # ic kenardan iceri tasan cikintilar; dis hale ve uclar korunur
         T=T*(1-np.clip(ndimage.gaussian_filter(tasan.astype(np.float32),1.0),0,1))[...,None]
+    if len(KENAR)==2:
+        TT=T.copy()
+        th=np.arctan2(yy-CY,xx-CX)                                          # -pi..pi
+        def uc_bilgi(k,son):                                                # uc acisi (global), ic/dis yaricap, uc rengi profili
+            merkez,lo,hi,ri,ro=KENAR[k]; b=hi if son else lo
+            ic=(hi-40) if son else (lo+40)                                  # kalinlik ucun gerisinden (sivrilmeden once)
+            ang=merkez+(b+0.5)/NB*np.pi-np.pi/2
+            return np.angle(np.exp(1j*ang)), ri[ic], ro[ic], ic
+        def profil(k,b):                                                    # uca yakin (son 30 aci kutusu) parantez piksellerinin u'ya gore rengi
+            merkez,lo,hi,ri,ro=KENAR[k]
+            phi=np.angle(np.exp(1j*(th-merkez))); bi=np.clip(((phi+np.pi/2)/np.pi*NB).astype(int),0,NB-1)
+            yak=(np.abs(bi-b)<30)&(np.abs(phi)<np.pi/2)&(bi>=lo)&(bi<=hi)
+            u=(R-ri[bi])/np.maximum(ro[bi]-ri[bi],1); q=yak&(u>=0)&(u<=1)&(TT.max(2)>0.15)
+            P=np.zeros((20,3)); n=np.zeros(20); ub=np.clip((u[q]*20).astype(int),0,19)
+            for c in range(3): P[:,c]=np.bincount(ub,weights=TT[...,c][q],minlength=20)
+            n=np.bincount(ub,minlength=20); ok=n>0
+            for c in range(3): P[:,c]=np.interp(np.arange(20),np.where(ok)[0],P[ok,c]/n[ok]) if ok.any() else 0
+            return ndimage.uniform_filter1d(P,3,axis=0)
+        # sag parantez (k=0): hi ucu asagi (aci artar -> +y = ekranda asagi), lo ucu yukari; sol (k=1) tersi
+        uclar=[uc_bilgi(0,True),uc_bilgi(0,False),uc_bilgi(1,True),uc_bilgi(1,False)]
+        for (i1,i2) in ((0,3),(2,1)):                                       # (sag-alt -> sol-alt), (sol-ust -> sag-ust)
+            a1,ri1,ro1,b1=uclar[i1]; a2,ri2_,ro2_,b2=uclar[i2]
+            k1,k2=(0 if i1<2 else 1),(0 if i2<2 else 1)
+            P1,P2=profil(k1,b1),profil(k2,b2)
+            span=np.angle(np.exp(1j*(a2-a1)))
+            if span<=0: span+=2*np.pi
+            t=np.angle(np.exp(1j*(th-a1))); t=np.where(t<0,t+2*np.pi,t)/span      # 0: birinci uc, 1: ikinci uc
+            g=(t>-0.3)&(t<1.3)
+            giris=np.clip(np.minimum(t+0.3,1.3-t)/0.3,0,1); giris=giris*giris*(3-2*giris)                     # parantezin icine yumusak giris (keskin kesik yok)
+            t=np.clip(t,0,1)
+            rin=ri1*(1-t)+ri2_*t; rout=ro1*(1-t)+ro2_*t
+            u=(R-rin)/np.maximum(rout-rin,1)
+            bant=g&(u>=0)&(u<=1)
+            sol=np.clip(np.minimum(u/0.08,(1-u)/0.15),0,1)                        # ic kenar net, dis kenar yumusak
+            sondur=np.clip(1-np.minimum(t,1-t)*2,0,1)**1.6                           # uctan uzaklastikca saydamlasir (ortada ~0)
+            ui=np.clip((u*20).astype(int),0,19)
+            renk=P1[ui]*(1-t)[...,None]+P2[ui]*t[...,None]
+            w=(bant*sol*sondur*giris)[...,None]
+            T=np.maximum(T,renk*w)
 # daire disi (isaretli bolge disi) yumusakca saydam
 T=T*np.clip((RMAX+30-R)/45,0,1)[...,None]
 os.makedirs(K,exist_ok=True)
