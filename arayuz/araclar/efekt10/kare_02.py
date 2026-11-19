@@ -9,19 +9,19 @@ from PIL import Image
 from scipy import ndimage
 B_=os.path.dirname(os.path.abspath(__file__)); K=os.path.join(B_,"..","..","kaynak","efekt10","kareler"); ONZ=os.path.join(B_,"..","..","onizlemeler")
 YX,YY=1.35,1.05                      # beyaz kurenin yatay/dikey genisleme orani
-CIZGI_OPAK=0.50; SARI=np.array([0xF5,0xF0,0x6A],np.float32)/255
+CIZGI_OPAK=0.50; SARI=np.array([0xF7,0xE6,0x45],np.float32)/255
 a=np.asarray(Image.open(os.path.join(K,"kare_01.png")).convert("RGBA")).astype(np.float32)/255
 L=a[...,:3]*a[...,3:4]; H,W=L.shape[:2]; cy,cx=(H-1)/2,(W-1)/2
 yy,xx=np.mgrid[0:H,0:W].astype(np.float32); dx,dy=xx-cx,yy-cy
 # 1) beyaz kure (kullanici cizimi): yanlara genisleyen mercek/goz bicimi + iki yandan disari uzanan yatay bant.
 #    Bicim alani s: elips (yari genislik 150, yari yukseklik 96) ile yatay bant (yari kalinlik 16, uzunluk 245) yumusak birlesimi.
 #    s=1 kenar; renk kare_01'in kendi radyal gecisinden (beyaz -> sampanya -> seftali) ayni aci yonunde orneklenir.
-EA,EB,BK,BU=135.0,88.0,15.0,215.0
+EA,EB,BK,BU=121.5,79.2,15.0,200.0          # titanyum beyaz 1/10 kucuk
 el=np.hypot(dx/EA,dy/EB)
 # bant: ortada ince, parantezle birlestigi yerde (|dx| ~ 175-215) kalinlasir, sonra yumusakca biter
 ax=np.abs(dx)
-kalin=1+1.6*np.exp(-((ax-195)/28)**2)
-bt=np.maximum(np.abs(dy)/(BK*kalin),ax/(BU+12))+np.clip((ax-205)/25,0,None)   # parantez otesine tasmaz
+kalin=2.4-1.95*np.clip((ax-EA*0.75)/(BU-EA*0.75),0,1)**0.8         # kureden cikan taraf kalin, paranteze dogru incelir
+bt=np.maximum(np.abs(dy)/(BK*kalin),ax/(BU+12))+np.clip((ax-BU+5)/20,0,None)   # bant parantezden once biter; devaminda sari cizgi
 k=0.12; s_=-k*np.log(np.exp(-el/k)+np.exp(-bt/k))                 # yumusak min (birlesim)
 # duzensizlik: kenara organik dalga + ince puruz (acisal + 2B gurultu)
 rg=np.random.default_rng(12)
