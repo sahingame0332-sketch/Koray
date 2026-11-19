@@ -5,8 +5,8 @@ Kare 4+ icin olcek kullanicidan gelince OLCEK'e eklenir."""
 import os, numpy as np
 from PIL import Image
 B_=os.path.dirname(os.path.abspath(__file__)); K=os.path.join(B_,"..","..","kaynak","efekt10","kareler"); ONZ=os.path.join(B_,"..","..","onizlemeler")
-OLCEK={1:1.0, 2:1.10, 3:1.10*1.25}
-TUVAL=840
+OLCEK={1:1.0, 2:1.10, 3:1.10*1.25, 4:1.10*1.25*1.10}
+TUVAL=920
 od=os.path.join(K,"olcekli"); os.makedirs(od,exist_ok=True)
 ims=[]
 for n,s in OLCEK.items():

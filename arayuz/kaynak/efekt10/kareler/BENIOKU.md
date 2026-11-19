@@ -1,8 +1,11 @@
-# Efekt 10 — pembe patlama kareleri (onaylı)
+# Efekt 10 — pembe patlama kareleri
 
-| Kare | Dosya | Açıklama |
-|---|---|---|
-| 1 | `kare_01.png` (saydam, 604×604) | Patlamanın ilk çıkış karesi — kullanıcı onayı (19 Kasım 2026). Referans fotoğraftan çıkarılan ışık katmanı; mor lekeler temizlendi, somon-pembe halka sol parçadan tüm çevreye uygulandı, tepe/dip turuncu iz giderildi. |
+| Kare | Yavaş çekim zamanı (10 sn video) | Boy (kare 1'e göre) | Dosya | Durum |
+|---|---|---|---|---|
+| 1 | 00:00 | %100 | `kare_01.png` | onaylı |
+| 2 | 00:04 | %110 | `kare_02.png` | düzeltmeler uygulandı |
+| 3 | — | %137,5 (kare 2 × 1,25) | `kare_03.png` | kullanıcı "bu 3. kare" dedi |
+| 4 | 00:11 | %151,25 (kare 3 × 1,10) | `kare_04.png` | taslak |
 
-Önizleme: `kare_01_siyah.png`, `kare_01_beyaz.png`. Üretim zinciri: `araclar/efekt10/kure_ref.py` → `kure_pembeli_temizle.py` → `kure_halka_kopyala.py`.
-Merkez görüntünün tam ortasında; ışık katmanı ön-çarpımsız RGBA (alfa = parlaklık), Unity'de eklemeli (Blend One One / SrcAlpha One) kullanılır.
+Kaynak kareler 604×604; ölçekli hâlleri ortak 920×920 tuvalde `olcekli/` altında (`araclar/efekt10/kareler_olcek.py`).
+Üreticiler: `araclar/efekt10/kare_02.py`, `kare_03.py`, `kare_04.py`. Unity'de eklemeli (additive) karışım.
