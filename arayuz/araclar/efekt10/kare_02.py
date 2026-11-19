@@ -39,10 +39,11 @@ G=np.stack([ndimage.map_coordinates(L[...,c],[sy,sx],order=1) for c in range(3)]
 w=np.clip((1.45-s_)/0.75,0,1); w=w*w*(3-2*w); w=ndimage.gaussian_filter(w,6.0)[...,None]      # genis, yumusak kenar
 G=np.stack([ndimage.gaussian_filter(G[...,c],2.0) for c in range(3)],-1)
 # renk: yalniz ortadaki cekirdek titanyum beyaz; kenarlara ve bant uclarina dogru altin sariya doner (paranteze dogru)
-ALTIN=np.array([0xFB,0xE0,0x4E],np.float32)/255; ACIK=np.array([0xFF,0xF6,0xC6],np.float32)/255
+ALTIN=np.array([0xFC,0xFD,0x8A],np.float32)/255; ACIK=np.array([0xFE,0xFE,0xD2],np.float32)/255   # en koyu sari = parantezin sarisi (olculen #FCFD8A)
 q=np.hypot(dx/58.0,dy/44.0)                                          # beyaz cekirdek (~116x88)
-ys=np.clip((q-0.85)/1.6,0,1); ys=ys*ys*(3-2*ys)
-ys=np.maximum(ys,np.clip((ax-EA*0.55)/(BU-EA*0.55),0,1)**0.8)          # bant uclarina dogru tam sari
+ys=np.clip((q-0.7)/2.4,0,1)                                         # kademeli: cekirdekten disari uzun, dogrusal gecis
+ys=np.maximum(ys,np.clip((ax-EA*0.4)/(BU-EA*0.4),0,1))              # bant uclarina dogru parantez sarisina kademeli
+ys=ys*ys*(3-2*ys)
 renk=np.where(ys[...,None]<0.5, np.ones(3,np.float32)*(1-2*ys[...,None])+ACIK*2*ys[...,None], ACIK*(2-2*ys[...,None])+ALTIN*(2*ys[...,None]-1))
 G=renk
 # kare_01'in yuvarlak beyaz cekirdegi kalkar (cekirdek sikisti): r<100 seftali/somon halka rengiyle iceri dogru doldurulur
