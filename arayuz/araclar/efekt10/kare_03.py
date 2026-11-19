@@ -51,6 +51,30 @@ beyaz=ndimage.gaussian_filter(np.clip((T.min(2)-0.80)/0.15,0,1),2.0)
 boy=np.clip(1-ax/(W*0.47),0,1)**0.8
 cizgi=(np.exp(-(dy/1.6)**2)+0.35*np.exp(-(dy/5.0)**2))*boy*CIZGI_OPAK*(1-beyaz)
 T=T*(1-cizgi[...,None])+SARI*cizgi[...,None]
+# 4) merkezin kenarina alev sizmalari: mercek govdesinin kenarindan disari, dalgali alev dilleri (ic sari-beyaz -> uc turuncu)
+govm=np.hypot(dx/GOVDE_X,dy/GOVDE_Y)<1.0
+dd=ndimage.distance_transform_edt(~govm)
+th2=np.arctan2(dy,dx); NA=72
+za=np.random.default_rng(77).random(NA).astype(np.float32)
+ia=(th2+np.pi)/(2*np.pi)*NA; i0=np.floor(ia).astype(int)%NA; fa=ia-np.floor(ia); fa=fa*fa*(3-2*fa)
+dil=za[i0]*(1-fa)+za[(i0+1)%NA]*fa                                  # her yonde farkli dil uzunlugu
+uz=10+34*dil**1.6
+kivri=gur(6,78)*4.0                                                  # alevin kivrilmasi
+alev=np.clip(1-(dd+kivri)/uz,0,1)*(dd>0)*np.clip(1-np.abs(dy)/(GOVDE_Y*1.9),0,1)**0.3
+damar=np.clip(0.55+0.45*np.sin(th2*38+gur(9,79)*2.5),0,1)            # dil dil ayrisma
+alev=(alev**1.3)*(0.45+0.55*damar)*np.clip(1-np.abs(dx)/(GOVDE_X*1.25),0,1)**0.5
+IC=np.array([0xFF,0xFB,0xC8],np.float32)/255; UC=np.array([0xFF,0xB0,0x55],np.float32)/255
+u_=np.clip(dd/np.maximum(uz,1),0,1)[...,None]
+alev_renk=IC*(1-u_)+UC*u_
+T=1-(1-T)*(1-np.clip(alev_renk*alev[...,None]*0.95,0,1))
+# 5) kullanicinin ust temizligi ve onun alt aynasi: maske bolgesi saydam
+mk=np.asarray(Image.open(os.path.join(K,"kare_03_temizlik_maskesi.png")))>127
+mk|=(np.abs(dy)>200)&(ax<175)                                           # ekran disina tasan kisim: ust/alt kapak disari dogru tamamen temiz
+mk|=(R>148)&(R<182)&(sariyesil<0.3)&(np.abs(dy)>45)                     # bosluktaki ince halka cizgisi
+mk=ndimage.binary_closing(mk,np.ones((9,9)))&(R>150)
+yy_,xx_=np.mgrid[-6:7,-6:7]; mk=ndimage.binary_opening(mk,(yy_**2+xx_**2)<=36)    # tirtikli kenarlar yuvarlanir
+mk=np.maximum(ndimage.gaussian_filter(mk.astype(np.float32),3.0),ndimage.gaussian_filter(mk.astype(np.float32),14.0)*(R>200))   # dis sisle kesik kenar yumusak
+T=T*(1-mk)[...,None]
 al=T.max(2); rgb=np.where(al[...,None]>1e-4,T/np.maximum(al,1e-4)[...,None],0)
 Image.fromarray(np.dstack([(rgb*255).round(),(al*255).round()]).astype(np.uint8)).save(os.path.join(K,"kare_03.png"))
 im=Image.open(os.path.join(K,"kare_03.png"))
