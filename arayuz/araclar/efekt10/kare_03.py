@@ -12,15 +12,10 @@ IKINCI_KAT=0.50; CIZGI_OPAK=0.50; SARI=np.array([0xF7,0xE6,0x45],np.float32)/255
 a=np.asarray(Image.open(os.path.join(K,"kare_01.png")).convert("RGBA")).astype(np.float32)/255
 L=a[...,:3]*a[...,3:4]; H,W=L.shape[:2]; cy,cx=(H-1)/2,(W-1)/2
 yy,xx=np.mgrid[0:H,0:W].astype(np.float32); dx,dy=xx-cx,yy-cy; R=np.hypot(dx,dy); ax=np.abs(dx)
-# 1) ikinci katman %50: kare_01'de beyazin disindaki seftali/somon halka (r 72-172) yarim, yumusak sinirli; parantez (sari-yesil) korunur
+# 1) parantez disinda ic bolge bosaltilir (ikinci katman asagida mercegin etrafina sarilacak)
 mx=np.maximum(L.max(2),1e-3); sariyesil=np.clip((L[...,1]-0.80*L[...,0])/0.12+0.5,0,1)*np.clip((R-165)/10,0,1)
-# eski beyaz cekirdek kalkar: r<100 icin ayni aci yonunde r=100+ (seftali/somon) renkleri iceri dogru uzatilir
-th0=np.arctan2(dy,dx); rs=np.where(R<100,100+(100-R)*0.25,R)
-Lic=np.stack([ndimage.map_coordinates(L[...,c],[cy+rs*np.sin(th0),cx+rs*np.cos(th0)],order=1) for c in range(3)],-1)
-Lic=np.stack([ndimage.gaussian_filter(Lic[...,c],7) for c in range(3)],-1)   # merkeze dogru isinsal cizgi olusmasin
-wic=np.clip((104-R)/8,0,1)[...,None]; L=L*(1-wic)+Lic*wic
-bolge=np.clip((185-R)/14,0,1)*(1-sariyesil)
-L=L*(1-bolge*(1-IKINCI_KAT))[...,None]
+bos=np.clip((184-R)/30,0,1)*(1-sariyesil)
+L=L*(1-bos)[...,None]
 # 2) mercek bicimli titanyum beyaz: yari yukseklik profili h(x) -> govde (elips) + uca dogru incelen bant
 govde=GOVDE_Y*np.sqrt(np.clip(1-(ax/GOVDE_X)**2,0,1))
 bant=BANT_Y*np.clip(1-np.clip((ax-GOVDE_X*0.6)/(BANT_X-GOVDE_X*0.6),0,1),0,1)**0.7*(ax<BANT_X)
@@ -36,6 +31,15 @@ a0=np.asarray(Image.open(os.path.join(K,"kare_01.png")).convert("RGBA")).astype(
 rr=np.clip(76*s_,0,cx-1); G=np.stack([ndimage.map_coordinates(L0[...,c],[np.full_like(rr,cy),cx+rr],order=1) for c in range(3)],-1)
 w=np.clip((1.45-s_)/0.75,0,1); w=w*w*(3-2*w); w=ndimage.gaussian_filter(w*(ax<BANT_X+25),4.0)[...,None]
 G=np.stack([ndimage.gaussian_filter(G[...,c],2.0) for c in range(3)],-1)
+# ikinci katman: kare_01'deki seftali/somon halka (beyaz kenari r~78'den r~172'ye, ~95 px) AYNI KALINLIKTA mercegin etrafina sarilir, %50
+mask=np.hypot(dx/GOVDE_X,dy/GOVDE_Y)<1.0           # yalniz mercek govdesi (bant haric)
+d=ndimage.distance_transform_edt(~mask)
+KAL=48.0                                            # ikinci katman kalinligi (her yerde ayni)
+req=112.0+d*(48.0/KAL)
+th1=np.arctan2(dy,dx)
+Hk=np.stack([ndimage.map_coordinates(L0[...,c],[cy+req*np.sin(th1),cx+req*np.cos(th1)],order=1) for c in range(3)],-1)
+wk=np.clip((KAL+10-d)/26,0,1)*np.clip((d+6)/6,0,1)*(1-sariyesil)*np.clip((186-R)/10,0,1)
+L=np.maximum(L,Hk*(wk*IKINCI_KAT)[...,None])
 T=L*(1-w)+np.maximum(L,G)*w
 # 3) sari cizgi %50 (beyazin icinde gorunmez)
 beyaz=ndimage.gaussian_filter(np.clip((T.min(2)-0.80)/0.15,0,1),2.0)
