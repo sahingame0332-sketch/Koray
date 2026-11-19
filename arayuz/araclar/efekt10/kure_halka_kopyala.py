@@ -29,7 +29,21 @@ dn=np.where(np.sin(th)<0,-np.pi/2,np.pi/2)                       # ust: -90° do
 kx=cx+(xx-cx)*np.cos(-dn)-(yy-cy)*np.sin(-dn); ky=cy+(xx-cx)*np.sin(-dn)+(yy-cy)*np.cos(-dn)
 D=np.stack([ndimage.map_coordinates(T[...,c],[ky,kx],order=1) for c in range(3)],-1)
 q=np.clip((np.abs(np.sin(th))-0.62)/0.22,0,1); q=(q*q*(3-2*q))[...,None]*w
+T0q=T.copy()
 T=T*(1-q)+D*q
+# tepe/dip: sol parcadaki turuncu dis serit (r~148-170, parantez baslangici) burada parantez olmadigi icin iz birakiyordu ->
+# r 146 (pembe) ile r 176 (ozgun dis sis) arasinda ayni aci uzerinde dogrusal gecis
+ux,uy=np.cos(th),np.sin(th)
+def ornek(A,rr):
+    return np.stack([ndimage.map_coordinates(A[...,c],[cy+rr*uy,cx+rr*ux],order=1) for c in range(3)],-1)
+yum=lambda A: np.stack([ndimage.gaussian_filter(A[...,c],6) for c in range(3)],-1)
+ic_,dis_=ornek(yum(T),146),ornek(yum(T0q),176)
+doku=D-yum(D)                                                     # halkanin kendi ince dokusu (cizgi olusmasin diye yumusak orneklere eklenir)
+f=np.clip((R-146)/30,0,1)[...,None]; f=f*f*(3-2*f)
+gec=np.clip(ic_*(1-f)+dis_*f+doku*(1-f[...,:1]*0.5),0,None)
+qq=np.clip((np.abs(np.sin(th))-0.55)/0.25,0,1); qq=qq*qq*(3-2*qq)
+bolge=(qq*((R>=144)&(R<=178)))[...,None]
+T=T*(1-bolge)+gec*bolge
 al=T.max(2); rgb=np.where(al[...,None]>1e-4,T/np.maximum(al,1e-4)[...,None],0)
 out=os.path.join(K,"kure_ref_saydam_pembeli_halka.png")
 Image.fromarray(np.dstack([(rgb*255).round(),(al*255).round()]).astype(np.uint8)).save(out)
