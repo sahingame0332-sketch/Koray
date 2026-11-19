@@ -6,7 +6,7 @@ import os, numpy as np
 from PIL import Image
 from scipy import ndimage
 B_=os.path.dirname(os.path.abspath(__file__)); K=os.path.join(B_,"..","..","kaynak","efekt10","kareler")
-KIRMIZI=np.array([0xE8,0x48,0x3A],np.float32)/255; GUC=0.85
+KIRMIZI=np.array([0xFF,0xA0,0xA0],np.float32)/255; GUC=0.85     # ilk iki resimdeki seftali-somon tonu (olculen oran 1 : 0.627 : 0.628)
 for n in (1,2):
     a=np.asarray(Image.open(os.path.join(K,"kare_%02d.png"%n)).convert("RGBA")).astype(np.float32)/255
     L=a[...,:3]*a[...,3:4]; H,W=L.shape[:2]; cy,cx=(H-1)/2,(W-1)/2
