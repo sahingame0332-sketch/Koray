@@ -50,8 +50,8 @@ def uret(t):
     govde=np.clip(sb*1.6,0,1)**0.8*(ax<X)
     cek=np.exp(-(dy/(10+18*np.clip(1-ax/X,0,1)))**2)*np.clip(1-ax/X,0,1)**0.5           # parlak cekirdek cizgisi
     hale=ndimage.gaussian_filter(govde,22)*0.8
-    renk=ALTIN*(1-sb[...,None])+KREM*sb[...,None]
-    isin=np.clip(renk*govde[...,None]*0.85+KREM*cek[...,None]*0.9+ALTIN*hale[...,None]*0.6,0,1)*t
+    renk=SARI*(1-sb[...,None])+KREM*sb[...,None]                                     # isin kenari parantez sarisi (#FCFD8A)
+    isin=np.clip(renk*govde[...,None]*0.85+KREM*cek[...,None]*0.9+SARI*hale[...,None]*0.6,0,1)*t
     T=1-(1-T)*(1-isin)
     # en merkez beyaz
     T=np.maximum(T,np.ones(3,np.float32)*np.exp(-(R/14)**2)[...,None])
