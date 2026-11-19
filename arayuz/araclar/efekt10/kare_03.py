@@ -67,6 +67,19 @@ IC=np.array([0xFF,0xFB,0xC8],np.float32)/255; UC=np.array([0xFF,0xB0,0x55],np.fl
 u_=np.clip(dd/np.maximum(uz,1),0,1)[...,None]
 alev_renk=IC*(1-u_)+UC*u_
 T=1-(1-T)*(1-np.clip(alev_renk*alev[...,None]*0.95,0,1))
+# 4b) ikinci katmanin (titanyum disindaki seftali/somon halka) dis kenarina da alev sizmalari: somon -> kizil turuncu uclar
+halka_m=d<=KAL-6
+dd2=ndimage.distance_transform_edt(~halka_m)
+zb=np.random.default_rng(91).random(96).astype(np.float32); NB_=96
+ib=(th2+np.pi)/(2*np.pi)*NB_; j0=np.floor(ib).astype(int)%NB_; fb=ib-np.floor(ib); fb=fb*fb*(3-2*fb)
+dil2=zb[j0]*(1-fb)+zb[(j0+1)%NB_]*fb
+uz2=8+30*dil2**1.5
+alev2=np.clip(1-(dd2+gur(6,92)*4.0)/(uz2+10),0,1)*np.clip(dd2/10,0,1)
+damar2=np.clip(0.5+0.5*np.sin(th2*46+gur(9,93)*2.5),0,1)
+alev2=(alev2**1.3)*(0.4+0.6*damar2)*(1-sariyesil)*np.clip((186-R)/12,0,1)
+IC2=np.array([0xF4,0xA8,0x96],np.float32)/255; UC2=np.array([0xE8,0x6A,0x40],np.float32)/255
+u2=np.clip(dd2/np.maximum(uz2,1),0,1)[...,None]
+T=1-(1-T)*(1-np.clip((IC2*(1-u2)+UC2*u2)*alev2[...,None]*0.75,0,1))
 # 5) kullanicinin ust temizligi ve onun alt aynasi: maske bolgesi saydam
 mk=np.asarray(Image.open(os.path.join(K,"kare_03_temizlik_maskesi.png")))>127
 mk|=(np.abs(dy)>200)&(ax<175)                                           # ekran disina tasan kisim: ust/alt kapak disari dogru tamamen temiz
