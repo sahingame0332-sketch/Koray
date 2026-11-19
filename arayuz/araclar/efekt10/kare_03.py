@@ -75,6 +75,10 @@ mk=ndimage.binary_closing(mk,np.ones((9,9)))&(R>150)
 yy_,xx_=np.mgrid[-6:7,-6:7]; mk=ndimage.binary_opening(mk,(yy_**2+xx_**2)<=36)    # tirtikli kenarlar yuvarlanir
 mk=np.maximum(ndimage.gaussian_filter(mk.astype(np.float32),3.0),ndimage.gaussian_filter(mk.astype(np.float32),14.0)*(R>200))   # dis sisle kesik kenar yumusak
 T=T*(1-mk)[...,None]
+# 6) sol parantezin disi = sag parantezin disinin yatay aynasi (r>212, sol yari; eksen ve ic kenar yumusak)
+mxs=np.clip(np.round(2*cx-xx).astype(int),0,W-1); yyi=yy.astype(int)
+ws=np.clip((R-212)/14,0,1)*np.clip((-dx-20)/30,0,1)
+T=T*(1-ws[...,None])+T[yyi,mxs]*ws[...,None]
 al=T.max(2); rgb=np.where(al[...,None]>1e-4,T/np.maximum(al,1e-4)[...,None],0)
 Image.fromarray(np.dstack([(rgb*255).round(),(al*255).round()]).astype(np.uint8)).save(os.path.join(K,"kare_03.png"))
 im=Image.open(os.path.join(K,"kare_03.png"))
