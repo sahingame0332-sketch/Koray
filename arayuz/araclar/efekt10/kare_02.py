@@ -16,7 +16,7 @@ yy,xx=np.mgrid[0:H,0:W].astype(np.float32); dx,dy=xx-cx,yy-cy
 # 1) beyaz kure (kullanici cizimi): yanlara genisleyen mercek/goz bicimi + iki yandan disari uzanan yatay bant.
 #    Bicim alani s: elips (yari genislik 150, yari yukseklik 96) ile yatay bant (yari kalinlik 16, uzunluk 245) yumusak birlesimi.
 #    s=1 kenar; renk kare_01'in kendi radyal gecisinden (beyaz -> sampanya -> seftali) ayni aci yonunde orneklenir.
-EA,EB,BK,BU=121.5,79.2,15.0,200.0          # titanyum beyaz 1/10 kucuk
+EA,EB,BK,BU=104.0,68.0,22.0,200.0          # cekirdek sikisiyor (kucuk), yanlar kalin
 el=np.hypot(dx/EA,dy/EB)
 # bant: ortada ince, parantezle birlestigi yerde (|dx| ~ 175-215) kalinlasir, sonra yumusakca biter
 ax=np.abs(dx)
@@ -38,7 +38,18 @@ sx=cx+np.cos(th)*R0*s_; sy=cy+np.sin(th)*R0*s_
 G=np.stack([ndimage.map_coordinates(L[...,c],[sy,sx],order=1) for c in range(3)],-1)
 w=np.clip((1.45-s_)/0.75,0,1); w=w*w*(3-2*w); w=ndimage.gaussian_filter(w,6.0)[...,None]      # genis, yumusak kenar
 G=np.stack([ndimage.gaussian_filter(G[...,c],2.0) for c in range(3)],-1)
-T=L*(1-w)+np.maximum(L,G)*w
+# renk: yalniz ortadaki cekirdek titanyum beyaz; kenarlara ve bant uclarina dogru altin sariya doner (paranteze dogru)
+ALTIN=np.array([0xFB,0xE0,0x4E],np.float32)/255; ACIK=np.array([0xFF,0xF6,0xC6],np.float32)/255
+q=np.hypot(dx/58.0,dy/44.0)                                          # beyaz cekirdek (~116x88)
+ys=np.clip((q-0.85)/1.6,0,1); ys=ys*ys*(3-2*ys)
+ys=np.maximum(ys,np.clip((ax-EA*0.55)/(BU-EA*0.55),0,1)**0.8)          # bant uclarina dogru tam sari
+renk=np.where(ys[...,None]<0.5, np.ones(3,np.float32)*(1-2*ys[...,None])+ACIK*2*ys[...,None], ACIK*(2-2*ys[...,None])+ALTIN*(2*ys[...,None]-1))
+G=renk
+# kare_01'in yuvarlak beyaz cekirdegi kalkar (cekirdek sikisti): r<100 seftali/somon halka rengiyle iceri dogru doldurulur
+th0=np.arctan2(dy,dx); R_=np.hypot(dx,dy); rs=np.where(R_<100,100+(100-R_)*0.25,R_)
+Lic=np.stack([ndimage.gaussian_filter(ndimage.map_coordinates(L[...,c],[cy+rs*np.sin(th0),cx+rs*np.cos(th0)],order=1),7) for c in range(3)],-1)
+wic=np.clip((104-R_)/8,0,1)[...,None]; L=L*(1-wic)+Lic*wic
+T=L*(1-w)+G*w
 # 2) yatay sari cizgi, %50 opaklik
 uz=W*0.47
 boy=np.clip(1-np.abs(dx)/uz,0,1)**0.8
