@@ -100,16 +100,13 @@ T=T*(1-ws[...,None])+T[yyi,mxs]*ws[...,None]
 # 7) bos kalan yerler (kullanici): kare 1-2'deki seftali-somon katman AYNI PIKSELLERIYLE (renk + doku birebir kare_01'den),
 #    yalniz eski beyaz cekirdek yeri (r<100) ayni katmanin rengiyle iceri dogru tamamlanir; merkezin sekli bozulmaz (yalniz bos yerler)
 th3=np.arctan2(dy,dx)
-# kare 1'deki somon halkadan (sol dilim: x -158..-124, y -70..+70) kesilen dokunun duz (kartezyen) ayna-dongulu dosemesi:
-# isinsal/es merkezli cizgi olusmaz; renk kare 1 halkasinin kendisi
-ix0,ix1,iy0,iy1=int(cx)-158,int(cx)-124,int(cy)-70,int(cy)+70
-Pt=L0[iy0:iy1,ix0:ix1]; ph,pw=Pt.shape[:2]
-def ayna(v,n):
-    v=np.mod(v,2*n); return np.where(v<n,v,2*n-1-v)
-iyp=ayna((yy+0.37*xx).astype(int),ph); ixp=ayna((xx-0.21*yy).astype(int),pw)       # hafif egik doseme: tekrar belli olmasin
-Lic3=Pt[iyp,ixp]
-Lic3=np.stack([ndimage.gaussian_filter(Lic3[...,c],1.0) for c in range(3)],-1)
-w3=np.clip((142-R)/16,0,1); w3=(w3*w3*(3-2*w3))[...,None]; Lk=L0*(1-w3)+Lic3*w3
+# kare 1'deki somon-pembe halka (r 100-162: ic seftali -> somon -> dis koyu gul) AYNEN, mercegin etrafina sarilir:
+# mercek kenarindan (t=0) parantezin ic kenarina (R=186, t=1) kadar olan aralik, kare 1 halkasinin 100-162 yaricapina eslenir (ayni aci yonunde)
+mer_m=np.hypot(dx/GOVDE_X,dy/GOVDE_Y)<1.0
+d3=ndimage.distance_transform_edt(~mer_m); dO=np.clip(186-R,0,None)
+t3=np.clip(d3/np.maximum(d3+dO,1e-3),0,1)
+r3=100+62*t3
+Lk=np.stack([ndimage.map_coordinates(L0[...,c],[cy+r3*np.sin(th3),cx+r3*np.cos(th3)],order=1) for c in range(3)],-1)
 bos_yer=np.clip((Lk.max(2)*0.95-T.max(2))/0.12,0,1); bos_yer=ndimage.gaussian_filter(bos_yer,2.0)   # T, kare_01 katmanindan sonukse (bos/yari bos) doldur
 bv=bos_yer*(1-sariyesil)*np.clip((186-R)/8,0,1)
 T=np.maximum(T,Lk*bv[...,None])
