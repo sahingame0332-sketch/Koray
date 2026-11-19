@@ -10,7 +10,8 @@ from PIL import Image
 from scipy import ndimage
 B_=os.path.dirname(os.path.abspath(__file__)); K=os.path.join(B_,"..","..","kaynak","efekt10","kareler"); ONZ=os.path.join(B_,"..","..","onizlemeler")
 OLC=0.5; AZ=0.85                                      # merkez yapi olcegi (tum uzunlugun 1/3'u) ve azalma
-GOVDE_X,GOVDE_Y,BANT_Y,BANT_X=105.0*OLC,54.0*OLC,36.0*OLC,170.0*OLC
+GOVDE_X,GOVDE_Y=105.0*OLC,54.0*OLC
+BANT_Y,BANT_X=GOVDE_Y*0.9,170.0          # bant: titanyum boyunda baslar, paranteze kadar uzanip kenara dogru incelir
 IKINCI_KAT=0.50; CIZGI_OPAK=0.50; SARI=np.array([0xF7,0xE6,0x45],np.float32)/255
 a=np.asarray(Image.open(os.path.join(K,"kare_01.png")).convert("RGBA")).astype(np.float32)/255
 L=a[...,:3]*a[...,3:4]; H,W=L.shape[:2]; cy,cx=(H-1)/2,(W-1)/2
@@ -21,7 +22,7 @@ bos=np.clip((184-R)/30,0,1)*(1-sariyesil)
 L=L*(1-bos)[...,None]
 # 2) mercek bicimli titanyum beyaz: yari yukseklik profili h(x) -> govde (elips) + uca dogru incelen bant
 govde=GOVDE_Y*np.sqrt(np.clip(1-(ax/GOVDE_X)**2,0,1))
-bant=BANT_Y*(1-0.6*np.clip((ax-GOVDE_X*0.5)/(BANT_X-GOVDE_X*0.5),0,1)**0.8)*np.clip((BANT_X+10-ax)/20,0,1)   # kureden kalin cikar, paranteze dogru incelir
+bant=BANT_Y*(1-0.85*np.clip((ax-GOVDE_X*0.5)/(BANT_X-GOVDE_X*0.5),0,1)**0.8)*np.clip((BANT_X+10-ax)/20,0,1)   # kureden kalin cikar, paranteze dogru incelir
 h=np.maximum(govde,np.maximum(bant,0.01))
 h=ndimage.gaussian_filter1d(h,6,axis=1)                         # govde-bant gecisi yumusak (goz bicimi)
 rg=np.random.default_rng(31)
