@@ -22,7 +22,7 @@ bos=np.clip((184-R)/30,0,1)*(1-sariyesil)
 L=L*(1-bos)[...,None]
 # 2) mercek bicimli titanyum beyaz: yari yukseklik profili h(x) -> govde (elips) + uca dogru incelen bant
 govde=GOVDE_Y*np.sqrt(np.clip(1-(ax/GOVDE_X)**2,0,1))
-bant=BANT_Y*(1-0.85*np.clip((ax-GOVDE_X*0.5)/(BANT_X-GOVDE_X*0.5),0,1)**0.8)*np.clip((BANT_X+10-ax)/20,0,1)   # kureden kalin cikar, paranteze dogru incelir
+bant=BANT_Y*(1-0.42*np.clip((ax-GOVDE_X*0.5)/(BANT_X-GOVDE_X*0.5),0,1)**0.8)*np.clip((BANT_X+10-ax)/20,0,1)   # kureden kalin cikar, paranteze dogru incelir
 h=np.maximum(govde,np.maximum(bant,0.01))
 h=ndimage.gaussian_filter1d(h,6,axis=1)                         # govde-bant gecisi yumusak (goz bicimi)
 rg=np.random.default_rng(31)
