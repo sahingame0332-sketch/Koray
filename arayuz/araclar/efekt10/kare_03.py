@@ -15,11 +15,7 @@ yy,xx=np.mgrid[0:H,0:W].astype(np.float32); dx,dy=xx-cx,yy-cy; R=np.hypot(dx,dy)
 # 1) parantez disinda ic bolge bosaltilir (ikinci katman asagida mercegin etrafina sarilacak)
 mx=np.maximum(L.max(2),1e-3); sariyesil=np.clip((L[...,1]-0.80*L[...,0])/0.12+0.5,0,1)*np.clip((R-165)/10,0,1)
 bos=np.clip((184-R)/30,0,1)*(1-sariyesil)
-# (kullanici: silinen seftali katmani geri) ic bolge bosaltilmaz; kare_01'in seftali/somon katmani aynen kalir,
-# yalniz eski yuvarlak beyaz cekirdek (r<100) ayni katmanin rengiyle iceri dogru doldurulur
-th0=np.arctan2(dy,dx); rs=np.where(R<100,100+(100-R)*0.25,R)
-Lic=np.stack([ndimage.gaussian_filter(ndimage.map_coordinates(L[...,c],[cy+rs*np.sin(th0),cx+rs*np.cos(th0)],order=1),7) for c in range(3)],-1)
-wic=np.clip((104-R)/8,0,1)[...,None]; L=L*(1-wic)+Lic*wic
+L=L*(1-bos)[...,None]
 # 2) mercek bicimli titanyum beyaz: yari yukseklik profili h(x) -> govde (elips) + uca dogru incelen bant
 govde=GOVDE_Y*np.sqrt(np.clip(1-(ax/GOVDE_X)**2,0,1))
 bant=BANT_Y*(1-0.6*np.clip((ax-GOVDE_X*0.5)/(BANT_X-GOVDE_X*0.5),0,1)**0.8)*np.clip((BANT_X+10-ax)/20,0,1)   # kureden kalin cikar, paranteze dogru incelir
@@ -96,6 +92,14 @@ T=T*(1-mk)[...,None]
 mxs=np.clip(np.round(2*cx-xx).astype(int),0,W-1); yyi=yy.astype(int)
 ws=np.clip((R-212)/14,0,1)*np.clip((-dx-20)/30,0,1)
 T=T*(1-ws[...,None])+T[yyi,mxs]*ws[...,None]
+# 7) buhar (kullanici): merkezin sekli bozulmadan, bos kalan yerlere kare 1-2'deki gibi seftali-somon buhar
+th3=np.arctan2(dy,dx); rb=np.clip(100+np.clip(R-100,0,72)*0.9,100,172)            # kare_01 halkasinin (r 100-172) dokusu
+Bv=np.stack([ndimage.map_coordinates(L0[...,c],[cy+rb*np.sin(th3),cx+rb*np.cos(th3)],order=1) for c in range(3)],-1)
+bulut=np.clip(0.72+0.22*ndimage.gaussian_filter(gur(26,61),3.0)+0.08*gur(8,62),0,1)        # kare 1-2 gibi yumusak, sureklı buhar
+bos_yer=np.clip(1-T.max(2)/0.55,0,1)                                              # yalniz bos (beyaz zeminde beyaz gorunen) yerler
+bv=bulut*bos_yer*np.clip((182-R)/16,0,1)*(1-sariyesil)*0.70
+bv=ndimage.gaussian_filter(bv,4.0)
+T=np.maximum(T,Bv*bv[...,None])
 al=T.max(2); rgb=np.where(al[...,None]>1e-4,T/np.maximum(al,1e-4)[...,None],0)
 Image.fromarray(np.dstack([(rgb*255).round(),(al*255).round()]).astype(np.uint8)).save(os.path.join(K,"kare_03.png"))
 im=Image.open(os.path.join(K,"kare_03.png"))
