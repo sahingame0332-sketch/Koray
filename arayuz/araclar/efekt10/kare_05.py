@@ -18,15 +18,22 @@ cy=cx=(N-1)/2; yy,xx=np.mgrid[0:N,0:N].astype(np.float32); dx,dy=xx-cx,yy-cy; R=
 def gur(sc,seed):
     z=np.random.default_rng(seed).standard_normal((N//sc+3,N//sc+3)).astype(np.float32)
     z=ndimage.zoom(ndimage.gaussian_filter(z,1.0),sc,order=3)[:N,:N]; return z/(z.std()+1e-6)
-SARI=np.array([0xFC,0xFD,0x8A],np.float32)/255; ALTIN=np.array([0xFF,0xE6,0x5A],np.float32)/255; KREM=np.array([0xFF,0xFB,0xD8],np.float32)/255
+SARI=np.array([0xFC,0xFD,0x8A],np.float32)/255; ALTIN=np.array([0xFF,0xE6,0x5A],np.float32)/255; KREM=np.array([0xFE,0xF6,0x8E],np.float32)/255         # isinin ortasi da sari (kullanici: cok beyazdi)
 mx=np.maximum(L4.max(2),1e-3)
 par=np.clip((L4[...,1]-0.80*L4[...,0])/0.12+0.5,0,1)*np.clip((R-170)/12,0,1)*np.clip((L4.max(2)-0.15)/0.2,0,1)   # sari-yesil parantez
 par=ndimage.gaussian_filter(np.clip(par*1.4,0,1),2.0)
 def uret(t):
     # 1) parantezler disari (yaricap x (1+0.30t)) gider ve soner; dis sisleri de onlarla gider
     P=L4*par[...,None]; G=L4*(1-par[...,None])
-    f=1/(1+0.30*t)
-    Pm=np.stack([ndimage.map_coordinates(P[...,c],[cy+dy*f,cx+dx*f],order=1) for c in range(3)],-1)*(1-t)
+    f=1/(1+0.40*t)
+    Pm=np.stack([ndimage.map_coordinates(P[...,c],[cy+dy*f,cx+dx*f],order=1) for c in range(3)],-1)
+    # (kullanici) parantezler buyuyup disari acilirken soyutlasir ve seftali-somon kalir:
+    lum=Pm.max(2,keepdims=True)
+    SOMON=np.array([0xE3,0x96,0x96],np.float32)/255
+    Pm=Pm*(1-t)+lum*SOMON/SOMON.max()*t                                              # renk sari-yesilden seftali-somona
+    soyut=np.clip(0.55+0.65*ndimage.gaussian_filter(gur(14,21),1.5)+0.35*gur(6,22),0,1)   # parcali, bulutsu dagilma
+    Pm=Pm*(1-t*(1-soyut[...,None]))
+    Pm=np.stack([ndimage.gaussian_filter(Pm[...,c],1+5*t) for c in range(3)],-1)*(1-0.35*t)   # bulaniklasip biraz soner
     # 2) parantezlerin yeri seftali-somon: ayni acidaki somon halkadan (r 120-158) dokuyla, disa dogru soluk
     xr=np.mod(np.clip(R-165,0,None),76); rr=158-np.where(xr<38,xr,76-xr)
     Ls=np.stack([ndimage.map_coordinates(L4[...,c],[cy+rr*np.sin(th),cx+rr*np.cos(th)],order=1) for c in range(3)],-1)
@@ -51,7 +58,7 @@ def uret(t):
     cek=np.exp(-(dy/(10+18*np.clip(1-ax/X,0,1)))**2)*np.clip(1-ax/X,0,1)**0.5           # parlak cekirdek cizgisi
     hale=ndimage.gaussian_filter(govde,22)*0.8
     renk=SARI*(1-sb[...,None])+KREM*sb[...,None]                                     # isin kenari parantez sarisi (#FCFD8A)
-    isin=np.clip(renk*govde[...,None]*0.85+KREM*cek[...,None]*0.9+SARI*hale[...,None]*0.6,0,1)*t
+    isin=np.clip(renk*govde[...,None]*0.75+KREM*cek[...,None]*0.55+SARI*hale[...,None]*0.6,0,1)*t
     T=1-(1-T)*(1-isin)
     # en merkez beyaz
     T=np.maximum(T,np.ones(3,np.float32)*np.exp(-(R/14)**2)[...,None])
