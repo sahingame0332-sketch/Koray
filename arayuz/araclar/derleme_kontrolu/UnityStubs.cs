@@ -40,6 +40,8 @@ namespace UnityEngine
         public Material(Shader s) { } public Material(Material m) { } public void SetFloat(string n, float f) { } public void SetFloat(int n, float f) { } public Texture mainTexture;
         public Shader shader;
         public bool HasProperty(int id) { return true; }
+        public bool HasProperty(string name) { return true; }
+        public Color GetColor(string name) { return new Color(1,1,1,1); }
         public void SetColor(int id, Color c) { }
         public void SetColor(string name, Color c) { }
         public void SetTexture(string name, Texture t) { }
@@ -81,6 +83,9 @@ namespace UnityEngine
         public static Vector4 zero { get { return new Vector4(0, 0, 0, 0); } }
     }
     public struct Color { public static Color Lerp(Color a, Color b, float t) { return a; }
+        public static void RGBToHSV(Color c, out float h, out float s, out float v) { h = s = v = 0; }
+        public static Color HSVToRGB(float h, float s, float v) { return new Color(h, s, v); }
+        public static Color HSVToRGB(float h, float s, float v, bool hdr) { return new Color(h, s, v); }
         public float r, g, b, a;
         public Color(float r, float g, float b) { this.r = r; this.g = g; this.b = b; this.a = 1f; }
         public Color(float r, float g, float b, float a) { this.r = r; this.g = g; this.b = b; this.a = a; }
@@ -100,7 +105,7 @@ namespace UnityEngine
         public static string ToHtmlStringRGB(Color c) { return ""; }
     }
 
-    public class Object {
+    public class Object { public static implicit operator bool(Object o) { return o != null; } 
         public string name;
         public static void DestroyImmediate(Object o) { }
         public static void Destroy(Object o) { }
@@ -203,7 +208,24 @@ namespace UnityEngine
 
     public enum RenderMode { ScreenSpaceOverlay, ScreenSpaceCamera, WorldSpace }
     public class Camera : Behaviour { public new Transform transform { get { return null; } } public Vector3 WorldToScreenPoint(Vector3 p) { return p; } public static Camera main { get { return null; } } public CameraClearFlags clearFlags; public Color backgroundColor; }
+    public static class GUILayout { public static bool Button(string t) { return false; } }
     public class ParticleSystemRenderer : Renderer { }
+    public struct GradientColorKey { public Color color; public float time; }
+    public struct GradientAlphaKey { public float alpha; public float time; }
+    public enum GradientMode { Blend, Fixed }
+    public class Gradient { public GradientColorKey[] colorKeys = new GradientColorKey[0]; public GradientAlphaKey[] alphaKeys = new GradientAlphaKey[0]; public GradientMode mode; public void SetKeys(GradientColorKey[] c, GradientAlphaKey[] a) { } }
+    public enum ParticleSystemGradientMode { Color, Gradient, TwoColors, TwoGradients, RandomColor }
+    public class ParticleSystem : Component {
+        public struct MinMaxGradient {
+            public ParticleSystemGradientMode mode; public Color color, colorMin, colorMax; public Gradient gradient, gradientMin, gradientMax;
+            public MinMaxGradient(Color c) : this() { } public MinMaxGradient(Color a, Color b) : this() { }
+            public MinMaxGradient(Gradient g) : this() { } public MinMaxGradient(Gradient a, Gradient b) : this() { }
+        }
+        public struct MainModule { public MinMaxGradient startColor { get; set; } }
+        public struct ColorOverLifetimeModule { public bool enabled { get; set; } public MinMaxGradient color { get; set; } }
+        public MainModule main { get { return new MainModule(); } }
+        public ColorOverLifetimeModule colorOverLifetime { get { return new ColorOverLifetimeModule(); } }
+    }
     public class Renderer : Component { public Material sharedMaterial; public Material[] sharedMaterials; public bool enabled; public bool receiveShadows; public UnityEngine.Rendering.ShadowCastingMode shadowCastingMode; public void GetPropertyBlock(MaterialPropertyBlock b) { } public void GetPropertyBlock(MaterialPropertyBlock b, int i) { } public void SetPropertyBlock(MaterialPropertyBlock b, int i) { } public void SetPropertyBlock(MaterialPropertyBlock b) { } }
     public class MeshRenderer : Renderer { }
     public class MeshFilter : Component { public Mesh sharedMesh; }

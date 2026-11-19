@@ -21,18 +21,29 @@ namespace UnityEditor
         public static void Refresh() { }
         public static void SaveAssets() { }
         public static void CreateAsset(UnityEngine.Object asset, string path) { }
+        public static string GetAssetPath(UnityEngine.Object o) { return ""; }
+        public static bool CopyAsset(string a, string b) { return true; }
+        public static string GenerateUniqueAssetPath(string p) { return p; }
     }
 
     public enum InteractionMode { AutomatedAction, UserAction }
 
     public static class PrefabUtility {
+        public static GameObject LoadPrefabContents(string path) { return null; }
+        public static void UnloadPrefabContents(GameObject g) { }
         public static GameObject SaveAsPrefabAsset(GameObject root, string assetPath) { return null; }
         public static GameObject SaveAsPrefabAssetAndConnect(GameObject root, string assetPath, InteractionMode mode) { return null; }
         public static UnityEngine.Object InstantiatePrefab(UnityEngine.Object assetComponentOrGameObject) { return null; }
         public static UnityEngine.Object InstantiatePrefab(UnityEngine.Object assetComponentOrGameObject, Transform parent) { return null; }
     }
 
-    public static class EditorUtility { public static void SetDirty(UnityEngine.Object o) { } }
+    public static class EditorUtility { public static void SetDirty(UnityEngine.Object o) { } public static bool DisplayDialog(string t, string m, string ok) { return true; } }
+    public class EditorWindow : UnityEngine.Object { public static T GetWindow<T>(string title) where T : EditorWindow { return null; } }
+    public static class EditorGUILayout {
+        public static float Slider(string l, float v, float a, float b) { return v; }
+        public static Color ColorField(string l, Color c) { return c; }
+        public static string TextField(string l, string t) { return t; }
+    }
 
     public static class Undo {
         public static void RegisterCreatedObjectUndo(UnityEngine.Object objectToUndo, string name) { }
