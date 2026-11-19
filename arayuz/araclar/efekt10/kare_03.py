@@ -15,7 +15,11 @@ yy,xx=np.mgrid[0:H,0:W].astype(np.float32); dx,dy=xx-cx,yy-cy; R=np.hypot(dx,dy)
 # 1) parantez disinda ic bolge bosaltilir (ikinci katman asagida mercegin etrafina sarilacak)
 mx=np.maximum(L.max(2),1e-3); sariyesil=np.clip((L[...,1]-0.80*L[...,0])/0.12+0.5,0,1)*np.clip((R-165)/10,0,1)
 bos=np.clip((184-R)/30,0,1)*(1-sariyesil)
-L=L*(1-bos)[...,None]
+# (kullanici: silinen seftali katmani geri) ic bolge bosaltilmaz; kare_01'in seftali/somon katmani aynen kalir,
+# yalniz eski yuvarlak beyaz cekirdek (r<100) ayni katmanin rengiyle iceri dogru doldurulur
+th0=np.arctan2(dy,dx); rs=np.where(R<100,100+(100-R)*0.25,R)
+Lic=np.stack([ndimage.gaussian_filter(ndimage.map_coordinates(L[...,c],[cy+rs*np.sin(th0),cx+rs*np.cos(th0)],order=1),7) for c in range(3)],-1)
+wic=np.clip((104-R)/8,0,1)[...,None]; L=L*(1-wic)+Lic*wic
 # 2) mercek bicimli titanyum beyaz: yari yukseklik profili h(x) -> govde (elips) + uca dogru incelen bant
 govde=GOVDE_Y*np.sqrt(np.clip(1-(ax/GOVDE_X)**2,0,1))
 bant=BANT_Y*(1-0.6*np.clip((ax-GOVDE_X*0.5)/(BANT_X-GOVDE_X*0.5),0,1)**0.8)*np.clip((BANT_X+10-ax)/20,0,1)   # kureden kalin cikar, paranteze dogru incelir

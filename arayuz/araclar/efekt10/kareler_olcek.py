@@ -10,7 +10,7 @@ TUVAL=920
 od=os.path.join(K,"olcekli"); os.makedirs(od,exist_ok=True)
 ims=[]
 for n,s in OLCEK.items():
-    ad="kare_%02d_kirmizi.png"%n if os.path.exists(os.path.join(K,"kare_%02d_kirmizi.png"%n)) else "kare_%02d.png"%n   # kare 1-2: kirmizi surum
+    ad="kare_%02d.png"%n                       # kullanici: orijinal seftali renk (kirmizi surum kullanilmaz)
     im=Image.open(os.path.join(K,ad)).convert("RGBA")
     yeni=round(im.width*s); im=im.resize((yeni,yeni),Image.LANCZOS)
     t=Image.new("RGBA",(TUVAL,TUVAL),(0,0,0,0)); t.alpha_composite(im,((TUVAL-yeni)//2,(TUVAL-yeni)//2))
