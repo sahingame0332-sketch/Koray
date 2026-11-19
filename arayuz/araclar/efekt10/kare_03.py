@@ -9,13 +9,13 @@ from scipy import ndimage
 B_=os.path.dirname(os.path.abspath(__file__)); K=os.path.join(B_,"..","..","kaynak","efekt10","kareler"); ONZ=os.path.join(B_,"..","..","onizlemeler")
 GOVDE_X,GOVDE_Y,BANT_Y,BANT_X=105.0,54.0,36.0,170.0      # yanlar kalin (kare 2 gibi)
 IKINCI_KAT=0.50; CIZGI_OPAK=0.50; SARI=np.array([0xF7,0xE6,0x45],np.float32)/255
-a=np.asarray(Image.open(os.path.join(K,"kare_01.png")).convert("RGBA")).astype(np.float32)/255
+a=np.asarray(Image.open(os.path.join(K,"kare_02.png")).convert("RGBA")).astype(np.float32)/255     # (kullanici) kare 3, kare 2 uzerinden
 L=a[...,:3]*a[...,3:4]; H,W=L.shape[:2]; cy,cx=(H-1)/2,(W-1)/2
 yy,xx=np.mgrid[0:H,0:W].astype(np.float32); dx,dy=xx-cx,yy-cy; R=np.hypot(dx,dy); ax=np.abs(dx)
 # 1) parantez disinda ic bolge bosaltilir (ikinci katman asagida mercegin etrafina sarilacak)
 mx=np.maximum(L.max(2),1e-3); sariyesil=np.clip((L[...,1]-0.80*L[...,0])/0.12+0.5,0,1)*np.clip((R-165)/10,0,1)
 bos=np.clip((184-R)/30,0,1)*(1-sariyesil)
-L=L*(1-bos)[...,None]
+# kare 2'nin seftali-somon buhari yerinde kalir (bosaltma yok)
 # 2) mercek bicimli titanyum beyaz: yari yukseklik profili h(x) -> govde (elips) + uca dogru incelen bant
 govde=GOVDE_Y*np.sqrt(np.clip(1-(ax/GOVDE_X)**2,0,1))
 bant=BANT_Y*(1-0.6*np.clip((ax-GOVDE_X*0.5)/(BANT_X-GOVDE_X*0.5),0,1)**0.8)*np.clip((BANT_X+10-ax)/20,0,1)   # kureden kalin cikar, paranteze dogru incelir
@@ -92,19 +92,6 @@ T=T*(1-mk)[...,None]
 mxs=np.clip(np.round(2*cx-xx).astype(int),0,W-1); yyi=yy.astype(int)
 ws=np.clip((R-212)/14,0,1)*np.clip((-dx-20)/30,0,1)
 T=T*(1-ws[...,None])+T[yyi,mxs]*ws[...,None]
-# 7) bos kalan yerler (kullanici): kare 1-2'deki seftali-somon katman AYNI PIKSELLERIYLE (renk + doku birebir kare_01'den),
-#    yalniz eski beyaz cekirdek yeri (r<100) ayni katmanin rengiyle iceri dogru tamamlanir; merkezin sekli bozulmaz (yalniz bos yerler)
-th3=np.arctan2(dy,dx)
-# kare 1'deki somon-pembe halka (r 100-162: ic seftali -> somon -> dis koyu gul) AYNEN, mercegin etrafina sarilir:
-# mercek kenarindan (t=0) parantezin ic kenarina (R=186, t=1) kadar olan aralik, kare 1 halkasinin 100-162 yaricapina eslenir (ayni aci yonunde)
-mer_m=np.hypot(dx/GOVDE_X,dy/GOVDE_Y)<1.0
-d3=ndimage.distance_transform_edt(~mer_m); dO=np.clip(186-R,0,None)
-t3=np.clip(d3/np.maximum(d3+dO,1e-3),0,1)
-r3=100+62*t3
-Lk=np.stack([ndimage.map_coordinates(L0[...,c],[cy+r3*np.sin(th3),cx+r3*np.cos(th3)],order=1) for c in range(3)],-1)
-bos_yer=np.clip((Lk.max(2)*0.95-T.max(2))/0.12,0,1); bos_yer=ndimage.gaussian_filter(bos_yer,2.0)   # T, kare_01 katmanindan sonukse (bos/yari bos) doldur
-bv=bos_yer*(1-sariyesil)*np.clip((186-R)/8,0,1)
-T=np.maximum(T,Lk*bv[...,None])
 al=T.max(2); rgb=np.where(al[...,None]>1e-4,T/np.maximum(al,1e-4)[...,None],0)
 Image.fromarray(np.dstack([(rgb*255).round(),(al*255).round()]).astype(np.uint8)).save(os.path.join(K,"kare_03.png"))
 im=Image.open(os.path.join(K,"kare_03.png"))
