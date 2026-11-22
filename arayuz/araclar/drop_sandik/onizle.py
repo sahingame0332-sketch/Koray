@@ -3,7 +3,7 @@ Ust satir orijinal kirpinti, alt satir model + ayni zemin. -> onizleme.png"""
 import numpy as np, json, sys
 from PIL import Image, ImageDraw
 from scipy import ndimage
-from mesh import sandik; from ciz import ciz
+from mesh import sandik; from ciz import ciz; from geo import kaydir
 U=json.load(open('uydu.json')); D,HB,HL,h1,c=U['sekil']; K=json.load(open('kirp.json'))
 DOK={k:np.asarray(Image.open('t_%s.png'%k).convert('RGBA'),dtype=np.float32) for k in ['on','arka','uc','kapak','ust_acik','kapak_ic','kapak_taban']}
 def ciz_alfa(S,P,boyut,zemin):
@@ -22,7 +22,7 @@ for k in sira:
     r=ciz_alfa(S,P,(im.shape[1],im.shape[0]),bg)[...,:3]
     h=int(sys.argv[3]) if len(sys.argv)>3 else 300; f=lambda A:Image.fromarray(A.clip(0,255).astype(np.uint8)).resize((int(A.shape[1]*h/A.shape[0]),h),Image.LANCZOS)
     ust.append(f(im)); alt.append(f(r))
-W=sum(o.width for o in ust)+10*(len(ust)-1); C=Image.new('RGB',(W,640),(20,20,20)); x=0
-for o,r in zip(ust,alt): C.paste(o,(x,0)); C.paste(r,(x,340)); x+=o.width+10
-d=ImageDraw.Draw(C); d.text((6,304),'ORIJINAL (ustte)  /  MODEL (altta, ayni kamera)',fill=(255,255,255))
+W=sum(o.width for o in ust)+10*(len(ust)-1); HH=ust[0].height; C=Image.new('RGB',(W,2*HH+40),(20,20,20)); x=0
+for o,r in zip(ust,alt): C.paste(o,(x,0)); C.paste(r,(x,HH+40)); x+=o.width+10
+d=ImageDraw.Draw(C); d.text((6,HH+12),'ORIJINAL (ustte)  /  MODEL (altta, ayni kamera)',fill=(255,255,255))
 C.save(sys.argv[1] if len(sys.argv)>1 else 'onizleme.png')

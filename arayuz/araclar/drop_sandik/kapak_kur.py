@@ -63,6 +63,30 @@ if len(kos)==4:
     xs=np.interp(np.arange(W)+0.5,hed,src)
     O=np.stack([np.stack([np.interp(xs-0.5,np.arange(W),O[y,:,c]) for c in range(3)],-1) for y in range(O.shape[0])])
 BANT=[.125,.225,.335,.665,.775,.875]
+# 4c) olculen duzene gore son temizlik: bant sutunlari = satir isigi x sutun profili (cekirdekten), bant-ahsap
+#     arasinda fotograftaki gibi koyu golge cizgisi (ahsap kenari 2 px karartilir); gecis karisimi (turuncu) kalmaz
+kn=np.r_[0,BANT,1]*W; xc=np.arange(W)+0.5
+bant=np.zeros(W,bool); cek=np.zeros(W,bool)
+for j in range(0,8,2):
+    bant|=(xc>=kn[j])&(xc<kn[j+1]); cek|=(xc>=kn[j]+(2 if j>0 else 0))&(xc<kn[j+1]-(2 if j<6 else 0))
+isik=np.median(O[:,cek].mean(-1),1)[:,None]+1e-3
+prof=np.stack([np.median(O[:,i]/isik,0) for i in range(W)])          # her sutun icin (3,)
+for j in range(0,8,2):                                                # bant kenar sutunlari: ayni bantin cekirdek profili kenara uzatilir
+    ii=np.nonzero((xc>=kn[j])&(xc<kn[j+1]))[0]; cc=ii[cek[ii]]
+    for i in ii:
+        if not cek[i]: prof[i]=prof[cc[np.argmin(abs(cc-i))]]
+O=np.where(bant[None,:,None],isik[:,:,None]*prof[None],O)
+# ahsap seridinin bant komsusu 6 px'i (kaynakta bant/ahsap karisimi -> turuncu cizgi) iceriden ahsapla doldurulur
+O0=O.copy()
+for x in kn[1:-1]:
+    for i in range(W):
+        if bant[i] or abs(xc[i]-x)>6: continue
+        ref=int(np.clip(x+(7 if xc[i]>x else -7),0,W-1))
+        if not bant[ref]: O[:,i]=O0[:,ref]
+kenar=np.zeros(W)
+for x in kn[1:-1]:
+    d=np.abs(xc-x); kenar=np.maximum(kenar,np.clip(1-(d-0.5)/2.0,0,1)*(~bant))
+O=O*(1-0.45*kenar[None,:,None])
 # 5) ayna: tam doku = [arka yari (aynalanmis on), on yari]
 F=np.concatenate([O[::-1],O],0)[:H]
 if F.shape[0]<H: F=np.concatenate([F,O[-(H-F.shape[0]):]],0)
