@@ -14,7 +14,7 @@ P2={'g':{'F00':(675,740),'F10':(794,733),'F01':(667,681),'F11':(799,675),'B10':(
     'a':{'F01':(789,156),'F11':(960,155),'F00':(811,221),'F10':(957,217),'K':(886,196)},
     'b':{'F01':(528,622),'F11':(728,623),'F00':(565,663),'F10':(730,658),'K':(643,645)},
     'f':{'B11':(1579,820),'B01':(1737,821),'B10':(1584,887),'B00':(1730,893),'F10':(1562,868),'A1':(1565,738)},
-    'd':{'F00':(1550,555),'B00':(1675,612),'F01':(1568,512),'B01':(1705,570)}}
+    'd':{'B10':(1550,555),'F10':(1675,612),'B11':(1568,512),'F11':(1705,570)}}
 KAP=list(P2)
 def siluet(sh,P,boyut):
     im=Image.new('L',boyut,0); dr=ImageDraw.Draw(im)
@@ -28,26 +28,33 @@ def iou(sh,P,k):
 def nok_hata(sh,P,k):
     N=NOK(*sh[:3]); ad=list(P2[k]); q=proj(np.array([N[a] for a in ad]),P)[:,:2]
     return q-np.array([P2[k][a] for a in ad])
+def amac(sh,P,k): return -iou(sh,P,k)+0.01*np.sqrt(np.mean(nok_hata(sh,P,k)**2))+5*max(0,-P[1])+5*max(0,abs(P[2])-0.9)
 def kamera(sh,k):
-    best=None; ad=list(P2[k]); obs=np.array([P2[k][a] for a in ad],float); c=obs.mean(0)
-    for y0 in np.radians(np.arange(-180,180,30)):
-        for p0 in np.radians([10,30,50,70]):
-            for r0 in np.radians([-30,0,30]):
-                r=optimize.least_squares(lambda P:nok_hata(sh,P,k).ravel(),[y0,p0,r0,150,c[0],c[1]])
-                if best is None or r.cost<best.cost: best=r
+    """nokta uydurmasindan cok baslangic (aci izgarasi, egim sabitlenip) -> siluet+nokta ile Powell"""
+    ad=list(P2[k]); obs=np.array([P2[k][a] for a in ad],float); c=obs.mean(0); aday=[]
+    for y0 in np.radians(np.arange(-180,180,20)):
+        for p0 in np.radians([5,20,35,50,65,80]):
+            f=lambda Q:nok_hata(sh,[Q[0],p0,Q[1],Q[2],Q[3],Q[4]],k).ravel()
+            r=optimize.least_squares(f,[y0,0,150,c[0],c[1]],bounds=([-7,-0.9,20,-1e4,-1e4],[7,0.9,2000,1e4,1e4]))
+            P=[r.x[0],p0,*r.x[1:]]; aday.append((amac(sh,P,k),P))
+    aday.sort(key=lambda t:t[0]); best=None
+    for v,P in aday[:6]:
+        r=optimize.minimize(lambda P:amac(sh,P,k),P,method='Powell',options={'xtol':1e-3,'ftol':1e-5,'maxiter':4000})
+        if best is None or r.fun<best.fun: best=r
     return best.x
 if __name__=="__main__":
-    sh=np.array([0.80,0.36,0.40,0.35,0.55])
-    kam={k:kamera(sh,k) for k in KAP}
+    import sys
+    sh=np.array([0.80,0.36,0.40,0.35,0.55]); U0=json.load(open('uydu0.json'))
+    kam={k:(np.array(U0['kam'][k]) if k in U0['kam'] and k not in sys.argv[1:] else kamera(sh,k)) for k in KAP}
     for k in KAP: print(k,'nokta rms',np.sqrt(np.mean(nok_hata(sh,kam[k],k)**2)).round(2),'iou',round(iou(sh,kam[k],k),3),np.round(np.degrees(kam[k][:3]),1),flush=True)
     x=np.concatenate([sh]+[kam[k] for k in KAP])
     def f(x):
         sh=x[:5]; t=0
         for j,k in enumerate(KAP):
-            P=x[5+6*j:11+6*j]; t+=-iou(sh,P,k)+0.01*np.sqrt(np.mean(nok_hata(sh,P,k)**2))
+            P=x[5+6*j:11+6*j]; t+=amac(sh,P,k)
         return t/len(KAP)
     print('bas',f(x),flush=True)
-    for tur in range(3):
+    for tur in range(2):
         r=optimize.minimize(f,x,method='Powell',options={'maxiter':30000,'xtol':1e-4,'ftol':1e-7}); x=r.x
         print('tur',tur,r.fun,'D HB HL h1 c',np.round(x[:5],3),flush=True)
     for j,k in enumerate(KAP):
