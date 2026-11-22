@@ -2,12 +2,9 @@
 import numpy as np
 N=40
 def kesit(phi,a,HL,n):
-    """Kapak kesiti: cokgen (on taban -> dik yan -> pah -> duz tepe -> ... arka taban).
-    n=(h1,c): dik yanin yuksekligi (HL orani), duz tepenin yari genisligi (a orani). phi 0..pi -> yay uzunlugu orani."""
-    h1,c=n
-    P=np.array([(a,0),(a,h1*HL),(c*a,HL),(-c*a,HL),(-a,h1*HL),(-a,0)],float)
-    sl=np.r_[0,np.cumsum(np.hypot(*np.diff(P,axis=0).T))]; t=np.asarray(phi)/np.pi*sl[-1]
-    return np.interp(t,sl,P[:,0]), np.interp(t,sl,P[:,1])
+    """Kapak kesiti: super-elips (oval). n=(us,_) ; us=2 elips, buyudukce omuzlar dolgunlasir."""
+    e=2.0/n[0]; c,s=np.cos(phi),np.sin(phi)
+    return a*np.sign(c)*np.abs(c)**e, HL*np.abs(s)**e
 def kubbe(L,D,HB,HL,n,ic=False):
     a=D/2; T=[]; e=0.012 if ic else 0.0
     for k in range(N):
