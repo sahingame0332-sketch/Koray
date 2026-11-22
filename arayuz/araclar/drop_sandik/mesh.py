@@ -41,7 +41,11 @@ def govde(L,D,HB,HL,acik=False):
 def kapak(L,D,HB,HL,n,aci=0.0,ic_doku=True):
     a=D/2
     S=[("kapak",kubbe(L,D,HB,HL,n))]
-    if ic_doku: S.append(("kapak_ic",kubbe(L,D,HB,HL,n,ic=True)))
+    if ic_doku:
+        S.append(("kapak_ic",kubbe(L,D,HB,HL,n,ic=True)))
+        # kapak agzi (taban duzlemi): kenar cercevesi opak, ici saydam (ic kubbe gorunur); kapaliyken govdenin icinde kalir
+        e=0.004
+        S.append(("kapak_taban",kutu_yuz([(0,HB+e,a),(L,HB+e,a),(L,HB+e,-a),(0,HB+e,-a)],((0,0),(1,0),(1,1),(0,1)))))
     S.append(("uc",kapak_uc(L,D,HB,HL,n,L,True)+kapak_uc(L,D,HB,HL,n,0.0,False)))
     if aci:
         c,s=np.cos(aci),np.sin(aci)
