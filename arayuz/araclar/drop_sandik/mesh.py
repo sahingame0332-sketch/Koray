@@ -1,9 +1,13 @@
 """Drop sandigi geometrisi: govde kutusu L x D x HB + super-elips kubbe kapak (yukseklik HL, us n; n=2 elips)."""
 import numpy as np
-N=32
+N=40
 def kesit(phi,a,HL,n):
-    c,s=np.cos(phi),np.sin(phi); e=2.0/n
-    return a*np.sign(c)*np.abs(c)**e, HL*np.abs(s)**e
+    """Kapak kesiti: cokgen (on taban -> dik yan -> pah -> duz tepe -> ... arka taban).
+    n=(h1,c): dik yanin yuksekligi (HL orani), duz tepenin yari genisligi (a orani). phi 0..pi -> yay uzunlugu orani."""
+    h1,c=n
+    P=np.array([(a,0),(a,h1*HL),(c*a,HL),(-c*a,HL),(-a,h1*HL),(-a,0)],float)
+    sl=np.r_[0,np.cumsum(np.hypot(*np.diff(P,axis=0).T))]; t=np.asarray(phi)/np.pi*sl[-1]
+    return np.interp(t,sl,P[:,0]), np.interp(t,sl,P[:,1])
 def kubbe(L,D,HB,HL,n,ic=False):
     a=D/2; T=[]; e=0.012 if ic else 0.0
     for k in range(N):
