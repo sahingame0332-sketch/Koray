@@ -41,20 +41,21 @@ def govde(L,D,HB,HL,acik=False):
     S.append(("uc",kutu_yuz([(0,HB,-a),(0,HB,a),(0,0,a),(0,0,-a)],((1,vb),(0,vb),(0,0),(1,0)))))
     if acik: S.append(("ust_acik",kutu_yuz([(0,HB,-a),(L,HB,-a),(L,HB,a),(0,HB,a)])))
     return S
-def kapak(L,D,HB,HL,n,aci=0.0,ic_doku=True):
-    a=D/2
-    S=[("kapak",kubbe(L,D,HB,HL,n))]
+def kapak(L,D,HB,HL,n,aci=0.0,ic_doku=True,o=0.0):
+    a=D/2; DL=D*(1+o)            # o: kapagin govdeden on/arka tasma orani
+    aL=DL/2; kay=lambda T:[([(p[0],p[1],p[2]) for p in t],uv) for t,uv in T]
+    S=[("kapak",kubbe(L,DL,HB,HL,n))]
     if ic_doku:
-        S.append(("kapak_ic",kubbe(L,D,HB,HL,n,ic=True)))
+        S.append(("kapak_ic",kubbe(L,DL,HB,HL,n,ic=True)))
         # kapak agzi (taban duzlemi): kenar cercevesi opak, ici saydam (ic kubbe gorunur); kapaliyken govdenin icinde kalir
         e=0.004
-        S.append(("kapak_taban",kutu_yuz([(0,HB+e,a),(L,HB+e,a),(L,HB+e,-a),(0,HB+e,-a)],((0,0),(1,0),(1,1),(0,1)))))
-    S.append(("uc",kapak_uc(L,D,HB,HL,n,L,True)+kapak_uc(L,D,HB,HL,n,0.0,False)))
+        S.append(("kapak_taban",kutu_yuz([(0,HB+e,aL),(L,HB+e,aL),(L,HB+e,-aL),(0,HB+e,-aL)],((0,0),(1,0),(1,1),(0,1)))))
+    S.append(("uc",kapak_uc(L,DL,HB,HL,n,L,True)+kapak_uc(L,DL,HB,HL,n,0.0,False)))
     if aci:
         c,s=np.cos(aci),np.sin(aci)
         def rot(p):
-            y,z=p[1]-HB,p[2]+a; return (p[0],HB+y*c+z*s,-a+(-y*s+z*c))
+            y,z=p[1]-HB,p[2]+aL; return (p[0],HB+y*c+z*s,-aL+(-y*s+z*c))
         S=[(nm,[([rot(p) for p in t],uv) for t,uv in T]) for nm,T in S]
     return S
-def sandik(L,D,HB,HL,n,acik=False,aci=np.radians(110)):
-    return govde(L,D,HB,HL,acik)+kapak(L,D,HB,HL,n,aci if acik else 0.0,ic_doku=acik)
+def sandik(L,D,HB,HL,n,acik=False,aci=np.radians(110),o=0.0):
+    return govde(L,D,HB,HL,acik)+kapak(L,D,HB,HL,n,aci if acik else 0.0,ic_doku=acik,o=o)
