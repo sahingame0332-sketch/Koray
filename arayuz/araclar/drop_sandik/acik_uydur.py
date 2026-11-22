@@ -2,7 +2,7 @@
 import numpy as np, json
 from scipy import optimize
 from PIL import Image, ImageDraw
-from geo import proj
+from geo import proj, kaydir
 from mesh import sandik
 U=json.load(open('uydu.json')); D,HB,HL,h1,c=U['sekil']; a=D/2; n=(h1,c)
 K=json.load(open('kirp.json')); M=np.load('m_c.npy'); i,(x0,y0,x1,y1)=K['c']
@@ -12,7 +12,7 @@ def noktalar(aci,ters):
     return [(X0,HB,a),(X1,HB,a),(X1,HB,-a),(X0,HB,-a),(X0,0,a),(X1,0,a),lf(X1),lf(X0)]
 OBS=np.array([(860,387),(957,282),(852,232),(757,332),(872,432),(965,380),(757,127),(647,232)],float)
 def iou(P,aci):
-    im=Image.new('L',(M.shape[1],M.shape[0]),0); dr=ImageDraw.Draw(im); P=list(P); P[4]-=x0; P[5]-=y0
+    im=Image.new('L',(M.shape[1],M.shape[0]),0); dr=ImageDraw.Draw(im); P=kaydir(P,x0,y0)
     for ad,T in sandik(1.0,D,HB,HL,n,True,aci):
         for tri,_ in T:
             q=proj(np.array(tri),P); dr.polygon([(float(x),float(y)) for x,y,_ in q],fill=255)

@@ -1,13 +1,13 @@
 """Uydurulan modeli her kirpintiya tel kafes olarak bindirir -> bindir.jpg"""
 import numpy as np, json, sys
 from PIL import Image, ImageDraw
-from mesh import sandik; from geo import proj
+from mesh import sandik; from geo import proj, kaydir
 K=json.load(open('kirp.json')); U=json.load(open(sys.argv[1] if len(sys.argv)>1 else 'uydu.json'))
 sh=U['sekil']; out=[]
 for k,P in U['kam'].items():
     i,(x0,y0,x1,y1)=K[k]; im=Image.open('d%d.png'%i).convert('RGB').crop((x0,y0,x1,y1)); sc=3
     im=im.resize((im.width*sc,im.height*sc)); d=ImageDraw.Draw(im)
-    acik=k=='c'; P=list(P); P[4]-=x0; P[5]-=y0
+    acik=k=='c'; P=kaydir(P,x0,y0)
     for ad,T in sandik(1.0,sh[0],sh[1],sh[2],(sh[3],sh[4]),acik=acik,aci=U.get('aci',0)):
         col={'on':(255,0,0),'arka':(0,120,255),'uc':(255,255,0),'kapak':(0,255,0)}.get(ad,(255,0,255))
         for tri,_ in T:

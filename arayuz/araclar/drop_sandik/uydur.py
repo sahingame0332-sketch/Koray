@@ -3,7 +3,7 @@ Calisma klasoru: kirp.json, m_*.npy. Noktalar goruntu pikseli (tam kare koordina
 import numpy as np, json
 from PIL import Image, ImageDraw
 from scipy import optimize
-from mesh import sandik; from geo import proj
+from mesh import sandik; from geo import proj, kaydir
 K=json.load(open('kirp.json')); M={k:np.load('m_%s.npy'%k) for k in K}
 # model noktalari: x 0..1 (onden bakinca soldan saga), y yukari, z +on (kilitli yuz)
 def NOK(D,HB,HL):
@@ -23,7 +23,7 @@ def siluet(sh,P,boyut):
             q=proj(np.array(tri),P); dr.polygon([(float(x),float(y)) for x,y,_ in q],fill=255)
     return np.asarray(im)>127
 def iou(sh,P,k):
-    i,(x0,y0,x1,y1)=K[k]; m=M[k]; P=list(P); P[4]-=x0; P[5]-=y0
+    i,(x0,y0,x1,y1)=K[k]; m=M[k]; P=kaydir(P,x0,y0)
     r=siluet(sh,P,(m.shape[1],m.shape[0])); return (r&m).sum()/(r|m).sum()
 def nok_hata(sh,P,k):
     N=NOK(*sh[:3]); ad=list(P2[k]); q=proj(np.array([N[a] for a in ad]),P)[:,:2]

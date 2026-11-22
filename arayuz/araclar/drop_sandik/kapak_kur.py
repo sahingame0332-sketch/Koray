@@ -53,6 +53,16 @@ prof=np.median(O[:,B]/sat_isik[:,:,None],0)                              # (nB,3
 O2=O.copy(); O2[:,B]=sat_isik[:,:,None]*prof[None]
 # gecis yumusat (1 px)
 m=ndimage.gaussian_filter(B.astype(float),0.6)[None,:,None]; O=O*(1-m)+O2*m
+# 4b) bant duzeni fotograftan olculen oranlara (g ve a: uc bant 0.125, ahsap 0.10, ic bant 0.11, orta ahsap 0.33)
+satO=O.max(-1)-O.min(-1); gm=np.median(satO[orta],0)<12
+l,k=ndimage.label(gm); sl=ndimage.find_objects(l); kos=sorted([(s_[0].start,s_[0].stop) for s_ in sl if s_[0].stop-s_[0].start>=4])
+print('gumus sutun araliklari',kos)
+if len(kos)==4:
+    src=[0,kos[0][1],kos[1][0],kos[1][1],kos[2][0],kos[2][1],kos[3][0],W]
+    hed=W*np.array([0,.125,.225,.335,.665,.775,.875,1.0])
+    xs=np.interp(np.arange(W)+0.5,hed,src)
+    O=np.stack([np.stack([np.interp(xs-0.5,np.arange(W),O[y,:,c]) for c in range(3)],-1) for y in range(O.shape[0])])
+BANT=[.125,.225,.335,.665,.775,.875]
 # 5) ayna: tam doku = [arka yari (aynalanmis on), on yari]
 F=np.concatenate([O[::-1],O],0)[:H]
 if F.shape[0]<H: F=np.concatenate([F,O[-(H-F.shape[0]):]],0)

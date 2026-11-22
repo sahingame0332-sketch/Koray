@@ -1,5 +1,5 @@
 import numpy as np
-from geo import R
+from geo import R, proj
 def ciz(S,dokular,P,boyut,arka=None):
     """S: [(doku,[(3 nokta,3 uv)])], P kamera (yaw,pitch,roll,s,tx,ty); orthografik; z-buffer"""
     Wd,Hd=boyut; img=np.zeros((Hd,Wd,4),np.float32) if arka is None else np.dstack([arka,np.full(arka.shape[:2],255.)]).astype(np.float32)
@@ -7,7 +7,7 @@ def ciz(S,dokular,P,boyut,arka=None):
     for ad,T in S:
         tex=dokular[ad]; th,tw=tex.shape[:2]
         for tri,uv in T:
-            q=(Rm@np.array(tri,float).T).T; X=P[4]+P[3]*q[:,0]; Y=P[5]-P[3]*q[:,1]; Z=q[:,2]
+            pq=proj(np.array(tri,float),P); X,Y,Z=pq[:,0],pq[:,1],pq[:,2]
             ar=(X[1]-X[0])*(Y[2]-Y[0])-(X[2]-X[0])*(Y[1]-Y[0])
             if ar*np.sign(P[3])>=0 if False else abs(ar)<1e-9: continue
             pass                                     # ayiklama yok: z-tampon yeterli (kapali govde)
