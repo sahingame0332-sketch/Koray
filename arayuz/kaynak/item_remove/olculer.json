@@ -1,0 +1,63 @@
+{
+ "ekran": [
+  2712,
+  1220
+ ],
+ "sprite": [
+  1067,
+  470,
+  696,
+  382
+ ],
+ "cerceve": 5,
+ "ic_alfa": 0.92,
+ "ok": [
+  177,
+  304,
+  162,
+  55
+ ],
+ "cancel": [
+  360,
+  304,
+  166,
+  55
+ ],
+ "font": "RobotoSlab-Bold",
+ "punto": 28,
+ "harf_araligi": 2.0,
+ "yazi": {
+  "baslik": {
+   "metin": "Item Remove",
+   "merkez": [
+    349.0,
+    38.5
+   ],
+   "renk": "#F3FB1E"
+  },
+  "soru": {
+   "metin": "Do You want remove this Item?",
+   "merkez": [
+    348.5,
+    82.0
+   ],
+   "renk": "#FFFFFF"
+  },
+  "esya": {
+   "metin": "Wood Staff(+7)",
+   "merkez": [
+    348.0,
+    122.0
+   ],
+   "renk": "#FFFFFF"
+  },
+  "adet": {
+   "metin": "Count:1",
+   "merkez": [
+    348.5,
+    157.0
+   ],
+   "renk": "#FFFFFF"
+  }
+ }
+}
