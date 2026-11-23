@@ -1,0 +1,12 @@
+OLYMPOS-KO · 1298 — Item Remove penceresi (tek başına paket)
+============================================================
+Menü: OLYMPOS > 1298 > Item Remove Penceresi Oluştur -> Prefabs/ItemRemove_1298, ortak Canvas "OlymposOyunIciCanvas (2712x1220)".
+Referans/: kullanıcının ekran görüntüsü (item_remove.jpg).
+
+Pencere: dış kutu 696 x 382 (ekranda (1067,470)); 3 px ten/altın çizgi + içte 2 px koyu çizgi, düz köşe.
+  OK (pencere içi 177,304) 162x55, Cancel (360,304) 166x55 — yazılarıyla birlikte orijinal piksel, opak.
+Zemin: düz siyah, alfa 0.92 (ölçüldü: sol ve üst kenarda dış sahne ~80-110 -> iç ~6-10). Inspector: backgroundAlpha.
+Yazılar: Roboto Slab Bold 28, harf aralığı +2 px (OlymposItemRemoveHarfAraligi), ortalı.
+  "Item Remove" #F3FB1E (merkez y 38.5) · "Do You want remove this Item?" #FFFFFF (82) · eşya adı (121) · "Count:N" (157).
+Kullanım: pencere.Ac("Wood Staff(+7)", 1);  OK -> onOnay(esyaAdi, adet), Cancel -> onIptal. İkisi de pencereyi kapatır.
+Deneme: acilistaGoster açıkken Play'de örnek içerikle açılır.
