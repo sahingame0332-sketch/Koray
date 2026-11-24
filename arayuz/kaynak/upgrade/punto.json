@@ -1,0 +1,122 @@
+{
+ "para": {
+  "metin": "5,042,580",
+  "kutu": [
+   1784,
+   841,
+   152,
+   27
+  ],
+  "renk": "#FFFFFF",
+  "en_iyi": [
+   [
+    0.767,
+    "RobotoSlab-Bold",
+    34,
+    1.0
+   ],
+   [
+    0.747,
+    "RobotoSlab-Bold",
+    31,
+    2.5
+   ],
+   [
+    0.733,
+    "Roboto-Bold",
+    32,
+    1.5
+   ]
+  ]
+ },
+ "oran": {
+  "metin": "%100,0",
+  "kutu": [
+   1813,
+   583,
+   124,
+   35
+  ],
+  "renk": "#E1E1E3",
+  "en_iyi": [
+   [
+    0.499,
+    "RobotoSlab-Bold",
+    38,
+    1.5
+   ],
+   [
+    0.498,
+    "RobotoSlab-Bold",
+    39,
+    1.0
+   ],
+   [
+    0.48,
+    "RobotoSlab-Bold",
+    38,
+    2.0
+   ]
+  ]
+ },
+ "coin": {
+  "metin": "0",
+  "kutu": [
+   1324,
+   588,
+   12,
+   18
+  ],
+  "renk": "#F0F2F5",
+  "en_iyi": [
+   [
+    0.678,
+    "Roboto-Bold",
+    25,
+    0.0
+   ],
+   [
+    0.673,
+    "Roboto-Bold",
+    26,
+    0.0
+   ],
+   [
+    0.658,
+    "RobotoSlab-Bold",
+    26,
+    0.0
+   ]
+  ]
+ },
+ "tire": {
+  "metin": "-",
+  "kutu": [
+   1327,
+   597,
+   6,
+   2
+  ],
+  "renk": "#DCDDDF",
+  "en_iyi": [
+   [
+    1.0,
+    "RobotoSlab-Bold",
+    21,
+    0.0
+   ],
+   [
+    1.0,
+    "RobotoSlab-Bold",
+    20,
+    0.0
+   ],
+   [
+    1.0,
+    "Roboto-Bold",
+    22,
+    0.0
+   ]
+  ]
+ }
+}

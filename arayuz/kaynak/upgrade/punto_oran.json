@@ -1,0 +1,62 @@
+{
+ "oran": {
+  "metin": "%100,0",
+  "kutu": [
+   1813,
+   583,
+   124,
+   35
+  ],
+  "renk": "#E1E1E3",
+  "en_iyi": [
+   [
+    0.646,
+    "RobotoSlab-Regular",
+    39,
+    1.5
+   ],
+   [
+    0.622,
+    "RobotoSlab-Regular",
+    39,
+    2.0
+   ],
+   [
+    0.533,
+    "RobotoSlab-Regular",
+    38,
+    2.0
+   ]
+  ]
+ },
+ "coin": {
+  "metin": "0",
+  "kutu": [
+   1324,
+   588,
+   12,
+   18
+  ],
+  "renk": "#F0F2F5",
+  "en_iyi": [
+   [
+    0.805,
+    "RobotoSlab-Regular",
+    27,
+    0.0
+   ],
+   [
+    0.798,
+    "RobotoSlab-Regular",
+    25,
+    0.0
+   ],
+   [
+    0.741,
+    "RobotoSlab-Regular",
+    26,
+    0.0
+   ]
+  ]
+ }
+}
