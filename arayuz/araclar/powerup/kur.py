@@ -8,7 +8,7 @@ F=lambda f,p:ImageFont.truetype({'LB':LS+'LiberationSans-Bold.ttf','RB':FD+'Robo
 spr=lambda ad:np.asarray(Image.open(ad+'.png')).astype(float)
 def koy(alt,ad,x,y):
     s=spr(ad); O.ustune(alt,s[...,:3],s[...,3]/255,int(x),int(y))
-def yazi(alt,t,f,p,renk,x,y,hiza='orta',aralik=0.0,sar=None,satir=26):
+def yazi(alt,t,f,p,renk,x,y,hiza='orta',aralik=0.0,sar=None,satir=26,kontur=None):
     """x: hiza='orta' -> murekkep merkezi, 'sol' -> sol kenar; y: ilk satirin murekkep orta yuksekligi (rakam/buyuk harf)"""
     Fn=F(f,p); satirlar=[t]
     if sar:
@@ -22,6 +22,11 @@ def yazi(alt,t,f,p,renk,x,y,hiza='orta',aralik=0.0,sar=None,satir=26):
     for k,s in enumerate(satirlar):
         w=sum(Fn.getlength(c) for c in s)+aralik*(len(s)-1); bb=Fn.getbbox('H')
         cy=(bb[1]+bb[3])/2; xx=x-w/2 if hiza=='orta' else x; yy=y+k*satir-cy
+        if kontur:
+            x2=xx
+            for c in s:
+                for ox,oy in ((-1,0),(1,0),(0,-1),(0,1),(-1,-1),(1,1),(-1,1),(1,-1)): d.text((x2+ox,yy+oy),c,font=Fn,fill=kontur)
+                x2+=Fn.getlength(c)+aralik
         for c in s: d.text((xx,yy),c,font=Fn,fill=renk); xx+=Fn.getlength(c)+aralik
     alt[:]=np.asarray(im).astype(float)
 def hex2(h): return tuple(int(h[i:i+2],16) for i in (1,3,5))
@@ -43,7 +48,7 @@ def magaza(secili,kartlar,duzen,kaynak,cash=0):
         yazi(Z,ad,'RB',22,hex2('#CBBBB9'),kx+144,ky+duzen['ad_y'],sar=duzen['sar'])
         koy(Z,'para_ikonu',kx+duzen['para'][0],ky+duzen['para'][1])
         fs='{:,}'.format(fiyat).replace(',','.')
-        yazi(Z,fs,'LB',31,hex2('#FDDE24' if fiyat<=cash else '#F94922'),kx+duzen['fiyat'][0]-6,ky+duzen['fiyat'][1],hiza='sol',aralik=1.5)
+        yazi(Z,fs,'LB',31,hex2('#FDDE24' if fiyat<=cash else '#F94922'),kx+duzen['fiyat'][0]-3,ky+duzen['fiyat'][1],hiza='sol',aralik=1.5,kontur=(45,14,6))
     return Z
 def panel(ad,O_,Y):
     d=np.abs(O_-Y).mean(-1); sl=np.s_[:,250:2460]
