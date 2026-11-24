@@ -1,0 +1,7 @@
+OLYMPOS-KO · 1298 — FAST UPGRADE +1 +2 +3 +4 +5 (tek başına paket)
+Menü: OLYMPOS > 1298 > Fast Upgrade Penceresi Oluştur -> Prefabs/FastUpgrade_1298, ortak Canvas "OlymposOyunIciCanvas (2712x1220)".
+Kaynak: kullanıcının tablet ekran görüntüleri (2266 x 1488), Referans/. Pencere Canvas'a yüksekliğe göre 0.820 ölçekle, sağ kenara yaslı konur
+(kaynakta sağ kenardan 244 px boşluk). Sprite 862 x 1245 (kaynak pikseli).
+Zemin: düz siyah 0.895 (ölçüldü; Inspector backgroundAlpha). Panel / yuva saydamlıkları sprite'ın alfasında (arayuz/23-upgrade.md).
+Krom, düğmeler, büyük yuvalar, envanter yuvaları opak (orijinal piksel); sabit yazılar sprite'ta.
+Değişken yazılar: Roboto Slab Regular 27 (Need Coins), Regular 39 +1.5 (Upgrade Rate), Bold 34 +1 (para). Fontlar Apache 2.0.
