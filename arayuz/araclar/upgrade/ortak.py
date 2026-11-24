@@ -28,8 +28,9 @@ def coz(O,B,U,kirli,opak,grup=None,esik=22):
     ic=U&(lum<=0.6*tl+esik)&~opak
     a=np.where(U,1.0,np.where(np.abs(O-B).max(-1)<10,0.0,1.0)); C=O.copy()
     temiz=ic&~kirli; sonuc={}
-    if grup is None:                                   # otomatik: ic piksellerin 4-bagli bilesenleri (cizgiler bolgeleri ayirir)
-        grup,_=ndimage.label(ic)
+    if grup is None: grup=np.zeros(ic.shape,int)
+    # grup 0 = otomatik: ic piksellerin 4-bagli bilesenleri (cizgiler bolgeleri ayirir); >0 = tasarim grubu (birlikte olculur)
+    oto,_=ndimage.label(ic&(grup==0)); grup=np.where(grup>0,grup,np.where(oto>0,oto+10000,0))
     for g in np.unique(grup[ic]):
         m=ic&(grup==g); t=m&temiz
         if m.sum()<40: a[m]=np.nan; continue             # cok kucuk: komsudan
@@ -84,3 +85,14 @@ def yazi_sil(a,C,x0,y0,x1,y1,esik=60):
     for arr in (C[sl],):
         arr[m]=arr[iy[m],ix[m]]
     a[sl][m]=a[sl][iy[m],ix[m]]
+
+def kutular(O,U,en=(40,200),boy=(25,200)):
+    """gri kenar cizgisiyle cevrili kutularin ic dikdortgenleri (x,y,w,h) — yuva / deger kutusu olcumu"""
+    ys,xs=np.nonzero(U); y0,y1,x0,x1=ys.min(),ys.max()+1,xs.min(),xs.max()+1
+    P=O[y0:y1,x0:x1]; L=P.mean(-1); S=P.max(-1)-P.min(-1)
+    cizgi=(L>50)&(S<40); ic=ndimage.binary_fill_holes(cizgi)&~cizgi; ic=ndimage.binary_opening(ic,np.ones((5,5)))
+    l,n=ndimage.label(ic); r=[]
+    for i,sl in enumerate(ndimage.find_objects(l)):
+        h=sl[0].stop-sl[0].start; w=sl[1].stop-sl[1].start
+        if en[0]<w<en[1] and boy[0]<h<boy[1] and (l[sl]==i+1).mean()>0.85: r.append((x0+sl[1].start,y0+sl[0].start,w,h))
+    return sorted(r,key=lambda q:(q[1]//20,q[0]))
