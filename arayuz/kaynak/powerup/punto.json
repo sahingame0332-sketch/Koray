@@ -1,0 +1,232 @@
+{
+ "kart_ad": {
+  "metin": "Scroll of Health 2000",
+  "merkez": [
+   805.5,
+   428.5
+  ],
+  "yukseklik": 17,
+  "renk": "#CBBBB9",
+  "en_iyi": [
+   [
+    0.699,
+    "Roboto-Bold",
+    22,
+    0.0
+   ],
+   [
+    0.612,
+    "Roboto-Regular",
+    22,
+    0.0
+   ]
+  ]
+ },
+ "kart_fiyat": {
+  "metin": "150",
+  "merkez": [
+   817.0,
+   490.0
+  ],
+  "yukseklik": 22,
+  "renk": "#F94922",
+  "en_iyi": [
+   [
+    0.843,
+    "LiberationSans-Bold",
+    31,
+    1.5
+   ],
+   [
+    0.821,
+    "LiberationSans-Bold",
+    32,
+    0.5
+   ]
+  ]
+ },
+ "rozet": {
+  "metin": "30",
+  "merkez": [
+   832.0,
+   394.5
+  ],
+  "yukseklik": 21,
+  "renk": "#FEE5E4",
+  "en_iyi": [
+   [
+    0.576,
+    "LiberationSans-Bold",
+    24,
+    0.0
+   ],
+   [
+    0.569,
+    "Roboto-Bold",
+    23,
+    0.0
+   ]
+  ]
+ },
+ "cash": {
+  "metin": "0",
+  "merkez": [
+   2294.0,
+   131.5
+  ],
+  "yukseklik": 25,
+  "renk": "#BEAAAB",
+  "en_iyi": [
+   [
+    0.905,
+    "LiberationSans-Bold",
+    37,
+    0.0
+   ],
+   [
+    0.893,
+    "LiberationSans-Bold",
+    36,
+    0.0
+   ]
+  ]
+ },
+ "ayr_baslik": {
+  "metin": "Teleport Scroll",
+  "merkez": [
+   1355.0,
+   293.5
+  ],
+  "yukseklik": 27,
+  "renk": "#BFADAD",
+  "en_iyi": [
+   [
+    0.772,
+    "LiberationSans-Bold",
+    29,
+    0.5
+   ],
+   [
+    0.762,
+    "Roboto-Bold",
+    31,
+    0.5
+   ]
+  ]
+ },
+ "ayr_aciklama": {
+  "metin": "Teleport Scroll.",
+  "merkez": [
+   1174.5,
+   485.5
+  ],
+  "yukseklik": 33,
+  "renk": "#FCE7E6",
+  "en_iyi": [
+   [
+    0.679,
+    "Roboto-Bold",
+    33,
+    0.0
+   ],
+   [
+    0.66,
+    "LiberationSans-Regular",
+    34,
+    0.0
+   ]
+  ]
+ },
+ "ayr_adet": {
+  "metin": "(1)",
+  "merkez": [
+   1351.0,
+   441.5
+  ],
+  "yukseklik": 33,
+  "renk": "#BFADAD",
+  "en_iyi": [
+   [
+    0.818,
+    "LiberationSans-Bold",
+    36,
+    1.5
+   ],
+   [
+    0.8,
+    "LiberationSans-Bold",
+    35,
+    2.0
+   ]
+  ]
+ },
+ "ayr_fiyat": {
+  "metin": "0",
+  "merkez": [
+   1351.5,
+   851.0
+  ],
+  "yukseklik": 26,
+  "renk": "#FDDE24",
+  "en_iyi": [
+   [
+    0.878,
+    "LiberationSans-Bold",
+    37,
+    0.0
+   ],
+   [
+    0.855,
+    "Roboto-Bold",
+    36,
+    0.0
+   ]
+  ]
+ },
+ "basari": {
+  "metin": "Purchase Succcessfully",
+  "merkez": [
+   1351.0,
+   662.5
+  ],
+  "yukseklik": 27,
+  "renk": "#FCE7E6",
+  "en_iyi": [
+   [
+    0.577,
+    "LiberationSans-Bold",
+    30,
+    0.0
+   ],
+   [
+    0.57,
+    "Roboto-Bold",
+    31,
+    0.5
+   ]
+  ]
+ },
+ "placeholder": {
+  "metin": "Enter Your Epin or Gift Code",
+  "merkez": [
+   1232.5,
+   636.0
+  ],
+  "yukseklik": 28,
+  "renk": "#FDE6E6",
+  "en_iyi": [
+   [
+    0.638,
+    "LiberationSans-Bold",
+    29,
+    0.5
+   ],
+   [
+    0.634,
+    "LiberationSans-Bold",
+    27,
+    1.5
+   ]
+  ]
+ }
+}
