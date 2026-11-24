@@ -142,6 +142,8 @@ namespace UnityEngine
         public Transform parent { get { return null; } }
         public Vector3 position;
         public void SetAsLastSibling() { }
+        public int childCount { get { return 0; } }
+        public Transform GetChild(int i) { return null; }
         public void SetPositionAndRotation(Vector3 p, Quaternion r) { }
         public Transform Find(string n) { return null; }
         public Quaternion localRotation;
@@ -282,6 +284,12 @@ namespace UnityEngine.Events
     public delegate void UnityAction<T0,T1>(T0 a0, T1 a1);
 }
 
+namespace UnityEngine
+{
+    public enum ColorSpace { Uninitialized = -1, Gamma = 0, Linear = 1 }
+    public static class QualitySettings { public static ColorSpace activeColorSpace { get { return ColorSpace.Gamma; } } }
+}
+
 namespace UnityEngine.UI
 {
     public class Graphic : UnityEngine.Behaviour {
@@ -400,6 +408,17 @@ namespace UnityEngine.UI
         public float matchWidthOrHeight;
     }
     public class GraphicRaycaster : UnityEngine.Behaviour { }
+    public class RectMask2D : UnityEngine.Behaviour { }
+    public class Scrollbar : Selectable {
+        public enum Direction { LeftToRight, RightToLeft, BottomToTop, TopToBottom }
+        public Direction direction; public UnityEngine.RectTransform handleRect; public float size, value;
+    }
+    public class ScrollRect : UnityEngine.Behaviour {
+        public enum MovementType { Unrestricted, Elastic, Clamped }
+        public enum ScrollbarVisibility { Permanent, AutoHide, AutoHideAndExpandViewport }
+        public UnityEngine.RectTransform content, viewport; public bool horizontal, vertical; public MovementType movementType;
+        public Scrollbar verticalScrollbar; public ScrollbarVisibility verticalScrollbarVisibility; public float verticalNormalizedPosition, scrollSensitivity;
+    }
 }
 
 namespace UnityEngine.EventSystems

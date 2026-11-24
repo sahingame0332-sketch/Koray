@@ -1,0 +1,17 @@
+OLYMPOS-KO · 1298 — Power Up Store (tek paket: mağaza + satın alma ayrıntısı + paket içeriği + başarı bildirimi + Cash Code sayfası)
+Menü: OLYMPOS > 1298 > Power Up Store Oluştur -> Prefabs/PowerUpStore_1298, ortak Canvas "OlymposOyunIciCanvas (2712x1220)".
+Kaynak: kullanıcının 12 telefon ekran görüntüsü (2712 x 1220), Referans/powerup_01..12.jpg.
+
+Mağaza: oyun alanının tamamı 2137 x 1220 (ekranda x 272). Zemin opak (orijinal resim). 6 sekme: normal / seçili sprite (her biri orijinalinden).
+Kartlar: 5 sütun; kategori sütun 335.33 / satır 462 px, Main Page 347.4 / 439 px. Görünen 2 satır, fazlası dikey kaydırma (tutamak 9-dilim, AutoHide).
+Kart içi siyah, yarı saydam — ÖLÇÜLDÜ, oyun LİNEER ışık uzayında karıştırıyor: geçirgenlik kategori 0.30, Main Page 0.185 (lineer).
+  Script projenin renk uzayına göre alfayı hesaplar (Linear: 0.70 / 0.815; Gamma: eşdeğeri).
+Fiyat: Liberation Sans Bold 31, +1.5 px harf aralığı, koyu kontur; Cash yetiyorsa sarı #FDDE24 + vurgulu Purchase düğmesi, yetmiyorsa kırmızı #F94922.
+Ad: Roboto Bold 22 #CBBBB9, iki satıra kayar. Rozet (adet): Liberation Sans Bold 24. Cash: Liberation Sans Bold 37 #BEAAAB.
+Satın alma ayrıntısı (666 x 740): başlık LB 29, adet "(n)" LB 36, açıklama Roboto Bold 33, fiyat LB 37; − / + adet, "Puchase" (orijinal yazım), X.
+Paket içeriği (918 x 880): boş panel + X (orijinalde içi boş görünüyor; IcerikAlani'na doldurun).
+Başarı: tam ekran gri örtü (lineer gri 0.24, alfa 0.24 — ölçüldü) + pencere 664 x 229, mesaj LB 30 (varsayılan orijinal "Purchase Succcessfully"), OK.
+Cash Code: tam ekran opak siyah sayfa; kod alanı (yer tutucu "Enter Your Epin or Gift Code"), USE -> onKod(kod), X.
+  Orijinaldeki üçüncü taraf e-pin satıcı logosu KOPYALANMADI: "Logo" Image yuvası boş — kendi logonuzu koyun.
+Kullanım: store.urunler (ad, ikon, adet, fiyat, açıklama, kategori, anaSayfada, paket) -> store.SetCash(n); onSatinAl(urun, adet) -> sunucu onayı -> store.Basarili().
+Fontlar: Liberation Sans Bold (SIL OFL), Roboto Bold (Apache 2.0).

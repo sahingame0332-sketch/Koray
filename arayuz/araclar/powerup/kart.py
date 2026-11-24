@@ -4,6 +4,8 @@ Arka plan s08 (Package sayfasi: o konumlarda kart yok)."""
 import numpy as np, json
 from scipy import ndimage
 import ortak as O
+import sys
+PAKET='--paket' in sys.argv
 B=O.yukle(8); cik={}
 def kart(ad,i,x,y,w,h,cer,dug,T):
     P=O.yukle(i)[y:y+h,x:x+w]; Bb=B[y:y+h,x:x+w]
@@ -11,14 +13,14 @@ def kart(ad,i,x,y,w,h,cer,dug,T):
     yy,xx=np.mgrid[0:h,0:w]
     cx0,cy0,cx1,cy1=[v-o for v,o in zip(cer,(x,y,x,y))]      # cerceve dis kutusu
     ic=(xx>=cx0)&(xx<=cx1)&(yy>=cy0)&(yy<=cy1)
-    a[ic]=1-T                                               # ic: siyah, lineer alfa
+    a[ic]=0 if PAKET else 1-T                               # ic: siyah, lineer alfa (pakette ayri siyah Image)
     serit=ic&~((xx>=cx0+4)&(xx<=cx1-4)&(yy>=cy0+4)&(yy<=cy1-4))
     # cerceve seridi: tahmin edilen ic renginden acik pikseller opak (cizgi), digerleri ic
     bek=O.srgb(O.lin(Bb)*T); acik=(P.mean(-1)>bek.mean(-1)+10)&serit
     a[acik]=1; C[acik]=P[acik]
     bx0,by0,bx1,by1=[v-o for v,o in zip(dug,(x,y,x,y))]
     d=(xx>=bx0)&(xx<=bx1)&(yy>=by0)&(yy<=by1); a[d]=1; C[d]=P[d]
-    O.kaydet('kart_%s.png'%ad,C,a)
+    O.kaydet(('pkart_%s.png' if PAKET else 'kart_%s.png')%ad,C,a)
     # kontrol: orijinal arka plan uzerine
     R=B.copy(); O.ustune(R,C,a,x,y); fark=np.abs(R[y:y+h,x:x+w]-P).mean(-1)
     bos=~(ic&~serit&~d)|True
