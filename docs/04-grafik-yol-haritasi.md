@@ -115,7 +115,7 @@ Efekt paketlerimiz hazır (`CLAUDE.md` — Efekt 7/8/9, Manes Of Fire, Kendi Ski
 
 ## 7. Aşama 6 — Arayüz netliği (sürekli; büyük kısmı hazır)
 
-Netliğin büyük kısmı arayüzden gelir. Bu tarafta **27 paket teslim edildi** (`CLAUDE.md` — Teslim edilenler).
+Netliğin büyük kısmı arayüzden gelir. Bu tarafta **40+ paket teslim edildi** (`CLAUDE.md` — Teslim edilenler).
 
 1. Arayüz her zaman **ekranın tam çözünürlüğünde** çizilir. Sahne gerekirse düşük çözünürlükte çizilir (URP **Render Scale** 0.85–0.9), arayüz etkilenmez.
 2. Arayüz dokuları: **sıkıştırmasız** ya da ASTC 4×4, **mipmap kapalı**, filtre bilinear (paket kurucularımız zaten böyle ayarlıyor).
